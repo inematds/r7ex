@@ -3,14 +3,14 @@
 Cada linha é um assunto em andamento: leia o snapshot do assunto que for continuar. Gravado por handoff-grava.py.
 
 <!-- handoff-indice:inicio -->
-- `r7ex` · handoffs/history/2026-10-19T012804Z-r7ex.md · 18/10 22:28
+- `r7ex` · handoffs/history/2026-10-19T021420Z-r7ex.md · 18/10 23:14
 <!-- handoff-indice:fim -->
 
 ---
 
-Cópia integral do snapshot mais recente (handoffs/history/2026-10-19T012804Z-r7ex.md):
+Cópia integral do snapshot mais recente (handoffs/history/2026-10-19T021420Z-r7ex.md):
 
-# Handoff — 2026-10-18 — r7ex criado (7 etapas + telejornal), 7 reels no v3 e nas filas lives7/lives3
+# Handoff — 2026-10-18 — r7ex criado (7 etapas + telejornal), 7 reels no v3 e nas filas lives7/lives3 (sessão parada, sem mudança desde o snapshot anterior)
 
 ## Projeto e escopo
 Raiz ~/projetos/r7ex (repo inematds/r7ex, criado nesta sessão; a sessão foi aberta em ~/projetos/reel7etapas). O Nei reprovou o r7e duas vezes ("não tem gancho", "ficou padrão") e mandou seguir o eventosextremospub; virou o padrão r7ex: roteiro de 7 etapas do r7e + acabamento de telejornal do eventosextremospub, num repo independente (cópia própria do motor, estúdio HeyGen, Whisper, trilha, envio ao v3 e fila). Repos tocados: ~/projetos/reel7etapas, ~/projetos/eventosextremospub, ~/projetos/inema-design, ~/projetos/wifi.
@@ -23,18 +23,18 @@ Reels do Nei no padrão r7ex, publicados pelas filas e mandados ao v3. Pronto: o
 - [confirmed] Teste ponta a ponta do exemplo hacker no r7ex — teste: `python3 r7ex.py fazer edicoes/2026-10-18-hacker --de …` → vídeo 36,5 s, -13,8 LUFS, fala 97%
 - [confirmed] 7 reels v2 (imagens novas, mesmo avatar) feitos, revisados (folhas lidas), enviados ao v3 e na fila do lives3 — arquivo: `fila/fila.json` (local, fora do git)
 - [confirmed] Hacker r7e-ev publicado no lives7 pela fila: https://youtube.com/shorts/DG30IdeqWcg — arquivo: `fila/fila.json`
-- [confirmed] Kit inema-design D9 (gancho gatilho), D10 (propósito e plano), D11 (acabamento eventos) — evidência: commits 7e825bb, 55829ef, ef73aa6 em ~/projetos/inema-design
+- [confirmed] Kit inema-design D9, D10, D11 — evidência: commits 7e825bb, 55829ef, ef73aa6 em ~/projetos/inema-design
 - [confirmed] 2 reels de gestão (motor antigo) publicados no lives3: xpDV5qQe5oE, cMhIavjhdh0 — arquivo: ~/projetos/reel7etapas/edicoes/2026-10-18-demissao-gestores/roteiro.yaml
 - [confirmed] Aviso vermelho do HeyGen no v3 1 dia antes de vencer (cookie heygen_session, vence 17/11/2026 17:44) — arquivo: ~/projetos/wifi/heygen-aviso/aviso.py; timer heygen-aviso (9h/19h)
 - [confirmed] Guia "como pedir um r7ex" enviado ao v3 — arquivo: `COMO-PEDIR.md`
 
 ## Proposto / tentado, não confirmado
-- [?] Fila tem 2 itens para lives1 colocados por OUTRA sessão (r7ex edicoes/2026-10-18-hacker e 2026-10-18-deepseek-flash) — o hacker de teste já está no lives7 e vai ao lives3; perguntar ao Nei se mantém
+- [?] Fila tem 2 itens para lives1 colocados por OUTRA sessão (r7ex edicoes/2026-10-18-hacker e 2026-10-18-deepseek-flash) — perguntar ao Nei se mantém
 - [unverified] Se o HeyGen renova a sessão sozinho com o uso — ~/projetos/wifi/heygen-aviso/historico.log vai mostrar
 
 ## Decisões
 - Nome r7ex (r8ex daria a entender 8 etapas) — Nei 18/10
-- r7ex independente: cópias em motor/, heygen/, r7ex/whisper.py, assets/trilha.mp3, bin/, fila/ — pedido do Nei ("se quiser ajustar não afeta os outros")
+- r7ex independente: cópias em motor/, heygen/, r7ex/whisper.py, assets/trilha.mp3, bin/, fila/ — pedido do Nei
 - Publicação só pela fila (fila/fila.py, timer fila-lives7, 9–21 h, 1 a cada 2 h); a fila mudou de ~/projetos/wifi/fila-lives7 para r7ex/fila
 - Rejeitado: motor Pillow do r7e (tarja, diagramas.py) e "capa = ganho" para reel novo
 
@@ -62,13 +62,13 @@ Reels do Nei no padrão r7ex, publicados pelas filas e mandados ao v3. Pronto: o
 - Não rodado: medição de visualizações (Metricool é API sem autorização)
 
 ## Estado em execução
-- Processos em segundo plano: nenhum desta sessão
-- Timers: fila-lives7 (r7ex/fila/fila.py, 9–21 h), heygen-aviso (9h/19h), systemctl --user list-timers
+- Processos em segundo plano: nenhum desta sessão (a tarefa b2ajsw8ea, evento "Do chat ao agente", já tinha entregue o vídeo ao v3 às 19:01 por outro processo)
+- Timers: fila-lives7 (r7ex/fila/fila.py, 9–21 h), heygen-aviso (9h/19h)
 - Worktrees / branches abertos: nenhum
 
 ## Perguntas abertas e adiados
 - Aberta: manter os 2 itens lives1 da outra sessão na fila?
-- Aberta: as 2 de gestão vão aparecer duas vezes no lives3 (versão antiga já publicada + v2 na fila) — Nei pode querer tirar
+- Aberta: as 2 de gestão vão aparecer duas vezes no lives3 (versão antiga já publicada + v2 na fila)
 - Adiado: guia (página) do r7ex em 3 idiomas — oferecido, sem resposta
 - Adiado: autorização do Metricool para medir TikTok/Instagram
 
@@ -76,7 +76,7 @@ Reels do Nei no padrão r7ex, publicados pelas filas e mandados ao v3. Pronto: o
 - nada
 
 ## Próxima ação exata
-Acompanhar os avisos da fila no v3 (amanhã 9 h em diante). Se o Nei pedir reel novo: skill r7ex (`python3 r7ex.py novo <slug>` → ficha → `fazer` → ler folha → `enviar` + `fila`); avatar novo só com o OK dele.
+Esperar a resposta do Nei às duas perguntas abertas e acompanhar os avisos da fila no v3 (a partir das 9 h). Reel novo: skill r7ex; avatar novo só com o OK dele.
 
 ## Mapa de retomada
 - `PADRAO.md` — o padrão fixo
@@ -90,10 +90,10 @@ Acompanhar os avisos da fila no v3 (amanhã 9 h em diante). Se o Nei pedir reel 
 2. Qual foi a última decisão e por quê? → refazer os 7 pelo r7ex com imagens novas e mesmo avatar, para o lives3 — fonte: commit 0f89f74
 3. O que não pode mudar? → estúdio só no :99, publicar só pela fila, avatar só com OK — fonte: `CLAUDE.md`
 4. O que está pela metade? → nada — fonte: `fila/fila.py --status`
-5. Qual é a próxima ação, por quê, e precisa de aprovação? → acompanhar a fila; reel novo precisa do OK do avatar — fonte: `skill/SKILL.md`
+5. Qual é a próxima ação, por quê, e precisa de aprovação? → responder às perguntas abertas e acompanhar a fila; avatar novo precisa de OK — fonte: `skill/SKILL.md`
 
 ## Checagem de compartilhamento
-- Sem segredos, tokens, cookies, dados pessoais ou endpoints privados: sim (credenciais citadas só pelo papel/caminho)
+- Sem segredos, tokens, cookies, dados pessoais ou endpoints privados: sim
 
 
 <!-- handoff-estado:inicio -->
@@ -101,10 +101,12 @@ Acompanhar os avisos da fila no v3 (amanhã 9 h em diante). Se o Nei pedir reel 
 
 Gravado por handoff-grava.py no momento do handoff. `--conferir` compara com o projeto agora.
 
-- commit: 0f89f7461481fff7fffb4d258e081db5f38f1b14 · branch: main
-- arquivos sujos fora de handoffs/: 12
+- commit: 58ac78e53087efcaf614be488aae356037cbba37 · branch: main
+- arquivos sujos fora de handoffs/: 14
 - `edicoes/2026-10-18-2027-v2/capa/codex.log` · sha256:6b2c975c3ee5 · sujo
 - `edicoes/2026-10-18-chat-v2/capa/codex.log` · sha256:009e2a3cd79f · sujo
+- `edicoes/2026-10-18-claude-15-comandos/falas.json` · sha256:9619927b2de5 · sujo
+- `edicoes/2026-10-18-claude-15-comandos/ficha.yaml` · sha256:5a8af88c495d · sujo
 - `edicoes/2026-10-18-deepseek-flash/capa/codex.log` · sha256:07be4413cce3 · sujo
 - `edicoes/2026-10-18-deepseek-flash/capa/pedido.txt` · sha256:5fe24d4b58de · sujo
 - `edicoes/2026-10-18-deepseek-flash/falas.json` · sha256:ad0049a39dee · sujo
@@ -517,10 +519,10 @@ Gravado por handoff-grava.py no momento do handoff. `--conferir` compara com o p
 ### Repo do trabalho: /home/nmaldaner/projetos/wifi
 - commit: e17b723028866a337e8d86965262e12512832d7e · branch: main
 - arquivos sujos: 20
-- impressão de todos os sujos: 89e12dcee8b3f025
+- impressão de todos os sujos: 38a22cb9612c2219
 - `FALHAS.md` · sha256:bfcd85de2d88 · sujo
 - `LESSONS.md` · sha256:7b249b5e51b9 · sujo
-- `LIMITES.md` · sha256:b6c0bc8ee0a8 · sujo
+- `LIMITES.md` · sha256:82cadfbdbdc7 · sujo
 - `fila-lives7/.lock` · sha256:e3b0c44298fc · sujo
 - `fila-lives7/fila.json.antigo` · sha256:8869bb8b0f30 · sujo
 - `heygen-aviso/envios/aviso-teste-202610181749.jpg` · sha256:88a0ddb5462f · sujo
