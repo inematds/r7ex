@@ -8,6 +8,15 @@
 
 r7ex es la línea de producción de reels verticales (9:16) de INEMA. Tú entregas una idea fuerte, la tesis, y él arma un video de 30 a 40 segundos con el avatar de Nei hablando, imágenes generadas por Codex y un acabado de noticiero: título en la apertura, paneles que entran en la palabra correcta, contador y subtítulo que se ilumina junto con el habla. El guion sigue 7 etapas de gatillo, desde el gancho con número hasta el pedido de comentario, siempre llevando a la persona a inema.club. Para usarlo se necesitan Python, Node, Codex y la suscripción de HeyGen, corriendo en la máquina de INEMA.
 
+## 🎬 Videos sobre el r7ex
+
+Hechos con el propio r7ex (19/10/2026, en portugués):
+
+- [Reel 1 — "Mis reels tuvieron cero vistas, 4 lotes hasta acertar"](https://inematds.github.io/r7ex/guia/assets/videos/r7ex-divulga.mp4)
+- [Reel 2 — "El reel de 7 etapas quedó viejo, ahora existe el r7ex"](https://inematds.github.io/r7ex/guia/assets/videos/r7e-para-r7ex.mp4)
+
+También se reproducen en la guía, sección Ejemplos.
+
 ## 📖 Guía de uso
 
 Guía completa (landing + paso a paso): **https://inematds.github.io/r7ex/guia/es/**

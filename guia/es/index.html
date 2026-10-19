@@ -98,6 +98,11 @@
   .ex{display:grid;grid-template-columns:1fr;gap:22px}
   .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
   .ex figure img{width:100%;display:block}
+  .vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 26px}
+  .vids figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .vids video{width:100%;aspect-ratio:9/16;display:block;background:#000}
+  .vids figcaption{padding:10px 12px;font-size:.86rem;color:var(--mut);background:var(--card)}
+  @media(max-width:520px){.vids{grid-template-columns:1fr}}
   .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
   .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
   .phase:last-child{border:none}
@@ -266,6 +271,10 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <span class="chip">Ejemplos</span>
   <h2>Reels hechos con r7ex</h2>
   <p class="sub">Cuadros de los reels finales: apertura con el título dibujado, imagen por etapa, panel al ritmo del habla y el cierre con inema.club.</p>
+  <div class="vids">
+    <figure><video controls playsinline preload="none" poster="../assets/videos/r7ex-divulga.jpg"><source src="../assets/videos/r7ex-divulga.mp4" type="video/mp4"></video><figcaption>Reel 1: "Mis reels tuvieron cero vistas, 4 lotes hasta acertar" — hecho por el propio r7ex (en portugués).</figcaption></figure>
+    <figure><video controls playsinline preload="none" poster="../assets/videos/r7e-para-r7ex.jpg"><source src="../assets/videos/r7e-para-r7ex.mp4" type="video/mp4"></video><figcaption>Reel 2: "El reel de 7 etapas quedó viejo, ahora existe el r7ex" — r7e × r7ex (en portugués).</figcaption></figure>
+  </div>
   <div class="ex">
     <figure><img src="../assets/ex1.jpg" alt="Cuatro cuadros del reel Hackers robaron las claves" loading="lazy"><figcaption>"Hackers robaron las claves": gancho con número (US$ 1.700 en una noche), miedo, los 3 ajustes y el cierre. <a href="https://youtube.com/shorts/DG30IdeqWcg" target="_blank" rel="noopener">Ver en YouTube</a></figcaption></figure>
     <figure><img src="../assets/ex2.jpg" alt="Cuatro cuadros de otro reel r7ex" loading="lazy"><figcaption>Otro reel del mismo lote, con el mismo avatar e imágenes nuevas dibujadas por Codex.</figcaption></figure>
