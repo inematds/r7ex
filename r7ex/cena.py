@@ -71,6 +71,11 @@ def montar(pasta, ficha, falas):
         else:
             src, selo, zoom = f"capa/p{i + 1}.png", "ilustração", .07
         d = {"src": src, "ini": a, "fim": b, "fade": .3, "zoom": zoom}
+        # escurece a foto por baixo da legenda/painel/avatar (a vinheta do motor fica ABAIXO das telas; 19/10/2026)
+        if i == 0:
+            d["escurece"] = "base"                        # abertura: só a faixa de baixo (o título do topo fica intacto)
+        elif selo == "ilustração":
+            d["escurece"] = "foto"                        # ilustração: faixa de baixo + brilho/saturação menores
         if selo:
             d["selo"] = selo
         telas.append(d)

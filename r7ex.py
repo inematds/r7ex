@@ -32,8 +32,13 @@ TEMPLATE_HEYGEN = "TEMPLATE-AVATAR16"
 TELA = ":99"                                                  # nunca a tela do Nei (memória heygen-login-na-tela)
 TROCAS_PADRAO = {"inema ponto club": "inema.club", "dois mil e vinte e sete": "2027", "dois mil e trinta": "2030",
                  "dois mil e vinte e seis": "2026"}
-ESTILO = ("Estilo foto cinematográfica realista, moderna, tons escuros (preto #0c0c10) com acentos de luz amarela (#FACC15), "
-          "vermelha de alerta (#ff2a1f) só onde houver perigo, e branca; luz limpa e nítida, contraste alto, sem desfoque forte. "
+# Imagem LIMPA (Nei, 19/10/2026: "saturadas, muita informação, não é como o eventosextremos"): um assunto só, fundo liso,
+# luz neutra; o amarelo é do texto/painel (regra "imagens sem amarelado" de 12/10). A metade de baixo fica sob legenda+painel+avatar.
+ESTILO = ("Estilo foto cinematográfica realista, MINIMALISTA e calma: UM único objeto ou assunto principal, centralizado na metade "
+          "de CIMA do quadro; o resto é fundo liso e escuro (preto #0c0c10, grafite), com muito espaço vazio — a metade de baixo "
+          "quase vazia e escura. Luz NEUTRA e suave (branca/fria), sem brilho dourado, sem feixes, partículas, faíscas, bokeh, "
+          "hologramas nem objetos espalhados; no máximo um pequeno detalhe em amarelo (#FACC15) ou, só se houver perigo, vermelho "
+          "(#ff2a1f). Cores dessaturadas, contraste moderado. "
           "Sem logotipo de empresa, sem marca d'água, sem pessoas reconhecíveis (rostos de lado, na sombra ou de costas). "
           "Robô, quando houver: humanoide industrial estilo Tesla Optimus, com visor preto na frente, nunca fofo ou cartoon. "
           "Nenhum texto nas imagens, EXCETO na abertura.png.")

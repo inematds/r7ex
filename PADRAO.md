@@ -39,11 +39,14 @@ Fala nunca termina parte em número solto.
 ## 3. Tela — motor do eventosextremospub
 
 - **Abertura:** o título do gancho **desenhado pelo Codex dentro da arte** (branco + amarelo ou vermelho), metade de cima.
-- **Imagens:** uma por parte, foto cinematográfica **preto #0c0c10 + luz amarela #FACC15**, vermelho #ff2a1f só no perigo;
-  sem logos, sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
+- **Imagens:** uma por parte, foto **limpa**: UM assunto só, na metade de cima, fundo preto/grafite liso com muito vazio,
+  luz neutra; amarelo só num detalhe pequeno (o amarelo é do texto), vermelho #ff2a1f só no perigo. Na ficha, descreva
+  um objeto, nunca "cinco objetos", feixes, partículas ou pilhas. O motor escurece a faixa de baixo e tira brilho/saturação
+  das ilustrações (19/10/2026: "saturadas, muita informação" — comparado ao eventosextremospub, que tem fundo de mapa calmo).
+  Sem logos, sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
 - **Faixa do topo:** marca do tema ("INEMA · …") + **selo vermelho**; **linha de fonte** embaixo.
 - **Avatar:** caixinha no canto desde o quadro 0 (nunca tela cheia — D8).
-- **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa**; **contador** sempre que houver número;
+- **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa** (só o que já foi dito, no máximo 3 na tela); **contador** sempre que houver número;
   borda vermelha no medo, amarela no ganho, verde na solução.
 - **Prova real:** pelo menos 1 print da página do inema.club / curso.
 - **Diagrama animado** (D12, 19/10/2026): uma parte pode trocar a imagem por `diagrama:` — `forma: fluxo | hub | terminal`,

@@ -1,0 +1,83 @@
+# Ficha r7ex — as 15 skills que valem a pena (19/10/2026). Pedido do Nei: "um r7ex citando elas" (as 15), lives4, v3.
+slug: skills15-limpo
+tema: "1,3 milhão de skills para o Claude: só 15 valem a pena"
+
+plano:
+  pessoa: "quem usa o Claude (ou outro agente de IA) e já se perdeu na quantidade de skills, ou nunca instalou uma"
+  quer: "fazer mais com o Claude sem gastar o limite (desejo); parar de instalar coisa inútil (dor)"
+  gancho: "provocação: o diretório skills.sh já lista 1.323.633 skills (out/2026) e quase todas não servem"
+  nota: 8
+  destino: "https://inematds.github.io/skills15/guia/"
+
+marca: "INEMA · SKILLS DO CLAUDE"
+selo: "TOP 15"
+fonte: "<b>skills.sh</b> · 1.323.633 skills listadas, out/2026 · estrelas do GitHub em 18/10/2026 · imagens: ilustração"
+
+abertura:
+  branco: "1,3 MILHÃO DE SKILLS"
+  destaque: "SÓ 15 VALEM A PENA"
+  cor: amarelo
+  cena: "um único cartão retangular fino de vidro fosco, levemente iluminado, em pé sobre uma mesa preta lisa, visto de perto; atrás dele, fora de foco, a sugestão de uma fila enorme de cartões iguais e apagados sumindo no escuro; luz branca suave vinda de cima; muito espaço vazio e escuro"
+
+trocas:
+  "um milhão e trezentas mil": "1,3 milhão"
+  "quinze": "15"
+  "De AI": "De-AI"
+  "inema ponto club": "inema.club"
+
+partes:
+  - etapa: gancho
+    fala: "Já existem mais de um milhão e trezentas mil skills para o Claude, e quase todas não servem para nada."
+    painel:
+      de: skills
+      k: "SKILLS.SH · OUT/2026"
+      borda: red
+      contador: {ate: 1.3, dec: 1, em: "milhão", cor: "#FACC15", unid: "MILHÃO DE SKILLS NO SKILLS.SH"}
+      l: "diretório skills.sh"
+  - etapa: medo
+    fala: "Instalar a errada enche o contexto e queima seu limite."
+    imagem: "um único medidor de bateria vertical, minimalista, quase vazio, com o último segmento vermelho aceso, sobre fundo grafite liso; nada mais na cena"
+    painel:
+      k: "A SKILL ERRADA"
+      borda: red
+      itens: [[contexto, "🧱 enche o contexto"], [limite, "🔥 queima o limite"]]
+  - etapa: desejo
+    fala: "Imagina o NotebookLM lendo seus PDFs, o I have ADHD direto ao ponto e o Billion Context enxugando a conversa."
+    imagem: "uma única folha de papel com poucas linhas curtas, flutuando calma sobre fundo preto liso, iluminada por luz branca suave; nada mais na cena"
+    painel:
+      k: "15 · 14 · 13"
+      itens: [[NotebookLM, "📚 #15 NotebookLM lê os PDFs"], [ADHD, "⚡ #14 I have ADHD: direto"], [Billion, "🗜️ #13 Billion Context"]]
+  - etapa: facilidade
+    fala: "É fácil: cola o link e pede instale isso. O Find Skills acha as outras e o De AI tira a cara de robô."
+    imagem: "vista lateral de um notebook fechado pela metade sobre mesa preta lisa, a tela emitindo um leve brilho branco frio; fundo vazio e escuro"
+    painel:
+      k: "12 · 11 · SEM PROGRAMAR"
+      borda: vd
+      itens: [[link, "🔗 cola o link"], [Find, "🔎 #12 Find Skills"], [robô, "✍️ #11 De-AI writing"]]
+  - etapa: descoberta
+    fala: "Tem o Archify para diagramas, o NanoClaw no WhatsApp, as regras do Karpathy, o HyperFrames para vídeo e as skills do Matt Pocock."
+    imagem: "uma única caixa de ferramentas metálica fechada, simples e elegante, sobre fundo grafite liso, luz lateral neutra; nada mais na cena"
+    painel:
+      k: "10 · 9 · 8 · 7 · 6"
+      itens: [[Archify, "🗺️ #10 Archify"], [NanoClaw, "💬 #9 NanoClaw"], [Karpathy, "📜 #8 regras do Karpathy"], [HyperFrames, "🎬 #7 HyperFrames"], [Pocock, "🧪 #6 Matt Pocock"]]
+  - etapa: beneficio
+    fala: "E no topo: Career Ops, Graphify, o Website Cloner, o Anatomy e o REA, que faz raio-x de qualquer aplicativo."
+    imagem: "um único celular deitado sobre mesa preta lisa, visto de cima, com a tela escura e um leve contorno de luz branca; muito espaço vazio ao redor"
+    painel:
+      k: "TOP 5"
+      borda: vd
+      itens: [[Career, "💼 #5 Career Ops"], [Graphify, "🕸️ #4 Graphify"], [Cloner, "🌐 #3 Website Cloner"], [Anatomy, "⚙️ #2 Anatomy"], [REA, "🩻 #1 REA"]]
+  - etapa: comentario
+    fala: "As quinze, com exemplo e link, tá no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/skills15/guia/", selo: "inema.club"}
+
+cta: {a: "QUAL VOCÊ INSTALA PRIMEIRO? 👇", b: "ou me pede o link nos comentários"}
+club: "as 15 skills com exemplo e link"
+cores: {skills: "#FACC15", nada: "#ff2a1f", errada: "#ff2a1f", limite: "#ff2a1f", contexto: "#ff2a1f", notebooklm: "#FACC15",
+        adhd: "#FACC15", billion: "#FACC15", find: "#FACC15", robo: "#ff2a1f", archify: "#FACC15", nanoclaw: "#FACC15",
+        karpathy: "#FACC15", hyperframes: "#FACC15", pocock: "#FACC15", graphify: "#FACC15", rea: "#FACC15", "15": "#FACC15"}
+
+publicar:
+  fila: lives4
+  titulo: "1,3 milhão de skills para o Claude. Só 15 valem a pena #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). O diretório skills.sh lista 1.323.633 skills (out/2026) e quase todas não servem. As 15 que valem a pena: NotebookLM, I have ADHD, Billion Context, Find Skills, De-AI writing, Archify, NanoClaw, CLAUDE.md do Karpathy, HyperFrames, skills do Matt Pocock, Career Ops, Graphify, AI Website Cloner, Anatomy e REA. Guia grátis com exemplo, instalação e link de cada uma: https://inematds.github.io/skills15/guia/ . CTA: peça o link nos comentários."

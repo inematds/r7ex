@@ -18,7 +18,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#05080c;font-fam
 #telas{position:absolute;inset:0;pointer-events:none}
 #telas .tl{position:absolute;inset:0;overflow:hidden;opacity:0}
 #telas .tl img{width:100%;height:100%;object-fit:cover;transform-origin:50% 40%}
-#telas .tl .sl{position:absolute;right:40px;top:130px;background:rgba(11,15,20,.78);border-radius:8px;padding:6px 12px;font:800 20px Inter;letter-spacing:1px;color:#e6e9ee}
+/* foto escurecida embaixo (legenda + painel + avatar em y 1150–1920) e mais calma; r7ex 19/10/2026 ("imagens saturadas") */
+#telas .tl.base::after,#telas .tl.foto::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(5,8,12,.45) 0,rgba(5,8,12,0) 240px,rgba(5,8,12,0) 860px,rgba(5,8,12,.82) 1150px,rgba(5,8,12,.96) 1380px)}
+#telas .tl.foto img{filter:brightness(.8) saturate(.72)}
+#telas .tl .sl{z-index:2;position:absolute;right:40px;top:130px;background:rgba(11,15,20,.78);border-radius:8px;padding:6px 12px;font:800 20px Inter;letter-spacing:1px;color:#e6e9ee}
 #selo:before{content:"●  ";}
 .painel{position:absolute;left:56px;right:56px;top:170px;background:rgba(14,18,24,.86);border:2px solid rgba(255,255,255,.12);
  border-radius:22px;padding:26px 34px;opacity:0;backdrop-filter:blur(6px)}
@@ -413,7 +417,8 @@ function html(t){
       corpo=`<div class="n" style="color:${c.cor||'#fff'}">${s}</div><div class="u">${c.unid||''}</div>`;}
     if(p.grafico) corpo+=grafico(p.grafico,t,p);
     if(p.ranking) corpo+=ranking(p.ranking,t,p);
-    if(p.itens) corpo+='<div class="itens">'+p.itens.map(i=>`<div class="${t>=i.t?'on':''}">${i.txt}</div>`).join('')+'</div>';
+    // só os itens já ditos, no máximo 3 na tela (os mais recentes); nada de próximos apagados (r7ex 19/10/2026)
+    if(p.itens) corpo+='<div class="itens">'+p.itens.filter(i=>t>=i.t).slice(-3).map(i=>`<div class="on" style="opacity:${prog(t,i.t,.3)}">${i.txt}</div>`).join('')+'</div>';
     P.innerHTML=`<div class="k">${p.k}</div>${corpo}${p.l?`<div class="l">${p.l}</div>`:''}`;
     P.classList.toggle('g',!!(p.grafico||p.ranking)); P.style.opacity=vis(t,p.ini,p.fim,.3); P.style.borderColor=p.borda||'rgba(255,255,255,.12)';
   } else P.style.opacity=0;
@@ -423,7 +428,7 @@ function html(t){
   if(cl){CL.innerHTML=`<div class="ic">▶</div><div class="tx">${cl.a}<small>${cl.b}</small></div>`;CL.style.opacity=vis(t,cl.ini,cl.fim,.3);}
   // telas: foto cheia com zoom lento; selo pequeno (ex.: "ilustração"). Os <img> são criados uma vez (sem piscar)
   const TL=document.getElementById('telas');
-  if(!TL.childElementCount) (C.telas||[]).forEach(m=>{ const d=document.createElement('div'); d.className='tl'; const im=IMG[m.src].im; d.appendChild(im.parentNode?im.cloneNode():im);
+  if(!TL.childElementCount) (C.telas||[]).forEach(m=>{ const d=document.createElement('div'); d.className='tl'+(m.escurece?' '+m.escurece:''); const im=IMG[m.src].im; d.appendChild(im.parentNode?im.cloneNode():im);
     if(m.selo){const s=document.createElement('div'); s.className='sl'; s.textContent=m.selo; d.appendChild(s);} TL.appendChild(d); });
   (C.telas||[]).forEach((m,i)=>{ const d=TL.children[i], o=vis(t,m.ini,m.fim,m.fade??.3); d.style.opacity=o; if(!o) return;
     d.firstChild.style.transform=`scale(${1+(m.zoom??.06)*clamp((t-m.ini)/Math.max(.1,m.fim-m.ini))})`; });
