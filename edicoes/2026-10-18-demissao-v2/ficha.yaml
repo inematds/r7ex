@@ -1,0 +1,126 @@
+slug: demissao-v2
+tema: Demissão em massa de gerentes que não sabem gerir pessoas, processos e agentes
+plano:
+  pessoa: gerente ou executivo que ainda não lida com agentes de IA
+  quer: não estar na fila da demissão
+  gancho: 'medo: demissão em massa de gerentes e executivos'
+  nota: 9
+  destino: https://inematds.github.io/empresas-2027-v62/landing.html
+marca: INEMA · GESTÃO 2027
+selo: ALERTA INEMA
+fonte: '<b>opinião do Nei Maldaner</b> · formação Empresas de 2027 no inema.club · imagens: ilustração'
+abertura:
+  branco: DEMISSÃO EM MASSA
+  destaque: DE GERENTES E EXECUTIVOS
+  cor: vermelho
+  cena: corredor de escritório corporativo escuro, vários executivos de terno de costas saindo em fila, cada um carregando uma caixa de papelão
+    com seus objetos; luz fria e uma faixa de luz vermelha no fim do corredor (nova composição, ângulo diferente de qualquer versão anterior)
+trocas:
+  nove aulas: 9 aulas
+  quinze minutos: 15 minutos
+partes:
+- etapa: gancho
+  fala: Vem aí uma demissão em massa de gerentes e executivos.
+  painel:
+    k: DEMISSÃO EM MASSA
+    de: demissão
+    borda: red
+    itens:
+    - - gerentes
+      - 👔 gerentes
+    - - executivos
+      - 💼 executivos
+- etapa: medo
+  fala: 'Não de todos: dos que não sabem gerir pessoas, processos e agentes ao mesmo tempo.'
+  imagem: 'três pilares de luz numa sala escura, cada um com um símbolo flutuando em dourado: um grupo de pessoas, um conjunto de engrenagens
+    e a cabeça de um robô de visor preto'
+  painel:
+    k: QUEM SAI
+    borda: red
+    itens:
+    - - pessoas
+      - 👥 não gere pessoas
+    - - processos
+      - ⚙️ nem processos
+    - - agentes
+      - 🤖 nem agentes
+- etapa: desejo
+  fala: Eu espero que demore, e que não comece em dois mil e vinte e sete. Mas eu conheço muita gente boa que ainda não sabe lidar com um agente
+    de IA, e essas pessoas estão na fila.
+  imagem: fila de executivos de terno, de costas, esperando num corredor escuro diante de uma porta com luz vermelha; um deles olha um celular
+    com uma janela de IA aberta, perdido
+  painel:
+    k: GENTE BOA NA FILA
+    borda: red
+    itens:
+    - - demore
+      - 🙏 espero que demore
+    - - agente
+      - 🤖 não sabe lidar com agente
+    - - fila
+      - ⏳ está na fila
+- etapa: facilidade
+  fala: Por isso eu criei uma formação rápida para executivos, a Empresas de dois mil e vinte e sete.
+  print:
+    url: https://inematds.github.io/empresas-2027-v62/landing.html
+    selo: inematds.github.io/empresas-2027-v62
+  painel:
+    k: EMPRESAS DE 2027
+    itens:
+    - - formação
+      - 🎓 formação rápida
+    - - executivos
+      - 💼 para executivos
+- etapa: descoberta
+  fala: São nove aulas de quinze minutos, sem instalar nada, no chat que você já usa.
+  imagem: um cronômetro dourado luminoso marcando um quarto de volta sobre uma mesa preta, ao lado de um celular com uma conversa de IA aberta;
+    luz amarela limpa
+  painel:
+    k: RÁPIDA DE VERDADE
+    borda: vd
+    contador:
+      ate: 9
+      em: '9'
+      cor: '#FACC15'
+      unid: AULAS DE 15 MIN
+    l: sem instalar nada · no chat que você já usa
+- etapa: beneficio
+  fala: Você sai sabendo escrever as regras do seu agente e medir o trabalho dele.
+  imagem: uma executiva de costas, confiante, diante de um painel gigante luminoso com quadros amarelos de tarefas e indicadores, comandando com
+    um gesto dois robôs humanoides de visor preto
+  painel:
+    k: VOCÊ NO COMANDO
+    borda: vd
+    itens:
+    - - regras
+      - 📜 escreve as regras do agente
+    - - medir
+      - 📊 mede o trabalho dele
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: VOCÊ JÁ GERENCIA AGENTES? 👇
+  b: me pede o link aqui nos comentários
+club: formação Empresas de 2027
+cores:
+  demissao: '#ff2a1f'
+  massa: '#ff2a1f'
+  gerentes: '#ff2a1f'
+  executivos: '#ff2a1f'
+  pessoas: '#FACC15'
+  processos: '#FACC15'
+  agentes: '#FACC15'
+  fila: '#ff2a1f'
+  regras: '#FACC15'
+  medir: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'Vem aí demissão em massa de gerentes. Veja quem fica #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). Opinião do Nei: vem aí uma demissão em massa de gerentes e executivos que não sabem
+    gerir pessoas, processos e agentes de IA ao mesmo tempo; ele espera que demore e não comece em 2027. Solução: a formação rápida para executivos
+    Empresas de 2027 (9 aulas de ~15 minutos, sem instalar nada, no chat de IA que você já usa; sai sabendo escrever a constituição do agente
+    e medir o trabalho dele), no inema.club. Não dizer que é grátis. CTA: peça o link nos comentários. Título com gancho de medo, começando por
+    ''Vem aí demissão em massa de gerentes'', com #shorts.'

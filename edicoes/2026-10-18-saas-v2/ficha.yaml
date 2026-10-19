@@ -1,0 +1,119 @@
+slug: saas-v2
+tema: O SaaS está morrendo e tem gente apostando tudo nele
+plano:
+  pessoa: quem paga assinatura de software ou aposta em criar um SaaS
+  quer: não apostar no formato que está morrendo
+  gancho: 'medo: o SaaS está morrendo e tem gente apostando tudo nele'
+  nota: 8
+  destino: https://inematds.github.io/prof2030/
+marca: INEMA · O FIM DO SAAS
+selo: ALERTA INEMA
+fonte: '<b>opinião do Nei Maldaner</b> · formação Profissional 2030 no inema.club · imagens: ilustração'
+abertura:
+  branco: O SAAS ESTÁ MORRENDO
+  destaque: E TEM GENTE APOSTANDO TUDO NELE
+  cor: vermelho
+  cena: um cartão de crédito preto gigante com o símbolo de assinatura (duas setas em círculo) gravado em dourado, rachando ao meio e explodindo
+    em estilhaços sobre uma mesa preta, luz forte vinda de cima (nova composição, ângulo diferente de qualquer versão anterior)
+trocas: {}
+partes:
+- etapa: gancho
+  fala: O software que você assina todo mês está morrendo, e tem gente apostando tudo nele agora.
+  painel:
+    k: MODELO DE ASSINATURA
+    de: apostando
+    borda: red
+    itens:
+    - - assina
+      - 💳 você assina todo mês
+    - - morrendo
+      - 📉 está morrendo
+    - - apostando
+      - 🎰 e tem gente apostando tudo
+- etapa: medo
+  fala: O programa que você pagava por assinatura, a inteligência artificial refaz sob medida num fim de semana.
+  imagem: um robô humanoide de visor preto montando sozinho, peça por peça, uma interface de aplicativo luminosa dourada flutuando no ar, numa
+    oficina escura; ao lado, um calendário de mesa sem letras com dois dias marcados em amarelo
+  painel:
+    k: A IA REFAZ
+    itens:
+    - - programa
+      - 🧩 o programa da assinatura
+    - - medida
+      - ✂️ sob medida
+    - - semana
+      - 📅 num fim de semana
+- etapa: desejo
+  fala: E quem fica no formato velho quebra junto.
+  imagem: 'escritório de uma empresa de software abandonado à noite: cadeiras viradas, caixas de mudança, monitores apagados e empoeirados, uma
+    única luminária amarela acesa'
+  painel:
+    k: FORMATO VELHO
+    borda: red
+    itens:
+    - - velho
+      - 🏚️ quem fica no velho
+    - - quebra
+      - 💥 quebra junto
+- etapa: facilidade
+  fala: Eu já passei por isso várias vezes, e foi sempre igual.
+  imagem: um corredor escuro com quatro portas em sequência, cada uma mais moderna que a anterior (madeira velha, vidro, metal, e a última uma
+    porta de luz dourada aberta); uma pessoa de costas indo para a última
+  painel:
+    k: JÁ VI ISSO ANTES
+    itens:
+    - - passei
+      - 🔁 várias vezes
+    - - igual
+      - 📌 sempre igual
+- etapa: descoberta
+  fala: 'Então te dou a dica: em dois mil e vinte e sete, foca no formato novo, ajudar empresas a usar a IA do jeito delas.'
+  imagem: uma consultora de costas ao lado do dono de uma pequena oficina, os dois olhando um tablet com painéis amarelos luminosos; oficina escura
+    com luz quente de destaque
+  painel:
+    k: A DICA PARA 2027
+    borda: vd
+    itens:
+    - - dica
+      - 💡 a dica
+    - - novo
+      - 🆕 o formato novo
+    - - jeito
+      - 🏢 IA do jeito de cada empresa
+- etapa: beneficio
+  fala: Eu criei a formação Profissional dois mil e trinta pra isso, e ela está de graça.
+  print:
+    url: https://inematds.github.io/prof2030/
+    selo: inematds.github.io/prof2030
+  painel:
+    k: PROFISSIONAL 2030
+    borda: vd
+    itens:
+    - - formação
+      - 🎓 formação Profissional 2030
+    - - graça
+      - 🆓 de graça
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: VOCÊ AINDA PAGA QUAL ASSINATURA? 👇
+  b: me pede o link aqui nos comentários
+club: formação Profissional 2030, grátis
+cores:
+  saas: '#ff2a1f'
+  morrendo: '#ff2a1f'
+  apostando: '#ff2a1f'
+  refaz: '#FACC15'
+  velho: '#ff2a1f'
+  quebra: '#ff2a1f'
+  dica: '#FACC15'
+  novo: '#FACC15'
+  graca: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'O SaaS está morrendo, e tem gente apostando tudo nele #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner): O SaaS está morrendo e tem gente apostando tudo nele. Material no inema.club. CTA: peça
+    o link nos comentários.'

@@ -1,0 +1,117 @@
+slug: chat-v2
+tema: 'Sai na frente: do chat ao agente que produz pra você'
+plano:
+  pessoa: quem usa ChatGPT copiando e colando
+  quer: sair na frente do colega fazendo o agente produzir
+  gancho: 'provocação: você ainda copia e cola?'
+  nota: 8
+  destino: https://inematds.github.io/do-chat-ao-agente-v72/
+marca: INEMA · DO CHAT AO AGENTE
+selo: EVENTOS INEMA
+fonte: '<b>inematds.github.io/do-chat-ao-agente-v72</b> · imagens: ilustração · print da página'
+abertura:
+  branco: VOCÊ AINDA COPIA E COLA?
+  destaque: 'SAI NA FRENTE: DO CHAT AO AGENTE'
+  cor: amarelo
+  cena: uma pessoa de costas, exausta, de madrugada, copiando e colando entre duas janelas no notebook, cercada de post-its; atrás de uma parede
+    de vidro, vários robôs humanoides de visor preto trabalhando sozinhos em mesas com telas, em luz dourada (nova composição, ângulo diferente
+    de qualquer versão anterior)
+trocas: {}
+partes:
+- etapa: gancho
+  fala: Sai na frente dos outros. Não é parar de usar o chat, é fazer os agentes produzirem pra você.
+  painel:
+    k: SAI NA FRENTE
+    de: chat
+    itens:
+    - - chat
+      - 💬 continua usando o chat
+    - - agentes
+      - 🤖 e os agentes produzem
+- etapa: medo
+  fala: No chat, você pergunta, copia e cola.
+  imagem: close de mãos num teclado à noite, monitor com uma janela de chat e várias janelas abertas, setas luminosas de copiar e colar indo e
+    voltando, xícara de café; cansaço
+  painel:
+    k: NO CHAT
+    borda: red
+    itens:
+    - - pergunta
+      - ❓ você pergunta
+    - - copia
+      - 📋 copia
+    - - cola
+      - 📌 cola
+- etapa: desejo
+  fala: No terminal, o agente abre os seus arquivos, executa e entrega pronto.
+  imagem: monitor com um terminal escuro, árvore de pastas e arquivos (formas ilegíveis), um robô de visor preto ao lado digitando sozinho; um
+    check amarelo grande brilhando; mesa organizada
+  painel:
+    k: NO TERMINAL
+    borda: vd
+    itens:
+    - - arquivos
+      - 📁 abre os seus arquivos
+    - - executa
+      - ⚙️ executa
+    - - pronto
+      - ✅ entrega pronto
+- etapa: facilidade
+  fala: Quem ficar só no chat vai ver o colega entregar antes, todo dia.
+  imagem: 'escritório à noite: em primeiro plano, uma pessoa de costas afundada em papéis e janelas abertas; ao fundo, um colega relaxado de braços
+    atrás da cabeça, com o trabalho entregue e um painel amarelo na tela'
+  painel:
+    k: SÓ NO CHAT?
+    borda: red
+    itens:
+    - - colega
+      - 🏃 o colega entrega antes
+    - - dia
+      - 📆 todo dia
+- etapa: descoberta
+  fala: Por isso eu criei o curso Do chat ao agente, um passo a passo do zero.
+  print:
+    url: https://inematds.github.io/do-chat-ao-agente-v72/
+    selo: inematds.github.io/do-chat-ao-agente-v72
+  painel:
+    k: DO CHAT AO AGENTE
+    itens:
+    - - curso
+      - 🎓 o curso
+    - - zero
+      - 0️⃣ passo a passo do zero
+- etapa: beneficio
+  fala: Ele está grátis agora, aproveita antes de ficar só no PRO.
+  imagem: uma porta dourada luminosa entreaberta num corredor escuro, começando a se fechar; uma ampulheta dourada no chão com a areia caindo
+  painel:
+    k: GRÁTIS AGORA
+    borda: vd
+    itens:
+    - - grátis
+      - 🆓 grátis agora
+    - - PRO
+      - 🔒 depois só no PRO
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: VOCÊ AINDA COPIA E COLA? 👇
+  b: me pede o link aqui nos comentários
+club: curso Do chat ao agente
+cores:
+  chat: '#FACC15'
+  agentes: '#FACC15'
+  copia: '#ff2a1f'
+  cola: '#ff2a1f'
+  terminal: '#FACC15'
+  pronto: '#FACC15'
+  colega: '#ff2a1f'
+  gratis: '#FACC15'
+  pro: '#ff2a1f'
+publicar:
+  fila: lives3
+  titulo: 'Você ainda copia e cola do chat? Seu colega já não #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner): Sai na frente: do chat ao agente que produz pra você. Material no inema.club. CTA: peça
+    o link nos comentários.'

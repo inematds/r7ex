@@ -1,0 +1,131 @@
+slug: gestor-v2
+tema: 'Seu novo funcionário não é gente: as novas funções do gestor'
+plano:
+  pessoa: gestor de empresa pequena ou média
+  quer: chefiar uma equipe com agentes sem medo
+  gancho: 'novidade: seu novo funcionário não é gente'
+  nota: 8
+  destino: https://inematds.github.io/diga-o-que-importa/guia/
+marca: INEMA · O NOVO GESTOR
+selo: GESTÃO INEMA
+fonte: '<b>guia Diga o que importa</b> (grátis) · curso Constituição dos Agentes · inema.club · imagens: ilustração'
+abertura:
+  branco: SEU NOVO FUNCIONÁRIO
+  destaque: NÃO É GENTE
+  cor: vermelho
+  cena: 'reunião de equipe numa sala escura com luz dramática: entre as pessoas sentadas à mesa, de costas ou de lado, um robô humanoide estilo
+    Tesla Optimus de visor preto, com um crachá no peito, sentado numa cadeira; a gestora de pé olhando para ele (nova composição, ângulo diferente
+    de qualquer versão anterior)'
+trocas:
+  'regra cinco, quatro, três: cinco perguntas, quatro níveis': 'regra 5-4-3: 5 perguntas, 4 níveis'
+  e três casos: e 3 casos
+partes:
+- etapa: gancho
+  fala: Na sua empresa vai ter funcionário que não é gente, e alguém vai ter que chefiar.
+  painel:
+    k: FUNCIONÁRIO QUE NÃO É GENTE
+    de: chefiar
+    borda: red
+    itens:
+    - - funcionário
+      - 🤖 funcionário que não é gente
+    - - chefiar
+      - 👔 alguém vai chefiar
+- etapa: medo
+  fala: 'A transformação na gestão é essa: aprender as novas funções.'
+  imagem: 'uma gestora de costas no centro de um escritório escuro: à esquerda, uma equipe de pessoas em mesas; à direita, uma equipe de robôs
+    humanoides de visor preto em mesas; linhas de luz amarela ligando os dois lados a ela'
+  painel:
+    k: NOVAS FUNÇÕES
+    itens:
+    - - transformação
+      - 🔄 a transformação
+    - - funções
+      - 🧭 aprender as novas funções
+- etapa: desejo
+  fala: 'E pra quem já é gestor, é fácil. Você já sabe o mais difícil: o processo, o cliente e a equipe. Só ajusta.'
+  imagem: uma gestora experiente de costas, braços cruzados, confiante, no chão de uma pequena fábrica à noite, com a equipe trabalhando sob luzes
+    amarelas
+  painel:
+    k: PRA GESTOR É FÁCIL
+    borda: vd
+    itens:
+    - - processo
+      - ⚙️ o processo
+    - - cliente
+      - 🤝 o cliente
+    - - equipe
+      - 👥 a equipe
+    - - ajusta
+      - 🔧 só ajusta
+- etapa: facilidade
+  fala: O gestor diz o quê e o porquê, o técnico garante o como e o agente executa.
+  imagem: 'três figuras numa sala escura ligadas por linhas de luz amarela: uma gestora apontando um caminho, um técnico com um notebook, e um
+    robô humanoide de visor preto executando uma tarefa num painel'
+  painel:
+    k: UM TIME DE 3
+    itens:
+    - - gestor
+      - '🧭 gestor: o quê e o porquê'
+    - - técnico
+      - '🛠️ técnico: o como'
+    - - executa
+      - '🤖 agente: executa'
+- etapa: descoberta
+  fala: 'Comece pela regra cinco, quatro, três: cinco perguntas, quatro níveis de autonomia e três casos de teste.'
+  print:
+    url: https://inematds.github.io/diga-o-que-importa/guia/
+    selo: inematds.github.io/diga-o-que-importa
+  painel:
+    k: REGRA 5-4-3
+    itens:
+    - - perguntas
+      - 5️⃣ perguntas
+    - - níveis
+      - 4️⃣ níveis de autonomia
+    - - casos
+      - 3️⃣ casos de teste
+- etapa: beneficio
+  fala: 'Depois escreva a constituição do seu agente: o que ele faz, o que nunca faz e quando chama você.'
+  print:
+    url: https://inematds.github.io/constituicao-agentes-v62/landing.html
+    selo: inematds.github.io/constituicao-agentes-v62
+  painel:
+    k: A CONSTITUIÇÃO DO AGENTE
+    borda: vd
+    itens:
+    - - faz
+      - ✅ o que ele faz
+    - - nunca
+      - ⛔ o que nunca faz
+    - - chama
+      - 📞 quando chama você
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: VOCÊ JÁ CHEFIA UM AGENTE? 👇
+  b: me pede o link aqui nos comentários
+club: guia grátis + Constituição dos Agentes
+cores:
+  funcionario: '#FACC15'
+  gente: '#ff2a1f'
+  chefiar: '#FACC15'
+  transformacao: '#FACC15'
+  facil: '#FACC15'
+  ajusta: '#FACC15'
+  gestor: '#FACC15'
+  tecnico: '#FACC15'
+  agente: '#FACC15'
+  constituicao: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'Sua empresa vai ter funcionário que não é gente. Quem vai chefiar? #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). A transformação na gestão: a empresa vai ter agentes de IA trabalhando como funcionários,
+    e o gestor precisa aprender as novas funções. Para quem já é gestor é fácil: já sabe o mais difícil (processo, cliente, equipe), só ajusta.
+    Time de três: o gestor diz o quê e o porquê, o técnico garante o como, o agente executa. Método: regra 5-4-3 (5 perguntas, 4 níveis de autonomia,
+    3 casos de teste) do guia gratuito Diga o que importa; depois a constituição do agente (o que faz, o que nunca faz, quando chama você) no
+    curso Constituição dos Agentes, no inema.club. CTA: peça o link nos comentários. Título com gancho, começando por ''Sua empresa vai ter funcionário
+    que não é gente'', com #shorts.'

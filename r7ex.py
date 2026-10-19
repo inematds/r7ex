@@ -11,7 +11,7 @@ Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo e
   python3 r7ex.py revisar <pasta>         folha de 12 quadros → <pasta>/build/folha.jpg (LER antes de enviar)
   python3 r7ex.py enviar <pasta>          manda ao bot v3
   python3 r7ex.py fila <pasta>            entra no fim da fila do canal (fila/fila.py; padrão lives7)
-  python3 r7ex.py fazer <pasta> [--de <mp4>]   checar → imagens + avatar → cena → render → revisar (enviar/fila depois de ler a folha)
+  python3 r7ex.py fazer <pasta> [--de <mp4>]   (ou avatar/AVATAR_DE.txt na pasta) checar → imagens + avatar → cena → render → revisar (enviar/fila depois de ler a folha)
 """
 import concurrent.futures as cf
 import datetime as dt
@@ -85,7 +85,10 @@ def cmd_checar(pasta):
         erros.append(f"são {len(f.get('partes') or [])} partes; o padrão é 7")
     tot = fala_total(f)
     if not 550 <= len(tot) <= 720:
-        erros.append(f"fala com {len(tot)} caracteres (padrão 550–700)")
+        if (p / "avatar/AVATAR_DE.txt").exists() or (p / "avatar/avatar.mp4").exists():   # avatar já gravado: a fala não muda
+            log(f"aviso: fala com {len(tot)} caracteres (padrão 550–700), aceita porque o avatar já existe")
+        else:
+            erros.append(f"fala com {len(tot)} caracteres (padrão 550–700)")
     if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
         erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
     if (f.get("plano") or {}).get("nota", 0) < 7:
@@ -239,6 +242,9 @@ def cmd_fila(pasta):
 
 def cmd_fazer(pasta, de=None):
     cmd_checar(pasta)
+    arq = Path(pasta) / "avatar/AVATAR_DE.txt"          # avatar a reaproveitar, anotado na pasta (refazer com o mesmo avatar)
+    if not de and arq.exists() and not (Path(pasta) / "avatar/avatar.mp4").exists():
+        de = arq.read_text().strip()
     with cf.ThreadPoolExecutor(2) as ex:
         a = ex.submit(cmd_imagens, pasta); b = ex.submit(cmd_avatar, pasta, de)
         a.result(); b.result()

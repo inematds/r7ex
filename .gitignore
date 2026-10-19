@@ -12,3 +12,4 @@ edicoes/*/*.log
 fila/.lock
 fila/fila.log
 fila/fila.json
+*.envio-v3.json

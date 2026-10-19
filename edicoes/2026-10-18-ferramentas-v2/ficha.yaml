@@ -1,0 +1,120 @@
+slug: ferramentas-v2
+tema: 'A era das ferramentas acabou: quem não souber pedir perdeu'
+plano:
+  pessoa: quem vive testando ferramenta nova de IA e sente que está ficando para trás
+  quer: parar de correr atrás de app e aprender a pedir
+  gancho: 'provocação: quem caça app é superficial; tudo está no GitHub'
+  nota: 8
+  destino: https://inema.club
+marca: INEMA · A ERA DAS FERRAMENTAS
+selo: OPINIÃO · NEI
+fonte: '<b>opinião do Nei Maldaner</b> · imagens: ilustração'
+abertura:
+  branco: A ERA DAS FERRAMENTAS ACABOU
+  destaque: QUEM CAÇA APP É SUPERFICIAL
+  cor: vermelho
+  cena: uma pessoa de costas afundada até o peito numa avalanche de dezenas de caixas e cartões luminosos de aplicativos genéricos (sem logos)
+    caindo do alto, num quarto escuro; luz amarela vazando das caixas (nova composição, ângulo diferente de qualquer versão anterior)
+trocas:
+  três coisas: 3 coisas
+partes:
+- etapa: gancho
+  fala: A era das ferramentas acabou. Quem ainda corre atrás do aplicativo novo está sendo superficial.
+  painel:
+    k: CAÇADOR DE APP
+    de: Quem
+    borda: red
+    itens:
+    - - corre
+      - 🏃 corre atrás do app novo
+    - - superficial
+      - 🫥 fica no superficial
+- etapa: medo
+  fala: O código de quase tudo já está no GitHub, de graça, e o Claude e o Codex fazem o que você pedir.
+  imagem: um cofre-biblioteca gigante e escuro com prateleiras infinitas de pastas de código luminosas em amarelo; um robô humanoide de visor
+    preto puxa uma pasta brilhante e entrega a uma mão humana; sensação de que tudo já existe
+  painel:
+    k: TÁ TUDO NO GIT
+    itens:
+    - - código
+      - 📦 o código já existe
+    - - graça
+      - 🆓 de graça no GitHub
+    - - Codex
+      - 🤖 Claude e Codex fazem
+- etapa: desejo
+  fala: 'Mas se não souber pedir, perdeu: enquanto você testa o aplicativo da semana, outro já mandou o agente fazer o trabalho inteiro.'
+  imagem: 'cena dividida: à esquerda, uma pessoa exausta de costas diante de dez janelas de aplicativos abertas, luz vermelha; à direita, outra
+    pessoa relaxada de costas enquanto um robô de visor preto trabalha num monitor com um check amarelo grande'
+  painel:
+    k: NÃO SABE PEDIR?
+    borda: red
+    itens:
+    - - perdeu
+      - ❌ perdeu
+    - - testa
+      - 🧪 você testa o app da semana
+    - - inteiro
+      - ✅ o outro já entregou
+- etapa: facilidade
+  fala: E pedir bem se aprende rápido, não precisa ser programador.
+  imagem: mão escrevendo num caderno numa mesa escura à noite, ao lado de um notebook com uma conversa de IA; uma lâmpada amarela luminosa acesa
+    sobre a mesa; sensação de 'entendi'
+  painel:
+    k: SE APRENDE RÁPIDO
+    itens:
+    - - aprende
+      - ⚡ aprende rápido
+    - - programador
+      - ✅ sem programar
+- etapa: descoberta
+  fala: 'São três coisas: o que você quer, o contexto e como conferir.'
+  imagem: 'três objetos luminosos alinhados numa mesa preta como produto de luxo: um alvo dourado, uma pasta aberta com um mapa luminoso e uma
+    prancheta com um check amarelo'
+  painel:
+    k: PEDIR BEM = 3 COISAS
+    itens:
+    - - quer
+      - 1️⃣ o que você quer
+    - - contexto
+      - 2️⃣ o contexto
+    - - conferir
+      - 3️⃣ como conferir
+- etapa: beneficio
+  fala: Quem sabe pedir usa qualquer ferramenta, até a que nem saiu ainda.
+  imagem: uma pessoa de costas, confiante, comandando com um gesto três robôs humanoides de visor preto, cada um segurando uma ferramenta luminosa
+    diferente (chave inglesa, pincel, engrenagem); luz amarela
+  painel:
+    k: QUALQUER FERRAMENTA
+    borda: vd
+    itens:
+    - - qualquer
+      - 🧰 qualquer ferramenta
+    - - saiu
+      - 🆕 até a que nem saiu
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: VOCÊ SABE PEDIR? 👇
+  b: me pede o link aqui nos comentários
+club: aprenda a pedir pra IA
+cores:
+  ferramentas: '#FACC15'
+  acabou: '#ff2a1f'
+  superficial: '#ff2a1f'
+  github: '#FACC15'
+  claude: '#FACC15'
+  codex: '#FACC15'
+  perdeu: '#ff2a1f'
+  aprende: '#FACC15'
+  contexto: '#FACC15'
+  conferir: '#FACC15'
+  qualquer: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'Pare de caçar ferramenta nova. Quem não souber pedir, perdeu #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner): A era das ferramentas acabou: quem não souber pedir perdeu. Material no inema.club.
+    CTA: peça o link nos comentários.'

@@ -1,0 +1,130 @@
+slug: 2027-v2
+tema: Quem vai faturar em 2027 é quem ajuda os outros a criar com IA
+plano:
+  pessoa: profissional que acha que precisa virar programador para ganhar com IA
+  quer: faturar em 2027 ajudando empresas
+  gancho: 'provocação: quem fatura em 2027 não é quem cria software'
+  nota: 8
+  destino: https://inematds.github.io/profissional2027x/
+marca: INEMA · QUEM FATURA EM 2027
+selo: OPINIÃO · NEI
+fonte: '<b>opinião do Nei Maldaner</b> · formação Profissional 2027 no inema.club · imagens: ilustração'
+abertura:
+  branco: QUEM VAI FATURAR EM 2027
+  destaque: NÃO É QUEM CRIA SOFTWARE
+  cor: amarelo
+  cena: em primeiro plano, um programador de costas, exausto, sozinho de madrugada diante de três telas de código; ao fundo, numa sala iluminada
+    em dourado, um consultor de costas apertando a mão de um empresário (nova composição, ângulo diferente de qualquer versão anterior)
+trocas:
+  anos noventa: anos 90
+  anos dois mil: anos 2000
+  dois mil e dez: '2010'
+partes:
+- etapa: gancho
+  fala: Quem vai faturar em dois mil e vinte e sete não é quem cria software. É quem ajuda os outros a criar. Acorda!
+  painel:
+    k: QUEM FATURA EM 2027
+    de: ajuda
+    itens:
+    - - cria
+      - ❌ quem só cria software
+    - - ajuda
+      - ✅ quem ajuda os outros a criar
+    - - Acorda
+      - ⏰ acorda!
+- etapa: medo
+  fala: As empresas estão perdidas no meio de tanta opção de inteligência artificial, e vão pagar quem mostrar o caminho.
+  imagem: um empresário de terno, de costas, perdido no meio de um labirinto escuro de dezenas de telas luminosas com setas para todos os lados;
+    luz amarela e branca
+  painel:
+    k: EMPRESAS PERDIDAS
+    borda: red
+    itens:
+    - - perdidas
+      - 😵 perdidas
+    - - opção
+      - 🔀 opção demais de IA
+    - - pagar
+      - 💰 vão pagar quem mostrar o caminho
+- etapa: desejo
+  fala: Isso já aconteceu com a internet nos anos noventa, com os sites nos anos dois mil e com o celular em dois mil e dez. Sempre faturou quem
+    ensinou.
+  imagem: 'linha de objetos sobre um piso preto refletindo luz amarela, da esquerda para a direita: um monitor antigo de tubo com um modem, um
+    notebook com um site, um smartphone, e por último uma esfera dourada luminosa de IA flutuando'
+  painel:
+    k: JÁ ACONTECEU 3 VEZES
+    itens:
+    - - internet
+      - '🌐 anos 90: internet'
+    - - sites
+      - '🖥️ anos 2000: sites'
+    - - celular
+      - '📱 2010: celular'
+    - - ensinou
+      - 💰 faturou quem ensinou
+- etapa: facilidade
+  fala: Seja consultor, auditor ou treinador de IA.
+  imagem: 'três silhuetas profissionais de costas lado a lado num palco escuro com luz de recorte amarela: uma segurando um mapa (consultor),
+    outra com uma lupa diante de um painel (auditor), outra diante de um quadro com um grupo (treinador)'
+  painel:
+    k: SEJA O GUIA
+    itens:
+    - - consultor
+      - 🧭 consultor
+    - - auditor
+      - 🔍 auditor
+    - - treinador
+      - 🎓 treinador de IA
+- etapa: descoberta
+  fala: Eu montei kits pra você aprender rápido e começar a atender.
+  print:
+    url: https://inematds.github.io/profissional2027x/
+    selo: inematds.github.io/profissional2027x
+  painel:
+    k: PROFISSIONAL 2027
+    borda: vd
+    itens:
+    - - kits
+      - 🧰 kits prontos
+    - - rápido
+      - ⚡ aprende rápido
+    - - atender
+      - 🤝 começa a atender
+- etapa: beneficio
+  fala: Aprende agora, enquanto ainda dá tempo de chegar primeiro.
+  imagem: uma pessoa de costas chegando primeiro ao topo de uma escada luminosa amarela no escuro, enquanto outras silhuetas ainda estão nos degraus
+    de baixo
+  painel:
+    k: CHEGA PRIMEIRO
+    borda: red
+    itens:
+    - - agora
+      - ⏳ aprende agora
+    - - primeiro
+      - 🥇 chega antes dos outros
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: CONSULTOR, AUDITOR OU TREINADOR? 👇
+  b: me pede o link aqui nos comentários
+club: formação gratuita Profissional 2027
+cores:
+  faturar: '#FACC15'
+  software: '#ff2a1f'
+  ajuda: '#FACC15'
+  acorda: '#ff2a1f'
+  perdidas: '#ff2a1f'
+  caminho: '#FACC15'
+  ensinou: '#FACC15'
+  consultor: '#FACC15'
+  auditor: '#FACC15'
+  treinador: '#FACC15'
+  primeiro: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'Quem vai faturar em 2027 não é quem cria software #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner): Quem vai faturar em 2027 é quem ajuda os outros a criar com IA. Material no inema.club.
+    CTA: peça o link nos comentários.'

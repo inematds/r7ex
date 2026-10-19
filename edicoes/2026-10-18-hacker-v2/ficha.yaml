@@ -1,0 +1,133 @@
+slug: hacker-v2
+tema: 'Hackers roubaram chaves de IA: US$ 1.700 numa noite e as 3 proteções'
+plano:
+  pessoa: qualquer um que paga uma IA com cartão (ChatGPT, Claude, Gemini), não só programador
+  quer: não acordar com uma conta absurda no cartão (dor) e dormir tranquilo (desejo)
+  gancho: 'medo: hackers roubaram as chaves no OpenCode; relatos de US$ 1.700 numa noite (usuários afetados, out/2026)'
+  nota: 8
+  destino: https://inema.club
+marca: INEMA · CHAVES DE IA
+selo: ALERTA INEMA
+fonte: '<b>ataque ao OpenCode</b> · relatos de usuários afetados, out/2026 · imagens: ilustração'
+abertura:
+  branco: HACKERS ROUBARAM AS CHAVES
+  destaque: US$ 1.700 NUMA NOITE
+  cor: vermelho
+  cena: quarto escuro de madrugada, um homem sentado na beira da cama, de lado, o rosto na sombra iluminado só pela luz vermelha do celular; na
+    tela, uma fatura com um alerta vermelho. Em primeiro plano, uma chave dourada luminosa partida ao meio, com estilhaços de luz amarela (nova
+    composição, ângulo diferente de qualquer versão anterior)
+trocas:
+  mil e setecentos dólares: US$ 1.700
+  mil dólares: US$ 1.000
+  três ajustes: 3 ajustes
+partes:
+- etapa: gancho
+  fala: Hackers invadiram o OpenCode e roubaram as chaves de acesso de milhares de pessoas. Teve gente que acordou com mil e setecentos dólares
+    de conta numa noite só.
+  painel:
+    de: Teve
+    k: ATAQUE AO OPENCODE · OUT/2026
+    borda: red
+    contador:
+      ate: 1700
+      em: '1.700'
+      cor: '#ff2a1f'
+      unid: US$ NUMA NOITE
+    l: relatos de usuários afetados
+- etapa: medo
+  fala: A chave é a senha que a IA usa pra cobrar de você, e a sua pode ser a próxima.
+  imagem: uma mão encapuzada saindo de um notebook escuro e puxando uma chave dourada luminosa presa a um cartão de crédito; linhas de código
+    vermelhas ilegíveis ao fundo; sensação de roubo
+  painel:
+    k: A CHAVE É A SUA SENHA
+    borda: red
+    itens:
+    - - senha
+      - 🔑 a senha que a IA usa
+    - - cobrar
+      - 💳 cobra no seu cartão
+    - - próxima
+      - ⚠️ a sua pode ser a próxima
+- etapa: desejo
+  fala: Imagina dormir sabendo que, mesmo se roubarem, o prejuízo tem teto.
+  imagem: 'o mesmo quarto, agora em paz: homem dormindo tranquilo de lado, o rosto na sombra; na mesa de cabeceira, o celular com um escudo amarelo
+    luminoso na tela; luz amarela suave'
+  painel:
+    k: PREJUÍZO COM TETO
+    itens:
+    - - dormir
+      - 😴 você dorme
+    - - roubarem
+      - 🥷 roubaram a chave?
+    - - teto
+      - 🛡️ o gasto tem teto
+- etapa: facilidade
+  fala: Você não precisa ser especialista, nem programador.
+  imagem: monitor numa mesa escura mostrando um painel de configuração com um controle deslizante de limite travado por um pequeno cadeado amarelo
+    luminoso (formas, nada legível); uma mão ajustando o mouse
+  painel:
+    k: SEM SER ESPECIALISTA
+    itens:
+    - - especialista
+      - ✅ sem curso de segurança
+    - - programador
+      - ✅ sem programar
+- etapa: descoberta
+  fala: 'São três ajustes: limite de gasto em cada chave, uma chave pra cada uso e um alarme que avisa quando o gasto foge do normal. Roubaram
+    uma? Você cancela só aquela, e o resto segue funcionando.'
+  imagem: 'três objetos luminosos alinhados numa mesa preta, como num produto de luxo: um cadeado dourado com um medidor, um chaveiro com várias
+    chaves separadas penduradas em ganchos, e um sino de alarme amarelo brilhando'
+  painel:
+    k: OS 3 AJUSTES
+    itens:
+    - - limite
+      - 🧱 limite de gasto em cada chave
+    - - cada
+      - 🔑 uma chave pra cada uso
+      - 2
+    - - alarme
+      - 🚨 alarme quando foge do normal
+    - - cancela
+      - ✂️ roubou uma? cancela só ela
+- etapa: beneficio
+  fala: O susto vira um aviso no celular, não uma conta de mil dólares.
+  imagem: close de um celular na mão mostrando uma notificação amarela de alerta (sem texto legível), e ao lado, rasgada e caindo, uma fatura
+    enorme de papel com destaque vermelho
+  painel:
+    k: SEM LIMITE × COM LIMITE
+    borda: vd
+    itens:
+    - - susto
+      - '🔴 sem limite: US$ 1.700'
+    - - aviso
+      - '🟢 com limite: só um aviso'
+    - - celular
+      - 📱 chega no celular
+- etapa: comentario
+  fala: Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: QUER O PASSO A PASSO? 👇
+  b: me pede o link aqui nos comentários
+club: as 3 proteções, passo a passo
+cores:
+  hackers: '#ff2a1f'
+  roubaram: '#ff2a1f'
+  chaves: '#FACC15'
+  noite: '#ff2a1f'
+  proxima: '#ff2a1f'
+  senha: '#FACC15'
+  teto: '#FACC15'
+  limite: '#FACC15'
+  alarme: '#FACC15'
+  susto: '#ff2a1f'
+  aviso: '#FACC15'
+  '1700': '#ff2a1f'
+publicar:
+  fila: lives3
+  titulo: 'Hackers roubaram chaves de IA. Teve gente que acordou com US$ 1.700 de conta #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). Hackers invadiram o OpenCode e roubaram chaves de IA; relatos de US$ 1.700 de conta
+    numa noite (out/2026). As 3 proteções: limite de gasto em cada chave, uma chave por uso e alarme. Passo a passo no inema.club. CTA: peça o
+    link nos comentários.'
