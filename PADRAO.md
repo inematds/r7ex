@@ -44,7 +44,7 @@ Fala nunca termina parte em número solto.
   fundo preto liso e metade de baixo vazia. Na ficha, descreva um objeto + a ação + a sensação; nunca "cinco objetos",
   pilhas, chuva de partículas/papéis ou hologramas. O motor escurece a faixa de baixo (legenda/painel/avatar).
   Calibrado em 19/10/2026: o lote com muita coisa ficou "saturado, muita informação"; o só-neutro ficou "limpo demais,
-  sem impacto"; o meio-termo é `edicoes/2026-10-19-skills15-impacto` (aguardando o OK do Nei).
+  sem impacto"; o meio-termo `edicoes/2026-10-19-skills15-impacto` foi APROVADO pelo Nei em 19/10/2026 — é a referência.
   Sem logos, sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
 - **Faixa do topo:** marca do tema ("INEMA · …") + **selo vermelho**; **linha de fonte** embaixo.
 - **Avatar:** caixinha no canto desde o quadro 0 (nunca tela cheia — D8).
