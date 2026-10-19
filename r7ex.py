@@ -1,0 +1,266 @@
+#!/usr/bin/env python3
+"""r7ex — reel viral do INEMA: roteiro de 7 etapas (r7e) + acabamento de telejornal (motor copiado do eventosextremospub).
+Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo em modelo/ficha.yaml.
+
+  python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
+  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 550–700 caracteres, palavras dos painéis na fala
+  python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
+  python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
+  python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra do avatar + cena.js
+  python3 r7ex.py render <pasta>          monta o vídeo (tela :99) → <pasta>/video.mp4
+  python3 r7ex.py revisar <pasta>         folha de 12 quadros → <pasta>/build/folha.jpg (LER antes de enviar)
+  python3 r7ex.py enviar <pasta>          manda ao bot v3
+  python3 r7ex.py fila <pasta>            entra no fim da fila do canal (fila/fila.py; padrão lives7)
+  python3 r7ex.py fazer <pasta> [--de <mp4>]   checar → imagens + avatar → cena → render → revisar (enviar/fila depois de ler a folha)
+"""
+import concurrent.futures as cf
+import datetime as dt
+import json, os, re, shutil, subprocess, sys
+from pathlib import Path
+
+import yaml
+
+R = Path(__file__).resolve().parent
+sys.path.insert(0, str(R))
+from r7ex import cena as CENA, pecas, retempo as RT  # noqa: E402
+
+PERFIL = Path.home() / ".cache/inemaccbot/perfil-heygen"     # perfil do estúdio (compartilhado: tem fila própria)
+TEMPLATE_HEYGEN = "TEMPLATE-AVATAR16"
+TELA = ":99"                                                  # nunca a tela do Nei (memória heygen-login-na-tela)
+TROCAS_PADRAO = {"inema ponto club": "inema.club", "dois mil e vinte e sete": "2027", "dois mil e trinta": "2030",
+                 "dois mil e vinte e seis": "2026"}
+ESTILO = ("Estilo foto cinematográfica realista, moderna, tons escuros (preto #0c0c10) com acentos de luz amarela (#FACC15), "
+          "vermelha de alerta (#ff2a1f) só onde houver perigo, e branca; luz limpa e nítida, contraste alto, sem desfoque forte. "
+          "Sem logotipo de empresa, sem marca d'água, sem pessoas reconhecíveis (rostos de lado, na sombra ou de costas). "
+          "Robô, quando houver: humanoide industrial estilo Tesla Optimus, com visor preto na frente, nunca fofo ou cartoon. "
+          "Nenhum texto nas imagens, EXCETO na abertura.png.")
+COR = {"vermelho": "vermelho #ff2a1f", "amarelo": "amarelo #FACC15"}
+
+
+def log(*a):
+    print("[r7ex]", *a, flush=True)
+
+
+def falha(msg):
+    sys.exit(f"[r7ex] REPROVOU: {msg}")
+
+
+def ficha(pasta):
+    p = Path(pasta).resolve()
+    f = yaml.safe_load((p / "ficha.yaml").read_text())
+    return p, f
+
+
+def fala_total(f):
+    return " ".join(x["fala"].strip() for x in f["partes"])
+
+
+def falas(p, f):
+    out = []
+    for i, x in enumerate(f["partes"]):
+        leg = x.get("legenda") or x["fala"].strip()
+        if not x.get("legenda"):
+            for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
+                leg = leg.replace(a, b)
+        out.append({"id": f"f{i + 1}", "fala": x["fala"].strip(), "legenda": leg})
+    (p / "falas.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    return out
+
+
+# ------------------------------------------------------------------ comandos
+def cmd_novo(slug):
+    p = R / "edicoes" / f"{dt.date.today().isoformat()}-{slug}"
+    if (p / "ficha.yaml").exists():
+        sys.exit(f"já existe: {p / 'ficha.yaml'}")
+    (p / "avatar").mkdir(parents=True, exist_ok=True)
+    txt = (R / "modelo/ficha.yaml").read_text().replace("slug: hacker", f"slug: {slug}", 1)
+    (p / "ficha.yaml").write_text(txt)
+    log("criado", p / "ficha.yaml", "— reescreva plano, abertura, as 7 partes, CTA e publicar (modelo: o reel do hacker)")
+
+
+def cmd_checar(pasta):
+    p, f = ficha(pasta)
+    erros = []
+    if len(f.get("partes") or []) != 7:
+        erros.append(f"são {len(f.get('partes') or [])} partes; o padrão é 7")
+    tot = fala_total(f)
+    if not 550 <= len(tot) <= 720:
+        erros.append(f"fala com {len(tot)} caracteres (padrão 550–700)")
+    if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
+        erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
+    if (f.get("plano") or {}).get("nota", 0) < 7:
+        erros.append("nota de potencial < 7: troque o ângulo ou o tema (PADRAO.md §1)")
+    for k in ("branco", "destaque", "cena"):
+        if not (f.get("abertura") or {}).get(k):
+            erros.append(f"abertura sem '{k}'")
+    for i, x in enumerate(f["partes"]):
+        texto = CENA.n(x.get("legenda") or x["fala"])
+        if i > 0 and not (x.get("imagem") or x.get("print")):
+            erros.append(f"parte {i + 1} sem imagem nem print")
+        if re.search(r"\d", x["fala"]):
+            erros.append(f"parte {i + 1}: número em algarismo na fala (o avatar lê errado): escreva por extenso e use 'trocas'")
+        pn = x.get("painel") or {}
+        palavras = [pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
+        leg = x.get("legenda") or x["fala"]
+        for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
+            leg = leg.replace(a, b)
+        for w in filter(None, palavras):
+            if CENA.n(w) not in CENA.n(leg):
+                erros.append(f"parte {i + 1}: '{w}' do painel não está na fala/legenda")
+    if not any(x.get("print") for x in f["partes"]):
+        erros.append("nenhum print real (PADRAO.md: pelo menos 1)")
+    if erros:
+        falha("\n  - " + "\n  - ".join(erros))
+    log(f"ficha OK: 7 partes, {len(tot)} caracteres, plano nota {f['plano']['nota']}")
+
+
+def cmd_avatar(pasta, de=None):
+    p, f = ficha(pasta); av = p / "avatar"; av.mkdir(exist_ok=True)
+    falas(p, f)
+    if de:
+        shutil.copy(de, av / "avatar.mp4")
+        (av / "APROVADO_HEYGEN").write_text(f"Reaproveita o avatar {de} (nenhuma geração nova no HeyGen).\n")
+        log("avatar reaproveitado de", de)
+    elif not (av / "avatar.mp4").exists():
+        if not (av / "APROVADO_HEYGEN").exists():
+            falha("falta avatar/APROVADO_HEYGEN (o HeyGen só roda com o OK do Nei para esta produção)")
+        (av / "fala.txt").write_text(fala_total(f) + "\n")
+        env = dict(os.environ, DISPLAY=TELA)
+        if not (av / "video_id.txt").exists():
+            with open(av / "studio.log", "w") as lg:
+                subprocess.run(["node", "heygen-studio.mjs", "--titulo", f"R7X-{p.name}", "--fala-arquivo", av / "fala.txt",
+                                "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=R / "heygen", env=env,
+                               stdout=lg, stderr=subprocess.STDOUT, timeout=12000)
+            s = (av / "studio.log").read_text()
+            if "ERRO:" in s:
+                falha("estúdio: " + s[s.index("ERRO:"):][:200] + "  (sessão caiu? abra o login na tela do Nei — README §HeyGen)")
+            m = re.search(r"create-v4/([0-9a-f]{32})", s)
+            if not m:
+                falha("estúdio não devolveu o id (avatar/studio.log)")
+            (av / "video_id.txt").write_text(m.group(1))
+        r = subprocess.run(["node", "heygen-estudio-baixar.mjs", "--id", (av / "video_id.txt").read_text().strip(),
+                            "--saida", av / "avatar.mp4", "--minutos", "290", "--intervalo", "60"],
+                           cwd=R / "heygen", capture_output=True, text=True, timeout=18000)
+        if r.returncode:
+            falha("download do avatar: " + (r.stdout + r.stderr)[-300:])
+    d, sem = RT.retempo(p)
+    log(f"avatar {d:.1f} s · fala × roteiro {sem:.0%}")
+    if sem < 0.90:
+        falha(f"o avatar não fala o roteiro ({sem:.0%} < 90%)")
+
+
+def cmd_imagens(pasta):
+    p, f = ficha(pasta)
+    capa, prints = p / "capa", p / "prints"; capa.mkdir(exist_ok=True); prints.mkdir(exist_ok=True)
+    pecas.preto(capa / "preto.png")
+    a = f["abertura"]
+    linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
+              f"serifa: no topo, branco, \"{a['branco']}\"; logo abaixo, maior, em {COR.get(a.get('cor', 'amarelo'), a.get('cor'))}, "
+              f"\"{a['destaque']}\". Todo o texto na METADE DE CIMA da imagem; a metade de baixo sem texto. Confira a grafia exata, com acentos."]
+    for i, x in enumerate(f["partes"][1:], 2):
+        if x.get("imagem"):
+            linhas.append(f"{len(linhas) + 1}. p{i}.png — {x['imagem']}.")
+    pedido = (f"Gere {len(linhas)} imagens com a ferramenta de geração de imagem (image_gen) e salve nesta pasta, em PNG, formato RETRATO 9:16 "
+              f"(o maior tamanho vertical disponível). {ESTILO}\n\n" + "\n".join(linhas) + "\n\nAo final, liste os arquivos salvos.\n")
+    (capa / "pedido.txt").write_text(pedido)
+    falta = [n for n in ["abertura.png"] + [f"p{i}.png" for i, x in enumerate(f["partes"][1:], 2) if x.get("imagem")] if not (capa / n).exists()]
+    if falta:
+        log(f"Codex: {len(falta)} imagem(ns)…")
+        with open(capa / "codex.log", "w") as lg:
+            subprocess.run(["codex", "exec", "--skip-git-repo-check", "--dangerously-bypass-approvals-and-sandbox"], input=pedido, text=True,
+                           cwd=capa, stdout=lg, stderr=subprocess.STDOUT, timeout=2700)
+    for n in ["abertura.png"] + [f"p{i}.png" for i, x in enumerate(f["partes"][1:], 2) if x.get("imagem")]:
+        if not (capa / n).exists():
+            falha(f"o Codex não gerou capa/{n} (capa/codex.log)")
+        pecas.vertical(capa / n)
+    pecas.abertura(capa / "abertura.png")
+    for i, x in enumerate(f["partes"], 1):
+        if x.get("print"):
+            raw = prints / f"raw-p{i}.png"
+            if not raw.exists():
+                pecas.screenshot(x["print"]["url"], raw)
+            pecas.print_card(raw, prints / f"p{i}-c.png")
+    log("imagens OK — LEIA capa/abertura.png e confira a grafia do título antes do render")
+
+
+def cmd_cena(pasta):
+    p, f = ficha(pasta)
+    fl = falas(p, f)
+    t = p / "avatar/tempos.json"
+    if not t.exists() or t.stat().st_mtime < (p / "avatar/avatar.mp4").stat().st_mtime:
+        d, sem = RT.retempo(p); log(f"retempo {d:.1f} s · {sem:.0%}")
+    dur, nt, npn, nl = CENA.montar(p, f, fl)
+    log(f"cena.js ok: {dur} s · {nt} telas · {npn} painéis · {nl} blocos de legenda")
+
+
+def cmd_render(pasta):
+    p, f = ficha(pasta)
+    env = dict(os.environ, DISPLAY=TELA, GEO="geo-br.js", LAYOUT="canto", MUSICA=str(R / "assets/trilha.mp3"))
+    with open(p / "build-render.log", "w") as lg:
+        r = subprocess.run(["bash", R / "motor/compor_avatar.sh", p, p / "video.mp4"], cwd=R, env=env, stdout=lg, stderr=subprocess.STDOUT,
+                           timeout=3600)
+    if r.returncode:
+        falha("render: " + (p / "build-render.log").read_text()[-400:])
+    d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p / "video.mp4"]))
+    lufs = re.findall(r"I:\s+(-?[\d.]+) LUFS", subprocess.run(["ffmpeg", "-nostats", "-i", p / "video.mp4", "-af", "ebur128", "-f", "null", "-"],
+                                                            capture_output=True, text=True).stderr)
+    log(f"vídeo {p / 'video.mp4'} · {d:.1f} s · {lufs[-1] if lufs else '?'} LUFS")
+    if d >= 60:
+        falha(f"{d:.0f} s: short passa de 1 min")
+
+
+def cmd_revisar(pasta):
+    p, _ = ficha(pasta); v = p / "video.mp4"; b = p / "build"; b.mkdir(exist_ok=True)
+    d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", v]))
+    ts = [0.2, 1.5, 3.5] + [round(5 + (d - 6) * i / 8, 2) for i in range(9)]
+    qs = []
+    for k, t in enumerate(ts):
+        q = b / f"q{k:02d}.jpg"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", v, "-frames:v", "1", "-vf",
+                        f"scale=300:-1,drawtext=text='{t}':x=6:y=6:fontsize=20:fontcolor=white:box=1:boxcolor=black@0.6", q], check=True)
+        qs.append(q)
+    lay = "|".join(f"{(i % 6) * 300}_{(i // 6) * 533}" for i in range(12))
+    subprocess.run(["ffmpeg", "-v", "error", "-y", *sum((["-i", q] for q in qs), []), "-filter_complex", f"xstack=inputs=12:layout={lay}",
+                    b / "folha.jpg"], check=True)
+    log("folha", b / "folha.jpg", "— leia antes de enviar: título certo, nada cobrindo nada, prints legíveis")
+
+
+def cmd_enviar(pasta):
+    p, f = ficha(pasta)
+    leg = f"r7ex · {f['tema']}" + (f" · {f['publicar']['titulo']}" if f.get("publicar") else "")
+    subprocess.run(["node", R / "bin/enviar_bot_v3.mjs", p / "video.mp4", leg], check=True, timeout=600)
+
+
+def cmd_fila(pasta):
+    p, f = ficha(pasta); pub = f["publicar"]
+    subprocess.run(["python3", R / "fila/fila.py", "--add", p / "video.mp4", "--nome", f["tema"], "--titulo", pub["titulo"],
+                    "--contexto", pub["contexto"], "--canal", pub.get("fila", "lives7")], check=True)
+
+
+def cmd_fazer(pasta, de=None):
+    cmd_checar(pasta)
+    with cf.ThreadPoolExecutor(2) as ex:
+        a = ex.submit(cmd_imagens, pasta); b = ex.submit(cmd_avatar, pasta, de)
+        a.result(); b.result()
+    cmd_cena(pasta); cmd_render(pasta); cmd_revisar(pasta)
+    log("Terminei: reel pronto — leia build/folha.jpg; depois `enviar` e `fila`")
+
+
+def main(a):
+    if len(a) < 2:
+        sys.exit(__doc__)
+    de = a[a.index("--de") + 1] if "--de" in a else None
+    c = {"novo": cmd_novo, "checar": cmd_checar, "imagens": cmd_imagens, "cena": cmd_cena, "render": cmd_render,
+         "revisar": cmd_revisar, "enviar": cmd_enviar, "fila": cmd_fila}
+    if a[0] == "avatar":
+        cmd_avatar(a[1], de)
+    elif a[0] == "fazer":
+        cmd_fazer(a[1], de)
+    elif a[0] in c:
+        c[a[0]](a[1])
+    else:
+        sys.exit(__doc__)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

@@ -1,0 +1,13 @@
+node_modules/
+__pycache__/
+edicoes/*/avatar/
+edicoes/*/capa/*.png
+edicoes/*/prints/
+edicoes/*/build/
+edicoes/*/*.mp4
+edicoes/*/cena.js
+edicoes/*/.mapa.html
+edicoes/*/*.log
+.render.lock
+fila/.lock
+fila/fila.log
