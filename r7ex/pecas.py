@@ -49,6 +49,9 @@ def print_card(raw, saida, brilho=0.85):
     pr = Image.open(raw).convert("RGB")
     pr = pr.crop((0, 0, pr.width, min(pr.height, int(pr.width * 1.02))))
     larg = 940; pr = pr.resize((larg, round(pr.height * larg / pr.width)), Image.LANCZOS)
+    # o cartão termina em y ≤ 1090: a legenda tem a base em 1280 (66 px, cresce pra cima) e cobria o texto
+    # do print (revisor, 19/10: "NOS COMENTÁRIOS" em cima de "NEWS.inema.pro" em 6 reels)
+    pr = pr.crop((0, 0, larg, min(pr.height, 880)))
     pr = ImageEnhance.Brightness(pr).enhance(brilho)
     bg = Image.new("RGB", (W, H), FUNDO)
     x, y = (W - larg) // 2, 210
