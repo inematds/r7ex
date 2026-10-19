@@ -15,3 +15,9 @@ fila/fila.json
 *.envio-v3.json
 guia/assets/*.codex.log
 edicoes/*/capa/codex.log
+producao/estado.json
+producao/estado.tmp
+producao/producao.log
+producao/.estado.lock
+producao/.rodada.lock
+edicoes/*/producao.log

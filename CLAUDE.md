@@ -11,4 +11,5 @@ Padrão em `PADRAO.md`; explicação completa em `README.md`; skill em `skill/SK
   da API (exceção do Nei). Tudo que abre navegador roda com `DISPLAY=:99`; só a janela de LOGIN vai na tela do Nei (`:10`).
 - Imagens: Codex `image_gen` pela assinatura (`codex exec`). Ler `capa/abertura.png` e conferir a grafia antes do render.
 - Antes de enviar: ler `build/folha.jpg` (12 quadros). Publicar só pela fila (`r7ex.py fila`), nunca upload direto.
+- Padrão: `producao/producao.py --add <pasta>` (timer `r7ex-producao`): espera o HeyGen, monta, o revisor `claude -p` lê a folha e, aprovado, manda ao v3 + fila. Ver `producao/README.md`.
 - Falhou? Linha em `FALHAS.md` (data | o que quebrou | menor correção | prompt/infra).

@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+"""Produção do r7ex sem sessão aberta: leva cada edição do avatar no HeyGen até a fila do canal.
+
+Pedido do Nei (19/10/2026): "uma fila com agentes que espera o retorno do HeyGen e continua o processo".
+Quem espera é este script (timer `r7ex-producao`, a cada 5 min); o agente (claude -p, assinatura) só entra para
+REVISAR a folha de 12 quadros, que é o único passo que pede julgamento.
+
+Estados (só andam para a frente):
+  enviar_avatar → esperando_avatar → montar → revisao → na_fila
+  qualquer erro → parado (motivo no estado + aviso no v3); `--retomar <pasta>` tenta de novo do ponto certo.
+
+Uso:
+  producao.py --add <pasta>       entra na produção (precisa de avatar/APROVADO_HEYGEN ou avatar/AVATAR_DE.txt ou avatar.mp4)
+  producao.py --status            mostra as edições e o estado
+  producao.py --retomar <pasta>   tira do 'parado' e recalcula o estado
+  producao.py                     uma rodada (é o que o timer chama)
+
+Travas: só entra edição adicionada com --add (nunca varre edicoes/); o avatar só é gerado com APROVADO_HEYGEN
+(conferido pelo r7ex.py, este script nunca cria esse arquivo); o estúdio passa pela trava da ferramenta
+(heygen-perfil.mjs); publicação só pela fila do canal (r7ex.py fila), nunca upload direto.
+"""
+import fcntl, json, subprocess, sys, time
+from datetime import datetime
+from pathlib import Path
+
+AQUI = Path(__file__).resolve().parent
+R = AQUI.parent
+ESTADO = AQUI / "estado.json"
+LOG = AQUI / "producao.log"
+REVISOR = AQUI / "revisor.md"
+FILA = R / "fila/fila.json"
+AVISA = Path.home() / "projetos/wifi/scripts/avisa-v3.sh"
+R7EX = [sys.executable, str(R / "r7ex.py")]
+
+
+def log(msg):
+    with open(LOG, "a") as f:
+        f.write(f"{datetime.now():%Y-%m-%d %H:%M:%S} {msg}\n")
+    print(msg, flush=True)
+
+
+def avisa(msg):
+    h = datetime.now()
+    if h.hour == 23 and 20 <= h.minute <= 55:            # janela proibida do Telegram
+        time.sleep((56 - h.minute) * 60)
+    subprocess.run(["bash", str(AVISA), msg], capture_output=True, timeout=60)
+    log(f"aviso: {msg}")
+
+
+class Estado:
+    """estado.json com trava curta a cada leitura/escrita (o --add pode rodar no meio de uma rodada)"""
+    def __enter__(self):
+        self.lk = open(AQUI / ".estado.lock", "w"); fcntl.flock(self.lk, fcntl.LOCK_EX)
+        self.d = json.loads(ESTADO.read_text()) if ESTADO.exists() else {}
+        return self.d
+
+    def __exit__(self, *a):
+        if a[0] is None:
+            tmp = ESTADO.with_suffix(".tmp"); tmp.write_text(json.dumps(self.d, ensure_ascii=False, indent=1)); tmp.replace(ESTADO)
+        fcntl.flock(self.lk, fcntl.LOCK_UN); self.lk.close()
+
+
+def muda(pasta, estado, **campos):
+    with Estado() as d:
+        it = d[pasta]; ant = it["estado"]
+        it.update(estado=estado, desde=f"{datetime.now():%Y-%m-%d %H:%M}", **campos)
+    log(f"{Path(pasta).name}: {ant} → {estado}" + (f" ({campos['motivo']})" if campos.get("motivo") else ""))
+
+
+def para(pasta, motivo):
+    muda(pasta, "parado", motivo=motivo[-400:])
+    avisa(f"Falhou: r7ex {Path(pasta).name} — {motivo[-300:]}\n(depois de corrigir: producao.py --retomar {Path(pasta).name})")
+
+
+def roda(args, timeout, saida=None):
+    """roda o r7ex.py; devolve (rc, últimas linhas)"""
+    try:
+        r = subprocess.run(R7EX + args, cwd=R, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return 124, f"tempo esgotado ({timeout} s) em {args[0]}"
+    out = r.stdout + r.stderr
+    if saida:
+        with open(saida, "a") as f:
+            f.write(f"\n=== {datetime.now():%Y-%m-%d %H:%M:%S} r7ex.py {' '.join(args)} (rc {r.returncode})\n{out}")
+    return r.returncode, out.strip()[-600:]
+
+
+def estado_inicial(p):
+    av = p / "avatar"
+    if (av / "avatar.mp4").exists() or (av / "AVATAR_DE.txt").exists():
+        return "montar"
+    if (av / "video_id.txt").exists():
+        return "esperando_avatar"
+    return "enviar_avatar"
+
+
+def na_fila(p):
+    if not FILA.exists():
+        return False
+    return str(p / "video.mp4") in FILA.read_text()
+
+
+def revisar(p):
+    """agente (claude -p, assinatura) lê ficha + folha e devolve {veredito, motivo}"""
+    try:
+        r = subprocess.run(["claude", "-p", "--allowedTools", "Read", "--disallowedTools", "Bash", "Edit", "Write",
+                            "--output-format", "json", REVISOR.read_text()],
+                           cwd=p, capture_output=True, text=True, timeout=900, stdin=subprocess.DEVNULL)
+        res = json.loads(r.stdout)["result"].strip()
+        v = json.loads(res[res.index("{"): res.rindex("}") + 1])
+        assert v.get("veredito") in ("aprovado", "reprovado")
+        return v
+    except Exception as e:
+        return {"veredito": "erro", "motivo": f"revisor não respondeu direito: {str(e)[:200]}"}
+
+
+def passo(pasta, it, feito):
+    """avança uma edição um passo; `feito` limita os passos pesados por rodada. Devolve True se andou."""
+    p = Path(pasta); st = it["estado"]; logp = p / "producao.log"
+    if st == "enviar_avatar":
+        if feito.get("estudio"):
+            return False
+        feito["estudio"] = True
+        rc, out = roda(["avatar-enviar", pasta], 12600, logp)
+        if rc:
+            para(pasta, f"envio do avatar ao estúdio: {out}"); return False
+        muda(pasta, "esperando_avatar"); return True
+    if st == "esperando_avatar":
+        rc, out = roda(["avatar-conferir", pasta], 1500, logp)
+        if rc:
+            para(pasta, f"avatar no HeyGen: {out}"); return False
+        if out.splitlines()[-1:] == ["pronto"]:
+            muda(pasta, "montar"); return True
+        return False
+    if st == "montar":
+        if feito.get("montar"):
+            return False
+        feito["montar"] = True
+        rc, out = roda(["fazer", pasta], 7200, logp)
+        if rc:
+            para(pasta, f"montagem: {out}"); return False
+        muda(pasta, "revisao"); return True
+    if st == "revisao":
+        v = revisar(p)
+        with open(logp, "a") as f:
+            f.write(f"\n=== {datetime.now():%Y-%m-%d %H:%M:%S} revisor: {json.dumps(v, ensure_ascii=False)}\n")
+        if v["veredito"] != "aprovado":
+            para(pasta, f"revisão reprovou: {v['motivo']}"); return False
+        muda(pasta, "publicar", revisao=v["motivo"][:300]); return True
+    if st == "publicar":
+        if not it.get("enviado_v3"):
+            rc, out = roda(["enviar", pasta], 900, logp)
+            if rc:
+                para(pasta, f"envio ao v3: {out}"); return False
+            with Estado() as d:
+                d[pasta]["enviado_v3"] = True
+        lugar = "já estava na fila"
+        if not na_fila(p):                                # nunca entra duas vezes na fila
+            rc, out = roda(["fila", pasta], 300, logp)
+            if rc:
+                para(pasta, f"entrada na fila: {out}"); return False
+            lugar = next((l for l in out.splitlines() if "na fila" in l), "na fila")
+        muda(pasta, "na_fila")
+        avisa(f"Terminei: r7ex {p.name} revisado e {lugar}")
+        return True
+    return False
+
+
+def rodada():
+    lk = open(AQUI / ".rodada.lock", "w")
+    try:
+        fcntl.flock(lk, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        return                                            # rodada anterior ainda trabalhando
+    feito = {}
+    for _ in range(20):                                   # cada edição pode andar vários passos na mesma rodada
+        with Estado() as d:
+            itens = {k: dict(v) for k, v in d.items() if v["estado"] not in ("na_fila", "parado")}
+        andou = False
+        for pasta, it in sorted(itens.items(), key=lambda kv: kv[1]["entrou"]):
+            try:
+                andou |= passo(pasta, it, feito)
+            except Exception as e:                        # erro do próprio script: para a edição, não a produção
+                para(pasta, f"erro na produção: {e!r}")
+        if not andou:
+            break
+
+
+def add(pasta):
+    p = Path(pasta).resolve()
+    if not (p / "ficha.yaml").exists():
+        sys.exit(f"sem ficha.yaml em {p}")
+    av = p / "avatar"
+    if not any((av / n).exists() for n in ("APROVADO_HEYGEN", "AVATAR_DE.txt", "avatar.mp4")):
+        sys.exit("falta avatar/APROVADO_HEYGEN (OK do Nei para gerar este avatar) ou avatar/AVATAR_DE.txt (reaproveitar)")
+    st = "na_fila" if na_fila(p) else estado_inicial(p)
+    with Estado() as d:
+        if str(p) in d and d[str(p)]["estado"] not in ("parado",):
+            sys.exit(f"já está na produção: {d[str(p)]['estado']}")
+        d[str(p)] = {"estado": st, "entrou": f"{datetime.now():%Y-%m-%d %H:%M:%S}", "desde": f"{datetime.now():%Y-%m-%d %H:%M}"}
+    log(f"{p.name}: entrou na produção ({st})")
+
+
+def retomar(pasta):
+    p = Path(pasta).resolve()
+    with Estado() as d:
+        if str(p) not in d:
+            sys.exit("não está na produção (use --add)")
+        it = d[str(p)]
+        it.update(estado="na_fila" if na_fila(p) else estado_inicial(p), desde=f"{datetime.now():%Y-%m-%d %H:%M}")
+        it.pop("motivo", None)
+    log(f"{p.name}: retomada ({it['estado']})")
+
+
+def status():
+    with Estado() as d:
+        itens = dict(d)
+    if not itens:
+        print("produção vazia"); return
+    for k, v in sorted(itens.items(), key=lambda kv: kv[1]["entrou"]):
+        print(f"{v['estado']:<17} {v['desde']}  {Path(k).name}" + (f"\n{'':<18}motivo: {v['motivo'][:160]}" if v.get("motivo") else ""))
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    if not a:
+        rodada()
+    elif a[0] == "--add" and len(a) == 2:
+        add(a[1])
+    elif a[0] == "--retomar" and len(a) == 2:
+        retomar(a[1])
+    elif a[0] == "--status":
+        status()
+    else:
+        sys.exit(__doc__)

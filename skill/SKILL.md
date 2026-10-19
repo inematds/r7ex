@@ -21,10 +21,13 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
    da fala; contador onde houver número), `trocas` para a legenda, CTA em pergunta, `publicar`.
 3. `python3 r7ex.py checar <pasta>` até passar.
 4. Avatar: OK do Nei → `avatar/APROVADO_HEYGEN` com a frase dele; ou `--de <mp4>` para reaproveitar.
-5. `python3 r7ex.py fazer <pasta>` (imagens + avatar em paralelo → cena → render → folha).
-6. **Ler** `capa/abertura.png` (grafia do título) e `build/folha.jpg` (nada cobrindo nada, prints legíveis). Corrigiu
-   algo? `cena` + `render` + `revisar` de novo.
-7. `python3 r7ex.py enviar <pasta>` e `python3 r7ex.py fila <pasta>`. Dizer ao Nei "Terminei: …".
+5. **Padrão (sem sessão aberta):** `python3 producao/producao.py --add <pasta>`. O timer `r7ex-producao` (5 em 5 min)
+   manda ao estúdio (um por vez), espera o HeyGen, roda o `fazer`, o revisor (claude -p + `producao/revisor.md`) lê a
+   folha e, aprovado, manda ao v3 e põe na fila do canal; avisa no v3 "Terminei/Falhou". Reprovou → `parado` com o
+   motivo; corrigiu → `producao.py --retomar <pasta>`. Ver: `producao.py --status`. Detalhes: `producao/README.md`.
+6. **Manual** (só se o Nei pedir para acompanhar): `python3 r7ex.py fazer <pasta>`, **ler** `capa/abertura.png` e
+   `build/folha.jpg` (nada cobrindo nada, prints legíveis, legenda dentro da tela), depois
+   `python3 r7ex.py enviar <pasta>` e `python3 r7ex.py fila <pasta>`. Dizer ao Nei "Terminei: …".
 
 ## Regras
 - Tudo que abre navegador roda na tela `:99`; só o LOGIN do HeyGen vai na tela do Nei (`:10`).

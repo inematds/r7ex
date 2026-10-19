@@ -12,6 +12,9 @@ Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo e
   python3 r7ex.py enviar <pasta>          manda ao bot v3
   python3 r7ex.py fila <pasta>            entra no fim da fila do canal (fila/fila.py; padrão lives7)
   python3 r7ex.py fazer <pasta> [--de <mp4>]   (ou avatar/AVATAR_DE.txt na pasta) checar → imagens + avatar → cena → render → revisar (enviar/fila depois de ler a folha)
+  python3 r7ex.py avatar-enviar <pasta>   só manda a fala ao estúdio (grava avatar/video_id.txt), sem esperar
+  python3 r7ex.py avatar-conferir <pasta> uma conferência no HeyGen (leitura): imprime pronto | processando
+  Produção sozinha (sem sessão aberta): python3 producao/producao.py --add <pasta>  (ver producao/README.md)
 """
 import concurrent.futures as cf
 import datetime as dt
@@ -117,6 +120,45 @@ def cmd_checar(pasta):
     log(f"ficha OK: 7 partes, {len(tot)} caracteres, plano nota {f['plano']['nota']}")
 
 
+def avatar_enviar(pasta):
+    """manda a fala ao estúdio do HeyGen (fila/trava do estúdio) e grava avatar/video_id.txt; não espera o render"""
+    p, f = ficha(pasta); av = p / "avatar"; av.mkdir(exist_ok=True)
+    if (av / "avatar.mp4").exists() or (av / "video_id.txt").exists():
+        return
+    if not (av / "APROVADO_HEYGEN").exists():
+        falha("falta avatar/APROVADO_HEYGEN (o HeyGen só roda com o OK do Nei para esta produção)")
+    falas(p, f)
+    (av / "fala.txt").write_text(fala_total(f) + "\n")
+    with open(av / "studio.log", "w") as lg:
+        subprocess.run(["node", "heygen-studio.mjs", "--titulo", f"R7X-{p.name}", "--fala-arquivo", av / "fala.txt",
+                        "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=R / "heygen", env=dict(os.environ, DISPLAY=TELA),
+                       stdout=lg, stderr=subprocess.STDOUT, timeout=12000)
+    s = (av / "studio.log").read_text()
+    if "ERRO:" in s:
+        falha("estúdio: " + s[s.index("ERRO:"):][:200] + "  (sessão caiu? abra o login na tela do Nei — README §HeyGen)")
+    m = re.search(r"create-v4/([0-9a-f]{32})", s)
+    if not m:
+        falha("estúdio não devolveu o id (avatar/studio.log)")
+    (av / "video_id.txt").write_text(m.group(1))
+    log("avatar enviado ao estúdio:", m.group(1))
+
+
+def avatar_conferir(pasta, minutos=0.02):
+    """confere o avatar no HeyGen (leitura) e baixa se pronto → 'pronto' | 'processando'; erro do HeyGen = falha.
+    minutos=0.02 = uma conferência só (para a produção); o fazer manual espera até 290 min."""
+    av = Path(pasta) / "avatar"
+    if (av / "avatar.mp4").exists():
+        return "pronto"
+    r = subprocess.run(["node", "heygen-estudio-baixar.mjs", "--id", (av / "video_id.txt").read_text().strip(),
+                        "--saida", av / "avatar.mp4", "--minutos", str(minutos), "--intervalo", "1" if minutos < 1 else "60"],
+                       cwd=R / "heygen", capture_output=True, text=True, timeout=int(minutos * 60) + 1200)
+    if r.returncode == 0:
+        return "pronto"
+    if r.returncode == 4:
+        return "processando"
+    falha("avatar no HeyGen: " + (r.stdout + r.stderr)[-300:])
+
+
 def cmd_avatar(pasta, de=None):
     p, f = ficha(pasta); av = p / "avatar"; av.mkdir(exist_ok=True)
     falas(p, f)
@@ -127,25 +169,9 @@ def cmd_avatar(pasta, de=None):
     elif not (av / "avatar.mp4").exists():
         if not (av / "APROVADO_HEYGEN").exists():
             falha("falta avatar/APROVADO_HEYGEN (o HeyGen só roda com o OK do Nei para esta produção)")
-        (av / "fala.txt").write_text(fala_total(f) + "\n")
-        env = dict(os.environ, DISPLAY=TELA)
-        if not (av / "video_id.txt").exists():
-            with open(av / "studio.log", "w") as lg:
-                subprocess.run(["node", "heygen-studio.mjs", "--titulo", f"R7X-{p.name}", "--fala-arquivo", av / "fala.txt",
-                                "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=R / "heygen", env=env,
-                               stdout=lg, stderr=subprocess.STDOUT, timeout=12000)
-            s = (av / "studio.log").read_text()
-            if "ERRO:" in s:
-                falha("estúdio: " + s[s.index("ERRO:"):][:200] + "  (sessão caiu? abra o login na tela do Nei — README §HeyGen)")
-            m = re.search(r"create-v4/([0-9a-f]{32})", s)
-            if not m:
-                falha("estúdio não devolveu o id (avatar/studio.log)")
-            (av / "video_id.txt").write_text(m.group(1))
-        r = subprocess.run(["node", "heygen-estudio-baixar.mjs", "--id", (av / "video_id.txt").read_text().strip(),
-                            "--saida", av / "avatar.mp4", "--minutos", "290", "--intervalo", "60"],
-                           cwd=R / "heygen", capture_output=True, text=True, timeout=18000)
-        if r.returncode:
-            falha("download do avatar: " + (r.stdout + r.stderr)[-300:])
+        avatar_enviar(pasta)
+        if avatar_conferir(pasta, minutos=290) != "pronto":
+            falha("download do avatar: tempo esgotado esperando o HeyGen")
     d, sem = RT.retempo(p)
     log(f"avatar {d:.1f} s · fala × roteiro {sem:.0%}")
     if sem < 0.90:
@@ -266,6 +292,10 @@ def main(a):
         cmd_avatar(a[1], de)
     elif a[0] == "fazer":
         cmd_fazer(a[1], de)
+    elif a[0] == "avatar-enviar":
+        avatar_enviar(a[1])
+    elif a[0] == "avatar-conferir":
+        print(avatar_conferir(a[1]))
     elif a[0] in c:
         c[a[0]](a[1])
     else:
