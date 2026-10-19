@@ -66,6 +66,8 @@ def montar(pasta, ficha, falas):
             src, selo, zoom = "capa/abertura-desce.png", None, .03
         elif p.get("print"):
             src, selo, zoom = f"prints/p{i + 1}-c.png", p["print"].get("selo") or "print da página", .04
+        elif p.get("diagrama"):                          # diagrama animado (19/10/2026): fundo limpo, o motor desenha por cima
+            src, selo, zoom = "capa/preto.png", None, 0
         else:
             src, selo, zoom = f"capa/p{i + 1}.png", "ilustração", .07
         d = {"src": src, "ini": a, "fim": b, "fade": .3, "zoom": zoom}
@@ -91,6 +93,25 @@ def montar(pasta, ficha, falas):
         if pn.get("l"):
             d["l"] = pn["l"]
         paineis.append(d)
+
+    # diagramas (19/10/2026, pedido do Nei: "não só imagem, animações e diagramas"): fluxo | hub | terminal,
+    # cada nó/linha acende na palavra falada (de)
+    diagramas = []
+    for i, p in enumerate(partes):
+        dg = p.get("diagrama")
+        if not dg:
+            continue
+        fid = f"f{i + 1}"
+        a = F[fid]["ini"] - .1
+        b = (F[f"f{i + 2}"]["ini"] if i + 1 < len(partes) else DUR) - .1
+        d = {"ini": a, "fim": b, "forma": dg.get("forma", "fluxo"), "titulo": dg.get("titulo", "")}
+        itens = dg.get("nos") or dg.get("linhas") or []
+        d["nos"] = [{**{k: v for k, v in x.items() if k not in ("de", "k")}, "t": em(fid, x["de"], x.get("k", 1)) - .05 if x.get("de") else a + .2}
+                    for x in itens]
+        if dg.get("centro"):
+            c = dg["centro"]
+            d["centro"] = {**{k: v for k, v in c.items() if k != "de"}, "t": em(fid, c["de"]) - .05 if c.get("de") else a + .1}
+        diagramas.append(d)
 
     ult = f"f{len(partes)}"
     cta = {"ini": em(ult, "pede"), "fim": DUR, "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
@@ -119,6 +140,6 @@ def montar(pasta, ficha, falas):
         a["fim"] = min(max(a["fim"], b["ini"]), b["ini"])
 
     C = {"layout": "canto", "padding_baixo": 640, "duracao": DUR, "padding_topo": 0, "marca": ficha["marca"], "selo": ficha["selo"],
-         "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
+         "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "diagramas": diagramas, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
     (pasta / "cena.js").write_text("window.CENA=" + json.dumps(C, ensure_ascii=False) + ";")
     return DUR, len(telas), len(paineis), len(legenda)

@@ -46,6 +46,10 @@ Fala nunca termina parte em número solto.
 - **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa**; **contador** sempre que houver número;
   borda vermelha no medo, amarela no ganho, verde na solução.
 - **Prova real:** pelo menos 1 print da página do inema.club / curso.
+- **Diagrama animado** (D12, 19/10/2026): uma parte pode trocar a imagem por `diagrama:` — `forma: fluxo | hub | terminal`,
+  `titulo`, `nos: [{de: <palavra da fala>, ic: emoji, txt, sub?, cor?: vd}]` (2–6; no terminal `tipo: cmd | out | ok | cm`;
+  no hub `centro: {de, ic, txt}`). Fundo preto com grade leve; cada nó acende na palavra. Use em produto/técnico
+  (como funciona, o que tem no repo, o comando que roda); deixe a abertura com a arte do Codex.
 - **Legenda karaokê:** a palavra falada acende; vermelho = perigo, amarelo = ganho e números.
 - **Fecho:** caixa vermelha com **pergunta** (gera comentário) + pílula "inema.club".
 

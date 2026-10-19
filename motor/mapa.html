@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;700;900&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/deck.gl@9.0.38/dist.min.js"></script>
 <script src="geo.js"></script>
 <script src="cena.js"></script>
@@ -145,11 +145,45 @@ body.limpo #vinheta{background:radial-gradient(120% 80% at 50% 45%,rgba(5,8,12,0
 body.limpo .pino .cx{font-size:62px;padding:14px 26px;border-left-width:10px}
 body.limpo .pino .cx small{font-size:38px}
 body.limpo .pino .pt{width:30px;height:30px}
+/* diagrama animado (19/10/2026, Nei: "visual limpo, não só imagem: animações, diagramas"): fundo preto com grade leve,
+   nós que acendem na palavra falada; área y 150–1160 (acima da legenda/painel/avatar do modo canto) */
+#diag{position:absolute;inset:0;opacity:0;pointer-events:none;background:#0c0c10;
+  background-image:radial-gradient(ellipse at 50% 32%,rgba(250,204,21,.10),transparent 60%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:100% 100%,60px 60px,60px 60px}
+#diag .area{position:absolute;left:60px;right:60px;top:150px;height:1010px}
+#diag .dt{font:900 30px Inter;letter-spacing:4px;color:#FACC15;text-transform:uppercase;margin:0 0 26px 4px}
+#diag .no{position:relative;display:flex;align-items:center;gap:24px;background:rgba(20,24,32,.94);border:2px solid rgba(255,255,255,.14);border-radius:24px;padding:20px 28px;box-sizing:border-box}
+#diag .no.at{border-color:#FACC15;box-shadow:0 0 44px rgba(250,204,21,.28)}
+#diag .no.vd{border-color:#22c55e;box-shadow:0 0 44px rgba(34,197,94,.25)}
+#diag .no .ic{font-size:58px;line-height:1;flex:0 0 auto}
+#diag .no .tx{font:900 44px/1.1 Inter;color:#fff}
+#diag .no .tx small{display:block;font:700 26px/1.25 Inter;color:#a8b0bd;margin-top:6px}
+#diag .no .num{position:absolute;right:22px;top:16px;font:800 22px 'JetBrains Mono';color:rgba(250,204,21,.8)}
+#diag .seta{position:relative;height:58px;margin-left:70px}
+#diag .seta i{position:absolute;left:0;top:0;width:6px;border-radius:3px;background:#FACC15}
+#diag .seta b{position:absolute;left:-11px;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:18px solid #FACC15}
+#diag .hub{position:absolute;inset:60px 0 0 0}
+#diag .hub svg{position:absolute;inset:0;width:100%;height:100%}
+#diag .hub .no{position:absolute;width:290px;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 22px}
+#diag .hub .no .ic{font-size:48px}#diag .hub .no .tx{font-size:34px}#diag .hub .no .tx small{font-size:23px}
+#diag .hub .cx{position:absolute;width:280px;height:280px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle,rgba(250,204,21,.22),rgba(20,24,32,.96) 70%);border:3px solid #FACC15;box-shadow:0 0 70px rgba(250,204,21,.3);box-sizing:border-box;padding:20px}
+#diag .hub .cx .ic{font-size:70px}#diag .hub .cx .tx{font:900 34px/1.1 Inter;color:#fff;margin-top:8px}
+#diag .term{background:#07090d;border:2px solid rgba(255,255,255,.16);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#diag .term .bar{height:54px;background:#151922;display:flex;align-items:center;gap:12px;padding:0 22px}
+#diag .term .bar i{width:18px;height:18px;border-radius:50%;background:#3a3f4b}#diag .term .bar i:first-child{background:#ff5f57}#diag .term .bar i:nth-child(2){background:#febc2e}#diag .term .bar i:nth-child(3){background:#28c840}
+#diag .term .bar span{margin-left:14px;font:800 22px 'JetBrains Mono';color:#8b93a1}
+#diag .term .ln{font:500 33px/1.45 'JetBrains Mono';color:#d6dbe3;padding:0 30px;white-space:pre-wrap;word-break:break-word}
+#diag .term .ln.cmd{color:#fff;font-weight:800}#diag .term .ln.cmd::before{content:'$ ';color:#FACC15}
+#diag .term .ln.ok{color:#4ade80;font-weight:800}#diag .term .ln.cm{color:#7d8696}
+#diag .term .corpo{padding:26px 0 34px}
+#diag .term .cur{display:inline-block;width:16px;height:32px;background:#FACC15;vertical-align:-5px;margin-left:4px}
 </style></head>
 <body>
 <div id="mapa"></div>
 <div id="vinheta"></div>
 <div id="telas"></div>
+<div id="diag"></div>
 <div id="pinos"></div>
 <div id="topo"><div id="marca">INEMA · ALERTA SUL</div><div id="selo"></div></div>
 <div id="hero"></div>
@@ -331,7 +365,43 @@ function ranking(r,t,p){
     `<span class="vl" style="color:${n==0?(r.cor_top||r.cor):'#fff'}">${Math.round(i.v*k).toLocaleString('pt-BR')} ${r.unid||''}</span></div>`).join('')+'</div>';
 }
 
+// diagrama: d={ini,fim,forma:fluxo|hub|terminal,titulo,nos:[{t,ic,txt,sub,cor?,tipo?}],centro?}
+function diagrama(t){
+  const D=document.getElementById('diag'); const d=(C.diagramas||[]).find(x=>t>=x.ini&&t<=x.fim);
+  if(!d){D.style.opacity=0; return;}
+  D.style.opacity=vis(t,d.ini,d.fim,.3);
+  const ent=(x,dur=.4)=>prog(t,x,dur);
+  const ultimo=d.nos.reduce((m,n,i)=>t>=n.t?i:m,-1);
+  let h=`<div class="area">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
+  if(d.forma==='terminal'){
+    h+=`<div class="term" style="opacity:${ent(d.ini+.1)};transform:translateY(${(1-ent(d.ini+.1))*30}px)"><div class="bar"><i></i><i></i><i></i><span>${d.barra||'terminal'}</span></div><div class="corpo">`;
+    d.nos.forEach((n,i)=>{ if(t<n.t) return; const tp=n.tipo||'cmd'; const full=n.txt;
+      const k=tp==='cmd'?clamp((t-n.t)/Math.max(.35,full.length/38)):1; const vis_=full.slice(0,Math.ceil(full.length*k));
+      const cur=(i===ultimo&&tp==='cmd'&&k<1)?'<span class="cur"></span>':'';
+      h+=`<div class="ln ${tp}" style="opacity:${tp==='cmd'?1:ent(n.t,.3)}">${vis_}${cur}</div>`; });
+    h+='</div></div>';
+  } else if(d.forma==='hub'){
+    const W=960,H=950,cx=W/2,cy=H/2-20,N=d.nos.length,R=[345,385];
+    const pos=d.nos.map((n,i)=>{const a=-Math.PI/2+i*2*Math.PI/N; return [cx+R[0]*Math.cos(a)*(N>4?1:.9), cy+R[1]*Math.sin(a)];});
+    let sv=`<svg viewBox="0 0 ${W} ${H}">`;
+    d.nos.forEach((n,i)=>{ const k=ent(n.t,.45); if(!k) return; const [x,y]=pos[i];
+      sv+=`<line x1="${cx}" y1="${cy}" x2="${cx+(x-cx)*k}" y2="${cy+(y-cy)*k}" stroke="${i===ultimo?'#FACC15':'rgba(250,204,21,.45)'}" stroke-width="${i===ultimo?6:4}" stroke-linecap="round"/>`; });
+    sv+='</svg>';
+    h+=`<div class="hub">${sv}`;
+    if(d.centro){const k=ent(d.centro.t,.5); h+=`<div class="cx" style="left:${cx-140}px;top:${cy-140}px;opacity:${k};transform:scale(${.8+.2*k})"><div class="ic">${d.centro.ic||''}</div><div class="tx">${d.centro.txt}</div></div>`;}
+    d.nos.forEach((n,i)=>{ const k=ent(n.t,.4); const [x,y]=pos[i];
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="left:${clamp(x-145,0,W-290)}px;top:${y-70}px;opacity:${.12+.88*k};transform:scale(${.9+.1*k})"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div></div>`; });
+    h+='</div>';
+  } else {
+    d.nos.forEach((n,i)=>{ const k=ent(n.t,.4);
+      if(i>0){ const s=ent(n.t-.25,.35); h+=`<div class="seta"><i style="height:${36*s}px"></i><b style="top:${36*s}px;opacity:${s}"></b></div>`; }
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="opacity:${.12+.88*k};transform:translateX(${(1-k)*-40}px)"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div><div class="num">${String(i+1).padStart(2,'0')}</div></div>`; });
+  }
+  D.innerHTML=h+'</div>';
+}
+
 function html(t){
+  diagrama(t);
   const H=document.getElementById('hero'); const h=(C.hero||[]).find(x=>t>=x.ini&&t<=x.fim);
   if(h){H.innerHTML=h.html;H.style.opacity=h.ini<=0?clamp((h.fim-t)/.3):vis(t,h.ini,h.fim,.3);} else H.style.opacity=0;
   // painel com contador

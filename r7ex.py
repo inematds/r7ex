@@ -101,18 +101,24 @@ def cmd_checar(pasta):
             erros.append(f"abertura sem '{k}'")
     for i, x in enumerate(f["partes"]):
         texto = CENA.n(x.get("legenda") or x["fala"])
-        if i > 0 and not (x.get("imagem") or x.get("print")):
-            erros.append(f"parte {i + 1} sem imagem nem print")
+        if i > 0 and not (x.get("imagem") or x.get("print") or x.get("diagrama")):
+            erros.append(f"parte {i + 1} sem imagem, print nem diagrama")
+        dg = x.get("diagrama") or {}
+        if dg and dg.get("forma", "fluxo") not in ("fluxo", "hub", "terminal"):
+            erros.append(f"parte {i + 1}: diagrama.forma deve ser fluxo, hub ou terminal")
+        if dg and not 2 <= len(dg.get("nos") or dg.get("linhas") or []) <= 6:
+            erros.append(f"parte {i + 1}: diagrama com 2 a 6 nós/linhas")
         if re.search(r"\d", x["fala"]):
             erros.append(f"parte {i + 1}: número em algarismo na fala (o avatar lê errado): escreva por extenso e use 'trocas'")
         pn = x.get("painel") or {}
         palavras = [pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
+        palavras += [it.get("de") for it in (dg.get("nos") or dg.get("linhas") or [])] + [(dg.get("centro") or {}).get("de")]
         leg = x.get("legenda") or x["fala"]
         for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
             leg = leg.replace(a, b)
         for w in filter(None, palavras):
             if CENA.n(w) not in CENA.n(leg):
-                erros.append(f"parte {i + 1}: '{w}' do painel não está na fala/legenda")
+                erros.append(f"parte {i + 1}: '{w}' do painel/diagrama não está na fala/legenda")
     if not any(x.get("print") for x in f["partes"]):
         erros.append("nenhum print real (PADRAO.md: pelo menos 1)")
     if erros:

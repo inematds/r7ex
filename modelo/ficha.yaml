@@ -66,6 +66,14 @@ partes:
       k: "SEM LIMITE × COM LIMITE"
       borda: vd
       itens: [[susto, "🔴 sem limite: US$ 1.700"], [aviso, "🟢 com limite: só um aviso"], [celular, "📱 chega no celular"]]
+  # Parte com DIAGRAMA ANIMADO no lugar da imagem (D12, 19/10/2026) — exemplo:
+  #   diagrama:
+  #     forma: fluxo                 # fluxo | hub | terminal
+  #     titulo: "COMO FUNCIONA"
+  #     nos:                          # 2–6; cada um acende na palavra 'de' (precisa estar na fala)
+  #       - {de: audita, ic: "🩻", txt: "Auditor", sub: "canônico, sitemap, robots"}
+  #       - {de: nota, ic: "🎯", txt: "Agente-ready", sub: "nota de 0 a 100", cor: vd}
+  #   (hub: + centro: {de: repo, ic: "📦", txt: "inemaseo-sistemas"}; terminal: nos com tipo: cmd|out|ok|cm e barra: "título")
   - etapa: comentario
     fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
     print: {url: "https://inema.club", selo: "inema.club"}
