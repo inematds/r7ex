@@ -394,9 +394,9 @@ function diagrama(t){
       sv+=`<line x1="${cx}" y1="${cy}" x2="${cx+(x-cx)*k}" y2="${cy+(y-cy)*k}" stroke="${i===ultimo?'#FACC15':'rgba(250,204,21,.45)'}" stroke-width="${i===ultimo?6:4}" stroke-linecap="round"/>`; });
     sv+='</svg>';
     h+=`<div class="hub">${sv}`;
-    if(d.centro){const k=ent(d.centro.t,.5); h+=`<div class="cx" style="left:${cx-140}px;top:${cy-140}px;opacity:${k};transform:scale(${.8+.2*k})"><div class="ic">${d.centro.ic||''}</div><div class="tx">${d.centro.txt}</div></div>`;}
+    if(d.centro){const k=ent(Math.min(d.centro.t,d.ini+.3),.5); h+=`<div class="cx" style="left:${cx-140}px;top:${cy-140}px;opacity:${k};transform:scale(${.8+.2*k})"><div class="ic">${d.centro.ic||''}</div><div class="tx">${d.centro.txt}</div></div>`;}
     d.nos.forEach((n,i)=>{ const k=ent(n.t,.4); const [x,y]=pos[i];
-      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="left:${clamp(x-145,0,W-290)}px;top:${y-70}px;opacity:${.12+.88*k};transform:scale(${.9+.1*k})"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div></div>`; });
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="left:${clamp(x-145,0,W-290)}px;top:${y-70}px;opacity:${.25+.75*k};transform:scale(${.9+.1*k})"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div></div>`; });
     h+='</div>';
   } else {
     d.nos.forEach((n,i)=>{ const k=ent(n.t,.4);
