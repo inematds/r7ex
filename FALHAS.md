@@ -5,6 +5,7 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-19 | Revisor reprovou 10 de 12 reels r7ex da fila: legenda em cima do texto do print (cartão alto demais) e legenda vazando (saas, tres-estagios) | cartão do print até y 1090 (pecas.print_card) + MAX_LEG; refazer cena+render dos 10 com o OK do Nei | infra |
 | 2026-10-19 | Legenda "BILLION CONTEXT ENXUGANDO" vazou da tela (skills15); passou na minha leitura da folha, o revisor claude -p pegou | bloco de legenda quebra também por largura (MAX_LEG 21) + revisor automático na produção | infra |
 | 2026-10-19 | Print do guia (skills15) saiu todo preto com âncora #numeros e a folha mostrou moldura vazia; contador sem "MILHÃO" | print sem âncora + unid com MILHÃO; falta portão: print quase uniforme (desvio baixo) reprovar no `imagens` | infra + prompt |
 | 2026-10-19 | Dois envios ao estúdio HeyGen no mesmo segundo: o 2º caiu com "Opening in existing browser session" (r7e-para-r7ex) | trava atômica (mkdir) no heygen-perfil.mjs, da ferramenta: ~/.cache/inemaccbot/heygen-estudio.trava (commit 592659c) | infra |
