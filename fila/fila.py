@@ -69,6 +69,9 @@ def adicionar(argv):
 def main():
     if "--add" in sys.argv:
         return adicionar(sys.argv)
+    # Só publica quando chamado SEM argumentos (o timer). Qualquer outro (--help, erro de digitação) só mostra a ajuda.
+    if len(sys.argv) > 1 and "--status" not in sys.argv:
+        print(__doc__ or "uso: fila.py [--status | --add <mp4> --nome ... --contexto ...]"); return
     fila = ler()
     pend = [x for x in fila if x["estado"] == "pendente"]
     if "--status" in sys.argv:
