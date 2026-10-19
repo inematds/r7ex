@@ -5,6 +5,7 @@ from pathlib import Path
 
 BORDA = {"red": "rgba(255,42,31,.7)", "am": "rgba(250,204,21,.75)", "vd": "rgba(34,197,94,.7)"}
 NUM = re.compile(r"\d")
+MAX_LEG = 21                          # letras por bloco de legenda (23 já encosta na borda; 25 vazou)
 
 
 def n(s):
@@ -101,9 +102,14 @@ def montar(pasta, ficha, falas):
         cores.setdefault(k, "#FACC15")
     legenda = []
     for t in T:
-        bloco = []
+        bloco = []; ant = None
         for i, p in enumerate(t["palavras"]):
             w = p["w"]; k = n(w)
+            # bloco cabe na largura: até 3 palavras e até MAX_LEG letras ("BILLION CONTEXT ENXUGANDO" vazou, 19/10)
+            if bloco and len(" ".join(b["w"] for b in bloco) + " " + w) > MAX_LEG:
+                legenda.append({"ini": bloco[0]["t"] - .05, "fim": ant["f"] + .12, "palavras": bloco})
+                bloco = []
+            ant = p
             cor = cores.get(k) or ("#FACC15" if NUM.search(k) else None)
             bloco.append({"w": w, "t": p["t"], **({"cor": cor} if cor else {})})
             if len(bloco) == 3 or w[-1:] in ".?!,:" or i == len(t["palavras"]) - 1:
