@@ -182,6 +182,10 @@ def cmd_imagens(pasta):
             raw = prints / f"raw-p{i}.png"
             if not raw.exists():
                 pecas.screenshot(x["print"]["url"], raw)
+            from PIL import Image, ImageStat
+            if ImageStat.Stat(Image.open(raw).convert("L")).stddev[0] < 8:   # print todo preto (skills15, 19/10)
+                raw.rename(raw.with_name(raw.stem + "-vazio.png"))
+                falha(f"print da parte {i} saiu vazio (página sem conteúdo no headless? tire âncora #…): {x['print']['url']}")
             pecas.print_card(raw, prints / f"p{i}-c.png")
     log("imagens OK — LEIA capa/abertura.png e confira a grafia do título antes do render")
 
