@@ -31,6 +31,7 @@ REVISOR = AQUI / "revisor.md"
 FILA = R / "fila/fila.json"
 AVISA = Path.home() / "projetos/wifi/scripts/avisa-v3.sh"
 R7EX = [sys.executable, str(R / "r7ex.py")]
+TETO_AVATAR_H = 6                                         # esperando o HeyGen mais que isso → parado + aviso
 
 
 def log(msg):
@@ -103,8 +104,7 @@ def na_fila(p):
 def revisar(p):
     """agente (claude -p, assinatura) lê ficha + folha e devolve {veredito, motivo}"""
     try:
-        r = subprocess.run(["claude", "-p", "--allowedTools", "Read", "--disallowedTools", "Bash", "Edit", "Write",
-                            "--output-format", "json", REVISOR.read_text()],
+        r = subprocess.run(["claude", "-p", "--output-format", "json", "--allowedTools", "Read", "--", REVISOR.read_text()],
                            cwd=p, capture_output=True, text=True, timeout=900, stdin=subprocess.DEVNULL)
         res = json.loads(r.stdout)["result"].strip()
         v = json.loads(res[res.index("{"): res.rindex("}") + 1])
@@ -131,6 +131,9 @@ def passo(pasta, it, feito):
             para(pasta, f"avatar no HeyGen: {out}"); return False
         if out.splitlines()[-1:] == ["pronto"]:
             muda(pasta, "montar"); return True
+        horas = (datetime.now() - datetime.strptime(it["desde"], "%Y-%m-%d %H:%M")).total_seconds() / 3600
+        if horas > TETO_AVATAR_H:                         # ID errado, rascunho não enviado ou HeyGen travado
+            para(pasta, f"o HeyGen não entregou o avatar em {TETO_AVATAR_H} h (conferir o título R7X-{p.name} em Projetos no estúdio)")
         return False
     if st == "montar":
         if feito.get("montar"):

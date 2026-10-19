@@ -22,7 +22,7 @@ def roda(args, timeout, saida=None):
         (av / "video_id.txt").write_text("x" * 32); return 0, ""
     if cmd == "avatar-conferir":
         conferidas[pasta.name] = conferidas.get(pasta.name, 0) + 1
-        if conferidas[pasta.name] < 2:
+        if conferidas[pasta.name] < 2 or pasta.name == "d":   # "d" nunca fica pronto
             return 0, "processando"
         (av / "avatar.mp4").write_text("mp4"); return 0, "pronto"
     if cmd == "fazer":
@@ -92,5 +92,11 @@ try:
     P.add(str(a)); confere(False, "add repetido deveria recusar")
 except SystemExit:
     confere(True, "add repetido é recusado")
+
+d = edicao("d"); P.add(str(d)); P.rodada()          # vai ao estúdio, fica esperando
+with P.Estado() as e:
+    e[str(d)]["desde"] = "2000-01-01 00:00"          # esperando há muito tempo; a 1ª conferência diz "processando"
+P.rodada()
+confere(estado(d) == "parado" and any("não entregou" in m for m in avisos), "avatar que não chega em 6 h para com aviso")
 
 print(f"\n{ok} conferências ok · pasta {tmp}")
