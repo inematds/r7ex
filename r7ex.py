@@ -135,8 +135,13 @@ def avatar_enviar(pasta):
         falha("falta avatar/APROVADO_HEYGEN (o HeyGen só roda com o OK do Nei para esta produção)")
     falas(p, f)
     (av / "fala.txt").write_text(fala_total(f) + "\n")
+    # card que ficou Draft continua no estúdio com o mesmo título: o reenvio usa sufixo -t2, -t3… (19/10/2026)
+    n = len(list(av.glob("studio*.log"))) + 1 if (av / "studio.log").exists() else 1
+    if n > 1:
+        (av / "studio.log").rename(av / f"studio-t{n - 1}.log")
+    titulo = f"R7X-{p.name}" + (f"-t{n}" if n > 1 else "")
     with open(av / "studio.log", "w") as lg:
-        subprocess.run(["node", "heygen-studio.mjs", "--titulo", f"R7X-{p.name}", "--fala-arquivo", av / "fala.txt",
+        subprocess.run(["node", "heygen-studio.mjs", "--titulo", titulo, "--fala-arquivo", av / "fala.txt",
                         "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=R / "heygen", env=dict(os.environ, DISPLAY=TELA),
                        stdout=lg, stderr=subprocess.STDOUT, timeout=12000)
     s = (av / "studio.log").read_text()
