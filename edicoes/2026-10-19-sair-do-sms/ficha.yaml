@@ -1,0 +1,86 @@
+# Ficha r7ex — sair do SMS / MFA (sobreviver-ia, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives1.
+slug: sair-do-sms
+tema: "Uma senha fraca esquentou as geladeiras de 350 supermercados na França. E o código por SMS do seu banco cai no golpe do chip"
+
+plano:
+  pessoa: "qualquer um com conta no banco, WhatsApp e e-mail protegidos só por senha ou SMS"
+  quer: "não perder a conta do banco/WhatsApp num golpe (dor) e ficar tranquilo com a proteção certa (desejo)"
+  gancho: "medo: França, 11/10/2026 — controladores de geladeira ligados à internet com senha fraca, pelo menos 350 supermercados aquecidos até ~50 °C (Reuters)"
+  nota: 8
+  destino: "https://inematds.github.io/sobreviver-ia/guia/#guia (checklist MFA, no inema.club, projetos)"
+
+marca: "INEMA · SAIA DO SMS"
+selo: "ALERTA INEMA"
+fonte: "<b>Reuters</b> · ataque a supermercados na França, 11/10/2026 · imagens: ilustração"
+
+abertura:
+  branco: "UMA SENHA FRACA DERRUBOU 350 MERCADOS"
+  destaque: "O SEU SMS É O PRÓXIMO"
+  cor: vermelho
+  cena: "fileira de geladeiras de supermercado à noite, portas de vidro embaçadas e luzes internas vermelhas, um termômetro digital gigante na parede marcando calor em vermelho; corredor vazio; ninguém na cena"
+
+trocas:
+  "trezentos e cinquenta": "350"
+  "cinquenta graus": "50 °C"
+  "seis dígitos": "6 dígitos"
+  "três contas": "3 contas"
+  "cinco minutos": "5 minutos"
+
+partes:
+  - etapa: gancho
+    fala: "Uma senha fraca bastou para hackers esquentarem até cinquenta graus as geladeiras de trezentos e cinquenta supermercados na França."
+    painel:
+      de: hackers
+      k: "FRANÇA · OUT/2026"
+      borda: red
+      contador: {ate: 350, em: "350", cor: "#ff2a1f", unid: "SUPERMERCADOS"}
+      l: "geladeiras aquecidas até ~50 °C · Reuters"
+  - etapa: medo
+    fala: "E o código por SMS que protege o seu banco cai no golpe da troca de chip. O código vai parar no celular do golpista."
+    imagem: "um chip de celular sendo puxado de um celular por uma pinça metálica, faíscas vermelhas saindo do encaixe, fundo preto; sensação de roubo"
+    painel:
+      k: "O GOLPE DO CHIP"
+      borda: red
+      itens: [[SMS, "💬 código por SMS"], [chip, "📲 troca de chip"], [golpista, "🥷 cai no celular do golpista"]]
+  - etapa: desejo
+    fala: "Imagina saber que, mesmo com a sua senha, ninguém entra na sua conta."
+    imagem: "uma porta de cofre redonda e fechada brilhando em luz amarela num fundo preto, com uma mão enluvada tentando sem sucesso abri-la; sensação de proteção"
+    painel:
+      k: "NINGUÉM ENTRA"
+      itens: [[senha, "🔑 mesmo com a senha"], [ninguém, "🛡️ ninguém entra"]]
+  - etapa: facilidade
+    fala: "Não precisa ser técnico. São cinco minutos por conta, com um aplicativo grátis no celular."
+    imagem: "celular numa mesa preta mostrando um grande código numérico luminoso amarelo de seis dígitos, sem texto legível além dos números borrados; luz amarela de mesa"
+    painel:
+      k: "5 MINUTOS POR CONTA"
+      itens: [[técnico, "✅ sem ser técnico"], [minutos, "⏱️ 5 minutos por conta"], [aplicativo, "📱 app autenticador"]]
+  - etapa: descoberta
+    fala: "A ordem é essa: primeiro o e-mail, depois o banco, depois o WhatsApp. Troque o SMS por um código de seis dígitos do aplicativo."
+    diagrama:
+      forma: fluxo
+      titulo: "A ORDEM CERTA"
+      nos:
+        - {de: e-mail, ic: "✉️", txt: "1. E-mail", sub: "recupera todas as outras"}
+        - {de: banco, ic: "🏦", txt: "2. Banco", sub: "app e cartão"}
+        - {de: WhatsApp, ic: "💬", txt: "3. WhatsApp", sub: "PIN de duas etapas"}
+        - {de: dígitos, ic: "🔢", txt: "Código do app", sub: "no lugar do SMS", cor: vd}
+  - etapa: beneficio
+    fala: "Faça hoje as três contas principais, antes que o golpe chegue em você."
+    imagem: "três cadeados dourados fechados lado a lado sobre uma mesa preta, iluminados por um foco amarelo forte; sensação de missão cumprida"
+    painel:
+      k: "ANTES DO GOLPE"
+      borda: vd
+      itens: [[hoje, "📅 hoje"], [contas, "🔒 as 3 contas principais"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#guia", selo: "checklist de segurança · inema.club"}
+
+cta: {a: "SEU BANCO AINDA USA SMS? 👇", b: "ou me pede o link do checklist nos comentários"}
+club: "o checklist para sair do SMS, conta por conta"
+cores: {senha: "#ff2a1f", hackers: "#ff2a1f", trezentos: "#ff2a1f", SMS: "#ff2a1f", chip: "#ff2a1f", golpista: "#ff2a1f",
+        ninguém: "#FACC15", aplicativo: "#FACC15", e-mail: "#FACC15", banco: "#FACC15", WhatsApp: "#FACC15", hoje: "#FACC15"}
+
+publicar:
+  fila: lives1
+  titulo: "Uma senha fraca derrubou 350 supermercados — e o SMS do seu banco é o próximo #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Em 11/10/2026, na França, hackers aqueceram até cerca de 50 °C as geladeiras de pelo menos 350 supermercados atacando controladores ligados à internet com senha fraca (Reuters). O código por SMS cai no golpe da troca de chip (SIM swap). Solução: app autenticador (código de 6 dígitos) ou passkey, na ordem e-mail → banco → WhatsApp, 5 minutos por conta. Checklist no projeto aberto sobreviver-ia, no inema.club. CTA: seu banco ainda usa SMS / peça o link."

@@ -1,0 +1,88 @@
+# Ficha r7ex — plano de 90 dias: ter algo seu + distribuição (sobreviver-ia, semanas 3–8, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives2.
+slug: plano-90-dias
+tema: "Treze, quinze, dezenove por cento: o número de Stanford só sobe. Se o seu salário parasse amanhã, o que continuaria rendendo?"
+
+plano:
+  pessoa: "assalariado que vende horas e não tem nada próprio além do emprego"
+  quer: "não ficar sem renda se o emprego sumir (dor) e ter algo seu que rende sem ele estar lá (desejo)"
+  gancho: "medo: Stanford Digital Economy Lab (Canaries in the Coal Mine) — o gap de emprego de 22–25 anos nas funções expostas subiu a cada versão: 13% → 15% → 19% (ago/2026)"
+  nota: 7
+  destino: "https://inematds.github.io/sobreviver-ia/guia/#plano (plano de 90 dias, no inema.club, projetos)"
+
+marca: "INEMA · 90 DIAS"
+selo: "ALERTA INEMA"
+fonte: "<b>Stanford Digital Economy Lab</b> · Canaries in the Coal Mine, versões até ago/2026 · imagens: ilustração"
+
+abertura:
+  branco: "E SE O SEU SALÁRIO PARASSE AMANHÃ?"
+  destaque: "O QUE CONTINUA RENDENDO?"
+  cor: vermelho
+  cena: "uma torneira dourada de onde cai a última gota, sobre um cofrinho vazio rachado numa mesa preta; luz vermelha de alerta vindo de cima; sensação de fonte secando"
+
+trocas:
+  "Treze": "13%"
+  "quinze": "15%"
+  "dezenove por cento": "19%"
+  "noventa dias": "90 dias"
+  "duas semanas": "2 semanas"
+  "cinco pessoas": "5 pessoas"
+  "duas vezes": "2 vezes"
+
+partes:
+  - etapa: gancho
+    fala: "Treze, quinze, dezenove por cento. A cada versão do estudo de Stanford, o emprego dos jovens nas funções expostas à IA cai mais."
+    painel:
+      de: Stanford
+      k: "STANFORD · O GAP SÓ SOBE"
+      borda: red
+      contador: {ate: 19, em: "19", cor: "#ff2a1f", unid: "% ABAIXO"}
+      l: "13% → 15% → 19% · 22 a 25 anos, funções expostas"
+  - etapa: medo
+    fala: "Se o seu salário parasse amanhã, o que continuaria rendendo sem você estar lá? Para muita gente, a resposta é nada."
+    imagem: "um relógio de ponto de fábrica antigo com o cartão de ponto rasgado ao meio caindo no chão, fundo preto, luz vermelha; sensação de fim"
+    painel:
+      k: "SE O SALÁRIO PARAR"
+      borda: red
+      itens: [[salário, "💼 o salário parou"], [rendendo, "❓ o que continua rendendo"], [nada, "🚫 nada"]]
+  - etapa: desejo
+    fala: "Imagina ter algo seu, que gera valor mesmo quando você troca de emprego."
+    imagem: "uma pequena muda de árvore dourada brotando de um vaso numa mesa preta, iluminada por luz amarela, crescendo com folhas brilhantes; sensação de algo que é seu"
+    painel:
+      k: "ALGO SEU"
+      itens: [[seu, "🌱 algo seu"], [valor, "💰 gera valor"], [emprego, "🔁 vai junto se trocar de emprego"]]
+  - etapa: facilidade
+    fala: "Não precisa largar o emprego. A IA faz a versão mínima com você em duas semanas."
+    imagem: "um robô humanoide estilo Optimus de visor preto montando junto com mãos humanas uma pequena caixa de produto luminosa sobre uma bancada escura; luz amarela"
+    painel:
+      k: "SEM LARGAR O EMPREGO"
+      itens: [[largar, "✅ sem largar o emprego"], [mínima, "🧰 versão mínima com IA"], [semanas, "📅 2 semanas"]]
+  - etapa: descoberta
+    fala: "O plano de noventa dias tem três passos: faça algo seu, mostre para cinco pessoas e publique duas vezes por semana para montar sua própria lista."
+    diagrama:
+      forma: fluxo
+      titulo: "O PLANO DE 90 DIAS"
+      nos:
+        - {de: faça, ic: "🛠️", txt: "Faça algo seu", sub: "produto, serviço, modelo, curso"}
+        - {de: mostre, ic: "👥", txt: "Mostre para 5", sub: "com preço ou pedido de contato"}
+        - {de: publique, ic: "📣", txt: "Publique 2×/semana", sub: "o que você está aprendendo"}
+        - {de: lista, ic: "📋", txt: "Sua lista", sub: "o algoritmo muda, a lista fica", cor: vd}
+  - etapa: beneficio
+    fala: "Quem te conhece e confia em você vai junto, em qualquer emprego."
+    imagem: "uma pessoa de costas caminhando por uma estrada à noite, seguida por várias pequenas luzes amarelas como lanternas, representando pessoas que a acompanham; rostos não aparecem"
+    painel:
+      k: "VAI JUNTO"
+      borda: vd
+      itens: [[conhece, "🤝 quem te conhece"], [confia, "💛 e confia em você"], [junto, "🧭 vai junto"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#plano", selo: "plano de 90 dias · inema.club"}
+
+cta: {a: "SE O SALÁRIO PARAR, O QUE CONTINUA RENDENDO? 👇", b: "ou me pede o link do plano nos comentários"}
+club: "o plano de 90 dias, semana a semana"
+cores: {Treze: "#ff2a1f", dezenove: "#ff2a1f", Stanford: "#FACC15", salário: "#ff2a1f", nada: "#ff2a1f",
+        seu: "#FACC15", mínima: "#FACC15", noventa: "#FACC15", lista: "#FACC15", confia: "#FACC15"}
+
+publicar:
+  fila: lives2
+  titulo: "13%, 15%, 19%: se o seu salário parasse amanhã, o que continuaria rendendo? #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Stanford Digital Economy Lab (Canaries in the Coal Mine): o emprego de 22 a 25 anos nas funções mais expostas à IA ficou 13%, depois 15% e, na versão de ago/2026, 19% abaixo das menos expostas — gap acumulado, por menos contratação. Plano de 90 dias do projeto aberto sobreviver-ia: ter algo seu (versão mínima com IA em 2 semanas), mostrar para 5 pessoas e publicar 2 vezes por semana para montar a própria lista. Não é recomendação financeira. No inema.club. CTA: o que continua rendendo se o salário parar / peça o link."

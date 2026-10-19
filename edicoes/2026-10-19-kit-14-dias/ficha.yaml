@@ -1,0 +1,86 @@
+# Ficha r7ex — kit de 14 dias em casa (sobreviver-ia, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives10.
+slug: kit-14-dias
+tema: "Se faltar luz, água e internet amanhã, sua casa aguenta 14 dias? A conta: 56.000 kcal para 2 pessoas"
+
+plano:
+  pessoa: "qualquer família, de cidade, que nunca pensou em reserva em casa"
+  quer: "não entrar em pânico numa pane (dor) e ter a família tranquila com tudo contado (desejo)"
+  gancho: "medo: pane de 14 dias; cálculo do kit — 2 pessoas × 14 dias × 2.000 kcal = 56.000 kcal; água 1,5–2 L/pessoa/dia"
+  nota: 7
+  destino: "https://inematds.github.io/sobreviver-ia/guia/#kit (calculadora do kit, no inema.club, projetos)"
+
+marca: "INEMA · KIT DE 14 DIAS"
+selo: "ALERTA INEMA"
+fonte: "<b>cálculo do kit sobreviver-ia</b> · 2.000 kcal e 1,5–2 L de água por pessoa/dia · imagens: ilustração"
+
+abertura:
+  branco: "SUA CASA AGUENTA 14 DIAS SEM LUZ?"
+  destaque: "A CONTA QUASE NINGUÉM FEZ"
+  cor: vermelho
+  cena: "cozinha de apartamento às escuras durante um apagão, geladeira aberta e apagada, prateleiras vazias; uma única lanterna acesa sobre a bancada lançando um feixe amarelo; luz vermelha de alerta entrando pela janela; ninguém na cena"
+
+trocas:
+  "catorze dias": "14 dias"
+  "cinquenta e seis mil calorias": "56.000 kcal"
+  "cinquenta litros": "50 L"
+  "três dias": "3 dias"
+  "um mês": "1 mês"
+
+partes:
+  - etapa: gancho
+    fala: "Se faltar luz, água e internet amanhã, sua casa aguenta catorze dias? Duas pessoas precisam de cinquenta e seis mil calorias."
+    painel:
+      de: Duas
+      k: "2 PESSOAS · 14 DIAS"
+      borda: red
+      contador: {ate: 56000, em: "56.000", cor: "#ff2a1f", unid: "KCAL"}
+      l: "2.000 kcal por pessoa por dia"
+  - etapa: medo
+    fala: "Quase ninguém tem comida e água em casa nem para três dias. Quando tudo para, todo mundo corre para o mesmo mercado."
+    imagem: "corredor de supermercado com uma única prateleira vazia em primeiro plano, um carrinho de compras tombado no chão; luz vermelha de alerta vindo do alto; ninguém na cena"
+    painel:
+      k: "NEM 3 DIAS"
+      borda: red
+      itens: [[comida, "🥫 sem comida guardada"], [água, "💧 sem água"], [mercado, "🛒 todo mundo no mesmo mercado"]]
+  - etapa: desejo
+    fala: "Imagina sua família tranquila, com tudo contado, enquanto o resto entra em pânico."
+    imagem: "uma despensa organizada iluminada por luz amarela quente, galões de água alinhados e potes etiquetados sem texto legível; sensação de calma e controle"
+    painel:
+      k: "TUDO CONTADO"
+      itens: [[família, "👨‍👩‍👧 família tranquila"], [contado, "✅ tudo contado"]]
+  - etapa: facilidade
+    fala: "Não precisa gastar muito nem virar especialista. Uma calculadora faz a conta para você."
+    imagem: "uma calculadora antiga sobre uma mesa preta com uma lista de papel saindo dela como uma fita, iluminada por um foco amarelo; sem texto legível"
+    painel:
+      k: "SEM SER ESPECIALISTA"
+      itens: [[gastar, "💸 sem gastar muito"], [calculadora, "🧮 a calculadora faz a conta"]]
+  - etapa: descoberta
+    fala: "Você diz quantas pessoas e quantos dias. Ela devolve as calorias, uns cinquenta litros de água e um mês de dinheiro vivo guardado."
+    diagrama:
+      forma: fluxo
+      titulo: "A CALCULADORA DO KIT"
+      nos:
+        - {de: pessoas, ic: "👥", txt: "Quantas pessoas", sub: "e quantos dias"}
+        - {de: calorias, ic: "🥫", txt: "Calorias", sub: "lista de não perecíveis"}
+        - {de: água, ic: "💧", txt: "Água", sub: "1,5 a 2 L por pessoa/dia"}
+        - {de: dinheiro, ic: "💵", txt: "Dinheiro vivo", sub: "1 mês de gasto", cor: vd}
+  - etapa: beneficio
+    fala: "Um sábado à tarde e sua casa fica pronta antes de precisar."
+    imagem: "porta de casa iluminada por dentro com luz amarela quente numa rua escura em apagão; sensação de refúgio seguro"
+    painel:
+      k: "ANTES DE PRECISAR"
+      borda: vd
+      itens: [[sábado, "📅 um sábado"], [pronta, "🏠 casa pronta"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#kit", selo: "calculadora do kit · inema.club"}
+
+cta: {a: "SUA CASA AGUENTA QUANTOS DIAS? 👇", b: "ou me pede o link da calculadora nos comentários"}
+club: "o kit de 14 dias, passo a passo"
+cores: {luz: "#ff2a1f", catorze: "#FACC15", calorias: "#FACC15", pânico: "#ff2a1f", mercado: "#ff2a1f",
+        tranquila: "#FACC15", calculadora: "#FACC15", dinheiro: "#FACC15", pronta: "#FACC15"}
+
+publicar:
+  fila: lives10
+  titulo: "Sua casa aguenta 14 dias sem luz, água e internet? A conta que quase ninguém fez #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Kit de 14 dias em casa para panes longas: 2 pessoas × 14 dias precisam de 56.000 kcal (2.000 kcal por pessoa por dia), de 42 a 56 litros de água para beber (1,5 a 2 L por pessoa por dia) e 1 mês de gasto em dinheiro vivo. A calculadora do projeto aberto sobreviver-ia faz a conta e gera a lista de compras. Passo a passo no inema.club. CTA: sua casa aguenta quantos dias / peça o link."

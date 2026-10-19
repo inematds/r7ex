@@ -1,0 +1,85 @@
+# Ficha r7ex — IA + Wikipédia offline (sobreviver-ia, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives4.
+slug: ia-offline
+tema: "Caiu a internet, sua IA some junto. A Wikipédia em português + uma IA cabem em 11 GB, sem internet"
+
+plano:
+  pessoa: "quem usa ChatGPT/Claude todo dia e nunca pensou no que acontece sem rede"
+  quer: "não ficar sem resposta num apagão (dor) e ter uma IA só sua, no próprio computador (desejo)"
+  gancho: "novidade: Wikipedia pt sem fotos ~9 GB (Kiwix, edição 2026) + modelo llama3.2:3b ~2 GB = ~11 GB, roda sem internet"
+  nota: 7
+  destino: "https://inematds.github.io/sobreviver-ia/guia/#guia (IA e Wikipédia offline, no inema.club, projetos)"
+
+marca: "INEMA · IA SEM INTERNET"
+selo: "ALERTA INEMA"
+fonte: "<b>Kiwix</b> · Wikipedia pt sem fotos ~9 GB, edição 2026 · <b>Ollama</b> llama3.2:3b ~2 GB · imagens: ilustração"
+
+abertura:
+  branco: "CAIU A INTERNET, SUA IA SOME"
+  destaque: "A SALVAÇÃO CABE EM 11 GB"
+  cor: amarelo
+  cena: "notebook aberto numa mesa no meio de um apagão total na cidade, a única luz da sala vem da tela, que brilha amarelo; pela janela, prédios inteiros apagados sob céu escuro com um leve tom vermelho; ninguém na cena"
+
+trocas:
+  "onze gigas": "11 GB"
+  "nove gigas": "9 GB"
+  "dois gigas": "2 GB"
+  "três peças": "3 peças"
+
+partes:
+  - etapa: gancho
+    fala: "Caiu a internet, sua IA some junto. Mas a Wikipédia inteira em português e uma IA cabem em onze gigas, sem internet."
+    painel:
+      de: Wikipédia
+      k: "WIKIPÉDIA + IA · OFFLINE"
+      borda: am
+      contador: {ate: 11, em: "11", cor: "#FACC15", unid: "GB NO SEU PC"}
+      l: "Wikipédia pt sem fotos + modelo pequeno"
+  - etapa: medo
+    fala: "Tudo que você pergunta hoje mora no servidor de alguém. Caiu a rede, você fica sem resposta nenhuma."
+    imagem: "um cabo de rede grosso sendo cortado ao meio por uma tesoura, faíscas vermelhas saindo do corte, fundo preto; sensação de desconexão"
+    painel:
+      k: "DEPENDE DA NUVEM"
+      borda: red
+      itens: [[servidor, "🖥️ mora no servidor de alguém"], [rede, "📡 caiu a rede"], [resposta, "❌ sem resposta"]]
+  - etapa: desejo
+    fala: "Imagina perguntar qualquer coisa à IA no meio de um apagão, com o notebook na bateria."
+    imagem: "mãos digitando num notebook à luz da própria tela amarela, num quarto escuro com uma vela apagada ao lado; sensação de autonomia; rosto não aparece"
+    painel:
+      k: "NO MEIO DO APAGÃO"
+      itens: [[apagão, "🌑 apagão"], [bateria, "🔋 notebook na bateria"]]
+  - etapa: facilidade
+    fala: "Não precisa programar. Um script instala tudo, e antes só mostra o que vai fazer."
+    imagem: "uma janela de terminal escura flutuando sobre fundo preto, com linhas de texto amarelas ilegíveis e um grande sinal de visto verde luminoso; sem texto legível"
+    painel:
+      k: "SEM PROGRAMAR"
+      itens: [[programar, "✅ sem programar"], [script, "📜 um script instala"], [mostra, "👀 antes só mostra"]]
+  - etapa: descoberta
+    fala: "São três peças: o Ollama roda a IA, um modelo de dois gigas responde, e o Kiwix abre a Wikipédia de nove gigas."
+    diagrama:
+      forma: terminal
+      titulo: "AS 3 PEÇAS"
+      barra: "instala-offline.sh"
+      nos:
+        - {de: Ollama, tipo: cmd, ic: "🦙", txt: "Ollama", sub: "roda a IA no seu PC"}
+        - {de: modelo, tipo: out, ic: "🤖", txt: "modelo pequeno", sub: "llama3.2:3b · ~2 GB"}
+        - {de: Kiwix, tipo: ok, ic: "📚", txt: "Kiwix + Wikipédia pt", sub: "sem fotos · ~9 GB"}
+  - etapa: beneficio
+    fala: "Instala uma vez hoje e fica com você, mesmo sem sinal."
+    imagem: "um pen drive brilhando em luz amarela sobre uma mesa preta, como um objeto precioso, com um pequeno escudo de luz em volta"
+    painel:
+      k: "FICA COM VOCÊ"
+      borda: vd
+      itens: [[uma, "1️⃣ instala uma vez"], [sinal, "📵 funciona sem sinal"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#guia", selo: "IA offline · inema.club"}
+
+cta: {a: "SE A INTERNET CAIR, VOCÊ FICA SEM IA? 👇", b: "ou me pede o link do passo a passo nos comentários"}
+club: "a IA e a Wikipédia sem internet, passo a passo"
+cores: {internet: "#ff2a1f", some: "#ff2a1f", Wikipédia: "#FACC15", onze: "#FACC15", servidor: "#ff2a1f", apagão: "#ff2a1f",
+        script: "#FACC15", Ollama: "#FACC15", Kiwix: "#FACC15", sinal: "#FACC15"}
+
+publicar:
+  fila: lives4
+  titulo: "Caiu a internet, sua IA some: Wikipédia + IA no seu PC em 11 GB, sem internet #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). IA e Wikipédia offline: o Ollama roda um modelo pequeno (llama3.2:3b, cerca de 2 GB) e o Kiwix abre a Wikipédia em português sem fotos (cerca de 9 GB, edição 2026) — juntos cerca de 11 GB, funcionando sem internet. O script do projeto aberto sobreviver-ia instala tudo e por padrão só mostra o que vai fazer (dry-run). Passo a passo no inema.club. CTA: se a internet cair você fica sem IA / peça o link."

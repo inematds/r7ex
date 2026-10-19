@@ -1,0 +1,84 @@
+# Ficha r7ex — identidade por caráter, não por cargo (sobreviver-ia, plano semanas 9–11, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives3.
+slug: identidade-ia
+tema: "A IA pode comprimir 100 anos de progresso em 10. Se você é o seu cargo, cada avanço dói"
+
+plano:
+  pessoa: "profissional que se define pelo cargo (sou advogado, sou contador, sou programador)"
+  quer: "não sentir cada avanço da IA como ameaça pessoal (dor) e atravessar a mudança firme (desejo)"
+  gancho: "provocação: Dario Amodei (Anthropic), Machines of Loving Grace, 2024 — 50 a 100 anos de progresso da biologia em 5 a 10 anos"
+  nota: 7
+  destino: "https://inematds.github.io/sobreviver-ia/guia/#plano (plano de 90 dias, semanas 9–13, no inema.club, projetos)"
+
+marca: "INEMA · QUEM É VOCÊ SEM CARGO"
+selo: "ALERTA INEMA"
+fonte: "<b>Dario Amodei</b> · Machines of Loving Grace, 2024 · imagens: ilustração"
+
+abertura:
+  branco: "100 ANOS DE PROGRESSO EM 10"
+  destaque: "E O SEU CARGO NÃO VAI JUNTO"
+  cor: amarelo
+  cena: "um crachá de empresa com foto apagada, sem texto legível, pendurado num cordão e se desfazendo em pó dourado no ar, fundo preto; uma ampulheta enorme ao fundo com a areia caindo muito rápido, luz amarela forte"
+
+trocas:
+  "cem anos": "100 anos"
+  "dez anos": "10 anos"
+  "dez vezes": "10 vezes"
+  "três frases": "3 frases"
+
+partes:
+  - etapa: gancho
+    fala: "O chefe da Anthropic escreveu que a IA pode comprimir até cem anos de progresso da biologia em dez anos. E o seu cargo não vai junto."
+    painel:
+      de: comprimir
+      k: "DARIO AMODEI · 2024"
+      borda: am
+      contador: {ate: 100, em: "100", cor: "#FACC15", unid: "ANOS EM 10"}
+      l: "de progresso da biologia, em 5 a 10 anos"
+  - etapa: medo
+    fala: "Se você diz sou advogado, sou contador, sou programador, cada avanço da IA dói como ameaça pessoal."
+    imagem: "uma placa de mesa com nome, sem texto legível, rachando ao meio sobre uma mesa de escritório escura, estilhaços voando; luz vermelha de alerta vindo de cima"
+    painel:
+      k: "VOCÊ É O SEU CARGO?"
+      borda: red
+      itens: [[advogado, "⚖️ sou advogado"], [contador, "🧾 sou contador"], [ameaça, "💥 cada avanço dói"]]
+  - etapa: desejo
+    fala: "Imagina ver a mudança chegando e continuar firme, porque você sabe quem é."
+    imagem: "uma pessoa de costas, em pé numa rocha no meio de um mar agitado à noite, iluminada por um foco amarelo; ondas batendo em volta; rosto não aparece; sensação de firmeza"
+    painel:
+      k: "FIRME NA MUDANÇA"
+      itens: [[mudança, "🌊 a mudança chega"], [firme, "🧍 você continua firme"]]
+  - etapa: facilidade
+    fala: "Não precisa de terapia nem de curso. Precisa de papel, caneta e uma frase."
+    imagem: "uma folha de papel em branco e uma caneta sobre uma mesa preta, iluminadas por um único foco amarelo de cima; sensação de começo simples"
+    painel:
+      k: "PAPEL E CANETA"
+      itens: [[papel, "📝 papel"], [caneta, "🖊️ caneta"], [frase, "💬 uma frase"]]
+  - etapa: descoberta
+    fala: "Complete dez vezes: eu sou alguém que, sem citar cargo nem empresa. Depois circule três frases que você quer que continuem verdadeiras."
+    diagrama:
+      forma: fluxo
+      titulo: "O EXERCÍCIO"
+      nos:
+        - {de: Complete, ic: "✍️", txt: "Complete 10 vezes", sub: "eu sou alguém que…"}
+        - {de: cargo, ic: "🚫", txt: "Sem cargo", sub: "nem empresa"}
+        - {de: circule, ic: "⭕", txt: "Circule 3", sub: "as que ficam daqui a 10 anos", cor: vd}
+  - etapa: beneficio
+    fala: "Cargo a IA troca. Caráter ninguém troca."
+    imagem: "um bloco de pedra maciça com um núcleo de luz dourada dentro, intacto, enquanto em volta peças de escritório se desfazem em pó; fundo preto"
+    painel:
+      k: "CARGO × CARÁTER"
+      borda: vd
+      itens: [[Cargo, "🔴 cargo: a IA troca"], [Caráter, "🟢 caráter: fica"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#plano", selo: "plano de 90 dias · inema.club"}
+
+cta: {a: "QUEM É VOCÊ SEM O SEU CARGO? 👇", b: "ou me pede o link do plano nos comentários"}
+club: "o plano de 90 dias, semana a semana"
+cores: {Anthropic: "#FACC15", cem: "#FACC15", cargo: "#ff2a1f", ameaça: "#ff2a1f", dói: "#ff2a1f",
+        firme: "#FACC15", frase: "#FACC15", circule: "#FACC15", Caráter: "#FACC15"}
+
+publicar:
+  fila: lives3
+  titulo: "100 anos de progresso em 10: quem é você sem o seu cargo? #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Dario Amodei (Anthropic) escreveu em Machines of Loving Grace (2024) que a IA pode comprimir 50 a 100 anos de progresso da biologia em 5 a 10 anos. Quem se define pelo cargo sente cada avanço como ameaça pessoal. Exercício do plano de 90 dias do projeto aberto sobreviver-ia: complete 10 vezes 'eu sou alguém que…' sem cargo nem empresa e circule as 3 que você quer manter. Cargo a IA troca, caráter fica. No inema.club. CTA: quem é você sem o seu cargo / peça o link."
