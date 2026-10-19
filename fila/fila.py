@@ -63,7 +63,7 @@ def adicionar(argv):
     fila.append(item)
     FILA.write_text(json.dumps(fila, ensure_ascii=False, indent=1))
     pend = sum(x["estado"] == "pendente" for x in fila)
-    print(f"na fila do {CANAL}: {item['id']} (posição {pend}; ~{(pend + len(HORAS) - 1) // len(HORAS)} dia(s))")
+    print(f"na fila do {item.get("canal", CANAL)}: {item['id']} (posição {pend}; ~{(pend + len(HORAS) - 1) // len(HORAS)} dia(s))")
 
 
 def main():
