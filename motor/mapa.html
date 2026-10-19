@@ -21,7 +21,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#05080c;font-fam
 /* foto escurecida embaixo (legenda + painel + avatar em y 1150–1920) e mais calma; r7ex 19/10/2026 ("imagens saturadas") */
 #telas .tl.base::after,#telas .tl.foto::after{content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(5,8,12,.45) 0,rgba(5,8,12,0) 240px,rgba(5,8,12,0) 860px,rgba(5,8,12,.82) 1150px,rgba(5,8,12,.96) 1380px)}
-#telas .tl.foto img{filter:brightness(.8) saturate(.72)}
+#telas .tl.foto img{filter:brightness(.92) saturate(.9)}
 #telas .tl .sl{z-index:2;position:absolute;right:40px;top:130px;background:rgba(11,15,20,.78);border-radius:8px;padding:6px 12px;font:800 20px Inter;letter-spacing:1px;color:#e6e9ee}
 #selo:before{content:"●  ";}
 .painel{position:absolute;left:56px;right:56px;top:170px;background:rgba(14,18,24,.86);border:2px solid rgba(255,255,255,.12);
@@ -379,10 +379,10 @@ function diagrama(t){
   let h=`<div class="area">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
   if(d.forma==='terminal'){
     h+=`<div class="term" style="opacity:${ent(d.ini+.1)};transform:translateY(${(1-ent(d.ini+.1))*30}px)"><div class="bar"><i></i><i></i><i></i><span>${d.barra||'terminal'}</span></div><div class="corpo">`;
-    d.nos.forEach((n,i)=>{ if(t<n.t) return; const tp=n.tipo||'cmd'; const full=n.txt;
-      const k=tp==='cmd'?clamp((t-n.t)/Math.max(.35,full.length/38)):1; const vis_=full.slice(0,Math.ceil(full.length*k));
+    d.nos.forEach((n,i)=>{ const nt=i===0?Math.min(n.t,d.ini+.3):n.t; if(t<nt) return; const tp=n.tipo||'cmd'; const full=n.txt;
+      const k=tp==='cmd'?clamp((t-nt)/Math.max(.35,full.length/38)):1; const vis_=full.slice(0,Math.ceil(full.length*k));
       const cur=(i===ultimo&&tp==='cmd'&&k<1)?'<span class="cur"></span>':'';
-      h+=`<div class="ln ${tp}" style="opacity:${tp==='cmd'?1:ent(n.t,.3)}">${vis_}${cur}</div>`; });
+      h+=`<div class="ln ${tp}" style="opacity:${tp==='cmd'?1:ent(nt,.3)}">${vis_}${cur}</div>`; });
     h+='</div></div>';
   } else if(d.forma==='hub'){
     const W=960,H=950,cx=W/2,cy=H/2-20,N=d.nos.length,R=[345,385];
