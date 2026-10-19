@@ -34,11 +34,14 @@ TROCAS_PADRAO = {"inema ponto club": "inema.club", "dois mil e vinte e sete": "2
                  "dois mil e vinte e seis": "2026"}
 # Imagem LIMPA (Nei, 19/10/2026: "saturadas, muita informação, não é como o eventosextremos"): um assunto só, fundo liso,
 # luz neutra; o amarelo é do texto/painel (regra "imagens sem amarelado" de 12/10). A metade de baixo fica sob legenda+painel+avatar.
-ESTILO = ("Estilo foto cinematográfica realista, MINIMALISTA e calma: UM único objeto ou assunto principal, centralizado na metade "
-          "de CIMA do quadro; o resto é fundo liso e escuro (preto #0c0c10, grafite), com muito espaço vazio — a metade de baixo "
-          "quase vazia e escura. Luz NEUTRA e suave (branca/fria), sem brilho dourado, sem feixes, partículas, faíscas, bokeh, "
-          "hologramas nem objetos espalhados; no máximo um pequeno detalhe em amarelo (#FACC15) ou, só se houver perigo, vermelho "
-          "(#ff2a1f). Cores dessaturadas, contraste moderado. "
+# 2ª calibragem (Nei, 19/10/2026: o limpo "ficou limpo demais, não tem impacto"): continua UM assunto e fundo liso,
+# mas com luz dramática de cinema no assunto — o impacto vem da luz e da ação, não da quantidade de coisas.
+ESTILO = ("Estilo foto cinematográfica realista de impacto, como pôster de filme: UM único objeto ou assunto principal, grande, "
+          "na metade de CIMA do quadro, numa AÇÃO ou estado dramático (quebrando, acendendo, se abrindo, sendo puxado); "
+          "luz dramática: foco de luz forte de cima ou contraluz com recorte brilhante na borda, sombras profundas, contraste alto. "
+          "A luz do assunto pode ser amarela (#FACC15) ou, só se houver perigo, vermelha (#ff2a1f); o resto da cena é fundo "
+          "liso e escuro (preto #0c0c10), sem outros objetos — a metade de baixo escura e vazia. Sem objetos espalhados, sem "
+          "pilhas, sem chuva de partículas ou papéis, sem hologramas. "
           "Sem logotipo de empresa, sem marca d'água, sem pessoas reconhecíveis (rostos de lado, na sombra ou de costas). "
           "Robô, quando houver: humanoide industrial estilo Tesla Optimus, com visor preto na frente, nunca fofo ou cartoon. "
           "Nenhum texto nas imagens, EXCETO na abertura.png.")

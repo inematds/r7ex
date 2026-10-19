@@ -39,10 +39,12 @@ Fala nunca termina parte em número solto.
 ## 3. Tela — motor do eventosextremospub
 
 - **Abertura:** o título do gancho **desenhado pelo Codex dentro da arte** (branco + amarelo ou vermelho), metade de cima.
-- **Imagens:** uma por parte, foto **limpa**: UM assunto só, na metade de cima, fundo preto/grafite liso com muito vazio,
-  luz neutra; amarelo só num detalhe pequeno (o amarelo é do texto), vermelho #ff2a1f só no perigo. Na ficha, descreva
-  um objeto, nunca "cinco objetos", feixes, partículas ou pilhas. O motor escurece a faixa de baixo e tira brilho/saturação
-  das ilustrações (19/10/2026: "saturadas, muita informação" — comparado ao eventosextremospub, que tem fundo de mapa calmo).
+- **Imagens:** uma por parte, **UM assunto só em ação dramática** (quebrando, acendendo, se abrindo, sendo puxado), grande,
+  na metade de cima; luz de cinema (foco forte ou contraluz com recorte), amarela no assunto ou vermelha #ff2a1f no perigo;
+  fundo preto liso e metade de baixo vazia. Na ficha, descreva um objeto + a ação + a sensação; nunca "cinco objetos",
+  pilhas, chuva de partículas/papéis ou hologramas. O motor escurece a faixa de baixo (legenda/painel/avatar).
+  Calibrado em 19/10/2026: o lote com muita coisa ficou "saturado, muita informação"; o só-neutro ficou "limpo demais,
+  sem impacto"; o meio-termo é `edicoes/2026-10-19-skills15-impacto` (aguardando o OK do Nei).
   Sem logos, sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
 - **Faixa do topo:** marca do tema ("INEMA · …") + **selo vermelho**; **linha de fonte** embaixo.
 - **Avatar:** caixinha no canto desde o quadro 0 (nunca tela cheia — D8).

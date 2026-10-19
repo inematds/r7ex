@@ -91,6 +91,8 @@ def montar(pasta, ficha, falas):
         d = {"ini": a, "fim": b, "k": pn["k"], "borda": BORDA[pn.get("borda", "am")]}
         if pn.get("itens"):
             d["itens"] = [{"t": em(fid, x[0], x[2] if len(x) > 2 else 1), "txt": x[1]} for x in pn["itens"]]
+            if not pn.get("de") and not pn.get("contador"):   # sem caixa vazia: o painel entra com o 1º item (19/10/2026)
+                d["ini"] = max(a, min(x["t"] for x in d["itens"]) - .3)
         if pn.get("contador"):
             c = pn["contador"]
             d["contador"] = {"de": c.get("de", 0), "ate": c["ate"], "dec": c.get("dec", 0), "ini": em(fid, c["em"]) - 1.0,
