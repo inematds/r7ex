@@ -1,0 +1,102 @@
+slug: singularidade-medo
+tema: "Eu estou com medo: a IA corrigiu os físicos e a singularidade está aí"
+plano:
+  pessoa: "qualquer pessoa que usa IA no dia a dia e acha que ela ainda é só um chat que erra"
+  quer: "não ficar para trás quando a IA passar a fazer o trabalho de especialista (dor) e usar esse cientista a seu favor (desejo)"
+  gancho: "medo: IA acertou 49 de 50 problemas inéditos de física e achou erros dos próprios físicos (TheoPhysEval, citado por Jack Clark/Anthropic no FMI, out/2026)"
+  nota: 8
+  destino: https://inema.club
+marca: "INEMA · SINGULARIDADE"
+selo: "ALERTA INEMA"
+fonte: "<b>Jack Clark (Anthropic)</b> · palestra no FMI, out/2026 · TheoPhysEval e FrontierMath · imagens: ilustração"
+abertura:
+  branco: "EU ESTOU COM MEDO"
+  destaque: "A IA CORRIGIU OS FÍSICOS"
+  cor: vermelho
+  cena: "laboratório escuro de física à noite; um robô humanoide estilo Optimus de visor preto, de perfil, risca em vermelho uma equação num quadro negro enorme cheio de fórmulas (ilegíveis); dois cientistas de costas, na sombra, olham surpresos; luz amarela de recorte"
+trocas:
+  "quarenta e nove de cinquenta": "49 de 50"
+  "dois pra noventa e quatro por cento": "2% pra 94%"
+  "dois anos": "2 anos"
+  "três coisas": "3 coisas"
+partes:
+- etapa: gancho
+  fala: "Eu tô com medo. A singularidade tá aí: a inteligência artificial resolveu quarenta e nove de cinquenta problemas de física inéditos. E corrigiu os físicos."
+  painel:
+    de: resolveu
+    k: "FÍSICA INÉDITA · OUT/2026"
+    borda: red
+    contador: {ate: 49, em: "49", cor: "#ff2a1f", unid: "DE 50 PROBLEMAS INÉDITOS"}
+    l: "TheoPhysEval · citado pela Anthropic no FMI"
+- etapa: medo
+  fala: "Em matemática de pesquisa ela pulou de dois pra noventa e quatro por cento em menos de dois anos. O aluno virou professor."
+  imagem: "um quadro negro dividido ao meio: à esquerda uma barra minúscula vermelha, à direita uma barra enorme amarela luminosa subindo até o teto; um robô humanoide de visor preto de costas segurando o giz; sala de aula escura"
+  painel:
+    k: "MATEMÁTICA DE PESQUISA"
+    borda: red
+    contador: {ate: 94, em: "94%", cor: "#ff2a1f", unid: "% · ERA 2% NO FIM DE 2024"}
+    itens:
+    - [matemática, "📐 problemas de pesquisa"]
+    - [anos, "⏱️ menos de 2 anos"]
+    - [professor, "🎓 o aluno virou professor"]
+- etapa: desejo
+  fala: "Agora imagina esse cientista trabalhando pra você, dia e noite."
+  imagem: "um escritório pequeno à noite; uma pessoa de costas no notebook, tranquila, e ao lado dela, como um assistente, um robô humanoide de visor preto organizando papéis luminosos amarelos no ar"
+  painel:
+    k: "UM CIENTISTA PRA VOCÊ"
+    itens:
+    - [cientista, "🧠 um cientista"]
+    - [você, "🙋 trabalhando pra você"]
+    - [noite, "🌙 dia e noite"]
+- etapa: facilidade
+  fala: "E você não precisa ser cientista, nem programador."
+  imagem: "mãos comuns digitando num celular sobre uma mesa de cozinha escura, com uma pequena esfera dourada luminosa de IA flutuando acima da tela; nada técnico à vista"
+  painel:
+    k: "SEM SER TÉCNICO"
+    itens:
+    - [cientista, "✅ sem ser cientista"]
+    - [programador, "✅ sem programar"]
+- etapa: descoberta
+  fala: "São três coisas: pedir certo, conferir a resposta e colocar a IA pra trabalhar no seu dia a dia."
+  imagem: "três objetos luminosos alinhados numa mesa preta como num produto de luxo: um balão de fala dourado, uma lupa amarela, e uma engrenagem dourada girando"
+  painel:
+    k: "AS 3 COISAS"
+    borda: vd
+    itens:
+    - [pedir, "💬 pedir certo"]
+    - [conferir, "🔍 conferir a resposta"]
+    - [trabalhar, "⚙️ IA trabalhando no seu dia a dia"]
+- etapa: beneficio
+  fala: "Quem aprende agora surfa essa onda. Quem espera é atropelado por ela."
+  imagem: "uma onda gigante dourada luminosa no escuro; uma silhueta de costas surfando no alto da onda, enquanto outras silhuetas pequenas na praia olham paradas"
+  painel:
+    k: "SURFA OU É ATROPELADO"
+    borda: red
+    itens:
+    - [agora, "🏄 aprende agora"]
+    - [atropelado, "🌊 quem espera é atropelado"]
+- etapa: comentario
+  fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: "VOCÊ TAMBÉM TÁ COM MEDO? 👇"
+  b: "me pede o link aqui nos comentários"
+club: "cursos gratuitos de IA para o dia a dia"
+cores:
+  medo: "#ff2a1f"
+  singularidade: "#ff2a1f"
+  corrigiu: "#ff2a1f"
+  físicos: "#FACC15"
+  professor: "#FACC15"
+  cientista: "#FACC15"
+  pedir: "#FACC15"
+  conferir: "#FACC15"
+  trabalhar: "#FACC15"
+  surfa: "#FACC15"
+  atropelado: "#ff2a1f"
+publicar:
+  fila: lives11
+  titulo: "Eu estou com medo: a IA corrigiu os físicos. A singularidade está aí #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner): opinião do Nei sobre a singularidade. Jack Clark, cofundador da Anthropic, disse no FMI que a singularidade chegou; IA acertou 49 de 50 problemas inéditos de física (TheoPhysEval, corrigindo erros dos físicos) e foi de 2% para 94% no FrontierMath. Cursos gratuitos no inema.club. CTA: peça o link nos comentários."

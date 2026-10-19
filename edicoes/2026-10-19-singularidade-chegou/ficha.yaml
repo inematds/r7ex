@@ -1,0 +1,101 @@
+slug: singularidade-chegou
+tema: "Se apavore ou não, a singularidade chegou: 44 trilhões e 17,9% de desemprego no escritório"
+plano:
+  pessoa: "quem trabalha em escritório (administrativo, vendas, gestão, profissional liberal) e acha que IA não chega no emprego dele"
+  quer: "não perder renda (dor) e ficar do lado de quem ganha com a IA (desejo)"
+  gancho: "medo: no cenário extremo do relatório da Anthropic (Economic Scenarios for Transformative AI, set/2026), desemprego de 17,9% no trabalho do conhecimento até 2030; PIB dos EUA a US$ 44,4 tri"
+  nota: 8
+  destino: https://inematds.github.io/profissional2027x/
+marca: "INEMA · SINGULARIDADE"
+selo: "ALERTA INEMA"
+fonte: "<b>Anthropic · Economic Scenarios for Transformative AI</b> · cenário extremo até 2030, não é previsão · imagens: ilustração"
+abertura:
+  branco: "SE APAVORE OU NÃO"
+  destaque: "A SINGULARIDADE CHEGOU"
+  cor: vermelho
+  cena: "um andar de escritório enorme à noite, quase vazio: fileiras de mesas com monitores ainda acesos e cadeiras vazias; no fim do corredor, um único funcionário de costas segurando uma caixa de papelão; pela janela de vidro, uma cidade com um brilho dourado intenso no horizonte"
+trocas:
+  "dezessete vírgula nove por cento": "17,9%"
+  "trinta e três por cento": "33%"
+  "onze por cento": "11%"
+  "quarenta e quatro trilhões de dólares": "US$ 44 trilhões"
+  "dois mil e trinta": "2030"
+partes:
+- etapa: gancho
+  fala: "Se apavore ou não, a singularidade chegou. A própria Anthropic calculou: no cenário extremo, dezessete vírgula nove por cento de desemprego pra quem trabalha em escritório."
+  painel:
+    de: calculou
+    k: "CENÁRIO EXTREMO · ATÉ 2030"
+    borda: red
+    contador: {ate: 17.9, dec: 1, em: "17,9%", cor: "#ff2a1f", unid: "% DE DESEMPREGO NO ESCRITÓRIO"}
+    l: "relatório da Anthropic, set/2026"
+- etapa: medo
+  fala: "O salário de quem trabalha com conhecimento cai onze por cento. O do eletricista sobe trinta e três por cento."
+  imagem: "cena dividida ao meio: à esquerda, uma mesa de escritório escura com uma seta vermelha descendo sobre um contracheque; à direita, as mãos de um eletricista com luvas instalando cabos sob uma luz amarela forte, com uma seta dourada subindo"
+  painel:
+    k: "QUEM PERDE × QUEM GANHA"
+    borda: red
+    itens:
+    - [conhecimento, "📉 escritório: -11%"]
+    - [eletricista, "📈 eletricista: +33%"]
+- etapa: desejo
+  fala: "Mas a economia americana pode chegar a quarenta e quatro trilhões de dólares. Tem dinheiro na mesa."
+  imagem: "uma mesa preta enorme vista de cima coberta de moedas e barras douradas luminosas, com uma pessoa de costas estendendo a mão para pegar uma barra"
+  painel:
+    k: "DINHEIRO NA MESA"
+    contador: {ate: 44, em: "44", cor: "#FACC15", unid: "US$ TRILHÕES · PIB DOS EUA EM 2030"}
+    itens:
+    - [dinheiro, "💰 tem dinheiro na mesa"]
+- etapa: facilidade
+  fala: "E pra pegar esse dinheiro você não precisa programar."
+  imagem: "uma pessoa comum de costas numa pequena loja escura, conversando com o dono do negócio diante de um notebook simples; luz amarela suave; nada de código à vista"
+  painel:
+    k: "SEM PROGRAMAR"
+    itens:
+    - [programar, "✅ sem escrever código"]
+- etapa: descoberta
+  fala: "Vira quem implementa a IA nas empresas: diagnostica o problema, monta o assistente e treina a equipe."
+  print:
+    url: https://inematds.github.io/profissional2027x/
+    selo: inematds.github.io/profissional2027x
+  painel:
+    k: "IMPLEMENTADOR DE IA"
+    borda: vd
+    itens:
+    - [diagnostica, "🔍 diagnostica o problema"]
+    - [assistente, "🤖 monta o assistente"]
+    - [treina, "🎓 treina a equipe"]
+- etapa: beneficio
+  fala: "A formação é grátis, e quem chega primeiro escolhe os clientes."
+  imagem: "uma pessoa de costas chegando primeiro ao topo de uma escada luminosa amarela no escuro, onde várias portas de empresas iluminadas se abrem para ela"
+  painel:
+    k: "CHEGA PRIMEIRO"
+    borda: vd
+    itens:
+    - [grátis, "🎁 formação grátis"]
+    - [primeiro, "🥇 quem chega primeiro escolhe"]
+- etapa: comentario
+  fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: "VOCÊ SE APAVORA OU SE PREPARA? 👇"
+  b: "me pede o link aqui nos comentários"
+club: "formação gratuita Profissional 2027"
+cores:
+  singularidade: "#ff2a1f"
+  desemprego: "#ff2a1f"
+  cai: "#ff2a1f"
+  sobe: "#FACC15"
+  trilhões: "#FACC15"
+  dinheiro: "#FACC15"
+  diagnostica: "#FACC15"
+  assistente: "#FACC15"
+  treina: "#FACC15"
+  grátis: "#FACC15"
+  primeiro: "#FACC15"
+publicar:
+  fila: lives11
+  titulo: "Se apavore ou não, a singularidade chegou: 17,9% de desemprego no escritório #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner): opinião do Nei. Relatório da Anthropic (Economic Scenarios for Transformative AI) — no cenário extremo até 2030, PIB dos EUA a US$ 44,4 tri, desemprego de 17,9% no trabalho do conhecimento, salário -11,5% e eletricista +33,6%. É cenário, não previsão. Formação gratuita Profissional 2027 (implementador de IA para PMEs) no inema.club. CTA: peça o link nos comentários."
