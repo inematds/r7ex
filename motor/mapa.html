@@ -182,6 +182,8 @@ body.limpo .pino .pt{width:30px;height:30px}
 #diag .term .ln.ok{color:#4ade80;font-weight:800}#diag .term .ln.cm{color:#7d8696}
 #diag .term .corpo{padding:26px 0 34px}
 #diag .term .cur{display:inline-block;width:16px;height:32px;background:#FACC15;vertical-align:-5px;margin-left:4px}
+#diag .cp .no{padding:12px 24px}#diag .cp .no .ic{font-size:46px}#diag .cp .no .tx{font-size:38px}#diag .cp .no .tx small{font-size:22px;margin-top:3px}
+#diag .cp .seta{height:40px}
 </style></head>
 <body>
 <div id="mapa"></div>
@@ -376,7 +378,7 @@ function diagrama(t){
   D.style.opacity=vis(t,d.ini,d.fim,.3);
   const ent=(x,dur=.4)=>prog(t,x,dur);
   const ultimo=d.nos.reduce((m,n,i)=>t>=n.t?i:m,-1);
-  let h=`<div class="area">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
+  let h=`<div class="area${d.forma!=='terminal'&&d.forma!=='hub'&&d.nos.length>=5?' cp':''}">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
   if(d.forma==='terminal'){
     h+=`<div class="term" style="opacity:${ent(d.ini+.1)};transform:translateY(${(1-ent(d.ini+.1))*30}px)"><div class="bar"><i></i><i></i><i></i><span>${d.barra||'terminal'}</span></div><div class="corpo">`;
     d.nos.forEach((n,i)=>{ const nt=i===0?Math.min(n.t,d.ini+.3):n.t; if(t<nt) return; const tp=n.tipo||'cmd'; const full=n.txt;
@@ -398,8 +400,8 @@ function diagrama(t){
     h+='</div>';
   } else {
     d.nos.forEach((n,i)=>{ const k=ent(n.t,.4);
-      if(i>0){ const s=ent(n.t-.25,.35); h+=`<div class="seta"><i style="height:${36*s}px"></i><b style="top:${36*s}px;opacity:${s}"></b></div>`; }
-      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="opacity:${.12+.88*k};transform:translateX(${(1-k)*-40}px)"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div><div class="num">${String(i+1).padStart(2,'0')}</div></div>`; });
+      if(i>0){ const s=ent(n.t-.25,.35), L=d.nos.length>=5?20:36; h+=`<div class="seta"><i style="height:${L*s}px"></i><b style="top:${L*s}px;opacity:${s}"></b></div>`; }
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="opacity:${.22+.78*k};transform:translateX(${(1-k)*-40}px)"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div><div class="num">${String(i+1).padStart(2,'0')}</div></div>`; });
   }
   D.innerHTML=h+'</div>';
 }
