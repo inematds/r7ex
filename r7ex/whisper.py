@@ -94,7 +94,7 @@ def _whisper_residente(w16, palavras):
                                                       "words": palavras}).encode())
         return json.loads(urllib.request.urlopen(req, timeout=1800).read())["segments"]
     except Exception as e:
-        log(f"whisper residente indisponível ({e}); usando o caminho antigo")
+        print(f"[r7ex] whisper residente indisponível ({e}); usando o caminho antigo", flush=True)
         return None
 
 

@@ -1,3 +1,4 @@
+| 2026-10-19 | reel dev-futuro parou na montagem: `whisper.py` chamava `log()` inexistente quando o whisper residente caía | trocar por `print` no fallback | infra |
 | 2026-10-19 | reel fim-capitalismo parou na montagem: contador `em: "48 bilhões"` (2 palavras) não casa com a legenda, e o `checar` deixou passar | `checar` recusa `contador.em` com espaço | prompt |
 | 2026-10-19 | Capa divulga sem faixa no último celular; p3 com timeline em vez de mensagem | Edição pontual via image_gen corrigiu telas | prompt |
 | 2026-10-19 | Imagens em systemd usaram Codex 0.116 do /usr/bin | PATH explícito com ~/.npm-global/bin (0.163) | infra |
