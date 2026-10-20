@@ -124,6 +124,9 @@ def cmd_checar(pasta):
             erros.append(f"parte {i + 1}: contador.em '{em}' tem mais de uma palavra; use só o número (ex.: '48')")
         palavras =[pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
         palavras += [it.get("de") for it in (dg.get("nos") or dg.get("linhas") or [])] + [(dg.get("centro") or {}).get("de")]
+        for w in palavras:   # todo marcador de tempo casa com UMA palavra (6 reels das formações pararam na montagem, 20/10)
+            if w and " " in str(w).strip() and str(w) != em:
+                erros.append(f"parte {i + 1}: marcador '{w}' (de/itens) tem mais de uma palavra; use uma só (ex.: o número)")
         leg = x.get("legenda") or x["fala"]
         for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
             leg = leg.replace(a, b)
