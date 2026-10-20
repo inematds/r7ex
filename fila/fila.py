@@ -7,7 +7,7 @@ Modelo: ~/projetos/wifi/fila-espanhol/fila_es.py (sem o 'liberar' e sem a trava 
 Roda pelo timer systemd `fila-lives7.timer` (9 h às 21 h, 1 a cada 2 h = 7 por dia).
 Uso: fila_lives7.py            (publica o próximo)
      fila_lives7.py --status   (mostra a fila)
-     fila.py --add <mp4> --nome "..." --contexto "..." [--titulo "..."] [--canal lives7]   (entra no FIM da fila)
+     fila.py --add <mp4> --nome "..." --contexto "..." [--titulo "..."] [--canal lives7]   (entra no FIM da fila; com arquivo FRENTE na pasta da edição, entra na frente dos pendentes)
 """
 import fcntl, json, os, re, subprocess, sys, time
 from datetime import datetime
@@ -60,9 +60,14 @@ def adicionar(argv):
     fila = ler()
     if any(x.get("arquivo") == arq for x in fila):
         sys.exit(f"já está na fila: {arq}")
-    fila.append(item)
+    if (Path(arq).parent / "FRENTE").exists():  # pedido do Nei: esta edição passa na frente (após as outras já adiantadas)
+        item["frente"] = True
+        pos = [i for i, x in enumerate(fila) if x["estado"] == "pendente" and not x.get("frente")]
+        fila.insert(pos[0] if pos else len(fila), item)
+    else:
+        fila.append(item)
     FILA.write_text(json.dumps(fila, ensure_ascii=False, indent=1))
-    pend = sum(x["estado"] == "pendente" for x in fila)
+    pend = [x["id"] for x in fila if x["estado"] == "pendente"].index(item["id"]) + 1
     print(f"na fila do {item.get("canal", CANAL)}: {item['id']} (posição {pend}; ~{(pend + len(HORAS) - 1) // len(HORAS)} dia(s))")
 
 
