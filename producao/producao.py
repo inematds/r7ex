@@ -147,6 +147,10 @@ def passo(pasta, it, feito):
         v = revisar(p)
         with open(logp, "a") as f:
             f.write(f"\n=== {datetime.now():%Y-%m-%d %H:%M:%S} revisor: {json.dumps(v, ensure_ascii=False)}\n")
+        if v["veredito"] == "erro" and it.get("erros_revisor", 0) < 3:  # falha passageira do claude -p: tenta no próximo ciclo
+            with Estado() as d:
+                d[pasta]["erros_revisor"] = it.get("erros_revisor", 0) + 1
+            return False
         if v["veredito"] != "aprovado":
             para(pasta, f"revisão reprovou: {v['motivo']}"); return False
         muda(pasta, "publicar", revisao=v["motivo"][:300]); return True
