@@ -32,6 +32,14 @@ FILA = R / "fila/fila.json"
 AVISA = Path.home() / "projetos/wifi/scripts/avisa-v3.sh"
 R7EX = [sys.executable, str(R / "r7ex.py")]
 TETO_AVATAR_H = 6                                         # esperando o HeyGen mais que isso → parado + aviso
+# falta de memória (GPU/RAM dividida com outros renders) e tempo esgotado passam sozinhos: 2 tentativas antes de avisar (20/10/2026)
+PASSAGEIRO = ("NV_ERR_NO_MEMORY", "out of memory", "BindToCurrentSequence", "TimeoutError", "Timeout 30000ms",
+              "tempo esgotado", "transcrever_v1.py")
+TENTATIVAS, ESPERA_S = 2, 600
+
+
+def passageiro(out):
+    return any(s.lower() in out.lower() for s in PASSAGEIRO)
 
 
 def log(msg):
@@ -139,7 +147,15 @@ def passo(pasta, it, feito):
         if feito.get("montar"):
             return False
         feito["montar"] = True
+        if time.time() < it.get("tentar_apos", 0):
+            return False
         rc, out = roda(["fazer", pasta], 7200, logp)
+        if rc and passageiro(out) and it.get("tentativas", 0) < TENTATIVAS:
+            n = it.get("tentativas", 0) + 1                # GPU/RAM cheia: espera e tenta de novo antes de avisar
+            with Estado() as d:
+                d[pasta].update(tentativas=n, tentar_apos=time.time() + ESPERA_S * n)
+            log(f"{p.name}: falha passageira na montagem (tentativa {n}/{TENTATIVAS}, de novo em {ESPERA_S * n // 60} min)")
+            return False
         if rc:
             para(pasta, f"montagem: {out}"); return False
         muda(pasta, "revisao"); return True
@@ -215,7 +231,8 @@ def retomar(pasta):
             sys.exit("não está na produção (use --add)")
         it = d[str(p)]
         it.update(estado="na_fila" if na_fila(p) else estado_inicial(p), desde=f"{datetime.now():%Y-%m-%d %H:%M}")
-        it.pop("motivo", None)
+        for k in ("motivo", "tentativas", "tentar_apos"):
+            it.pop(k, None)
     log(f"{p.name}: retomada ({it['estado']})")
 
 

@@ -253,7 +253,9 @@ def cmd_render(pasta):
         r = subprocess.run(["bash", R / "motor/compor_avatar.sh", p, p / "video.mp4"], cwd=R, env=env, stdout=lg, stderr=subprocess.STDOUT,
                            timeout=3600)
     if r.returncode:
-        falha("render: " + (p / "build-render.log").read_text()[-400:])
+        txt = (p / "build-render.log").read_text()       # a linha do erro, não o fim do traceback (20/10/2026)
+        chave = [l.strip() for l in txt.splitlines() if re.search(r"Error|Timeout|exceeded|NO_MEMORY|failed", l)]
+        falha("render: " + (" | ".join(chave[:2]) if chave else txt[-400:]))
     d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p / "video.mp4"]))
     lufs = re.findall(r"I:\s+(-?[\d.]+) LUFS", subprocess.run(["ffmpeg", "-nostats", "-i", p / "video.mp4", "-af", "ebur128", "-f", "null", "-"],
                                                             capture_output=True, text=True).stderr)
