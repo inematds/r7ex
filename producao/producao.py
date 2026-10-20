@@ -34,7 +34,7 @@ R7EX = [sys.executable, str(R / "r7ex.py")]
 TETO_AVATAR_H = 6                                         # esperando o HeyGen mais que isso → parado + aviso
 # falta de memória (GPU/RAM dividida com outros renders) e tempo esgotado passam sozinhos: 2 tentativas antes de avisar (20/10/2026)
 PASSAGEIRO = ("NV_ERR_NO_MEMORY", "out of memory", "BindToCurrentSequence", "TimeoutError", "Timeout 30000ms",
-              "tempo esgotado", "transcrever_v1.py")
+              "tempo esgotado", "transcrever_v1.py", "GPU ocupada além do tempo de espera")
 TENTATIVAS, ESPERA_S = 2, 600
 
 

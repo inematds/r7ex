@@ -106,7 +106,8 @@ def transcrever(wav, pasta, palavras=False):
     segs = _whisper_residente(w16, palavras)
     if segs is not None:
         return [w for s in segs for w in s.get("words", [])] if palavras else segs
-    cmd =["python3", "transcrever_v1.py", "--in", w16, "--outdir", pasta / "t", "--whisper-model", "large-v3",
+    # large-v3 carrega ~10 GB na GPU: entra na fila única da máquina (wifi/scripts/gpu-fila, 20/10/2026)
+    cmd =["/home/nmaldaner/projetos/wifi/scripts/gpu-fila", "r7ex-whisper", "--", "python3", "transcrever_v1.py", "--in", w16, "--outdir", pasta / "t", "--whisper-model", "large-v3",
            "--src", os.environ.get("CS_LANG", "pt")]  # CS_LANG=es: reel traduzido (REA ES, 13/10/2026)
     if palavras:
         cmd.append("--words")
