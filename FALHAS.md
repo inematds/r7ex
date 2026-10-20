@@ -1,3 +1,6 @@
+| 2026-10-20 | render do reel atende-fisioterapia travou 53 min ("Failed to create WebGL context" quando um whisper_gpu_worker segurava a GPU) e parou toda a fila | `timeout 1200` no render.mjs do compor_avatar.sh; matar o render e `--retomar` | infra |
+| 2026-10-20 | Capa atende-nutricao veio com livros/caneta extras e celular abaixo da metade | Edição via image_gen removendo extras e subindo composição | prompt |
+| 2026-10-20 | 5 reels do sobreviver-ia parados na montagem: Codex "out of credits" e o `r7ex.py imagens` só usa Codex | reserva: cenas no flux2-klein (inemaimg :8000) + título da abertura no Pillow, salvas em `capa/` antes do `--retomar` (o r7ex pula o Codex se as imagens existem) | infra |
 | 2026-10-19 | reel dev-futuro parou na montagem: `whisper.py` chamava `log()` inexistente quando o whisper residente caía | trocar por `print` no fallback | infra |
 | 2026-10-20 | 4 reels (3 bigtech + ia-de-elite) parados: `claude -p` do revisor falhou de passagem ("substring not found") e o item parou de vez | revisor com erro tenta de novo no próximo ciclo (até 3 vezes) antes de parar | infra |
 | 2026-10-19 | reel fim-capitalismo parou na montagem: contador `em: "48 bilhões"` (2 palavras) não casa com a legenda, e o `checar` deixou passar | `checar` recusa `contador.em` com espaço | prompt |
