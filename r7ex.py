@@ -119,7 +119,10 @@ def cmd_checar(pasta):
         if re.search(r"\d", x["fala"]):
             erros.append(f"parte {i + 1}: número em algarismo na fala (o avatar lê errado): escreva por extenso e use 'trocas'")
         pn = x.get("painel") or {}
-        palavras = [pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
+        em = str((pn.get("contador") or {}).get("em") or "")
+        if " " in em.strip():   # a montagem casa o contador com UMA palavra da legenda (fim-capitalismo, 19/10)
+            erros.append(f"parte {i + 1}: contador.em '{em}' tem mais de uma palavra; use só o número (ex.: '48')")
+        palavras =[pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
         palavras += [it.get("de") for it in (dg.get("nos") or dg.get("linhas") or [])] + [(dg.get("centro") or {}).get("de")]
         leg = x.get("legenda") or x["fala"]
         for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
