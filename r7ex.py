@@ -286,10 +286,13 @@ def cmd_imagens(pasta):
             extra = (" Deixe o CENTRO da metade de cima vazio e escuro (um logo será colocado ali depois): nenhum logo, nenhum texto,"
                      " nenhum objeto no centro; o impacto vem da luz e do cenário em volta.") if x.get("logos") else ""
             linhas.append(f"{len(linhas) + 1}. {nome[i]} — {x['imagem']}.{extra}")
-    pedido = (f"Gere {len(linhas)} imagens com a ferramenta de geração de imagem (image_gen) e salve nesta pasta, em PNG, formato RETRATO 9:16 "
-              f"(o maior tamanho vertical disponível). {ESTILO}\n\n" + "\n".join(linhas) + "\n\nAo final, liste os arquivos salvos.\n")
-    (capa / "pedido.txt").write_text(pedido)
     falta = [n for n in ["abertura.png"] + list(nome.values()) if not (capa / n).exists()]
+    # só as que faltam: com a lista inteira o Codex refazia todas e trocava a abertura aprovada (musk, 21/10/2026)
+    linhas = [l for l in linhas if l.split(" — ")[0].split(". ", 1)[1] in falta]
+    pedido = (f"Gere {len(linhas)} imagens com a ferramenta de geração de imagem (image_gen) e salve nesta pasta, em PNG, formato RETRATO 9:16 "
+              f"(o maior tamanho vertical disponível). {ESTILO}\n\n" + "\n".join(linhas) +
+              "\n\nNão mexa em nenhum outro arquivo da pasta. Ao final, liste os arquivos salvos.\n")
+    (capa / "pedido.txt").write_text(pedido)
     if falta:
         log(f"Codex: {len(falta)} imagem(ns)…")
         with open(capa / "codex.log", "w") as lg:

@@ -1,3 +1,6 @@
+| 2026-10-21 | refazer só 1 imagem (volante do musk): o Codex refez TODAS e trocou a abertura aprovada por uma com título menor | `cmd_imagens` só pede as que faltam + "não mexa em outros arquivos" | prompt |
+| 2026-10-21 | Robô e volante gerados invadiram metade inferior | edição image_gen reduzindo assunto e ancorando no topo | prompt |
+| 2026-10-21 | Capa gerada avançou com o robô sobre a metade inferior | Reduzir o robô via image_gen mantendo o título | prompt |
 | 2026-10-21 | remontar rust-fim-python com o MESMO avatar falhou: "fala f6 não achada" (Whisper retranscreveu diferente) | retempo reaproveita tempos.json se for mais novo que o avatar.mp4 e as falas forem iguais | infra |
 | 2026-10-21 | 8 de 35 reels parados na produção; metade por estilo (logo faltando, impacto, encostar de leve) e 3 por `**` cru no painel (bigtech-ipo/troco/ipo-b); rust-fim-python parou por falta do logo do Copilot no gancho | revisor em 2 níveis (defeito para; sugestão segue com tarja 🟥 SUGESTÃO no v3); crítico do plano não bloqueia por logo; `cena.sem_markdown` tira `**` | prompt + infra |
 | 2026-10-21 | reel thwaites: a caixa da pergunta do fecho só entrava em "pede" e a fala termina em "me pede o link." → apareceu <1 s e o revisor reprovou | `cta.de` na ficha escolhe a deixa da caixa (padrão "pede"); thwaites usa "cidade" | prompt |
