@@ -133,6 +133,20 @@ def revisar(p):
         return {"veredito": "erro", "motivo": f"revisor não respondeu direito: {str(e)[:200]}"}
 
 
+def nota_revisor(p, v):
+    """grava o parecer no registro único (wifi/scripts/revisor-nota.py) para comparar com o do Nei; nunca para a produção"""
+    if v.get("veredito") not in ("aprovado", "reprovado"):
+        return
+    cmd = [sys.executable, str(Path.home() / "projetos/wifi/scripts/revisor-nota.py"), "registra", "--fluxo", "r7ex",
+           "--item", p.name, "--quem", "revisor", "--veredito", v["veredito"], "--motivo", str(v.get("motivo", ""))]
+    if str(v.get("impacto", "")).replace(".", "", 1).isdigit():
+        cmd += ["--nota", str(v["impacto"])]
+    try:
+        subprocess.run(cmd, capture_output=True, timeout=30)
+    except Exception:
+        pass
+
+
 def passo(pasta, it, feito):
     """avança uma edição um passo; `feito` limita os passos pesados por rodada. Devolve True se andou."""
     p = Path(pasta); st = it["estado"]; logp = p / "producao.log"
@@ -178,6 +192,7 @@ def passo(pasta, it, feito):
             with Estado() as d:
                 d[pasta]["erros_revisor"] = it.get("erros_revisor", 0) + 1
             return False
+        nota_revisor(p, v)
         if v["veredito"] != "aprovado":
             para(pasta, f"revisão reprovou: {v['motivo']}"); return False
         muda(pasta, "publicar", revisao=v["motivo"][:300], sugestoes=(v.get("sugestoes") or [])[:5]); return True
