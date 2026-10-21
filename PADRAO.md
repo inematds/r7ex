@@ -30,6 +30,12 @@ A produção só manda ao estúdio roteiro aprovado. **Ético e competitivo:** o
 ("vazou", "apareceu no código", "num teste custou 1 centavo"); a incerteza vai na linha de fonte, não amolece a fala.
 Nada inventado — exagero falso zera a parte.
 
+**Emoção primeiro, a verdade confirma (Nei, 21/10/2026): "temos nossa ética, que entende o povo e não a máquina; não podemos
+faltar com a verdade, mas ela vem depois para confirmar e não impor; a emoção vem primeiro".** A fala conversa com a pessoa
+(pergunta em "você", palavra simples, sentimento); o número e a fonte vão para a tela (contador, gráfico, linha de fonte).
+A fala pode simplificar no mesmo sentido da fonte, nunca contradizê-la. CTA pede compromisso positivo ("eu consigo / eu faço /
+eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-plano.md`) segue esta regra.
+
 ## 2. Roteiro — 7 partes, ~30–40 s, fala de 550–700 caracteres
 
 | Parte | Função | Regra |
