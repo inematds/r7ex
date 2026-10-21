@@ -1,4 +1,8 @@
+| 2026-10-20 | `enviar` ao bot v3 falhou uma vez (exit 1 do enviar_bot_v3.mjs) no reel feudo-servo-l3, num lote de 3 envios seguidos | reenviar isolado funcionou; proteção: 1 retry automático no cmd_enviar | infra |
+| 2026-10-20 | montagem do reel ia-novembro caiu com KeyError: 'em' (contador sem a palavra de entrada) e o aviso veio cortado ("a") | `checar` agora reprova contador sem `em` | prompt |
+| 2026-10-20 | Capa gerou Transformer em vez de humanoide industrial | Especificar visor preto oval, painéis brancos e excluir Optimus Prime no image_gen | prompt |
 | 2026-10-20 | 3 reels pararam de madrugada (fisioterapia, plano-90-dias) por memória cheia (NVRM NO_MEMORY 03:04–03:13; vários renders + flux + inemaimg 30 GB juntos) e o aviso veio cortado ("og:") | montagem com falha passageira (memória/tempo) tenta mais 2 vezes, 10 e 20 min depois, antes de avisar; erro do render mostra a linha do erro | infra |
+| 2026-10-20 | image_gen incluiu pessoa não solicitada em p5 | Edição removeu pessoa e explicitou notebook sozinho, sem humanos | prompt |
 | 2026-10-20 | render do reel atende-fisioterapia travou 53 min ("Failed to create WebGL context" quando um whisper_gpu_worker segurava a GPU) e parou toda a fila | `timeout 1200` no render.mjs do compor_avatar.sh; matar o render e `--retomar` | infra |
 | 2026-10-20 | Capa atende-nutricao veio com livros/caneta extras e celular abaixo da metade | Edição via image_gen removendo extras e subindo composição | prompt |
 | 2026-10-20 | 5 reels do sobreviver-ia parados na montagem: Codex "out of credits" e o `r7ex.py imagens` só usa Codex | reserva: cenas no flux2-klein (inemaimg :8000) + título da abertura no Pillow, salvas em `capa/` antes do `--retomar` (o r7ex pula o Codex se as imagens existem) | infra |
@@ -18,3 +22,5 @@
 | 2026-10-19 | Print do guia (skills15) saiu todo preto com âncora #numeros e a folha mostrou moldura vazia; contador sem "MILHÃO" | print sem âncora + unid com MILHÃO; falta portão: print quase uniforme (desvio baixo) reprovar no `imagens` | infra + prompt |
 | 2026-10-19 | Dois envios ao estúdio HeyGen no mesmo segundo: o 2º caiu com "Opening in existing browser session" (r7e-para-r7ex) | trava atômica (mkdir) no heygen-perfil.mjs, da ferramenta: ~/.cache/inemaccbot/heygen-estudio.trava (commit 592659c) | infra |
 | 2026-10-19 | `fila.py --help` publicou o próximo short do lives7 fora do horário (argumento desconhecido = publicar) | argumento que não seja --add/--status só mostra a ajuda | infra |
+
+| 2026-10-20 | Capa feudo com mão humana ultrapassando metade superior | editar via image_gen com mão entrando pela lateral e coordenadas de composição | prompt |

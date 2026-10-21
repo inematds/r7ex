@@ -120,6 +120,8 @@ def cmd_checar(pasta):
             erros.append(f"parte {i + 1}: número em algarismo na fala (o avatar lê errado): escreva por extenso e use 'trocas'")
         pn = x.get("painel") or {}
         em = str((pn.get("contador") or {}).get("em") or "")
+        if pn.get("contador") and not em.strip():   # sem 'em' a montagem cai com KeyError (ia-novembro, 20/10)
+            erros.append(f"parte {i + 1}: contador sem 'em' (a palavra da fala em que o número entra)")
         if " " in em.strip():   # a montagem casa o contador com UMA palavra da legenda (fim-capitalismo, 19/10)
             erros.append(f"parte {i + 1}: contador.em '{em}' tem mais de uma palavra; use só o número (ex.: '48')")
         palavras =[pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
