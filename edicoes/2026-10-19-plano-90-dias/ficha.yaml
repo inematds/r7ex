@@ -1,88 +1,113 @@
-# Ficha r7ex — plano de 90 dias: ter algo seu + distribuição (sobreviver-ia, semanas 3–8, 19/10/2026). Pedido do Nei: "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives2.
+# Ficha r7ex — plano de 90 dias: ter algo seu + distribuição (sobreviver-ia, semanas 3–8). Pedido do Nei (19/10/2026): "refaça outros 5 vídeos do r7ex ... mesmo avatar ... diversos lives, cada um com conteúdo diferente, e manda para o v3". Canal: lives2.
+# Reescrita em 21/10/2026 (portão D15): ângulo novo = "teste de três segundos" que o espectador responde nos comentários; a versão antiga (nota 7, sem 'prende') está em avatar/_antigo-2026-10-19/.
 slug: plano-90-dias
-tema: "Treze, quinze, dezenove por cento: o número de Stanford só sobe. Se o seu salário parasse amanhã, o que continuaria rendendo?"
+tema: "Stanford mediu três vezes e só piorou (13% → 15% → 19%). Teste de 3 segundos: se o seu salário parasse amanhã, o que continuaria rendendo?"
 
 plano:
   pessoa: "assalariado que vende horas e não tem nada próprio além do emprego"
-  quer: "não ficar sem renda se o emprego sumir (dor) e ter algo seu que rende sem ele estar lá (desejo)"
-  gancho: "medo: Stanford Digital Economy Lab (Canaries in the Coal Mine) — o gap de emprego de 22–25 anos nas funções expostas subiu a cada versão: 13% → 15% → 19% (ago/2026)"
-  nota: 7
+  quer: "não voltar pro zero se o emprego sumir (dor) e ter algo seu que rende sem ele estar lá (desejo)"
+  gancho: "medo: Stanford Digital Economy Lab (Canaries in the Coal Mine) — o emprego de 22–25 anos nas funções mais expostas à IA está ~19% abaixo do que estaria se acompanhasse as menos expostas; o gap cresceu a cada versão do estudo: 13% → 15% → 19% (ago/2026)"
+  nota: 8
   destino: "https://inematds.github.io/sobreviver-ia/guia/#plano (plano de 90 dias, no inema.club, projetos)"
+  fatos:
+    - fato: "Stanford mediu 3 vezes (3 versões do estudo) e o gap subiu: 13% → 15% → 19% abaixo, emprego de 22 a 25 anos nas funções mais expostas à IA"
+      trecho: "o Stanford Digital Economy Lab (\"Canaries in the Coal Mine\", atualização de agosto de 2026) mediu que o emprego de pessoas de 22 a 25 anos nas funções mais expostas à IA está cerca de 19% abaixo de onde estaria se tivesse acompanhado as funções menos expostas. É um gap acumulado, que cresceu entre as versões do estudo (13% → 15% → 19%)"
+    - fato: "o teste: se o salário parasse amanhã, o que continuaria rendendo; se a resposta for nada, essa é a lacuna"
+      trecho: "Exercício: se o seu salário parasse amanhã, o que continuaria gerando valor sem você estar lá? Se a resposta for \"nada\", essa é a lacuna destas semanas."
+    - fato: "algo seu = produto pequeno, serviço com marca própria, curso; o que fica valioso é o que é seu"
+      trecho: "A IA barateia o trabalho; o que fica valioso é o que é seu ... um produto pequeno, um serviço com marca própria, um modelo de documento, um curso, um pedaço de um negócio"
+    - fato: "versão mínima em 2 semanas usando IA; mostrar para 5 pessoas"
+      trecho: "Escolha uma e faça a versão mínima em 2 semanas, usando IA para ir mais rápido. Coloque um preço ou um pedido de contato e mostre para 5 pessoas."
+    - fato: "publicar 2 vezes por semana; lista própria — o algoritmo muda, a lista fica; vai junto se trocar de emprego"
+      trecho: "Distribuição é quem te conhece e confia em você ... Ela vai junto se você trocar de emprego ou de negócio. Publique 2 vezes por semana o que você está aprendendo no seu eval (é conteúdo pronto). Monte uma lista própria (e-mail ou grupo) — o algoritmo muda, a lista fica."
+    - fato: "o plano não exige largar o emprego (é feito em semanas, junto com o trabalho atual) e não é recomendação financeira"
+      trecho: "Este plano não é recomendação financeira. Ajuste ao seu momento. (semanas 1–2: tarefas reais do seu trabalho; semanas 3–5: versão mínima em 2 semanas)"
 
 marca: "INEMA · 90 DIAS"
 selo: "ALERTA INEMA"
-fonte: "<b>Stanford Digital Economy Lab</b> · Canaries in the Coal Mine, versões até ago/2026 · imagens: ilustração"
+fonte: "<b>Stanford Digital Economy Lab</b> · Canaries in the Coal Mine, versões até ago/2026 · plano: sobreviver-ia · imagens: ilustração"
 
 abertura:
-  branco: "E SE O SEU SALÁRIO PARASSE AMANHÃ?"
-  destaque: "O QUE CONTINUA RENDENDO?"
+  branco: "STANFORD MEDIU 3 VEZES:"
+  destaque: "EMPREGO JOVEM 19% ABAIXO"
   cor: vermelho
-  cena: "uma torneira dourada de onde cai a última gota, sobre um cofrinho vazio rachado numa mesa preta; luz vermelha de alerta vindo de cima; sensação de fonte secando"
+  cena: "um gráfico de barras físico feito de três blocos de vidro vermelho em degraus descendo sobre uma mesa preta, o último bloco rachando; luz vermelha de alerta forte vindo de cima, sombras profundas; sem nenhum número, letra ou marca nos blocos"
 
 trocas:
-  "Treze": "13%"
+  "treze": "13%"
   "quinze": "15%"
   "dezenove por cento": "19%"
-  "noventa dias": "90 dias"
+  "três vezes": "3 vezes"
+  "três segundos": "3 segundos"
   "duas semanas": "2 semanas"
   "cinco pessoas": "5 pessoas"
   "duas vezes": "2 vezes"
 
 partes:
   - etapa: gancho
-    fala: "Treze, quinze, dezenove por cento. A cada versão do estudo de Stanford, o emprego dos jovens nas funções expostas à IA cai mais."
+    fala: "Stanford mediu três vezes e só piorou: o emprego dos jovens nas funções expostas à IA está treze, quinze, dezenove por cento abaixo."
+    prende: "número que sobe três vezes seguidas nos 2 primeiros segundos, com o nome Stanford na fala e na tela; a pessoa quer saber se é com ela"
     painel:
       de: Stanford
-      k: "STANFORD · O GAP SÓ SOBE"
+      k: "STANFORD DIGITAL ECONOMY LAB"
       borda: red
       contador: {ate: 19, em: "19", cor: "#ff2a1f", unid: "% ABAIXO"}
       l: "13% → 15% → 19% · 22 a 25 anos, funções expostas"
   - etapa: medo
-    fala: "Se o seu salário parasse amanhã, o que continuaria rendendo sem você estar lá? Para muita gente, a resposta é nada."
-    imagem: "um relógio de ponto de fábrica antigo com o cartão de ponto rasgado ao meio caindo no chão, fundo preto, luz vermelha; sensação de fim"
-    painel:
-      k: "SE O SALÁRIO PARAR"
+    fala: "Teste de três segundos: seu salário parou amanhã. O que continua rendendo? Se for nada, essa é a sua lacuna."
+    prende: "vira o número para a vida de quem assiste com um teste que ela responde na cabeça; a palavra lacuna dá nome ao problema e segura para ver a saída"
+    imagem: "uma ampulheta de vidro antiga rachada, com a última areia escorrendo pela rachadura, fundo preto, luz vermelha forte de cima; sensação de fim; sem nenhum número, letra ou marca"
+    lista:
+      k: "TESTE DE 3 SEGUNDOS"
       borda: red
-      itens: [[salário, "💼 o salário parou"], [rendendo, "❓ o que continua rendendo"], [nada, "🚫 nada"]]
+      itens: [[salário, "💼 seu salário parou amanhã"], [rendendo, "❓ o que continua rendendo?"], [nada, "🚫 nada = a sua lacuna"]]
+    painel: {k: "SE A RESPOSTA FOR NADA", titulo: "É A SUA LACUNA", cor: "#ff2a1f", de: lacuna, borda: red}
   - etapa: desejo
-    fala: "Imagina ter algo seu, que gera valor mesmo quando você troca de emprego."
-    imagem: "uma pequena muda de árvore dourada brotando de um vaso numa mesa preta, iluminada por luz amarela, crescendo com folhas brilhantes; sensação de algo que é seu"
-    painel:
-      k: "ALGO SEU"
-      itens: [[seu, "🌱 algo seu"], [valor, "💰 gera valor"], [emprego, "🔁 vai junto se trocar de emprego"]]
+    fala: "A IA barateia o trabalho. O que fica valioso é o que é seu: um produto pequeno, um modelo de documento, um curso."
+    prende: "frase forte e contraintuitiva (a IA barateia o trabalho) seguida de três saídas concretas que a pessoa imagina para si"
+    imagem: "três objetos concretos lado a lado sobre uma mesa preta, sob um foco de luz forte de cima: uma pequena caixa de produto fechada, uma pasta com folhas de um modelo de documento sem texto legível e um notebook aberto com a tela acesa mostrando uma aula em vídeo; sombras profundas; sem nenhuma letra, logo ou marca legível"
+    lista:
+      k: "O QUE É SEU"
+      itens: [[produto, "📦 um produto pequeno"], [documento, "📄 um modelo de documento"], [curso, "🎓 um curso"]]
+    painel: {k: "A IA BARATEIA O TRABALHO", titulo: "VALE O QUE É SEU", cor: "#FACC15", de: valioso}
   - etapa: facilidade
-    fala: "Não precisa largar o emprego. A IA faz a versão mínima com você em duas semanas."
-    imagem: "um robô humanoide estilo Optimus de visor preto montando junto com mãos humanas uma pequena caixa de produto luminosa sobre uma bancada escura; luz amarela"
-    painel:
+    fala: "Sem largar o emprego: em duas semanas, com IA, você tem a versão mínima pronta pra mostrar."
+    prende: "derruba a objeção 'não posso largar o emprego / não tenho tempo' com um prazo curto e concreto"
+    imagem: "um robô humanoide industrial branco e cinza fosco, cabeça lisa com visor preto brilhante, estilo Tesla Optimus, sem cores vermelhas, montando junto com mãos humanas uma pequena caixa de produto luminosa sobre uma bancada escura; luz amarela"
+    lista:
       k: "SEM LARGAR O EMPREGO"
-      itens: [[largar, "✅ sem largar o emprego"], [mínima, "🧰 versão mínima com IA"], [semanas, "📅 2 semanas"]]
+      itens: [[largar, "✅ sem largar o emprego"], [mínima, "🧰 versão mínima com IA"], [pronta, "✅ pronta pra mostrar"]]
+    painel: {k: "VERSÃO MÍNIMA", titulo: "2 SEMANAS", cor: "#FACC15", de: semanas}
   - etapa: descoberta
-    fala: "O plano de noventa dias tem três passos: faça algo seu, mostre para cinco pessoas e publique duas vezes por semana para montar sua própria lista."
+    fala: "Mostre para cinco pessoas com um preço e publique duas vezes por semana."
+    prende: "passos com número e um detalhe ousado (mostrar já com preço) que soa real e dá para fazer nesta semana"
     diagrama:
       forma: fluxo
       titulo: "O PLANO DE 90 DIAS"
       nos:
-        - {de: faça, ic: "🛠️", txt: "Faça algo seu", sub: "produto, serviço, modelo, curso"}
-        - {de: mostre, ic: "👥", txt: "Mostre para 5", sub: "com preço ou pedido de contato"}
-        - {de: publique, ic: "📣", txt: "Publique 2×/semana", sub: "o que você está aprendendo"}
-        - {de: lista, ic: "📋", txt: "Sua lista", sub: "o algoritmo muda, a lista fica", cor: vd}
+        - {de: mostre, ic: "👥", txt: "Mostre para 5", sub: "pessoas reais"}
+        - {de: preço, ic: "🏷️", txt: "Com um preço", sub: "ou um pedido de contato"}
+        - {de: publique, ic: "📣", txt: "Publique 2×/semana", sub: "o que você está aprendendo", cor: vd}
   - etapa: beneficio
-    fala: "Quem te conhece e confia em você vai junto, em qualquer emprego."
-    imagem: "uma pessoa de costas caminhando por uma estrada à noite, seguida por várias pequenas luzes amarelas como lanternas, representando pessoas que a acompanham; rostos não aparecem"
-    painel:
-      k: "VAI JUNTO"
+    fala: "E monte a sua lista: o algoritmo muda, a lista fica, e vai junto em qualquer emprego."
+    prende: "frase curta e citável (o algoritmo muda, a lista fica) que dá vontade de compartilhar; fecha a promessa do teste"
+    imagem: "a mão de uma pessoa segurando um celular na vertical, a tela acesa mostra uma lista de contatos em fila com avatares redondos coloridos sem rostos nem nomes legíveis, várias novas entradas surgindo com brilho; fundo preto, luz dramática de cima"
+    lista:
+      k: "SUA LISTA"
       borda: vd
-      itens: [[conhece, "🤝 quem te conhece"], [confia, "💛 e confia em você"], [junto, "🧭 vai junto"]]
+      itens: [[algoritmo, "📉 o algoritmo muda"], [fica, "📋 a lista fica"], [junto, "🧭 vai junto em qualquer emprego"]]
+    painel: {k: "E-MAIL OU GRUPO", titulo: "A LISTA FICA", cor: "#FACC15", de: lista, borda: vd}
   - etapa: comentario
-    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
-    print: {url: "https://inematds.github.io/sobreviver-ia/guia/#plano", selo: "plano de 90 dias · inema.club"}
+    fala: "Passou no teste? Comenta sim ou nada. Tá tudo no inema ponto club, ou me pede o link."
+    prende: "resposta pronta de uma palavra (sim ou nada) baixa o esforço de comentar e puxa conversa"
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/", selo: "plano de 90 dias · inema.club"}
 
-cta: {a: "SE O SALÁRIO PARAR, O QUE CONTINUA RENDENDO? 👇", b: "ou me pede o link do plano nos comentários"}
+cta: {a: "PASSOU NO TESTE? COMENTA SIM OU NADA 👇", b: "ou me pede o link do plano nos comentários"}
 club: "o plano de 90 dias, semana a semana"
-cores: {Treze: "#ff2a1f", dezenove: "#ff2a1f", Stanford: "#FACC15", salário: "#ff2a1f", nada: "#ff2a1f",
-        seu: "#FACC15", mínima: "#FACC15", noventa: "#FACC15", lista: "#FACC15", confia: "#FACC15"}
+cores: {treze: "#ff2a1f", dezenove: "#ff2a1f", Stanford: "#FACC15", salário: "#ff2a1f", nada: "#ff2a1f",
+        seu: "#FACC15", mínima: "#FACC15", preço: "#FACC15", lista: "#FACC15", teste: "#FACC15"}
 
 publicar:
   fila: lives2
-  titulo: "13%, 15%, 19%: se o seu salário parasse amanhã, o que continuaria rendendo? #shorts"
-  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Stanford Digital Economy Lab (Canaries in the Coal Mine): o emprego de 22 a 25 anos nas funções mais expostas à IA ficou 13%, depois 15% e, na versão de ago/2026, 19% abaixo das menos expostas — gap acumulado, por menos contratação. Plano de 90 dias do projeto aberto sobreviver-ia: ter algo seu (versão mínima com IA em 2 semanas), mostrar para 5 pessoas e publicar 2 vezes por semana para montar a própria lista. Não é recomendação financeira. No inema.club. CTA: o que continua rendendo se o salário parar / peça o link."
+  titulo: "Teste de 3 segundos: se o seu salário parasse amanhã, o que continuaria rendendo? #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Stanford Digital Economy Lab (Canaries in the Coal Mine): o emprego de 22 a 25 anos nas funções mais expostas à IA ficou 13%, depois 15% e, na versão de ago/2026, 19% abaixo das menos expostas — gap acumulado, por menos contratação. O teste: se o seu salário parasse amanhã, o que continuaria rendendo? Plano de 90 dias do projeto aberto sobreviver-ia: ter algo seu (versão mínima com IA em 2 semanas), mostrar para 5 pessoas e publicar 2 vezes por semana para montar a própria lista — o algoritmo muda, a lista fica. Não é recomendação financeira. No inema.club. CTA: passou no teste? comenta sim ou nada / peça o link."

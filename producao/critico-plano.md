@@ -29,7 +29,8 @@ de comentar ou compartilhar?"** Critérios:
 `bloqueios` (lista; vazia se nada) é SÓ para o que é objetivo e checável, e impede a gravação:
 - número ou afirmação sem origem em `plano.fatos`/`plano.gancho`/`fonte`, ou dito além do que a fonte diz
   (ex.: fonte "poderia igualar" → fala "ia empatar");
-- produto/empresa citado na fala sem `logos` na parte;
+- produto/empresa citado na fala sem `logos` na parte (a instituição que é a FONTE do dado — universidade, jornal,
+  estudo — não é produto: basta estar em `fonte` e no painel; PADRAO.md §1);
 - parte 7 sem pergunta falada, sem "inema ponto club" ou sem "pede";
 - algo do `pedido` não cumprido.
 Gosto, ritmo e "poderia ser mais forte" vão na nota e no `melhorar`, nunca em bloqueios.

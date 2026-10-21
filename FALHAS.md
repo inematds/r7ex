@@ -1,3 +1,4 @@
+| 2026-10-21 | reel plano-90-dias (ficha de 19/10, antes do D15) parou na produção: sem `prende` e nota 7; o crítico também barrou Stanford "sem logo", e Stanford é a fonte, não um produto | ficha reescrita (ângulo "teste de 3 segundos"); critico-plano.md: instituição-fonte não precisa de logo (PADRAO §1). Crítico oscila ±1 entre rodadas (7,3 → 7,1 → 7,4) | prompt |
 | 2026-10-20 | `enviar` ao bot v3 falhou uma vez (exit 1 do enviar_bot_v3.mjs) no reel feudo-servo-l3, num lote de 3 envios seguidos | reenviar isolado funcionou; proteção: 1 retry automático no cmd_enviar | infra |
 | 2026-10-20 | montagem do reel ia-novembro caiu com KeyError: 'em' (contador sem a palavra de entrada) e o aviso veio cortado ("a") | `checar` agora reprova contador sem `em` | prompt |
 | 2026-10-20 | Capa gerou Transformer em vez de humanoide industrial | Especificar visor preto oval, painéis brancos e excluir Optimus Prime no image_gen | prompt |
