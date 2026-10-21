@@ -178,7 +178,21 @@ def montar(pasta, ficha, falas):
     for a, b in zip(legenda, legenda[1:]):
         a["fim"] = min(max(a["fim"], b["ini"]), b["ini"])
 
-    C = {"layout": "canto", "padding_baixo": 640, "duracao": DUR, "padding_topo": 0, "marca": ficha["marca"], "selo": ficha["selo"],
+    # avatar (Nei, 21/10/2026): abre em MEIA tela na metade de baixo (1080x960) durante a parte 1 (gancho) e depois
+    # vai para o PiP do canto; a ficha pode pedir `avatar: meia` em outra parte (o plano decide). O compor lê meia.txt.
+    meia = []
+    for i, p in enumerate(partes):
+        if i > 0 and p.get("avatar", "pip") != "meia":
+            continue
+        a = 0.0 if i == 0 else round(F[f"f{i + 1}"]["ini"] - .1, 2)
+        b = round(F[f"f{i + 2}"]["ini"] - .1, 2) if i + 1 < len(partes) else DUR
+        if meia and a - meia[-1][1] < .3:
+            meia[-1][1] = b
+        else:
+            meia.append([a, b])
+    (pasta / "avatar/meia.txt").write_text("".join(f"{a} {b}\n" for a, b in meia))
+
+    C = {"layout": "canto", "padding_baixo": 640, "meia": meia, "duracao": DUR, "padding_topo": 0, "marca": ficha["marca"], "selo": ficha["selo"],
          "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "listas": listas, "diagramas": diagramas, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
     (pasta / "cena.js").write_text("window.CENA=" + json.dumps(sem_markdown(C), ensure_ascii=False) + ";")
     return DUR, len(telas), len(paineis), len(legenda)

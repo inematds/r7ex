@@ -17,7 +17,7 @@ REPROVE (defeito) só se:
 - Número na tela diferente do número da fala, ou sem sentido sozinho (ex.: "1,3 DE SKILLS" em vez de "1,3 MILHÃO DE SKILLS").
 - Texto cobrindo texto a ponto de não dar para ler, legenda saindo da tela ou cortada de forma ilegível.
 - Marcação crua na tela (asteriscos `**`, chaves, `<b>`, "undefined", "null").
-- Avatar ausente, em tela cheia ou com rosto deformado.
+- Avatar ausente, em tela cheia ou com rosto deformado. (Rosto em meia tela embaixo na parte 1 — e onde a ficha pedir — é o padrão D16, não defeito.)
 - Fecho sem a caixa vermelha de pergunta ou sem a pílula "inema.club".
 - Imagem com marca d'água ou rosto reconhecível.
 

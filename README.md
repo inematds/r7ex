@@ -151,7 +151,8 @@ Passo a passo separado: `avatar`, `imagens`, `cena`, `render`, `revisar` (ver `p
 | Quero mudar | Onde |
 |---|---|
 | Cores, fonte, tamanho e posição da faixa, painel, legenda, CTA | `motor/mapa.html` (CSS e desenho das camadas) |
-| Posição e tamanho do rosto, moldura, nome | `motor/compor_avatar.sh` (`LAYOUT=canto`: 400x453 em x 640, y 1290) |
+| Posição e tamanho do rosto, moldura, nome | `motor/compor_avatar.sh` (`LAYOUT=canto`: 400x453 em x 640, y 1290) + `motor/meia_filtro.py` (meia tela 1080x960 em y 960 nos trechos de `avatar/meia.txt`) |
+| Quando o rosto fica em meia tela | `r7ex/cena.py` (parte 1 sempre; `avatar: meia` na parte) e `body.mt` em `motor/mapa.html` (o que sobe/some) — D16 |
 | Onde a abertura desce, o cartão do print, o brilho do print | `r7ex/pecas.py` (`abertura`, `print_card`) |
 | Estilo das imagens (paleta, robô, sem texto) | `ESTILO` em `r7ex.py` |
 | Cores das palavras na legenda | `cores:` na ficha (por reel) |

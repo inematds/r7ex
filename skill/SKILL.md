@@ -4,7 +4,7 @@ description: >-
   Tema ou tese do Nei → reel 9:16 VIRAL no padrão r7ex: roteiro de 7 etapas de gatilho (gancho com número → medo →
   desejo → facilidade → descoberta → benefício → comentário "tá tudo no inema.club") com acabamento de telejornal
   (título desenhado na abertura pelo Codex, preto + amarelo, painéis no tempo da fala, contador, legenda karaokê,
-  avatar do Nei no canto), v3 e fila do lives7. Gatilho: "/r7ex", "faz um r7ex", "reel viral", "reel no padrão novo",
+  avatar do Nei em meia tela embaixo no gancho e depois no canto), v3 e fila do lives7. Gatilho: "/r7ex", "faz um r7ex", "reel viral", "reel no padrão novo",
   "reel com gatilhos", ou uma tese/opinião do Nei pedindo vídeo curto.
 ---
 

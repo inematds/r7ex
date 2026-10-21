@@ -72,7 +72,10 @@ Fala nunca termina parte em número solto.
   sem impacto"; o meio-termo `edicoes/2026-10-19-skills15-impacto` foi APROVADO pelo Nei em 19/10/2026 — é a referência.
   Sem logos (exceto o produto citado, D13), sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
 - **Faixa do topo:** marca do tema ("INEMA · …") + **selo vermelho**; **linha de fonte** embaixo.
-- **Avatar:** caixinha no canto desde o quadro 0 (nunca tela cheia — D8).
+- **Avatar (D16, 21/10/2026):** abre em **meia tela na metade de baixo** (1080x960) durante a parte 1 (gancho) e depois vai
+  para a caixinha do canto (PiP); `avatar: meia` numa parte faz o rosto voltar à meia tela nela (o plano decide). Na meia tela
+  título/legenda/lista ficam na metade de cima e o painel de baixo some. A abertura do Codex põe título e assunto na metade de cima.
+  Nunca tela cheia (D8).
 - **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa** (só o que já foi dito, no máximo 3 na tela); **contador** sempre que houver número;
   borda vermelha no medo, amarela no ganho, verde na solução.
 - **Prova real:** pelo menos 1 print da página do inema.club / curso.

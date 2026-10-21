@@ -115,6 +115,8 @@ def cmd_checar(pasta):
         texto = CENA.n(x.get("legenda") or x["fala"])
         if i > 0 and not (x.get("imagem") or x.get("print") or x.get("diagrama") or x.get("logos")):
             erros.append(f"parte {i + 1} sem imagem, logos, print nem diagrama")
+        if x.get("avatar", "pip") not in ("meia", "pip"):
+            erros.append(f"parte {i + 1}: avatar deve ser meia ou pip (a parte 1 é sempre meia)")
         dg = x.get("diagrama") or {}
         if dg and dg.get("forma", "fluxo") not in ("fluxo", "hub", "terminal"):
             erros.append(f"parte {i + 1}: diagrama.forma deve ser fluxo, hub ou terminal")

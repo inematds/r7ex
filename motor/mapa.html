@@ -113,6 +113,14 @@ body.cn #fonte{top:1800px;left:40px;right:40px;font-size:16px;line-height:1.3;pa
 body.cn #relogio{top:1215px;font-size:22px;padding:7px 16px}
 /* legenda colada no topo do avatar/painel (borda em y 1286): ancorada pela base, cresce pra cima se quebrar (Nei, 18/10/2026) */
 body.cn #leg{top:auto;bottom:640px;font-size:66px}
+/* avatar em MEIA tela embaixo (1080x960 em y 960; parte 1 sempre, outras se a ficha pedir — Nei, 21/10/2026):
+   tudo sobe para a metade de cima; o painel de baixo some (o rosto ocupa o lugar dele) */
+body.cn.mt #leg{bottom:1010px}
+body.cn.mt #fonte{top:922px;bottom:auto;padding:5px 12px;font-size:15px}
+body.cn.mt .painel,body.cn.mt #relogio{visibility:hidden}
+body.cn.mt #lista{top:520px}
+body.cn.mt #cta{top:400px;right:40px;min-height:0}
+body.cn.mt #club{top:760px;right:40px}
 
 /* modo largo (16:9, explicação longa): mapa cheio 1920x1080, avatar na faixa da direita (x 1280–1920, no ffmpeg) */
 html.lg,html.lg body{width:1920px;height:1080px}
@@ -422,6 +430,7 @@ function diagrama(t){
 }
 
 function html(t){
+  document.body.classList.toggle('mt',(C.meia||[]).some(([a,b])=>t>=a&&t<b));
   diagrama(t);
   const H=document.getElementById('hero'); const h=(C.hero||[]).find(x=>t>=x.ini&&t<=x.fim);
   if(h){H.innerHTML=h.html;H.style.opacity=h.ini<=0?clamp((h.fim-t)/.3):vis(t,h.ini,h.fim,.3);} else H.style.opacity=0;
