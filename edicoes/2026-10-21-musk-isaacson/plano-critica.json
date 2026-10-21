@@ -1,0 +1,58 @@
+{
+ "partes": [
+  {
+   "n": 1,
+   "nota": 8,
+   "porque": "Nome forte, ameaça direta ao 'você' e a confissão de que nem ele sabe se é seguro; bate com os fatos 1 e 2. Mas o gancho não tem número nem frase do Musk na tela além da abertura, e a fala tem 2 frases, o que atrasa o golpe.",
+   "melhorar": "Tela: na meia tela pôr um painel 'MUSK · NADA QUE VOCÊ FAÇA MELHOR' com a fonte 'entrevista a Walter Isaacson'. Fala mais seca: 'Elon Musk: não vai sobrar nada que você faça melhor que a IA e o robô. E nem ele sabe se é seguro.'"
+  },
+  {
+   "n": 2,
+   "nota": 8,
+   "porque": "O medo fica concreto: não dá para parar nem controlar. Bate com os fatos 3 e 4 ('milhares ou milhões' simplificado para 'milhões'), e a imagem do freio partido mostra bem a ideia.",
+   "melhorar": "Fechar com uma pergunta para o espectador em vez do 'Difícil.' solto: 'E controlar uma mente milhões de vezes mais esperta que você? Nem ele acha que dá.'"
+  },
+  {
+   "n": 3,
+   "nota": 7,
+   "porque": "A virada para a esperança funciona, mas a fala afirma ('perdem') o que a fonte põe como possibilidade ('poderiam'). Está no condicional do 'se der certo', mas a lista 'emprego deixa de ser obrigação' vai um pouco além do fato 5, que fala só em 'perder importância'.",
+   "melhorar": "Puxar para a vida da pessoa: 'E se der certo? Tudo fica tão farto que dinheiro e emprego podem perder a importância. Você estaria pronto?'. Na lista, trocar para '🏭 emprego perde a importância'."
+  },
+  {
+   "n": 4,
+   "nota": 8,
+   "porque": "É a descoberta mais forte: o contraste 30% × 1 milhão fica na cabeça, e o diagrama traz o dado exato (+20 a 30%, robôs + espaço, 'nas contas dele'). A fala dizer 'uns trinta' puxa para o teto da faixa, mas a tela corrige.",
+   "melhorar": "Fala com menos número e mais choque: 'O salto não é o chat. O chat cresce a economia uns trinta por cento. O robô? Até um milhão de vezes, nas contas dele.'"
+  },
+  {
+   "n": 5,
+   "nota": 8,
+   "porque": "Derruba o 'isso é para engenheiro' e dá um caminho de 2 passos que se entende na hora. Vem da interpretação do Nei que está nos fatos.",
+   "melhorar": "Falar com 'você': 'Você não precisa ser engenheiro. Se aprender hoje a dirigir agentes, amanhã você dirige os robôs.'"
+  },
+  {
+   "n": 6,
+   "nota": 7,
+   "porque": "Divide o mundo em 2 lados, o que gera urgência, mas repete o 'dirigir' da parte 5 sem dar um passo novo. 'Vai ser trocado' é inferência (do Musk + leitura do Nei), não está textualmente na fonte.",
+   "melhorar": "Fazer a pessoa se ver: 'Hoje você só aperta botão ou já manda no sistema? Quem só aperta vai ser trocado. Quem dirige decide.'"
+  },
+  {
+   "n": 7,
+   "nota": 9,
+   "porque": "Tem a pergunta de lado (assistir × dirigir), a resposta positiva pronta para comentar ('eu vou dirigir'), o 'inema ponto club' e o 'me pede o link'.",
+   "melhorar": ""
+  }
+ ],
+ "bloqueios": [],
+ "resumo": "Roteiro forte e fiel à fonte, sem bloqueio: gancho com nome de peso e o contraste 30% × 1 milhão. Dá para subir a nota pondo mais 'você' nas partes 3, 5 e 6 e diferenciando a parte 6 da 5.",
+ "notas": [
+  8,
+  8,
+  7,
+  8,
+  8,
+  7,
+  9
+ ],
+ "hash": "db3c1ce2a8b125793ac248a89197b371a915d1f7"
+}
