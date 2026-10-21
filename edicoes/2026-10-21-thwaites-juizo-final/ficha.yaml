@@ -1,0 +1,152 @@
+# Ficha r7ex — Geleira do Juízo Final (Thwaites), 21/10/2026, canal lives10 (eventos extremos).
+slug: thwaites-juizo-final
+tema: "Geleira do Juízo Final: o mar pode subir o dobro — e a conta que prova que o mar sobe"
+pedido: 'Nei, 21/10/2026: "faça um vídeo estilo eventosextremos sobre a notícia explicando como é a questão do mar subir do degelo,
+  e a quantidade de água fora do mar com o gelo acima da superfície; medir e mostrar o tamanho do glacial sobre outros mapas para dar
+  dimensão, mostrar números e cálculos, pois o povo não acredita que o mar possa subir... faça um explicativo 16x9 e outro r7ex, use o
+  avatar, coloque no lives10; minhas fotos são só para usar algumas". Nei esteve na Antártica (2004 e 2006) e no Ártico (2007 e 2008).'
+
+fala_max: 830
+fala_max_motivo: "o Nei pediu conta + mapa de dimensão + testemunho dele: três provas para quem não acredita que o mar sobe"
+
+plano:
+  pessoa: "qualquer pessoa que já ouviu falar em 'o mar vai subir' e acha que é exagero, principalmente quem mora no litoral"
+  quer: "entender, de um jeito simples e com prova, se o mar pode mesmo subir e se isso chega até a cidade dela"
+  gancho: 'medo + número: "a Geleira do Juízo Final, do tamanho do Paraná, pode jogar no mar o dobro do que se calculava" (Nature Communications, out/2026)'
+  nota: 8
+  destino: "https://inema.club"
+  fatos:
+    - 'Estudo Poinelli et al., Nature Communications (UC Irvine + NASA JPL, out/2026): contribuição da Thwaites até 2100 dobra, de ~1,5 cm (1,52 cm, média dos modelos) para ~3 cm (3,01 cm), mesmo sem aquecimento extra (CNN 15/10/2026; Exame)'
+    - 'Mecanismo: a maré bombeia água morna do oceano por quilômetros por baixo do gelo apoiado e derrete a base (Phys.org/UCI; CNN)'
+    - 'Thwaites: 192 mil km² (Paraná: 199,3 mil km², IBGE); frente de 120 km; potencial total ~65 cm de mar se derreter toda (Science/Voosen via Wikipedia)'
+    - 'Gelo flutuante quase não muda o nível ao derreter (Arquimedes; NSIDC); gelo apoiado em terra soma água nova ao oceano'
+    - '1 mm de nível do mar global = 361,8 km³ de água (oceanos: 361,8 milhões de km²; antarcticglaciers.org)'
+    - 'Antártica inteira: 57,9 m de nível do mar equivalente (BedMachine, Morlighem); volume 26,5 milhões de km³'
+    - 'O mar já subiu 21 a 24 cm desde 1880; o ritmo passou de 1,4 mm/ano (séc. XX) para 3,6 mm/ano (2006–2015), mais que o dobro (NOAA Climate.gov)'
+    - 'Nei esteve na Antártica em 2004 (expedição de 11 a 21/01/2004, relato oficial no INEMA) e 2006, e no Ártico em 2007 e 2008 (matérias INEMA 2009 e 2010, fotos dele)'
+
+marca: "INEMA · EVENTOS EXTREMOS"
+selo: "ANTÁRTICA"
+fonte: '<b>Poinelli et al., Nature Communications, out/2026</b> · NOAA · BedMachine · IBGE · fotos: Nei Maldaner (Antártica 2004/2006, Ártico 2008) · demais imagens: ilustração'
+
+abertura:
+  branco: "GELEIRA DO JUÍZO FINAL"
+  destaque: "O MAR PODE SUBIR O DOBRO"
+  cor: vermelho
+  cena: "frente colossal de uma geleira antártica, um paredão de gelo azul e branco se partindo, um bloco gigante desabando no mar escuro e gelado com explosão de água e spray; contraluz fria de cinema recortando o gelo, acento vermelho no céu de tempestade; sensação de algo enorme cedendo"
+
+trocas:
+  "sessenta e cinco centímetros": "65 cm"
+  "trezentos e sessenta quilômetros cúbicos": "360 km³"
+  "um milímetro": "1 mm"
+  "cinquenta e oito metros": "58 metros"
+  "dois mil e quatro": "2004"
+  "dois mil e seis": "2006"
+  "vinte centímetros": "20 cm"
+  "mil oitocentos e oitenta": "1880"
+
+partes:
+  - etapa: gancho
+    fala: "Uma geleira do tamanho do Paraná pode jogar no mar o dobro do que te disseram."
+    prende: "medo concreto + comparação com um estado que o brasileiro conhece; 'o dobro' promete uma revelação"
+    painel:
+      k: "1,5 → 3 CM ATÉ 2100 · NATURE COMMS"
+      titulo: "O DOBRO"
+      cor: "#ff2a1f"
+      de: dobro
+      borda: red
+
+  - etapa: prova
+    fala: "É a Thwaites, a geleira do Juízo Final. A maré empurra água morna por baixo dela. Se derreter toda, são sessenta e cinco centímetros de mar."
+    prende: "o mecanismo invisível (por baixo, onde ninguém vê) + um número grande e físico: 65 cm de mar numa só geleira"
+    imagem: "mapa real em áreas iguais: o Paraná (199 mil km², IBGE) desenhado em vermelho no lugar da Thwaites (192 mil km²) sobre a Antártica, mesma escala (já colocado em capa/p2.png, media/mapas.py)"
+    painel:
+      k: "SE ELA DERRETER TODA"
+      contador: {ate: 65, dec: 0, em: "65", cor: "#ff2a1f", unid: " cm"}
+      borda: red
+
+  - etapa: descoberta
+    fala: "Gelo no copo não transborda? Só o que boia. A Antártica é gelo em cima de rocha: derreteu, é água nova no seu mar."
+    prende: "derruba o argumento que a própria pessoa usa ('gelo no copo não transborda') — vira a cabeça dela em 1 frase"
+    imagem: "um copo de vidro cheio de água até a borda com uma pedra escura dentro e um bloco de gelo apoiado em cima da pedra, acima da água, derretendo e a água transbordando pela borda; foco forte de luz fria de cima, fundo preto liso"
+    lista:
+      k: "O QUE SOBE O MAR"
+      borda: red
+      itens:
+        - [boia, "🧊 gelo que boia: quase nada"]
+        - [rocha, "🏔️ gelo em cima de rocha: água nova"]
+    painel:
+      k: "ANTÁRTICA"
+      titulo: "GELO EM TERRA"
+      cor: "#FACC15"
+      de: rocha
+      borda: am
+
+  - etapa: facilidade
+    fala: "Faz a conta comigo: trezentos e sessenta quilômetros cúbicos sobem o mar um milímetro. A Antártica guarda cinquenta e oito metros, parados em cima da rocha."
+    prende: "conta de uma linha que qualquer um entende e confere; o 58 metros assusta de verdade"
+    imagem: "a Antártica inteira vista do espaço, um continente branco gigante sobre o oceano escuro, contraluz fria do sol recortando a borda; fundo preto do espaço; sensação de escala imensa"
+    lista:
+      k: "A CONTA"
+      borda: am
+      itens:
+        - [mm, "🌊 360 km³ de água = 1 mm de mar"]
+        - [guarda, "🧊 gelo em terra = 58 m de mar (BedMachine)"]
+    painel:
+      k: "SE A ANTÁRTICA DERRETER"
+      contador: {ate: 58, dec: 0, em: "58", cor: "#ff2a1f", unid: " m"}
+      borda: red
+
+  - etapa: desejo
+    fala: "Eu estive lá, em dois mil e quatro e dois mil e seis. Não é desenho de cientista: eu vi esse gelo de perto."
+    prende: "testemunha real: o próprio Nei na Antártica, foto dele; autoridade de quem viu de perto"
+    imagem: "foto real do Nei na Antártica (selfie de 12/2006 com geleira ao fundo, remasterizada do acervo INEMA, já colocada em capa/p5.png)"
+    painel:
+      k: "FOTO: NEI MALDANER"
+      titulo: "ANTÁRTICA 2004 · 2006"
+      cor: "#FACC15"
+      de: lá
+      borda: am
+
+  - etapa: beneficio
+    fala: "Não é futuro: no planeta todo, o mar já subiu mais de vinte centímetros, e o ritmo dobrou."
+    prende: "tira da previsão e põe no presente: já aconteceu, é medido; urgência"
+    lista:
+      k: "O RITMO (NOAA)"
+      borda: red
+      itens:
+        - [ritmo, "📏 1,4 mm/ano (séc. XX) → 3,6 mm/ano (2006–2015)"]
+    imagem: "régua de maré de metal presa num pilar de cais, a água do mar batendo alto na régua, marcas de sal mostrando o nível antigo mais baixo; foco de luz fria, fundo escuro"
+    painel:
+      k: "21 A 24 CM DESDE 1880 · NOAA"
+      contador: {ate: 20, dec: 0, em: "20", cor: "#ff2a1f", unid: " cm"}
+      borda: red
+
+  - etapa: comentario
+    fala: "De que cidade você é? O mar chega até aí? No inema ponto club você aprende inteligência artificial, ou me pede o link."
+    prende: "pergunta pessoal e local (cidade, mar) gera comentário; convite ao inema.club"
+    print:
+      url: https://inema.club
+      selo: inema.club
+
+cta:
+  a: "DE QUE CIDADE VOCÊ É? 👇"
+  b: "o mar chega até aí?"
+  de: cidade
+club: "cursos e guias de IA"
+
+cores:
+  juízo: "#ff2a1f"
+  dobro: "#ff2a1f"
+  paraná: "#FACC15"
+  morna: "#ff2a1f"
+  rocha: "#FACC15"
+  "água": "#FACC15"
+  "58": "#ff2a1f"
+  "65": "#ff2a1f"
+  dobrou: "#ff2a1f"
+
+publicar:
+  fila: lives10
+  titulo: "Geleira do Juízo Final: o mar pode subir o DOBRO #shorts"
+  contexto: 'Short vertical do INEMA (Nei Maldaner, que esteve na Antártica em 2004 e 2006 e no Ártico em 2007 e 2008). Estudo de Poinelli et al. (UC Irvine e NASA JPL) na Nature Communications, outubro de 2026: a maré bombeia água morna por baixo da geleira Thwaites (192 mil km², quase o tamanho do Paraná) e a contribuição dela para o mar até 2100 dobra, de ~1,5 cm para ~3 cm, mesmo sem aquecimento extra; sozinha ela guarda ~65 cm de mar. Gelo que boia quase não muda o nível; gelo apoiado em terra, como o da Antártica, é água nova no oceano. Conta: 362 km³ de água = 1 mm de mar no planeta; a Antártica guarda ~58 m. O mar já subiu 21–24 cm desde 1880 e o ritmo mais que dobrou (NOAA). Nunca use a palavra morte. Pergunta: de que cidade você é? Termine com: No inema.club você pode aprender sobre inteligência artificial: https://inema.club'

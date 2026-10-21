@@ -140,7 +140,8 @@ def montar(pasta, ficha, falas):
         diagramas.append(d)
 
     ult = f"f{len(partes)}"
-    cta = {"ini": em(ult, "pede"), "fim": DUR, "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
+    cta = {"ini": em(ult, ficha["cta"].get("de", "pede")), "fim": DUR,   # cta.de: deixa da pergunta (padrão "pede")
+           "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
     club = {"ini": em(ult, "inema.club"), "fim": DUR, "a": "inema.club", "b": ficha["club"]}
     fontes = [{"ini": .3, "fim": DUR, "html": ficha["fonte"]}]
 

@@ -1,0 +1,58 @@
+{
+ "partes": [
+  {
+   "n": 1,
+   "nota": 8,
+   "porque": "Medo concreto com o Paraná, que todo brasileiro conhece, e o 'dobro do que te disseram' cria curiosidade. O risco é o painel '1,5 → 3 CM' desarmar: quem rola o feed lê '3 cm' e pensa 'só isso?'.",
+   "melhorar": "Na tela, deixar 'O DOBRO' bem grande e mandar o '1,5 → 3 cm até 2100' para uma linha de fonte pequena. Na fala, provocar mais: 'Uma geleira do tamanho do Paraná está derretendo por baixo, e vai jogar no mar o dobro do que te disseram.'"
+  },
+  {
+   "n": 2,
+   "nota": 7,
+   "porque": "O mecanismo escondido e os 65 cm de uma geleira só são fortes, mas a parte espreme três assuntos (nome, maré morna, 65 cm) numa tela só, com mapa e contador. Juízo Final já dá o tom, e o mapa do Paraná, pedido pelo Nei, é ótimo.",
+   "melhorar": "Trocar 'Se derreter toda, são sessenta e cinco centímetros de mar' por algo que a pessoa sente: 'Sozinha, ela guarda sessenta e cinco centímetros de mar, um palmo na sua praia.' Na tela, deixar o mapa Paraná×Thwaites cheio, com o contador por cima, e só o rótulo 'ÁGUA MORNA POR BAIXO' com uma seta."
+  },
+  {
+   "n": 3,
+   "nota": 9,
+   "porque": "Derruba numa frase o argumento que a própria pessoa usa ('gelo no copo não transborda'). O copo com a pedra mostra exatamente o que é dito e a lista confirma.",
+   "melhorar": ""
+  },
+  {
+   "n": 4,
+   "nota": 7,
+   "porque": "Cumpre o pedido de 'mostrar a conta' e os 58 m assustam, mas '360 km³ = 1 mm' é abstrato para o povo e a conta não fecha na cabeça de quem assiste. Os números batem com a ficha (361,8 → 360; 57,9 → 58).",
+   "melhorar": "Puxar para a pessoa: 'Faz a conta comigo: cada trezentos e sessenta quilômetros cúbicos de gelo que derrete sobem o mar um milímetro no planeta inteiro. A Antártica guarda cinquenta e oito metros, a altura de um prédio de vinte andares.' (Só vale se a ficha trouxer a origem da comparação com o prédio; senão, deixe só os 58 m e mostre na tela uma silhueta de prédio ao lado do contador, como ilustração.)"
+  },
+  {
+   "n": 5,
+   "nota": 8,
+   "porque": "O testemunho real com a foto do Nei dá autoridade e emoção de quem viu de perto. 'Não é desenho de cientista' soa como se diminuísse a ciência que o próprio vídeo usa.",
+   "melhorar": "'Eu estive lá, em dois mil e quatro e dois mil e seis. Eu pisei nesse gelo, e ele é maior do que qualquer foto.' Isso mantém o orgulho de testemunha sem opor o Nei aos cientistas."
+  },
+  {
+   "n": 6,
+   "nota": 7,
+   "porque": "Traz o problema para o presente ('já subiu'), com dados que batem com a NOAA. O contador em 20 contradiz visualmente o '21 A 24 CM' do painel, e falta ligar à vida da pessoa.",
+   "melhorar": "Contador até 21 ('+21 cm'). Na fala: 'Não é futuro: o mar já subiu mais de vinte centímetros, um palmo na sua praia, e agora sobe duas vezes mais rápido.'"
+  },
+  {
+   "n": 7,
+   "nota": 7,
+   "porque": "Tem pergunta pessoal e local, que gera comentário, mais 'inema ponto club' e 'me pede o link'. Mas 'o mar chega até aí?' puxa respostas como 'não, moro longe', e o salto para inteligência artificial fica abrupto.",
+   "melhorar": "'De que cidade você é? Comenta aí, e me diz se você já viu o mar avançar na sua praia. No inema ponto club você aprende inteligência artificial pra entender o mundo com dados, ou me pede o link.'"
+  }
+ ],
+ "bloqueios": [],
+ "resumo": "Roteiro sólido e honesto (copo e testemunho são os pontos altos), sem bloqueios; dá para subir a nota se o gancho não deixar o '3 cm' desarmar, se os números grandes (65 cm, 58 m, 20 cm) virarem medida que a pessoa sente e se o contador da parte 6 for para 21.",
+ "notas": [
+  8,
+  7,
+  9,
+  7,
+  8,
+  7,
+  7
+ ],
+ "hash": "1e33322999e82cf9e4e4f26fcf474791cec8cac7"
+}
