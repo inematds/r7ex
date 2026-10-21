@@ -65,3 +65,70 @@ def print_card(raw, saida, brilho=0.85):
 
 def preto(saida):
     Image.new("RGB", (W, H), FUNDO).save(saida); return Path(saida)
+
+
+# ---- D13 (Nei, 20/10/2026): "quando se fala do produto, ele vira referência" — cartão com o LOGO REAL do produto
+LOGOS = Path.home() / ".cache/r7ex/lobe-icons/dark"           # pacote MIT @lobehub/icons-static-png (ferramentas/logos.sh baixa)
+FONTE_NOME = Path.home() / ".local/share/fonts/Montserrat-Black.ttf"
+
+
+def logo_png(ident):
+    """arquivo do logo: <id>-color.png (cor da marca) ou <id>.png (branco, para fundo escuro)"""
+    for n in (f"{ident}-color.png", f"{ident}.png"):
+        if (LOGOS / n).exists():
+            return LOGOS / n
+    raise SystemExit(f"logo '{ident}' não existe em {LOGOS} (veja os nomes: ls {LOGOS} | grep -i <marca>; baixar: ferramentas/logos.sh)")
+
+
+def _logo(ident, lado):
+    im = Image.open(logo_png(ident)).convert("RGBA")
+    im = im.crop(im.getbbox() or (0, 0, im.width, im.height))
+    k = lado / max(im.size)
+    return im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+
+
+def _texto(d, cx, y, txt, larg, maxpx, cor=(255, 255, 255)):
+    from PIL import ImageFont
+    px = maxpx
+    while px > 30:
+        f = ImageFont.truetype(str(FONTE_NOME), px)
+        if d.textlength(txt, font=f) <= larg:
+            break
+        px -= 4
+    d.text((cx, y), txt, font=f, fill=cor, anchor="mt")
+
+
+def logo_card(logos, saida, fundo=None):
+    """1 ou 2 logos grandes com luz âmbar atrás e o nome embaixo de cada um; metade de baixo escura (legenda/painel/avatar).
+    logos = [{"id": "openai", "nome": "GPT-6.5"}, ...]; fundo = cena do Codex com o centro vazio (opcional, escurecida)"""
+    bg = Image.new("RGB", (W, H), FUNDO)
+    if fundo and Path(fundo).exists():
+        f = ImageEnhance.Brightness(Image.open(vertical(fundo)).convert("RGB")).enhance(.6)
+        m = Image.new("L", (W, H), 0); dm = ImageDraw.Draw(m)
+        for y in range(H):                                            # some aos poucos abaixo de y 900
+            dm.line((0, y, W, y), fill=int(255 * max(0, min(1, (1250 - y) / 350))))
+        bg.paste(f, (0, 0), m)
+    glow = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(glow).ellipse((540 - 480, 470 - 400, 540 + 480, 470 + 400), fill=120)
+    bg.paste(AMAR, (0, 0), glow.filter(ImageFilter.GaussianBlur(150)))
+    cone = Image.new("L", (W, H), 0)                                  # foco de luz de cima
+    ImageDraw.Draw(cone).polygon([(470, 0), (610, 0), (900, 820), (180, 820)], fill=40)
+    bg.paste((255, 240, 200), (0, 0), cone.filter(ImageFilter.GaussianBlur(60)))
+    d = ImageDraw.Draw(bg)
+    n = len(logos)
+    pos = [(540, 440)] if n == 1 else [(290, 420), (790, 420)]
+    lado = 400 if n == 1 else 300
+    for lg, (cx, cy) in zip(logos, pos):
+        im = _logo(lg["id"], lado)
+        x, y = cx - im.width // 2, cy - im.height // 2
+        halo = Image.new("L", (W, H), 0); halo.paste(im.split()[3], (x, y))
+        bg.paste((255, 255, 255), (0, 0), halo.filter(ImageFilter.GaussianBlur(28)).point(lambda v: v * .55))
+        bg.paste(im, (x, y), im)
+        if lg.get("nome"):
+            _texto(d, cx, cy + lado // 2 + 50, lg["nome"].upper(), 960 if n == 1 else 480, 120 if n == 1 else 76)
+    bg.save(saida); return Path(saida)
+
+
+def logo_solto(ident, saida, lado=300):
+    """logo sozinho (fundo transparente) para o painel de baixo"""
+    _logo(ident, lado).save(saida); return Path(saida)

@@ -3,7 +3,8 @@
 Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo em modelo/ficha.yaml.
 
   python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
-  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 550–700 caracteres, palavras dos painéis na fala
+  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 550–700 caracteres, palavras dos painéis na fala, `prende` por parte
+  python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
   python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra do avatar + cena.js
@@ -42,7 +43,7 @@ ESTILO = ("Estilo foto cinematográfica realista de impacto, como pôster de fil
           "A luz do assunto pode ser amarela (#FACC15) ou, só se houver perigo, vermelha (#ff2a1f); o resto da cena é fundo "
           "liso e escuro (preto #0c0c10), sem outros objetos — a metade de baixo escura e vazia. Sem objetos espalhados, sem "
           "pilhas, sem chuva de partículas ou papéis, sem hologramas. "
-          "Sem logotipo de empresa, sem marca d'água, sem pessoas reconhecíveis (rostos de lado, na sombra ou de costas). "
+          "Sem logotipo de empresa (o logo real do produto é colado depois, nunca desenhado — D13), sem marca d'água, sem pessoas reconhecíveis (rostos de lado, na sombra ou de costas). "
           "Robô, quando houver: humanoide industrial estilo Tesla Optimus, com visor preto na frente, nunca fofo ou cartoon. "
           "Nenhum texto nas imagens, EXCETO na abertura.png.")
 COR = {"vermelho": "vermelho #ff2a1f", "amarelo": "amarelo #FACC15"}
@@ -95,27 +96,52 @@ def cmd_checar(pasta):
     if len(f.get("partes") or []) != 7:
         erros.append(f"são {len(f.get('partes') or [])} partes; o padrão é 7")
     tot = fala_total(f)
-    if not 550 <= len(tot) <= 720:
+    teto = min(int(f.get("fala_max") or 720), 900)   # reel de lista de notícias (vários produtos): até 900 (~50 s), com motivo (21/10/2026)
+    if f.get("fala_max") and not f.get("fala_max_motivo"):
+        erros.append("fala_max sem fala_max_motivo (por que este reel precisa de mais fala)")
+    if not 550 <= len(tot) <= teto:
         if (p / "avatar/AVATAR_DE.txt").exists() or (p / "avatar/avatar.mp4").exists():   # avatar já gravado: a fala não muda
             log(f"aviso: fala com {len(tot)} caracteres (padrão 550–700), aceita porque o avatar já existe")
         else:
-            erros.append(f"fala com {len(tot)} caracteres (padrão 550–700)")
+            erros.append(f"fala com {len(tot)} caracteres (padrão 550–700; teto desta ficha {teto})")
     if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
         erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
-    if (f.get("plano") or {}).get("nota", 0) < 7:
-        erros.append("nota de potencial < 7: troque o ângulo ou o tema (PADRAO.md §1)")
+    if (f.get("plano") or {}).get("nota", 0) < 8:
+        erros.append("nota de potencial < 8: troque o ângulo ou o tema (PADRAO.md §1, D15)")
     for k in ("branco", "destaque", "cena"):
         if not (f.get("abertura") or {}).get(k):
             erros.append(f"abertura sem '{k}'")
     for i, x in enumerate(f["partes"]):
         texto = CENA.n(x.get("legenda") or x["fala"])
-        if i > 0 and not (x.get("imagem") or x.get("print") or x.get("diagrama")):
-            erros.append(f"parte {i + 1} sem imagem, print nem diagrama")
+        if i > 0 and not (x.get("imagem") or x.get("print") or x.get("diagrama") or x.get("logos")):
+            erros.append(f"parte {i + 1} sem imagem, logos, print nem diagrama")
         dg = x.get("diagrama") or {}
         if dg and dg.get("forma", "fluxo") not in ("fluxo", "hub", "terminal"):
             erros.append(f"parte {i + 1}: diagrama.forma deve ser fluxo, hub ou terminal")
         if dg and not 2 <= len(dg.get("nos") or dg.get("linhas") or []) <= 6:
             erros.append(f"parte {i + 1}: diagrama com 2 a 6 nós/linhas")
+        if not str(x.get("prende") or "").strip():   # D15: por que um desconhecido continua aqui
+            erros.append(f"parte {i + 1} sem 'prende:' (por que um desconhecido para e continua nesta parte)")
+        for lg in sum(([y] if "id" in y else y.get("junto", []) for y in x.get("logos") or []), []):
+            try:
+                pecas.logo_png(lg["id"])
+            except SystemExit as e:
+                erros.append(f"parte {i + 1}: {e}")
+        lgs = x.get("logos") or []
+        if len(lgs) > 2 and not all(lg.get("de") for lg in lgs):
+            erros.append(f"parte {i + 1}: mais de 2 logos só com 'de' em cada um (uma tela por produto, troca na palavra)")
+        if len(lgs) > 4:
+            erros.append(f"parte {i + 1}: no máximo 4 produtos numa parte")
+        pb = x.get("painel") or {}
+        if bool(pb.get("contador")) + bool(pb.get("titulo") or pb.get("logo")) > 1:   # logo + valor = uma coisa (marca e número)
+            erros.append(f"parte {i + 1}: embaixo só UMA coisa — titulo, contador OU logo (logo + titulo juntos valem como um) (D14)")
+        if pb.get("logo"):
+            try:
+                pecas.logo_png(pb["logo"])
+            except SystemExit as e:
+                erros.append(f"parte {i + 1}: {e}")
+        if len((x.get("lista") or {}).get("itens") or []) > 4:
+            erros.append(f"parte {i + 1}: lista com mais de 4 itens")
         if re.search(r"\d", x["fala"]):
             erros.append(f"parte {i + 1}: número em algarismo na fala (o avatar lê errado): escreva por extenso e use 'trocas'")
         pn = x.get("painel") or {}
@@ -124,7 +150,9 @@ def cmd_checar(pasta):
             erros.append(f"parte {i + 1}: contador sem 'em' (a palavra da fala em que o número entra)")
         if " " in em.strip():   # a montagem casa o contador com UMA palavra da legenda (fim-capitalismo, 19/10)
             erros.append(f"parte {i + 1}: contador.em '{em}' tem mais de uma palavra; use só o número (ex.: '48')")
-        palavras =[pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
+        palavras = [pn.get("de")] + [it[0] for it in pn.get("itens", [])] + [(pn.get("contador") or {}).get("em")]
+        palavras += [it[0] for it in (x.get("lista") or {}).get("itens", [])]
+        palavras += [lg.get("de") for lg in x.get("logos") or []]
         palavras += [it.get("de") for it in (dg.get("nos") or dg.get("linhas") or [])] + [(dg.get("centro") or {}).get("de")]
         for w in palavras:   # todo marcador de tempo casa com UMA palavra (6 reels das formações pararam na montagem, 20/10)
             if w and " " in str(w).strip() and str(w) != em:
@@ -142,6 +170,46 @@ def cmd_checar(pasta):
     log(f"ficha OK: 7 partes, {len(tot)} caracteres, plano nota {f['plano']['nota']}")
 
 
+def plano_aprovado(c):
+    """D15 calibrado (21/10/2026): sem bloqueios objetivos E gancho ≥ 8 E média ≥ 7,5 E nenhuma parte < 6.
+    (o 1º desenho, gancho ≥ 9 e todas ≥ 8, não convergiu: o crítico oscila ±1 e sempre acha algo — ia-novembro-v2, 8 rodadas)"""
+    n = c["notas"]
+    return not c.get("bloqueios") and n[0] >= 8 and sum(n) / len(n) >= 7.5 and min(n) >= 6
+
+
+def cmd_plano(pasta):
+    """D15 (Nei, 20/10/2026): "isso prende alguém, isso engaja alguém? validar as 7 etapas, o objetivo é ser viral".
+    Crítico (claude -p, assinatura) dá nota por parte e lista bloqueios objetivos; regra em plano_aprovado().
+    Resultado em plano-critica.json com o hash da ficha (mudou a ficha, critica de novo; o veredito é recalculado na leitura)."""
+    import hashlib
+    p, f = ficha(pasta)
+    h = hashlib.sha1((p / "ficha.yaml").read_bytes()).hexdigest()
+    arq = p / "plano-critica.json"
+    c = json.loads(arq.read_text()) if arq.exists() else {}
+    if c.get("hash") != h:
+        r = subprocess.run(["claude", "-p", "--output-format", "json", "--allowedTools", "Read", "--",
+                            (R / "producao/critico-plano.md").read_text()], cwd=p, capture_output=True, text=True, timeout=900,
+                           stdin=subprocess.DEVNULL)
+        try:
+            res = json.loads(r.stdout)["result"].strip()
+            c = json.loads(res[res.index("{"): res.rindex("}") + 1])
+            c["notas"] = [int(x["nota"]) for x in sorted(c["partes"], key=lambda x: x["n"])]
+            assert len(c["notas"]) == 7
+        except Exception as e:
+            falha(f"crítico do plano não respondeu direito: {str(e)[:200]} {r.stderr[-200:]}")
+        c["hash"] = h
+        arq.write_text(json.dumps(c, ensure_ascii=False, indent=1))
+    n = c["notas"]
+    log("plano: notas " + " · ".join(f"{i + 1}:{x}" for i, x in enumerate(n)) + f" (média {sum(n) / 7:.1f})"
+        + (f" · bloqueios: {len(c['bloqueios'])}" if c.get("bloqueios") else "") + f" — {c.get('resumo', '')}")
+    if not plano_aprovado(c):
+        itens = [f"BLOQUEIO: {b}" for b in c.get("bloqueios") or []]
+        itens += [f"parte {x['n']} ({x['nota']}): {x.get('melhorar') or x.get('porque')}" for x in c["partes"] if x.get("melhorar")]
+        falha("plano não passou (D15: sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) — reescreva:\n  - " + "\n  - ".join(itens))
+    log("plano aprovado")
+    return c
+
+
 def avatar_enviar(pasta):
     """manda a fala ao estúdio do HeyGen (fila/trava do estúdio) e grava avatar/video_id.txt; não espera o render"""
     p, f = ficha(pasta); av = p / "avatar"; av.mkdir(exist_ok=True)
@@ -149,6 +217,7 @@ def avatar_enviar(pasta):
         return
     if not (av / "APROVADO_HEYGEN").exists():
         falha("falta avatar/APROVADO_HEYGEN (o HeyGen só roda com o OK do Nei para esta produção)")
+    cmd_checar(pasta); cmd_plano(pasta)                 # D15: só grava avatar de roteiro que prende
     falas(p, f)
     (av / "fala.txt").write_text(fala_total(f) + "\n")
     with open(av / "studio.log", "w") as lg:
@@ -208,23 +277,37 @@ def cmd_imagens(pasta):
     linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
               f"serifa: no topo, branco, \"{a['branco']}\"; logo abaixo, maior, em {COR.get(a.get('cor', 'amarelo'), a.get('cor'))}, "
               f"\"{a['destaque']}\". Todo o texto na METADE DE CIMA da imagem; a metade de baixo sem texto. Confira a grafia exata, com acentos."]
+    nome = {}                                            # D13: parte com logos → o Codex faz só o fundo, o logo real é colado
     for i, x in enumerate(f["partes"][1:], 2):
         if x.get("imagem"):
-            linhas.append(f"{len(linhas) + 1}. p{i}.png — {x['imagem']}.")
+            nome[i] = f"p{i}-fundo.png" if x.get("logos") else f"p{i}.png"
+            extra = (" Deixe o CENTRO da metade de cima vazio e escuro (um logo será colocado ali depois): nenhum logo, nenhum texto,"
+                     " nenhum objeto no centro; o impacto vem da luz e do cenário em volta.") if x.get("logos") else ""
+            linhas.append(f"{len(linhas) + 1}. {nome[i]} — {x['imagem']}.{extra}")
     pedido = (f"Gere {len(linhas)} imagens com a ferramenta de geração de imagem (image_gen) e salve nesta pasta, em PNG, formato RETRATO 9:16 "
               f"(o maior tamanho vertical disponível). {ESTILO}\n\n" + "\n".join(linhas) + "\n\nAo final, liste os arquivos salvos.\n")
     (capa / "pedido.txt").write_text(pedido)
-    falta = [n for n in ["abertura.png"] + [f"p{i}.png" for i, x in enumerate(f["partes"][1:], 2) if x.get("imagem")] if not (capa / n).exists()]
+    falta = [n for n in ["abertura.png"] + list(nome.values()) if not (capa / n).exists()]
     if falta:
         log(f"Codex: {len(falta)} imagem(ns)…")
         with open(capa / "codex.log", "w") as lg:
             subprocess.run(["codex", "exec", "--skip-git-repo-check", "--dangerously-bypass-approvals-and-sandbox"], input=pedido, text=True,
                            cwd=capa, stdout=lg, stderr=subprocess.STDOUT, timeout=2700)
-    for n in ["abertura.png"] + [f"p{i}.png" for i, x in enumerate(f["partes"][1:], 2) if x.get("imagem")]:
+    for n in ["abertura.png"] + list(nome.values()):
         if not (capa / n).exists():
             falha(f"o Codex não gerou capa/{n} (capa/codex.log)")
         pecas.vertical(capa / n)
     pecas.abertura(capa / "abertura.png")
+    for i, x in enumerate(f["partes"], 1):
+        if x.get("logos"):
+            fundo = capa / f"p{i}-fundo.png" if x.get("imagem") else None
+            if len(x["logos"]) > 1 and all(lg.get("de") for lg in x["logos"]):   # uma tela por produto
+                for k, lg in enumerate(x["logos"], 1):   # {"de", "junto": [2 logos]} = dois logos na mesma tela
+                    pecas.logo_card(lg.get("junto") or [lg], capa / f"p{i}-{k}.png", fundo)
+            else:
+                pecas.logo_card(x["logos"], capa / f"p{i}.png", fundo)
+        if (x.get("painel") or {}).get("logo"):
+            pecas.logo_solto(x["painel"]["logo"], capa / f"logo-{x['painel']['logo']}.png")
     for i, x in enumerate(f["partes"], 1):
         if x.get("print"):
             raw = prints / f"raw-p{i}.png"
@@ -310,7 +393,7 @@ def main(a):
     if len(a) < 2:
         sys.exit(__doc__)
     de = a[a.index("--de") + 1] if "--de" in a else None
-    c = {"novo": cmd_novo, "checar": cmd_checar, "imagens": cmd_imagens, "cena": cmd_cena, "render": cmd_render,
+    c = {"novo": cmd_novo, "checar": cmd_checar, "plano": cmd_plano, "imagens": cmd_imagens, "cena": cmd_cena, "render": cmd_render,
          "revisar": cmd_revisar, "enviar": cmd_enviar, "fila": cmd_fila}
     if a[0] == "avatar":
         cmd_avatar(a[1], de)

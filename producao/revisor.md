@@ -16,7 +16,14 @@ Reprove se QUALQUER item falhar:
 - Texto cobrindo texto, painel cobrindo o avatar, legenda saindo da tela ou cortada no meio de forma ilegível.
 - Avatar ausente, em tela cheia ou com rosto deformado.
 - Fecho sem a caixa vermelha de pergunta ou sem a pílula "inema.club".
-- Imagem com logotipo de empresa, marca d'água, rosto reconhecível ou texto inventado dentro da arte (fora a abertura).
+- Imagem com marca d'água, rosto reconhecível ou texto inventado dentro da arte (fora a abertura). Logo é PERMITIDO
+  (e obrigatório) quando a parte fala daquele produto/empresa: cartão com o logo real e o nome (D13). Logo de empresa
+  em imagem de outro assunto = reprove.
+- Produto ou empresa citado na fala SEM o logo e o nome escrito na tela daquela parte (D13).
+- Embaixo (à esquerda do avatar) mais de UMA coisa, ou lista de itens embaixo: lá só cabe um título, um número ou um
+  logo; a lista fica no alto, sobre a imagem (D14).
+- IMPACTO (D15, o objetivo é viralizar): dê nota 0–10 para "um desconhecido rolando o feed para e assiste até o fim?".
+  Abaixo de 7, reprove dizendo o quadro mais morno e o que faltou (fato forte, logo, texto do assunto, número).
 
 NÃO reprove por:
 - Itens do painel em cinza: eles acendem um a um conforme a fala (é a animação, não erro).
@@ -26,4 +33,4 @@ NÃO reprove por:
 Não edite nenhum arquivo. Só leia.
 
 Responda SOMENTE com um JSON numa única linha, sem texto antes ou depois:
-{"veredito": "aprovado" | "reprovado", "motivo": "<uma frase em português; se reprovado, diga o quadro (tempo) e o que está errado>"}
+{"veredito": "aprovado" | "reprovado", "impacto": <0-10>, "motivo": "<uma frase em português; se reprovado, diga o quadro (tempo) e o que está errado>"}

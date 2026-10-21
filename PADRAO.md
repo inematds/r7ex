@@ -15,10 +15,20 @@ Objetivo de todo reel: **trazer gente para o inema.club.** Se não viralizar, n�
 | pessoa | público geral (IA traduzida para o dia a dia), não o nicho |
 | quer | ganhar algo, resolver uma dor ou chegar a um desejo — uma frase |
 | gancho | medo, novidade ou provocação, **com número ou fato** (e fonte) |
-| nota | 0–10: "um desconhecido rolando o feed para aqui?" Abaixo de 7, troque o ângulo ou o tema |
+| nota | 0–10: "um desconhecido rolando o feed para aqui?" Abaixo de **8**, troque o ângulo ou o tema |
 | destino | o curso/guia/formação do inema.club que resolve (URL para o print) |
 
 Grátis só quando a página diz ou o Nei afirma. Nunca inventar número.
+
+**Portão de viralidade (D15, Nei 20/10/2026: "isso prende alguém, isso engaja alguém? validar as 7 etapas, o objetivo é
+ser viral").** Cada parte tem `prende:` (por que um desconhecido continua ali). Antes do avatar, `r7ex.py plano <pasta>`
+(crítico `claude -p` + `producao/critico-plano.md`) dá nota por parte e lista **bloqueios** objetivos (fato sem origem em
+`plano.fatos`, produto sem logo, fecho incompleto, pedido do Nei não cumprido). Passa com **zero bloqueios, gancho ≥ 8,
+média ≥ 7,5 e nenhuma parte < 6** (calibrado em 21/10: "todas ≥ 8" não convergia). Fatos da fonte vão em `plano.fatos`
+(com o trecho); o que o Nei exigiu vai em `pedido:`; reel de lista pode ter `fala_max` (≤ 900) com `fala_max_motivo`.
+A produção só manda ao estúdio roteiro aprovado. **Ético e competitivo:** o fato verdadeiro mais forte, dito com força
+("vazou", "apareceu no código", "num teste custou 1 centavo"); a incerteza vai na linha de fonte, não amolece a fala.
+Nada inventado — exagero falso zera a parte.
 
 ## 2. Roteiro — 7 partes, ~30–40 s, fala de 550–700 caracteres
 
@@ -38,6 +48,15 @@ Fala nunca termina parte em número solto.
 
 ## 3. Tela — motor do eventosextremospub
 
+**Mudança de 20/10/2026 (D13, D14):**
+- **Produto citado = logo real.** Parte que fala de um produto/empresa usa `logos: [{id, nome}]` (1 ou 2 por tela): cartão
+  com o logo real (pacote MIT lobe-icons em `~/.cache/r7ex/lobe-icons`, `ferramentas/logos.sh`), luz âmbar e o nome
+  grande. Com `imagem:` junto, o Codex faz só o fundo (centro vazio) e o logo é colado. Fora do produto, imagem sem logo.
+  Um produto por parte; vários produtos = tela para cada um ou dois lado a lado, nunca três nomes num painel.
+- **Lista no alto, embaixo uma coisa só.** `lista: {k, itens: [[palavra, texto]], borda}` aparece sobre a imagem
+  (y ~860–1150), item a item na palavra. O `painel` embaixo (à esquerda do avatar) leva UMA coisa: `titulo` (texto
+  grande, `cor` opcional), `contador` ou `logo` (id do pacote). Ficha antiga com `painel.itens` sobe sozinha para a lista.
+
 - **Abertura:** o título do gancho **desenhado pelo Codex dentro da arte** (branco + amarelo ou vermelho), metade de cima.
 - **Imagens:** uma por parte, **UM assunto só em ação dramática** (quebrando, acendendo, se abrindo, sendo puxado), grande,
   na metade de cima; luz de cinema (foco forte ou contraluz com recorte), amarela no assunto ou vermelha #ff2a1f no perigo;
@@ -45,7 +64,7 @@ Fala nunca termina parte em número solto.
   pilhas, chuva de partículas/papéis ou hologramas. O motor escurece a faixa de baixo (legenda/painel/avatar).
   Calibrado em 19/10/2026: o lote com muita coisa ficou "saturado, muita informação"; o só-neutro ficou "limpo demais,
   sem impacto"; o meio-termo `edicoes/2026-10-19-skills15-impacto` foi APROVADO pelo Nei em 19/10/2026 — é a referência.
-  Sem logos, sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
+  Sem logos (exceto o produto citado, D13), sem rostos reconhecíveis; robô = humanoide estilo Optimus de visor preto.
 - **Faixa do topo:** marca do tema ("INEMA · …") + **selo vermelho**; **linha de fonte** embaixo.
 - **Avatar:** caixinha no canto desde o quadro 0 (nunca tela cheia — D8).
 - **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa** (só o que já foi dito, no máximo 3 na tela); **contador** sempre que houver número;
@@ -60,10 +79,11 @@ Fala nunca termina parte em número solto.
 
 ## 4. Portões
 
-- ficha: 7 partes, fala 550–700 caracteres, toda palavra de painel/contador existe na fala da parte;
+- ficha: 7 partes, fala 550–700 caracteres, toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
+- plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
 - avatar × fala ≥ 90% (retempo); duração < 60 s;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);
-- revisão da folha de 12 quadros (`r7ex.py revisar`): nada cobrindo nada, prints legíveis.
+- revisão da folha de 12 quadros (`r7ex.py revisar`): nada cobrindo nada, prints legíveis, **produto com logo, impacto ≥ 7**.
 
 ## 5. Publicação
 

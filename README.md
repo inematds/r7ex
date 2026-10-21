@@ -133,6 +133,8 @@ cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # cria edicoes/<data>-<slug>/ficha.yaml a partir do modelo
 #   → escreva o plano, a abertura, as 7 partes (fala + imagem/print + painel), o CTA e "publicar"
 python3 r7ex.py checar edicoes/<pasta>      # portão da ficha
+python3 r7ex.py plano edicoes/<pasta>       # crítico de viralidade (D15): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6
+#   produto citado → `logos:` (logo real, D13); lista no alto (`lista:`), embaixo uma coisa só (`painel.titulo|contador|logo`, D14)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # só com o OK do Nei para esta produção
 python3 r7ex.py fazer edicoes/<pasta>       # imagens + avatar → cena → render → folha de revisão
 #   (ou --de <avatar.mp4> para reaproveitar um avatar pronto)

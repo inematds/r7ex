@@ -1,0 +1,221 @@
+# Ficha r7ex — refação do "modelos novos de IA em novembro" (21/10/2026), no padrão D13–D15.
+# Nei, 20/10: "achei fraco, não teve impacto, deveria ter as imagens com logo de cada um, não tinha texto em cada assunto";
+# "refaz com logo de cada um". Fonte: https://www.youtube.com/watch?v=2BXktpaCEN4 (WorldofAI, AI News de 20/10/2026). lives4 + v3.
+slug: ia-novembro-v2
+tema: Uma IA fez um site por 1 centavo — e tem mais 7 na fila
+pedido: 'Nei, 20/10/2026: r7ex viral, chamada forte, novos modelos de IA de nov/2026, CITAR CADA UM (GPT-6.5, GPT-6.1 Terra, Claude novo, Gemini 4 Carbon, MiniMax M3.1, Kimi K3.1, Qwen
+  4, GLM Omni, DeepSeek V4.1 Flash), cada um com logo e texto; fechar com ''já viu o que temos no inema.club? olha lá''. A fonte diz ''1 centavo'' (arredondado) e ''quase 88× mais barato''.'
+fala_max: 900
+fala_max_motivo: 'lista de 9 modelos, cada um com logo e um fato (pedido do Nei: citar cada um)'
+plano:
+  pessoa: qualquer um que usa ou paga ChatGPT, Claude ou Gemini, não só programador
+  quer: pagar menos e pegar a IA melhor antes dos outros (desejo); não ficar para trás na próxima leva (medo)
+  gancho: 'dinheiro + novidade: o MiniMax M3.1 Flash fez uma landing page por 1 centavo; o Claude Opus 5.5 cobrou US$ 1,22 pela mesma página (teste citado pelo WorldofAI em 20/10/2026);
+    e há mais 7 a caminho (GPT-6.5, GPT-6.1 Terra, Claude novo, Gemini 4 Carbon, Kimi K3.1, Qwen 4, GLM Omni)'
+  nota: 9
+  destino: https://inema.club
+  fatos:
+  - 'MiniMax M3.1 Flash fez landing page por 1 centavo vs US$ 1,22 do Opus 5.5: ''nearly 88 times cheaper''; ''the Opus output does look a lot better'' (WorldofAI 20/10, ~10:48)'
+  - 'MiniMax M3.1 Flash: ~3× mais rápido e ~70% mais barato que o M3; M3.1 Pro (2,7 tri parâmetros) em breve (The Information/Reuters)'
+  - 'GPT-6.1 Terra: Microsoft atualizou 18 configs de avaliação de GPT-5.6 Terra para GPT-6.1 Terra (PR da Microsoft)'
+  - 'GPT-6.5: site opensi.lol tem referência a 6.5 no código e contagem para 1º/nov 10h SF; o domínio era paródia à venda — não oficial'
+  - Anthropic prepara modelo que reconhece a classe inteira de problemas e pergunta se resolve tudo; provável Fable 5.5 (The Information, testador anônimo)
+  - 'Gemini 4 Carbon: Business Insider disse que poderia igualar o Opus 5.5 em código; checkpoints Carbon B/C testados ficaram abaixo'
+  - 'Kimi K3.1: visto em PR do SGLang; quatro níveis de raciocínio (low, medium, high, max), aceita imagem'
+  - 'Qwen 4: acesso antecipado para embaixadores nos próximos dias (representante no Discord do Qwen)'
+  - 'GLM Omni: modelo multimodal da Z.ai que entende e gera imagem (artigo de pesquisa)'
+  - DeepSeek V4.1 Flash (10.17) grátis no OpenCode
+  - 'Kimi é da Moonshot AI, Qwen da Alibaba e GLM da Z.ai (Zhipu): as três são empresas chinesas (o vídeo trata como ''Chinese AI news'')'
+marca: INEMA · IA EM NOVEMBRO
+selo: VEM AÍ
+fonte: '<b>WorldofAI</b> · AI News 20/10/2026 · teste de landing page (o resultado do Claude ficou mais bonito) · GPT-6.5 e Claude novo: vazamentos, sem data oficial · logos: marcas
+  dos produtos'
+abertura:
+  branco: VEM AÍ 7 IAs NOVAS
+  destaque: E UMA JÁ FAZ SITE POR 1 CENTAVO
+  cor: amarelo
+  cena: uma única moeda de cobre de um centavo, gigante, girando de pé no ar e soltando faíscas douradas na borda, sob um foco de luz amarela intensa de cima; reflexo num chão preto
+    molhado; fundo preto liso; sensação de choque com o preço
+trocas:
+  dezoito: '18'
+  oitenta e oito vezes: 88×
+  um centavo: 1 centavo
+  sete: '7'
+  um dólar e vinte e dois: US$ 1,22
+  M três ponto um: M3.1
+  seis ponto um: '6.1'
+  seis ponto cinco: '6.5'
+  quatro Carbon: 4 Carbon
+  Qwen quatro: Qwen 4
+  K três ponto um: K3.1
+  quatro níveis: 4 níveis
+  quatro ponto um: '4.1'
+  primeiro de novembro: 1º de novembro
+  'três:': '3:'
+partes:
+- etapa: gancho
+  fala: Uma IA fez um site por um centavo. O Claude cobrou um dólar e vinte e dois pela mesma página.
+  prende: 'choque de preço na mesma frase: 1 centavo contra US$ 1,22 do Claude, marca que todo mundo conhece; pergunta implícita ''que IA é essa?'''
+  painel:
+    k: O CLAUDE COBROU
+    logo: claude
+    titulo: US$ 1,22
+    cor: '#ff2a1f'
+    de: Claude
+    borda: red
+- etapa: prova
+  fala: 'É o MiniMax M três ponto um Flash: quase oitenta e oito vezes mais barato. E vêm mais sete.'
+  prende: revela o nome que a parte 1 escondeu + abre a lista de 7 (curiosidade de ver todos)
+  logos:
+  - id: minimax
+    nome: MiniMax M3.1 Flash
+  lista:
+    k: JÁ SAIU · MINIMAX
+    itens:
+    - - Flash
+      - '🟢 M3.1 Flash: site por 1 centavo'
+    - - '7'
+      - 🔜 mais 7 modelos chegando
+  painel:
+    k: MAIS BARATO QUE O CLAUDE
+    contador:
+      ate: 88
+      dec: 0
+      em: '88'
+      cor: '#FACC15'
+      unid: ×
+    borda: vd
+- etapa: medo
+  fala: A Microsoft já trocou dezoito testes pro GPT seis ponto um Terra. E um site, que pode ser piada, marca o GPT seis ponto cinco pra primeiro de novembro.
+  prende: 'vazamento com prova (código da Microsoft) + contagem regressiva para o próximo GPT: algo grande prestes a cair'
+  logos:
+  - de: Microsoft
+    junto:
+    - id: microsoft
+      nome: Microsoft
+    - id: openai
+      nome: GPT-6.1 Terra
+  - id: openai
+    nome: GPT-6.5
+    de: site
+  lista:
+    k: OPENAI · VAZOU
+    borda: red
+    itens:
+    - - '18'
+      - 🌍 18 testes da Microsoft já citam o Terra
+    - - novembro
+      - '⏳ site não oficial (talvez piada): GPT-6.5 em 1º/nov'
+  painel:
+    k: DATA NÃO OFICIAL
+    titulo: 1º/NOV?
+    cor: '#ff2a1f'
+    de: novembro
+    borda: red
+- etapa: desejo
+  fala: 'A Anthropic prepara um Claude que acha um erro e pergunta: corrijo todos iguais? E o Gemini quatro Carbon, que podia igualar o Claude no código, ficou atrás nos testes.'
+  prende: 'desejo: IA que resolve o problema inteiro sem você pedir; Google x Anthropic (rivalidade gera comentário)'
+  logos:
+  - id: claude
+    nome: Claude novo
+    de: Anthropic
+  - id: gemini
+    nome: Gemini 4 Carbon
+    de: Gemini
+  lista:
+    k: OS GIGANTES
+    itens:
+    - - todos
+      - 🧠 Claude novo oferece corrigir todos (The Information)
+    - - atrás
+      - '💎 Gemini 4 Carbon: atrás nos testes'
+  painel:
+    k: NO CÓDIGO
+    titulo: CLAUDE × GEMINI
+    de: código
+- etapa: descoberta
+  fala: 'A China responde com três: Kimi K três ponto um, que raciocina em quatro níveis, Qwen quatro, pra embaixadores nos próximos dias, e GLM Omni, que vê e cria imagem.'
+  prende: 'três logos em sequência rápida, cada um com tela e um fato: ritmo de lista + a China competindo com os EUA'
+  logos:
+  - id: kimi
+    nome: Kimi K3.1
+    de: Kimi
+  - id: qwen
+    nome: Qwen 4
+    de: Qwen
+  - id: zhipu
+    nome: GLM Omni
+    de: GLM
+  lista:
+    k: CHINA · A CAMINHO
+    itens:
+    - - Kimi
+      - 🌙 Kimi K3.1 · raciocina em 4 níveis
+    - - Qwen
+      - 🐉 Qwen 4 · embaixadores nos próximos dias
+    - - GLM
+      - 🖼️ GLM Omni · vê e cria imagem
+  painel:
+    k: KIMI · QWEN · GLM
+    titulo: 3 DA CHINA
+    de: China
+- etapa: urgencia
+  fala: 'O DeepSeek quatro ponto um Flash tá de graça no OpenCode: dá pra testar hoje sem pagar um centavo.'
+  prende: 'grátis hoje, sem pagar nada: ação imediata e motivo para salvar o vídeo'
+  logos:
+  - id: deepseek
+    nome: DeepSeek V4.1
+  - id: opencode
+    nome: OpenCode
+  lista:
+    k: DE GRAÇA HOJE
+    borda: vd
+    itens:
+    - - OpenCode
+      - 🆓 grátis no OpenCode
+    - - hoje
+      - ⚡ testa hoje, sem pagar um centavo
+  painel:
+    k: PRA TESTAR HOJE
+    titulo: US$ 0
+    cor: '#22c55e'
+    de: graça
+    borda: vd
+- etapa: comentario
+  fala: 'Um dólar ou um centavo: qual você usa? Já viu o que temos no inema ponto club? Olha lá, ou me pede o link.'
+  prende: pergunta que divide (dólar × centavo, amarrada ao gancho) pede comentário + convite direto ao inema.club
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: CLAUDE OU 1 CENTAVO? 👇
+  b: comenta ou me pede o link
+club: cursos e guias para usar cada IA nova
+cores:
+  centavo: '#FACC15'
+  '1': '#FACC15'
+  '7': '#FACC15'
+  1,22: '#ff2a1f'
+  cobrou: '#ff2a1f'
+  minimax: '#FACC15'
+  terra: '#FACC15'
+  microsoft: '#FACC15'
+  '6.5': '#FACC15'
+  claude: '#FACC15'
+  gemini: '#FACC15'
+  qwen: '#FACC15'
+  kimi: '#FACC15'
+  glm: '#FACC15'
+  deepseek: '#FACC15'
+  graça: '#22c55e'
+  nada: '#22c55e'
+  mais?: '#ff2a1f'
+  dólar: '#ff2a1f'
+publicar:
+  fila: lives4
+  titulo: 'Uma IA fez um site por 1 centavo. O Claude cobrou US$ 1,22 #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). Num teste citado pelo canal WorldofAI (AI News de 20/10/2026), o MiniMax M3.1 Flash fez uma landing page por 1 centavo; o Claude
+    Opus 5.5 cobrou US$ 1,22 (o resultado do Claude ficou mais bonito). A caminho (vários previstos para novembro): GPT-6.5 (um site faz contagem para 1º de novembro; não oficial) e
+    GPT-6.1 Terra (visto no código da Microsoft), um Claude novo da Anthropic que reconhece o problema maior antes de você pedir (segundo The Information), Gemini 4 Carbon do Google,
+    Qwen 4, Kimi K3.1 (4 níveis de raciocínio) e GLM Omni; e o DeepSeek V4.1 Flash está grátis no OpenCode. Deixar claro na descrição o que é vazamento. CTA: veja o que tem no inema.club
+    (https://inema.club) ou peça o link nos comentários. Fonte: https://www.youtube.com/watch?v=2BXktpaCEN4'

@@ -61,15 +61,25 @@ def montar(pasta, ficha, falas):
     for i, p in enumerate(partes):
         fid = f"f{i + 1}"
         a = -1.0 if i == 0 else F[fid]["ini"] - .1
-        b = F[f"f{i + 2}"]["ini"] - .1 if i + 1 < len(partes) else DUR + 1
+        # a tela fica até a próxima terminar de entrar (fade .3): sem mergulho no preto na troca (quadro 5,0 s preto, 20/10/2026)
+        b = F[f"f{i + 2}"]["ini"] + .3 if i + 1 < len(partes) else DUR + 1
         if i == 0:
             src, selo, zoom = "capa/abertura-desce.png", None, .03
         elif p.get("print"):
             src, selo, zoom = f"prints/p{i + 1}-c.png", p["print"].get("selo") or "print da página", .04
+        elif p.get("logos"):                             # D13: produto citado = cartão com o logo real (20/10/2026)
+            src, selo, zoom = f"capa/p{i + 1}.png", None, .05
         elif p.get("diagrama"):                          # diagrama animado (19/10/2026): fundo limpo, o motor desenha por cima
             src, selo, zoom = "capa/preto.png", None, 0
         else:
             src, selo, zoom = f"capa/p{i + 1}.png", "ilustração", .07
+        lgs = p.get("logos") or []
+        if i > 0 and len(lgs) > 1 and all(x.get("de") for x in lgs):   # uma tela por produto, troca na palavra (20/10/2026)
+            ts = [a] + [em(fid, x["de"]) - .25 for x in lgs[1:]]
+            for k in range(len(lgs)):
+                fk = ts[k + 1] + .3 if k + 1 < len(lgs) else b
+                telas.append({"src": f"capa/p{i + 1}-{k + 1}.png", "ini": ts[k], "fim": fk, "fade": .25, "zoom": .05})
+            continue
         d = {"src": src, "ini": a, "fim": b, "fade": .3, "zoom": zoom}
         # escurece a foto por baixo da legenda/painel/avatar (a vinheta do motor fica ABAIXO das telas; 19/10/2026)
         if i == 0:
@@ -80,19 +90,28 @@ def montar(pasta, ficha, falas):
             d["selo"] = selo
         telas.append(d)
 
-    paineis = []
+    # D14 (Nei, 20/10/2026): embaixo só UMA coisa (título, número ou logo); a lista sobe para cima da imagem.
+    # Ficha antiga com painel.itens: os itens viram a lista do alto (rótulo = painel.k).
+    paineis, listas = [], []
     for i, p in enumerate(partes):
-        pn = p.get("painel")
-        if not pn:
-            continue
+        pn = p.get("painel") or {}
+        ls = p.get("lista") or ({"k": pn.get("k"), "itens": pn["itens"], "borda": pn.get("borda")} if pn.get("itens") else None)
         fid = f"f{i + 1}"
+        fim = (F[f"f{i + 2}"]["ini"] if i + 1 < len(partes) else DUR) - .05
+        if ls and ls.get("itens"):
+            it = [{"t": em(fid, x[0], x[2] if len(x) > 2 else 1), "txt": x[1]} for x in ls["itens"]]
+            listas.append({"ini": min(x["t"] for x in it) - .3, "fim": fim, "k": ls.get("k") or "", "itens": it,
+                           **({"borda": BORDA[ls["borda"]]} if ls.get("borda") else {})})
+        if not (pn.get("contador") or pn.get("titulo") or pn.get("logo")):
+            continue
         a = em(fid, pn["de"]) - .1 if pn.get("de") else F[fid]["ini"]
-        b = (F[f"f{i + 2}"]["ini"] if i + 1 < len(partes) else DUR) - .05
-        d = {"ini": a, "fim": b, "k": pn["k"], "borda": BORDA[pn.get("borda", "am")]}
-        if pn.get("itens"):
-            d["itens"] = [{"t": em(fid, x[0], x[2] if len(x) > 2 else 1), "txt": x[1]} for x in pn["itens"]]
-            if not pn.get("de") and not pn.get("contador"):   # sem caixa vazia: o painel entra com o 1º item (19/10/2026)
-                d["ini"] = max(a, min(x["t"] for x in d["itens"]) - .3)
+        d = {"ini": a, "fim": fim, "k": pn.get("k", ""), "borda": BORDA[pn.get("borda", "am")]}
+        if pn.get("titulo"):
+            d["titulo"] = pn["titulo"]
+            if pn.get("cor"):
+                d["cor"] = pn["cor"]
+        if pn.get("logo"):
+            d["logo"] = f"capa/logo-{pn['logo']}.png"
         if pn.get("contador"):
             c = pn["contador"]
             d["contador"] = {"de": c.get("de", 0), "ate": c["ate"], "dec": c.get("dec", 0), "ini": em(fid, c["em"]) - 1.0,
@@ -147,6 +166,6 @@ def montar(pasta, ficha, falas):
         a["fim"] = min(max(a["fim"], b["ini"]), b["ini"])
 
     C = {"layout": "canto", "padding_baixo": 640, "duracao": DUR, "padding_topo": 0, "marca": ficha["marca"], "selo": ficha["selo"],
-         "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "diagramas": diagramas, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
+         "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "listas": listas, "diagramas": diagramas, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
     (pasta / "cena.js").write_text("window.CENA=" + json.dumps(C, ensure_ascii=False) + ";")
     return DUR, len(telas), len(paineis), len(legenda)

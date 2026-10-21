@@ -117,6 +117,8 @@ def revisar(p):
         res = json.loads(r.stdout)["result"].strip()
         v = json.loads(res[res.index("{"): res.rindex("}") + 1])
         assert v.get("veredito") in ("aprovado", "reprovado")
+        if v["veredito"] == "aprovado" and int(v.get("impacto", 10)) < 7:   # D15: aprovado sem impacto não publica
+            v = {**v, "veredito": "reprovado", "motivo": f"impacto {v['impacto']}/10 — " + v.get("motivo", "")}
         return v
     except Exception as e:
         return {"veredito": "erro", "motivo": f"revisor não respondeu direito: {str(e)[:200]}"}

@@ -1,0 +1,58 @@
+{
+ "partes": [
+  {
+   "n": 1,
+   "nota": 9,
+   "porque": "Choque de preço concreto logo no início (1 centavo × US$ 1,22), com uma marca que todo mundo conhece. Bate com plano.gancho, e o logo do Claude aparece no painel.",
+   "melhorar": ""
+  },
+  {
+   "n": 2,
+   "nota": 8,
+   "porque": "Revela o nome escondido, traz um número forte (88×) e abre a lista. Mas 'E vêm mais sete' é um fecho morno.",
+   "melhorar": "Fala: 'É o MiniMax M três ponto um Flash: quase oitenta e oito vezes mais barato, mas o do Claude ficou mais bonito. E vêm mais sete.' É honesto (está no fato) e já planta a discussão da parte 7."
+  },
+  {
+   "n": 3,
+   "nota": 8,
+   "porque": "Vazamento com prova (18 configs no código da Microsoft) e data de 1º/nov, com a ressalva honesta de que o site pode ser piada. Os dois GPT têm logo e item na lista.",
+   "melhorar": "Painel: 'GPT-6.5 · 1º/NOV?' em vez de só '1º/NOV?', para o nome do modelo ficar escrito embaixo."
+  },
+  {
+   "n": 4,
+   "nota": 7,
+   "porque": "Dois assuntos numa parte, cada um com logo e item na lista, mas a fala está longa. Diz 'prepara' como fato, quando a fonte é um testador anônimo citado pelo The Information.",
+   "melhorar": "Fala: 'Segundo o The Information, a Anthropic testa um Claude que acha um erro e pergunta: corrijo todos iguais? Já o Gemini quatro Carbon, que podia igualar o Claude no código, ficou atrás nos testes.' Lista: '💎 Gemini 4 Carbon: versões testadas ficaram atrás'."
+  },
+  {
+   "n": 5,
+   "nota": 7,
+   "porque": "Bom ritmo, com 3 logos e 3 itens, e a China contra os EUA puxa comentário. Mas 'pra embaixadores nos próximos dias' é um fato fraco e arrastado.",
+   "melhorar": "Fala do Qwen mais curta: 'Qwen quatro, já liberando acesso antecipado'. Painel: 'CHINA × EUA' ou '3 DA CHINA' com os três logos."
+  },
+  {
+   "n": 6,
+   "nota": 8,
+   "porque": "Grátis e testável hoje é ação imediata e motivo para salvar o vídeo. Tem os logos do DeepSeek e do OpenCode, e a fala é curta.",
+   "melhorar": "Fala: 'E o DeepSeek V quatro ponto um Flash já tá de graça no OpenCode: testa hoje, sem pagar nem um centavo.' Fica com o nome completo e amarra no centavo do gancho."
+  },
+  {
+   "n": 7,
+   "nota": 8,
+   "porque": "Tem a pergunta que divide, ligada ao gancho, mais 'inema ponto club', 'olha lá' e 'me pede o link'. Cumpre o pedido.",
+   "melhorar": "Pergunta mais polêmica, usando o fato de que o do Claude ficou mais bonito: 'Você pagaria um dólar e vinte e dois pelo mais bonito ou um centavo pelo mais barato? Comenta. Já viu o que temos no inema ponto club? Olha lá, ou me pede o link.'"
+  }
+ ],
+ "bloqueios": [],
+ "resumo": "Roteiro forte: o gancho de preço é concreto, os 9 modelos aparecem com logo e texto e o fecho do pedido foi cumprido. As partes 4 e 5 são as mais mornas, e na 4 falta dizer que o Claude novo vem de fonte anônima (The Information).",
+ "notas": [
+  9,
+  8,
+  8,
+  7,
+  7,
+  8,
+  8
+ ],
+ "hash": "31ae8c063ec7848c7de6ca9605ec7f02eddd860e"
+}
