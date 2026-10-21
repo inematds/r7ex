@@ -41,11 +41,10 @@ tem vontade de comentar ou compartilhar?"** Critérios:
 `bloqueios` (lista; vazia se nada) é SÓ para o que é objetivo e checável, e impede a gravação:
 - número ou afirmação sem origem em `plano.fatos`/`plano.gancho`/`fonte`, ou que CONTRADIZ a fonte / afirma algo que ela
   não sustenta (ex.: fonte "poderia igualar" → fala "ia empatar"). Simplificar no mesmo sentido da fonte NÃO é bloqueio;
-- produto/empresa citado na fala sem `logos` na parte (a instituição que é a FONTE do dado — universidade, jornal,
-  estudo — não é produto: basta estar em `fonte` e no painel; PADRAO.md §1);
 - parte 7 sem pergunta falada, sem "inema ponto club" ou sem "pede";
 - algo do `pedido` não cumprido.
-Gosto, ritmo e "poderia ser mais forte" vão na nota e no `melhorar`, nunca em bloqueios.
+Gosto, ritmo, "poderia ser mais forte" e produto citado sem `logos` (D13) vão na nota e no `melhorar`, nunca em
+bloqueios (Nei, 21/10/2026: "temos que ser mais tolerantes na reprovação"; estilo é sugestão, ele decide se refaz).
 
 Não edite nenhum arquivo. Só leia.
 

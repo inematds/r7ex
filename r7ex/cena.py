@@ -37,6 +37,18 @@ def acha(palavras, palavra, k=1):
     return None
 
 
+def sem_markdown(x):
+    """tira o **negrito** de markdown dos textos da tela: a tela não lê markdown e os asteriscos apareciam crus
+    (bigtech-ipo/troco, 20/10/2026)"""
+    if isinstance(x, str):
+        return x.replace("**", "")
+    if isinstance(x, list):
+        return [sem_markdown(v) for v in x]
+    if isinstance(x, dict):
+        return {k: sem_markdown(v) for k, v in x.items()}
+    return x
+
+
 def montar(pasta, ficha, falas):
     pasta = Path(pasta)
     T = json.loads((pasta / "avatar/tempos.json").read_text())
@@ -168,5 +180,5 @@ def montar(pasta, ficha, falas):
 
     C = {"layout": "canto", "padding_baixo": 640, "duracao": DUR, "padding_topo": 0, "marca": ficha["marca"], "selo": ficha["selo"],
          "camera": camera, "telas": telas, "hero": [], "paineis": paineis, "listas": listas, "diagramas": diagramas, "cta": cta, "club": club, "fontes": fontes, "legenda": legenda}
-    (pasta / "cena.js").write_text("window.CENA=" + json.dumps(C, ensure_ascii=False) + ";")
+    (pasta / "cena.js").write_text("window.CENA=" + json.dumps(sem_markdown(C), ensure_ascii=False) + ";")
     return DUR, len(telas), len(paineis), len(legenda)

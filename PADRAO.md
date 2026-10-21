@@ -91,6 +91,13 @@ Fala nunca termina parte em número solto.
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);
 - revisão da folha de 12 quadros (`r7ex.py revisar`): nada cobrindo nada, prints legíveis, **produto com logo, impacto ≥ 7**.
 
+**Tolerância (Nei, 21/10/2026: "temos que ser mais tolerantes na reprovação; quando for sugestão vai em uma tarja vermelha
+dizendo SUGESTÃO e manda para frente, aí se for eu refaço").** Só DEFEITO para o vídeo: título errado, quadro preto, print
+ilegível, número errado, texto ilegível por sobreposição, marcação crua (`**`), avatar ausente/cheio, fecho incompleto,
+marca d'água/rosto. Estilo (logo faltando, impacto < 7, encostar de leve, lista embaixo) é **SUGESTÃO**: o vídeo segue para
+a fila e o aviso "Terminei" no v3 leva a tarja 🟥 SUGESTÃO com os itens. No plano, logo faltando também vira `melhorar`,
+não bloqueio.
+
 ## 5. Publicação
 
 - v3 sempre (`r7ex.py enviar`).

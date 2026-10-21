@@ -48,6 +48,14 @@ def log(msg):
     print(msg, flush=True)
 
 
+def tarja(sugestoes):
+    """Nei, 21/10/2026: sugestão do revisor não para o vídeo; vai numa tarja vermelha 'SUGESTÃO' e ele decide se refaz"""
+    if not sugestoes:
+        return ""
+    return ("\n\n🟥🟥🟥 SUGESTÃO 🟥🟥🟥\n" + "\n".join(f"🔴 {x}" for x in sugestoes)
+            + "\n🟥🟥🟥🟥🟥🟥🟥🟥🟥\n(o vídeo seguiu para a fila; se quiser refazer, é só pedir)")
+
+
 def avisa(msg):
     h = datetime.now()
     if h.hour == 23 and 20 <= h.minute <= 55:            # janela proibida do Telegram
@@ -117,8 +125,9 @@ def revisar(p):
         res = json.loads(r.stdout)["result"].strip()
         v = json.loads(res[res.index("{"): res.rindex("}") + 1])
         assert v.get("veredito") in ("aprovado", "reprovado")
-        if v["veredito"] == "aprovado" and int(v.get("impacto", 10)) < 7:   # D15: aprovado sem impacto não publica
-            v = {**v, "veredito": "reprovado", "motivo": f"impacto {v['impacto']}/10 — " + v.get("motivo", "")}
+        v["sugestoes"] = [str(x) for x in (v.get("sugestoes") or []) if str(x).strip()]
+        if int(v.get("impacto", 10)) < 7 and not any("impacto" in x.lower() for x in v["sugestoes"]):
+            v["sugestoes"].append(f"impacto {v['impacto']}/10")   # 21/10/2026: impacto baixo vira sugestão, não para
         return v
     except Exception as e:
         return {"veredito": "erro", "motivo": f"revisor não respondeu direito: {str(e)[:200]}"}
@@ -171,7 +180,7 @@ def passo(pasta, it, feito):
             return False
         if v["veredito"] != "aprovado":
             para(pasta, f"revisão reprovou: {v['motivo']}"); return False
-        muda(pasta, "publicar", revisao=v["motivo"][:300]); return True
+        muda(pasta, "publicar", revisao=v["motivo"][:300], sugestoes=(v.get("sugestoes") or [])[:5]); return True
     if st == "publicar":
         if not it.get("enviado_v3"):
             rc, out = roda(["enviar", pasta], 900, logp)
@@ -186,7 +195,7 @@ def passo(pasta, it, feito):
                 para(pasta, f"entrada na fila: {out}"); return False
             lugar = next((l for l in out.splitlines() if "na fila" in l), "na fila")
         muda(pasta, "na_fila")
-        avisa(f"Terminei: r7ex {p.name} revisado e {lugar}")
+        avisa(f"Terminei: r7ex {p.name} revisado e {lugar}" + tarja(it.get("sugestoes")))
         return True
     return False
 

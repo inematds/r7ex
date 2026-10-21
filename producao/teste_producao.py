@@ -12,7 +12,7 @@ P.FILA.write_text("[]")
 avisos, chamadas = [], []
 P.avisa = lambda m: avisos.append(m)
 veredito = {"v": "aprovado"}
-P.revisar = lambda p: {"veredito": veredito["v"], "motivo": "teste"}
+P.revisar = lambda p: {"veredito": veredito["v"], "motivo": "teste", **({"sugestoes": veredito["s"]} if veredito.get("s") else {})}
 conferidas = {}
 
 
@@ -81,10 +81,13 @@ confere(any(m.startswith("Falhou: r7ex b") for m in avisos), "aviso Falhou no v3
 n = len(chamadas); P.rodada()
 confere(len(chamadas) == n, "parado não anda sozinho")
 
-veredito["v"] = "aprovado"
+veredito["v"] = "aprovado"; veredito["s"] = ["6 s: falta o logo do Copilot", "impacto 6/10"]
 P.retomar(str(b)); confere(estado(b) == "montar", "retomar com avatar pronto volta para montar")
 P.rodada()
-confere(estado(b) == "na_fila", "b retomada chegou à fila")
+confere(estado(b) == "na_fila", "b com sugestão segue para a fila (21/10: sugestão não para)")
+confere(any(m.startswith("Terminei: r7ex b") and "SUGESTÃO" in m and "logo do Copilot" in m for m in avisos),
+        "aviso Terminei leva a tarja vermelha SUGESTÃO com as sugestões")
+veredito.pop("s")
 
 c = edicao("c"); (c / "video.mp4").write_text("v"); P.FILA.write_text(P.FILA.read_text() + str(c / "video.mp4"))
 P.add(str(c)); confere(estado(c) == "na_fila", "edição já na fila entra como na_fila (não duplica)")
