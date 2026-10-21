@@ -7,7 +7,7 @@ Modelo: ~/projetos/wifi/fila-espanhol/fila_es.py (sem o 'liberar' e sem a trava 
 Roda pelo timer systemd `fila-lives7.timer` (9 h às 21 h, 1 a cada 2 h = 7 por dia).
 Uso: fila_lives7.py            (publica o próximo)
      fila_lives7.py --status   (mostra a fila)
-     fila.py --add <mp4> --nome "..." --contexto "..." [--titulo "..."] [--canal lives7]   (entra no FIM da fila; com arquivo FRENTE na pasta da edição, entra na frente dos pendentes)
+     fila.py --add <mp4> --nome "..." --contexto "..." [--titulo "..."] [--canal lives7] [--playlist ID]   (entra no FIM da fila; com arquivo FRENTE na pasta da edição, entra na frente dos pendentes)
 """
 import fcntl, json, os, re, subprocess, sys, time
 from datetime import datetime
@@ -46,7 +46,7 @@ def ler():
 
 
 def adicionar(argv):
-    op = {"--nome": "nome", "--contexto": "contexto", "--titulo": "titulo", "--canal": "canal"}
+    op = {"--nome": "nome", "--contexto": "contexto", "--titulo": "titulo", "--canal": "canal", "--playlist": "playlist"}
     arq = os.path.abspath(argv[argv.index("--add") + 1])
     item = {"arquivo": arq, "estado": "pendente"}
     for k, v in op.items():
@@ -102,6 +102,10 @@ def main():
         x["estado"], x["quando"] = "feito", datetime.now().isoformat(timespec="minutes")
         FILA.write_text(json.dumps(fila, ensure_ascii=False, indent=1))
         log(f"feito {x['id']} {url}")
+        if x.get("playlist"):  # entra na playlist do canal logo depois de publicado (21/10/2026)
+            pl = subprocess.run(["python3", str(Path.home() / "projetos/wifi/fila-espanhol/yt_api.py"), "add", x["playlist"], x["video_id"]],
+                                capture_output=True, text=True, timeout=120, env={**os.environ, "CANAL": x.get("canal", CANAL)})
+            log(f"playlist {x['playlist']}: {(pl.stdout + pl.stderr).strip()[-200:]}")
         avisa(f"Fila r7ex ({x.get('canal', CANAL)}): publiquei {x.get('titulo_yt') or x['nome']}\n{url}\n" +
               (f"Faltam {restantes}. Próximo às {proxima_hora()}." if restantes else "Terminei: a fila do r7ex acabou."))
         return
