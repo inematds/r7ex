@@ -10,6 +10,15 @@ def retempo(pasta):
     pasta = Path(pasta); av = pasta / "avatar"
     falas = json.loads((pasta / "falas.json").read_text())
     wav = av / "avatar.wav"
+    tj = av / "tempos.json"
+    if tj.exists() and wav.exists() and tj.stat().st_mtime > (av / "avatar.mp4").stat().st_mtime:
+        # mesmo avatar e mesmas falas: reaproveita. Retranscrever pode sair diferente e perder uma fala
+        # (rust-fim-python, 21/10/2026: "fala f6 não achada" na remontagem, com o mesmo avatar que já tinha passado)
+        velho = json.loads(tj.read_text())
+        if [t["fala"] for t in velho] == [f["fala"] for f in falas]:
+            esp = [w for f in falas for w in cs.norm(f["fala"])]
+            ouv = [w for t in velho for p in t["palavras"] for w in cs.norm(p["w"])]
+            return cs.dur(wav), difflib.SequenceMatcher(None, esp, ouv).ratio()
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", av / "avatar.mp4", "-vn", "-ac", "1", "-ar", "48000", wav], check=True)
     pal = cs.transcrever(wav, av / "t", palavras=True)
     ouv = [(w, i) for i, p in enumerate(pal) for w in cs.norm(p["word"])]
