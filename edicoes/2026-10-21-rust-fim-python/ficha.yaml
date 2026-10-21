@@ -1,0 +1,196 @@
+slug: rust-fim-python
+tema: É o fim do Python e do TypeScript? O Rust chegou na infraestrutura de IA
+pedido: 'Nei, 21/10/2026: r7ex no lives4 "é o fim do Python e TypeScript", abertura com uma imagem deles (Python e TypeScript) e o Rust vindo voando como herói, texto grande e impactante na tela toda. Base:
+  texto dele (Rust domina a infraestrutura de IA, mas Python/TS continuam; arquitetura híbrida).'
+plano:
+  pessoa: quem programa ou está aprendendo a programar com IA (Python, TypeScript) e quem usa Copilot/Codex no dia a dia
+  quer: não perder tempo aprendendo a linguagem errada (medo) e saber onde investir o estudo (desejo)
+  gancho: 'provocação + número: "é o fim do Python e do TypeScript?"; o Copilot passou de 5,25 s para 292 ms de inicialização reescrito em Rust (alegação do vídeo base)'
+  nota: 8
+  destino: https://inema.club
+  fatos:
+  - 'GitHub Copilot: motor reescrito em Rust, inicialização de 5,25 s para 292 ms (segundo o vídeo base; não verificado de forma independente)'
+  - 'OpenAI Codex CLI: migração de TypeScript para Rust (texto base do Nei)'
+  - 'Pydantic: núcleo de validação em Rust, ganhos de até 17 vezes (texto base)'
+  - 'Polars, Ruff e uv: ferramentas do ecossistema Python feitas em Rust (texto base)'
+  - bibliotecas em Rust podem ser usadas direto no Python (texto base, item 4 "Integração")
+  - 'arquitetura: Python/TypeScript (agentes, orquestração) → Rust/C++ (tokenização, memória, servidores) → GPU/CUDA (texto base)'
+  - se um agente leva 15 segundos esperando o modelo, economizar 200 ms na infraestrutura pouco muda (texto base)
+  - '"Python continua forte para desenvolver IA. TypeScript continua forte para aplicações e agentes. Rust ganha espaço na infraestrutura" (conclusão do texto base); "a IA continua sendo desenvolvida principalmente
+    em Python"'
+marca: INEMA · RUST NA IA
+selo: VIRADA
+fonte: '<b>números do vídeo base</b> (Copilot 5,25 s → 292 ms; Pydantic até 17×) · alegações, sem benchmark independente · logos: marcas dos produtos (lobe-icons e simple-icons)'
+abertura:
+  branco: É O FIM DO PYTHON E DO TYPESCRIPT?
+  destaque: O RUST CHEGOU
+  cor: amarelo
+  cena: no chão, à esquerda, a cobra do Python (azul e amarela) e, à direita, o quadrado azul do TypeScript com as letras TS, os dois olhando para cima assustados; no alto, vindo do céu em diagonal, o caranguejo
+    laranja do Rust (Ferris) voando como super-herói, punho à frente e capa vermelha esvoaçando, rastro de luz amarela; contraluz forte de cinema, fundo preto liso; sensação de chegada triunfal
+trocas:
+  cinco segundos: 5 segundos
+  um terço de segundo: 1/3 de segundo
+  dezessete vezes: 17×
+  quinze segundos: 15 segundos
+  dois décimos: 0,2 s
+partes:
+- etapa: gancho
+  fala: Programa em Python ou TypeScript? O Copilot levava cinco segundos pra ligar. Em Rust, menos de um terço de segundo.
+  prende: provocação direta contra a linguagem que a pessoa usa + número absurdo de ganho num produto que ela conhece (Copilot)
+  logos:
+  - id: githubcopilot
+    nome: GitHub Copilot
+  painel:
+    k: COPILOT EM RUST · LIGA EM
+    titulo: 0,29 s
+    cor: '#FACC15'
+    de: Rust
+    borda: am
+- etapa: prova
+  fala: 'E mais: a OpenAI trocou o TypeScript do Codex por Rust. O Pydantic ficou até dezessete vezes mais rápido.'
+  prende: 'prova em série: OpenAI e Pydantic, marcas grandes, com outro número forte; vira tendência, não caso isolado'
+  logos:
+  - id: codex
+    nome: Codex CLI
+    de: Codex
+  - id: pydantic
+    nome: Pydantic
+    de: Pydantic
+  lista:
+    k: JÁ MIGRARAM
+    borda: red
+    itens:
+    - - Rust
+      - '🔁 Codex CLI: TypeScript → Rust'
+    - - Pydantic
+      - '⚡ Pydantic: núcleo em Rust'
+  painel:
+    k: PYDANTIC · ATÉ
+    contador:
+      ate: 17
+      dec: 0
+      em: 17×
+      cor: '#FACC15'
+      unid: ×
+    borda: am
+- etapa: medo
+  fala: 'Bateu o medo de ter estudado a linguagem errada? Respira: a IA continua nascendo em Python.'
+  prende: 'nomeia o medo da pessoa em "você" e já alivia: virada emocional que segura até o porquê'
+  painel:
+    k: A IA AINDA NASCE EM
+    titulo: PYTHON
+    cor: '#22c55e'
+    de: Python
+    borda: vd
+  logos:
+  - id: python
+    nome: Python
+- etapa: descoberta
+  fala: Sabe como os grandes fazem? Python e TypeScript pensam, o Rust faz o pesado e a GPU faz a conta.
+  prende: 'o mapa simples de quem faz o quê: a pessoa entende o jogo em uma frase e ganha a resposta'
+  diagrama:
+    forma: fluxo
+    titulo: QUEM FAZ O QUÊ NA IA
+    nos:
+    - de: pensam
+      ic: 🧠
+      txt: Python / TypeScript
+      sub: agentes e orquestração
+    - de: pesado
+      ic: ⚙️
+      txt: Rust
+      sub: tokens, memória, servidores
+      cor: vd
+    - de: conta
+      ic: 🎮
+      txt: GPU
+      sub: a matemática do modelo
+  painel:
+    k: ARQUITETURA
+    titulo: HÍBRIDA
+    cor: '#FACC15'
+    de: grandes
+    borda: vd
+- etapa: facilidade
+  fala: 'E o melhor: você nem precisa aprender Rust. Polars, Ruff e uv já rodam no seu Python.'
+  prende: 'derruba a objeção "vou ter que aprender outra linguagem?": o ganho já chega sem esforço'
+  lista:
+    k: RUST DENTRO DO PYTHON
+    borda: vd
+    itens:
+    - - Polars
+      - 🐻‍❄️ Polars · dados em alto volume
+    - - Ruff
+      - 🧹 Ruff · revisa o código num piscar
+    - - uv
+      - 📦 uv · instala pacotes muito rápido
+  painel:
+    k: SEM APRENDER RUST
+    titulo: JÁ FUNCIONA
+    cor: '#22c55e'
+    de: melhor
+    borda: vd
+  logos:
+  - id: polars
+    nome: Polars
+    de: Polars
+  - de: Ruff
+    junto:
+    - id: ruff
+      nome: Ruff
+    - id: uv
+      nome: uv
+- etapa: beneficio
+  fala: 'Antes de reescrever, mede: se o agente espera quinze segundos pela IA, dois décimos a menos não mudam nada.'
+  prende: conselho contraintuitivo que poupa trabalho e mostra quem entende do assunto; motivo para salvar o vídeo
+  imagem: uma ampulheta gigante de vidro com areia amarela escorrendo devagar, um cronômetro pequeno de metal ao lado, sob um foco de luz amarela de cima; fundo preto liso; sensação de espera e de medir
+    antes de agir
+  painel:
+    k: O AGENTE ESPERA A IA
+    contador:
+      ate: 15
+      dec: 0
+      em: '15'
+      cor: '#ff2a1f'
+      unid: s
+    borda: red
+  lista:
+    k: MEDE ANTES
+    borda: red
+    itens:
+    - - segundos
+      - ⏳ 15 s esperando a IA
+    - - menos
+      - ⚡ 0,2 s ganhos no código
+- etapa: comentario
+  fala: 'Time Python ou vai testar o Rust? Comenta: eu vou testar. Tá tudo no inema ponto club, ou pede o link.'
+  prende: pergunta que divide a comunidade de devs (time Python × time Rust) gera comentário + convite ao inema.club
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: PYTHON OU RUST? 👇
+  b: comenta "eu vou testar"
+club: cursos e guias de IA e agentes
+cores:
+  rust: '#FACC15'
+  python: '#FACC15'
+  typescript: '#FACC15'
+  copilot: '#FACC15'
+  codex: '#FACC15'
+  pydantic: '#FACC15'
+  17×: '#FACC15'
+  fim: '#ff2a1f'
+  medo: '#ff2a1f'
+  errada: '#ff2a1f'
+  pesado: '#FACC15'
+  'mede:': '#22c55e'
+  nada.: '#ff2a1f'
+publicar:
+  fila: lives4
+  titulo: 'É o fim do Python e do TypeScript? O Rust chegou #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). O Rust está tomando partes da infraestrutura de IA: segundo um vídeo de referência, o motor do GitHub Copilot reescrito em Rust passou de 5,25 s
+    para 292 ms de inicialização; o Codex CLI da OpenAI migrou de TypeScript para Rust; o núcleo do Pydantic em Rust é até 17× mais rápido; Polars, Ruff e uv são Rust dentro do ecossistema Python (números
+    são alegações, sem benchmark independente). Mas não é o fim do Python nem do TypeScript: a IA continua sendo criada em Python, TS segue forte em apps e agentes, e o caminho é a arquitetura híbrida —
+    Python/TS pensam e orquestram, Rust faz o trabalho pesado, a GPU faz a conta. Antes de reescrever, medir: se o agente espera 15 s pelo modelo, ganhar 200 ms não muda nada. CTA: veja o que tem no inema.club
+    (https://inema.club) ou peça o link nos comentários.'
