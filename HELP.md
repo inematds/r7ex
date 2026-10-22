@@ -17,6 +17,7 @@ O que acontece (o comando já vale como OK do avatar desta produção):
 Se um portão reprovar, ele para e diz o motivo (nada vai para o HeyGen).
 Não faz: upload direto, tópico no Telegram, espanhol/aventuras (isso continua pelo terminal).
 
+  | portao   para depois da ficha para você aprovar (/aprovar RX#N)
   | sombra   mostra o plano sem rodar nada
 
 Acompanhar: /status RX#N · /cancelar RX#N
