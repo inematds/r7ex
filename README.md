@@ -62,6 +62,18 @@ o explicavideos nem o cardshorts.
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
 
+**Pelo bot, sem sessão nenhuma (22/10/2026): `/r7ex <tema>` ou `/rtex <tema>` no inemaccbot.**
+
+| # | Passo | Comando / o que acontece | Quem |
+|---|---|---|---|
+| B1 | Pedido | o Nei manda `/r7ex <tema, canal, "agora">` no inemaccbot; o comando já é o OK do avatar | Nei |
+| B2 | Ficha + portões | fase `ficha` (`prompts/bot-ficha.md`): passos 2–6 acima, canal em `publicar.fila`, "agora" → `FRENTE`, `APROVADO_HEYGEN`, `producao.py --add`; mostra o `BOT-RESUMO.md` no chat | 🤖 |
+| B3 | Produção | passos 7–11 pelo timer `r7ex-producao`, como sempre | ⚙️ |
+| B4 | Fim no bot | fase `producao`: `producao/esperar.py <pasta>` espera `na_fila` e mostra o `BOT-FIM.md`; `parado` → falha com o motivo | ⚙️ |
+
+Definição: `flow.json` (prefixo `RX`), ajuda do bot em `HELP.md`. O bot não faz upload direto nem tópico no Telegram:
+isso continua pela sessão + vigia `continua` (abaixo). O `/r7ex` no terminal segue igual.
+
 **Quando o Nei pede algo fora do caminho padrão** ("publica agora sem fila", "posta no INEMA.DEV", links no inemaytbot),
 os passos 8–12 vão pelo vigia **`continua`** do wifi (`~/projetos/wifi/continua`): a sessão escreve
 `<pasta>/CONTINUAR.md` com o que falta, as ordens e as travas, tira a edição da produção e registra
