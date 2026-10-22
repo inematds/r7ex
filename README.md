@@ -66,7 +66,9 @@ o explicavideos nem o cardshorts.
 os passos 8–12 vão pelo vigia **`continua`** do wifi (`~/projetos/wifi/continua`): a sessão escreve
 `<pasta>/CONTINUAR.md` com o que falta, as ordens e as travas, tira a edição da produção e registra
 `continua.py --add <pasta> --cwd ~/projetos/r7ex --confere "python3 r7ex.py avatar-conferir <pasta>"`. Quando o avatar
-fica pronto, o vigia abre uma **sessão nova** (`claude -p`) que lê só o bilhete e segue até o fim, avisando no v3.
+fica pronto, o vigia abre uma **sessão nova** (`claude -p`) que lê só o bilhete e segue até o fim. O `--add` avisa no v3
+("⏳ Fase 1 concluída", msg N) e a sessão termina dizendo "pode fechar o terminal, acompanhe pela msg N"; o Terminei/Falhou
+da fase 2 chega como resposta a essa mensagem. Detalhes: `~/projetos/wifi/continua/README.md`.
 Primeiro uso: `edicoes/2026-10-22-hackers-atacam` (22/10/2026).
 
 ---
