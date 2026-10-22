@@ -10,7 +10,7 @@ T=$(mktemp -d); cd "$T"; npm pack simple-icons@13.21.0 --silent >/dev/null && ta
 python3 - "$D" <<'PY'
 import sys, cairosvg, pathlib
 D = pathlib.Path(sys.argv[1])
-for n, c in {"pydantic": "#E92063", "polars": "#CD792C", "ruff": "#D7FF64", "uv": "#DE5FE9", "python": "#3776AB", "typescript": "#3178C6", "rust": "#FFFFFF"}.items():
+for n, c in {"pydantic": "#E92063", "polars": "#CD792C", "ruff": "#D7FF64", "uv": "#DE5FE9", "python": "#3776AB", "typescript": "#3178C6", "rust": "#FFFFFF", "php": "#777BB4"}.items():
     svg = open(f"package/icons/{n}.svg").read().replace("<svg ", f'<svg fill="{c}" ', 1)
     cairosvg.svg2png(bytestring=svg.encode(), write_to=str(D / "dark" / (f"{n}.png" if n == "rust" else f"{n}-color.png")), output_width=512, output_height=512)
 PY

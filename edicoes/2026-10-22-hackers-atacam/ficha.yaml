@@ -1,0 +1,127 @@
+# Ficha r7ex — "Hackers vão atacar todos daqui pra frente" (22/10/2026).
+slug: hackers-atacam
+tema: "Hackers vão atacar todos daqui pra frente: a IA virou arma (PHP2Shell, OpenCode) e como se proteger"
+pedido: 'Nei, 22/10/2026: "r7ex viral chamado hacker vão atacar todos daqui pra frente, olha que já está acontecendo, cite esta
+  (PHP2Shell), cite do OpenCode, etc e diz olha as dicas que tenho dado nas lives e no inema.club sobre segurança. a IA está
+  tão capaz que os hackers estão usando ela para atacar em massa. lives1 e no inema.dev"'
+
+plano:
+  pessoa: "qualquer pessoa com site, loja online ou conta de IA paga — dono de pequeno negócio, freelancer, quem usa ChatGPT/Claude"
+  quer: "não ser a próxima vítima (medo) e saber em minutos o que fazer (desejo)"
+  gancho: "medo + fato: 'os hackers vão atacar todo mundo daqui pra frente' — e já está acontecendo esta semana (PHP2Shell em 7 de cada 10 sites; OpenCode invadido)"
+  nota: 8
+  destino: "https://inematds.github.io/blinda-site/guia/"
+  fatos:
+    - 'PHP2Shell (CVE-2026-109618/109619), divulgada 21/10/2026: atinge todo PHP que serve páginas desde a 5.4; PHP roda por baixo de 70–80% dos sites (estimativa da imprensa)'
+    - 'Cloudflare viu ataques às 07:43 UTC de 21/10, antes da correção sair às 14:00 UTC'
+    - 'a falha foi encontrada por pesquisadores (Calif, Wiz) e pela OpenAI com ajuda de IA'
+    - 'França, Dinamarca, Finlândia e Holanda tiraram sites de governo do ar (Semafor)'
+    - 'OpenCode: em 16–17/10/2026 um invasor entrou num sistema legado do OpenCode Console; chaves de OpenAI, Anthropic e Google salvas por ~1,4% dos usuários foram usadas em consultas em massa; contas chegaram a centenas de dólares (The Hacker News, Cyera, Xenospectrum)'
+    - 'Anthropic (nov/2025): um grupo usou o Claude Code para automatizar uma campanha de espionagem contra cerca de 30 alvos; a IA fez 80–90% do trabalho (relatório "Disrupting the first reported AI-orchestrated cyber espionage campaign")'
+    - 'guia blinda-site no inema.club: seu agente acha o que está exposto no site e corrige com backup'
+
+marca: "INEMA · SEGURANÇA"
+selo: "ALERTA INEMA"
+fonte: "<b>PHP2Shell</b> 21/10/2026 (PHP security team, Cloudflare) · <b>OpenCode</b> 17/10/2026 (The Hacker News) · <b>Anthropic</b> nov/2025 · imagens: ilustração"
+
+abertura:
+  branco: "OS HACKERS VÃO ATACAR"
+  destaque: "TODO MUNDO"
+  cor: vermelho
+  cena: "um capuz preto vazio com o rosto na sombra, à frente de uma parede de dezenas de telas pequenas acendendo em vermelho uma atrás da outra como dominós, cada tela com o ícone de um cadeado se abrindo; contraluz vermelha #ff2a1f de cinema recortando o capuz, fundo preto liso, metade de baixo vazia; sensação de ataque em massa começando"
+
+trocas:
+  "sete em cada dez": "7 em cada 10"
+  "centenas de dólares": "centenas de US$"
+  "noventa por cento": "90%"
+
+partes:
+  - etapa: gancho
+    fala: "Os hackers vão atacar todo mundo daqui pra frente. E não é previsão: já está acontecendo."
+    prende: "frase-ameaça direta, contra todo mundo, e a virada 'já está acontecendo' cria urgência imediata de saber o quê"
+    painel:
+      k: "ESTA SEMANA"
+      titulo: "JÁ COMEÇOU"
+      cor: "#ff2a1f"
+      de: acontecendo
+      borda: red
+  - etapa: prova
+    fala: "Essa semana, uma falha no PHP, que roda sete em cada dez sites, virou ataque antes da correção sair."
+    prende: "prova concreta com número enorme (7 em 10 sites) — o espectador pensa 'o meu site é PHP?'"
+    logos:
+      - {id: php, nome: PHP2Shell}
+    imagem: "uma porta de servidor de metal escuro sendo arrombada por dentro, faíscas vermelhas saindo da fresta, um cadeado partido caindo no chão; contraluz vermelha forte, fundo preto liso, metade de baixo vazia; sensação de invasão"
+    painel:
+      k: "SITES QUE RODAM PHP"
+      contador: {ate: 7, dec: 0, em: "7", cor: "#ff2a1f", unid: "em 10"}
+      de: "7"
+      borda: red
+  - etapa: prova
+    fala: "No OpenCode, invadiram o painel e torraram as chaves de IA dos clientes. Teve conta de centenas de dólares."
+    prende: "segundo caso, agora com dinheiro do bolso: chave de IA roubada vira conta no cartão de quem usa IA"
+    logos:
+      - {id: opencode, nome: OpenCode}
+    painel:
+      k: "CHAVES DE IA ROUBADAS"
+      titulo: "CONTA NO CARTÃO"
+      cor: "#ff2a1f"
+      de: conta
+      borda: red
+  - etapa: medo
+    fala: "Pior: a IA ficou tão capaz que os hackers usam ela pra atacar em massa. Num caso, ela fez até noventa por cento do trabalho."
+    prende: "eleva o medo: a máquina ataca sozinha e em escala — ninguém está pequeno demais para ser alvo"
+    imagem: "um robô humanoide estilo Optimus de visor preto, sentado sozinho diante de um teclado, as mãos de metal digitando rápido, centenas de linhas vermelhas de luz saindo da tela em leque para a escuridão; contraluz vermelha, fundo preto liso, metade de baixo vazia; sensação de ataque automático em massa"
+    lista:
+      k: "IA NO ATAQUE"
+      borda: red
+      itens:
+        - [capaz, "🤖 a IA acha falhas antigas"]
+        - [massa, "🎯 ~30 alvos num só ataque"]
+        - [trabalho, "🧑‍💻 quase sem mão humana"]
+    painel:
+      k: "FEITO PELA IA · ANTHROPIC, NOV/2025"
+      contador: {ate: 90, dec: 0, em: "90%", cor: "#ff2a1f", unid: "%"}
+      de: "90%"
+      borda: red
+  - etapa: descoberta
+    fala: "Se proteger é simples: atualize tudo, ponha limite nas chaves e teste o seu site antes deles."
+    prende: "alívio imediato com 3 passos curtos que qualquer um entende — a pessoa quer anotar"
+    imagem: "um escudo de metal dourado se fechando sobre um notebook aberto, luz amarela forte de cima, faíscas vermelhas batendo no escudo e se apagando; fundo preto liso, metade de baixo vazia; sensação de proteção"
+    lista:
+      k: "OS 3 PASSOS"
+      borda: vd
+      itens:
+        - [atualize, "🔄 atualize tudo (PHP, plugins, apps)"]
+        - [limite, "🔑 limite de gasto nas chaves de IA"]
+        - [teste, "🧪 teste o seu site antes deles"]
+    painel:
+      k: "SE PROTEGER É"
+      titulo: "SIMPLES"
+      cor: "#22c55e"
+      de: simples
+      borda: vd
+  - etapa: beneficio
+    fala: "Eu dou essas dicas nas lives e no inema ponto club, com um guia que acha o que está exposto."
+    prende: "autoridade e prova: não é susto de ocasião, há um guia pronto que faz o trabalho por você"
+    print: {url: "https://inematds.github.io/blinda-site/guia/", selo: "guia blinda-site"}
+    painel:
+      k: "GUIA NO INEMA.CLUB"
+      titulo: "ACHA E CORRIGE"
+      cor: "#22c55e"
+      de: guia
+      borda: vd
+  - etapa: comentario
+    fala: "E você, já se protegeu? Comenta: eu vou proteger. Tá tudo no inema ponto club, ou pede o link."
+    prende: "pergunta direta + compromisso positivo fácil de escrever gera comentário"
+    print: {url: "https://inema.club", selo: "inema.club"}
+
+cta: {a: "JÁ SE PROTEGEU? 👇", b: "comenta \"eu vou proteger\""}
+club: "dicas de segurança e o guia blinda-site"
+cores: {hackers: "#ff2a1f", atacar: "#ff2a1f", acontecendo: "#ff2a1f", falha: "#ff2a1f", ataque: "#ff2a1f", invadiram: "#ff2a1f",
+        torraram: "#ff2a1f", massa: "#ff2a1f", php: "#FACC15", opencode: "#FACC15", chaves: "#FACC15", "7": "#ff2a1f",
+        simples: "#22c55e", atualize: "#22c55e", limite: "#22c55e", teste: "#22c55e", proteger: "#22c55e", guia: "#FACC15"}
+
+publicar:
+  fila: lives1
+  titulo: "Os hackers vão atacar todo mundo daqui pra frente (e já começou) #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). A IA ficou tão capaz que hackers usam ela para atacar em massa — e já está acontecendo: a falha PHP2Shell (21/10/2026) atinge o PHP, que roda por baixo de 7 em cada 10 sites, e a Cloudflare viu ataques antes da correção; no OpenCode (17/10/2026) invadiram o Console e usaram as chaves de IA de clientes, com contas de centenas de dólares; a Anthropic relatou (nov/2025) um grupo que usou IA para fazer até 90% de uma campanha de ataque. Como se proteger: atualize tudo, ponha limite de gasto nas chaves de IA e teste o seu site (guia blinda-site no inema.club). CTA: comente 'eu vou proteger'; tudo no inema.club."

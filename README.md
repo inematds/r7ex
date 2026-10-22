@@ -36,6 +36,41 @@ o explicavideos nem o cardshorts.
 
 ---
 
+## O processo, do início ao fim (12 passos)
+
+🧠 = sessão com o Nei (gasta tokens) · ⚙️ = script/timer (zero token) · 🤖 = `claude -p` curto (sessão nova)
+
+**Parte 1: com o Nei, na sessão**
+
+| # | Passo | Comando / o que acontece | Quem |
+|---|---|---|---|
+| 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
+| 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
+| 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever as 7 partes, a abertura, os painéis e `publicar` | 🧠 |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 550–700 caracteres, palavras dos painéis na fala | ⚙️ |
+| 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
+| 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
+| 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99, um por vez) | ⚙️ |
+
+**Parte 2: sem sessão aberta**
+
+| # | Passo | Comando / o que acontece | Quem |
+|---|---|---|---|
+| 8 | Esperar o avatar | `r7ex.py avatar-conferir` (HeyGen, só leitura) até "pronto" e baixa. **Minutos a horas** | ⚙️ |
+| 9 | Montar | `r7ex.py fazer`: Codex desenha abertura e imagens, prints, tempos das palavras, legenda, render e `build/folha.jpg` | ⚙️ |
+| 10 | Revisar | revisor `claude -p` + `producao/revisor.md` lê a folha: aprova, aprova com 🟥 SUGESTÃO ou para com o motivo | 🤖 |
+| 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
+| 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
+
+**Quando o Nei pede algo fora do caminho padrão** ("publica agora sem fila", "posta no INEMA.DEV", links no inemaytbot),
+os passos 8–12 vão pelo vigia **`continua`** do wifi (`~/projetos/wifi/continua`): a sessão escreve
+`<pasta>/CONTINUAR.md` com o que falta, as ordens e as travas, tira a edição da produção e registra
+`continua.py --add <pasta> --cwd ~/projetos/r7ex --confere "python3 r7ex.py avatar-conferir <pasta>"`. Quando o avatar
+fica pronto, o vigia abre uma **sessão nova** (`claude -p`) que lê só o bilhete e segue até o fim, avisando no v3.
+Primeiro uso: `edicoes/2026-10-22-hackers-atacam` (22/10/2026).
+
+---
+
 ## 1. Como chegamos aqui (18/10/2026) — 4 lotes, o que mudou em cada um
 
 | Lote | Conteúdo (o que se fala) | Forma (o que se vê) | Resultado |
