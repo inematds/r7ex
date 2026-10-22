@@ -1,0 +1,58 @@
+{
+ "partes": [
+  {
+   "n": 1,
+   "nota": 8,
+   "porque": "Frase de choque pedida pelo Nei (OpenAI + bancos + QUEBRAR) e um salto de número que pede explicação. Só que '5→98' foram dois modelos diferentes (5,4% e 97,9%), e a fala soa como se fosse um só.",
+   "melhorar": "Mostrar no painel o dado exato, '5,4% → 97,9%', com uma linha pequena 'GPT 5.6 → GPT 6.1 Soul · teste da OpenAI'. A fala pode ficar como está."
+  },
+  {
+   "n": 2,
+   "nota": 8,
+   "porque": "Traz o assunto para o bolso da pessoa: o saque de hoje passa por um sistema de 60 anos. Dá medo concreto e tem contador na tela.",
+   "melhorar": "O item da lista '95% dos saques no caixa' troca 'transações' por 'saques'. Escrever '🏧 95% das transações em caixa eletrônico' (fonte: OpenAI). Dá para pôr também '80% do cartão na loja', que reforça sem mudar a fala."
+  },
+  {
+   "n": 3,
+   "nota": 8,
+   "porque": "Vira o medo ('ninguém sabe mexer') em descoberta ('a IA faz'), e o detalhe do centavo é palpável. O painel já traz a ressalva do especialista.",
+   "melhorar": "'Reescreveu esse código' dá a entender que foi o código do banco, mas foram programas COBOL do teste da OpenAI. Melhor dizer 'a IA reescreveu código COBOL e a conta bateu até o centavo'. Pôr o logo da OpenAI ao lado da moeda, porque o robô genérico dilui a marca."
+  },
+  {
+   "n": 4,
+   "nota": 8,
+   "porque": "Cumpre o pedido: desarma o 'quebrar' e vira a chave do medo para a libertação. A imagem da corrente casa com a fala.",
+   "melhorar": "Falar mais com o dono de empresa: 'É quebrar a corrente que prende a SUA empresa à tecnologia velha.'"
+  },
+  {
+   "n": 5,
+   "nota": 9,
+   "porque": "São perguntas diretas sobre o bolso e o orgulho do dono ('dono ou refém?'). A pessoa faz a conta na cabeça e se reconhece.",
+   "melhorar": ""
+  },
+  {
+   "n": 6,
+   "nota": 6,
+   "porque": "Os quatro passos do pedido estão lá, mas a fala soa como lista de consultoria, sem emoção nem promessa. É a parte mais fria do reel.",
+   "melhorar": "Abrir com alívio antes dos passos: 'E não precisa jogar tudo fora: entende o que tem, acha os riscos, testa com IA e muda aos poucos, sem parar a empresa.' Na tela, o print do ws2ia com o selo 'modernização de legado'."
+  },
+  {
+   "n": 7,
+   "nota": 8,
+   "porque": "'É só o começo' cria urgência, 'é a próxima?' provoca, e o compromisso 'eu vou modernizar' é positivo e fácil de escrever. Tem inema ponto club e 'me pede o link'.",
+   "melhorar": "Dá para personalizar a pergunta: 'E a sua empresa, tá presa num sistema velho?'. Gera mais comentários de quem quer contar o próprio caso."
+  }
+ ],
+ "bloqueios": [],
+ "resumo": "O gancho é forte e o arco medo→libertação→pergunta ao empresário está bom, sem bloqueios. Só ajustar na tela os dados exatos (5,4%→97,9%; 95% das transações em caixa) e aquecer a fala da parte 6.",
+ "notas": [
+  8,
+  8,
+  8,
+  8,
+  9,
+  6,
+  8
+ ],
+ "hash": "73d43462aaa991c9d1f89d4c75a444258f84a957"
+}

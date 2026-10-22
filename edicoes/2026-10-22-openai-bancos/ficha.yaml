@@ -1,0 +1,178 @@
+# Ficha r7ex — 'A IA da OpenAI vai quebrar os sistemas dos bancos' (22/10/2026). Par do r7exp ~/projetos/r7exp/bancos.
+slug: openai-bancos
+tema: 'A IA da OpenAI vai quebrar os sistemas dos bancos (COBOL: de 5% a 98% no teste) — e as empresas gigantes são as próximas'
+pedido: 'Nei, 22/10/2026: "quero criar um video r7exp [...] e faz outro tambem r7ex, coloque os dois videos no lives8 inema.dev". Gatilho dado
+  pelo Nei: título "A IA da OPENAI Vai QUEBRAR os Sistemas dos BANCOS e das Empresas Gigantes!"; QUEBRAR é o gancho, depois explica que não é
+  derrubar bancos, é quebrar a dependência de tecnologia antiga; fecha em "pense na sua empresa" (custo de manter, tecnologia antiga, dependência
+  do fornecedor) e no caminho: entender, identificar riscos, testar com IA, transformar aos poucos.'
+plano:
+  pessoa: empresário e gestor comum (não programador) que usa banco todo dia e tem um sistema antigo na empresa
+  quer: entender se o dinheiro dele corre perigo (medo) e se a mudança pode baratear e libertar o sistema da empresa dele (desejo)
+  gancho: 'provocação + número: ''a IA da OpenAI vai quebrar os sistemas dos bancos'' — num teste saiu de 5% para quase 98%'
+  nota: 8
+  destino: https://inematds.github.io/ws2ia/
+  fatos:
+  - 'OpenAI, pesquisa de 19/10/2026 (linguagens de poucos dados): teste estrito de migração de programas COBOL para linguagem moderna (C++, Java,
+    Kotlin, Python, Rust); toda saída tinha que bater igual, até o último byte'
+  - 'GPT 5.6 Soul: 5,4%; GPT 6.1 Soul no mesmo nível: 86,6% (custando ~61% do anterior); com mais raciocínio: 97,9%'
+  - 'segundo a OpenAI, o COBOL ainda está por trás de 40% do banco online, 80% das transações presenciais com cartão e 95% das transações em caixa
+    eletrônico; estimativa da Reuters: ~220 bilhões de linhas em produção'
+  - 'COBOL foi criado em 1959: "a 60-year-old language" na própria apresentação da pesquisa (mais de 60 anos)'
+  - programadores de COBOL estão se aposentando (pesquisa Computerworld 2012; em 2020 estados dos EUA pediram programadores COBOL em público)
+  - 'COBOL corta as casas decimais; muitas linguagens modernas arredondam: o programa roda sem erro e o total sai diferente'
+  - 'a própria OpenAI diz: o teste é dela e privado; uso em produção ainda precisa de revisão de especialista e testes com as regras de cada empresa'
+  - 'Workshop Avançado de Engenharia de Software com IA (inema.club, ws2ia): inclui modernização de legado'
+marca: INEMA · IA NOS BANCOS
+selo: ALERTA INEMA
+fonte: '<b>OpenAI</b>, pesquisa 19/10/2026 (teste da própria OpenAI, privado) · <b>Reuters</b> (estimativa de linhas COBOL) · imagens: ilustração'
+abertura:
+  branco: A IA DA OPENAI VAI QUEBRAR
+  destaque: OS SISTEMAS DOS BANCOS
+  cor: vermelho
+  cena: 'um enorme cofre de banco de aço antigo, a porta redonda rachando ao meio de cima a baixo, uma luz vermelha forte vazando pela rachadura
+    e pedaços de metal se soltando no ar; contraluz vermelha #ff2a1f de cinema, fundo preto liso, metade de baixo vazia; sensação de algo gigante
+    se partindo'
+trocas:
+  cinco: 5%
+  noventa e oito por cento: 98%
+  sessenta anos: 60 anos
+partes:
+- etapa: gancho
+  fala: A IA da OpenAI vai quebrar os sistemas dos bancos. Num teste, ela saiu de cinco para noventa e oito por cento.
+  prende: frase-choque com banco + OpenAI + QUEBRAR, e um salto de número absurdo que pede explicação
+  logos:
+  - id: openai
+    nome: OpenAI
+  painel:
+    k: ACERTO NO TESTE DE COBOL
+    titulo: 5% → 98%
+    cor: '#FACC15'
+    de: 98%
+    borda: am
+- etapa: medo
+  fala: O sistema que mexe no seu dinheiro tem mais de sessenta anos e passa por quase todo saque no caixa.
+  prende: 'traz para o bolso da pessoa: o saque dela de hoje passou por um sistema de 60 anos'
+  imagem: um caixa eletrônico antigo numa parede escura, a tela verde de fósforo com linhas de código velho brilhando, rachaduras finas se espalhando
+    pelo metal; luz vermelha recortando a máquina, fundo preto liso, metade de baixo vazia; sensação de algo velho segurando tudo
+  painel:
+    k: IDADE DO COBOL
+    contador:
+      ate: 60
+      dec: 0
+      em: '60'
+      cor: '#ff2a1f'
+      unid: anos
+    de: '60'
+    borda: red
+  lista:
+    k: O SISTEMA DO SEU DINHEIRO
+    borda: red
+    itens:
+    - - "60"
+      - 📅 COBOL, de 1959
+    - - saque
+      - 🏧 95% dos saques no caixa
+- etapa: prova
+  fala: Quem sabe mexer nele está se aposentando. Num teste, a IA reescreveu esse código e a conta bateu até o centavo.
+  prende: medo (ninguém sabe mexer) virando descoberta (a IA faz) com detalhe concreto do centavo
+  imagem: um braço de robô humanoide estilo Optimus de visor preto segurando uma única moeda brilhante entre os dedos de metal, encaixando-a numa
+    pilha perfeita de moedas; luz amarela forte de cima na moeda, fundo preto liso, metade de baixo vazia; sensação de precisão absoluta
+  lista:
+    k: O QUE MUDOU
+    borda: am
+    itens:
+    - - aposentando
+      - 👴 quem sabe COBOL está saindo
+    - - reescreveu
+      - 🤖 a IA reescreveu o código
+    - - centavo
+      - 🪙 a conta bateu até o centavo
+  painel:
+    k: TESTE DA OPENAI · AINDA PRECISA DE ESPECIALISTA
+    titulo: IGUAL ATÉ O CENTAVO
+    cor: '#FACC15'
+    de: centavo
+    borda: am
+- etapa: facilidade
+  fala: Quebrar não é derrubar banco. É quebrar a corrente que te prende à tecnologia velha.
+  prende: vira a chave do medo para a oportunidade — a pessoa entende o que realmente está em jogo
+  imagem: uma corrente grossa de ferro velho partindo ao meio, os elos se separando em câmera lenta com faíscas douradas; luz amarela forte no
+    ponto da quebra, fundo preto liso, metade de baixo vazia; sensação de libertação
+  painel:
+    k: O QUE QUEBRA
+    titulo: A DEPENDÊNCIA
+    cor: '#22c55e'
+    de: corrente
+    borda: vd
+- etapa: desejo
+  fala: E a sua empresa? Quanto custa manter o sistema? Você é dono dele ou refém do fornecedor?
+  prende: pergunta direta ao empresário sobre o próprio bolso — ele faz a conta na cabeça
+  imagem: uma pequena empresa à noite vista de fora, uma única janela acesa com um computador velho e bege brilhando lá dentro, preso por um cadeado
+    enorme; luz vermelha suave no cadeado, fundo preto liso, metade de baixo vazia; sensação de estar refém
+  lista:
+    k: PENSE NA SUA EMPRESA
+    borda: red
+    itens:
+    - - custa
+      - 💸 quanto custa manter?
+    - - dono
+      - 🔑 o sistema é seu?
+    - - fornecedor
+      - 🔒 ou é refém do fornecedor?
+- etapa: descoberta
+  fala: 'O caminho: entender o que tem, achar os riscos, testar com IA e mudar aos poucos.'
+  prende: três passos claros e seguros, e a prova de que há onde aprender
+  print:
+    url: https://inematds.github.io/ws2ia/
+    selo: workshop engenharia com IA
+  lista:
+    k: O CAMINHO
+    borda: vd
+    itens:
+    - - entender
+      - 🔎 entender o que tem
+    - - riscos
+      - ⚠️ identificar os riscos
+    - - testar
+      - 🧪 testar com IA
+    - - aos
+      - 🪜 mudar aos poucos
+- etapa: comentario
+  fala: 'Os bancos são só o começo. E a sua empresa, é a próxima? Comenta: eu vou modernizar. Tá no inema ponto club, ou me pede o link.'
+  prende: urgência (é só o começo) + compromisso positivo fácil de escrever
+  print:
+    url: https://inema.club
+    selo: inema.club
+cta:
+  a: SUA EMPRESA É A PRÓXIMA? 👇
+  b: comenta "eu vou modernizar"
+club: workshop de engenharia de software com IA (modernização de legado)
+cores:
+  quebrar: '#ff2a1f'
+  bancos: '#ff2a1f'
+  aposentando: '#ff2a1f'
+  sessenta: '#ff2a1f'
+  '60': '#ff2a1f'
+  fornecedor: '#ff2a1f'
+  openai: '#FACC15'
+  98%: '#FACC15'
+  centavo: '#FACC15'
+  entender: '#22c55e'
+  testar: '#22c55e'
+  aos: '#22c55e'
+  poucos: '#22c55e'
+  modernizar: '#22c55e'
+  reescreveu: '#FACC15'
+  corrente: '#22c55e'
+  refém: '#ff2a1f'
+  riscos: '#22c55e'
+  próxima: '#ff2a1f'
+publicar:
+  fila: lives8
+  titulo: 'A IA da OpenAI vai QUEBRAR os sistemas dos BANCOS #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). A OpenAI mostrou (pesquisa de 19/10/2026) que o GPT 6.1 Soul reescreve programas em
+    COBOL — a linguagem de mais de 60 anos que ainda roda por trás de 95% das transações em caixa eletrônico e 80% das compras com cartão — numa
+    linguagem moderna, com resultado idêntico até o último dígito: o modelo anterior acertava 5,4%, o novo 86,6% e, pensando mais, 97,9%. Quebrar
+    não é derrubar banco: é quebrar a dependência de tecnologia antiga. O teste é da própria OpenAI e ainda precisa de revisão de especialistas.
+    Para a sua empresa: entender o que existe, testar a modernização com IA e mudar aos poucos. Workshop de engenharia de software com IA no inema.club.
+    CTA: comente ''eu vou modernizar''.'
