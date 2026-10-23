@@ -1,3 +1,4 @@
+| 2026-10-23 | r7ex hackers-atacam parado 1 dia: avatar pronto no HeyGen mas `avatar-conferir` com pasta relativa dava ENOENT (node roda em heygen/) e o vigia lia como falha | `avatar_conferir` usa `Path(pasta).resolve()` | infra |
 | 2026-10-21 | refazer só 1 imagem (volante do musk): o Codex refez TODAS e trocou a abertura aprovada por uma com título menor | `cmd_imagens` só pede as que faltam + "não mexa em outros arquivos" | prompt |
 | 2026-10-21 | Robô e volante gerados invadiram metade inferior | edição image_gen reduzindo assunto e ancorando no topo | prompt |
 | 2026-10-21 | Capa gerada avançou com o robô sobre a metade inferior | Reduzir o robô via image_gen mantendo o título | prompt |

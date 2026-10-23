@@ -239,7 +239,7 @@ def avatar_enviar(pasta):
 def avatar_conferir(pasta, minutos=0.02):
     """confere o avatar no HeyGen (leitura) e baixa se pronto → 'pronto' | 'processando'; erro do HeyGen = falha.
     minutos=0.02 = uma conferência só (para a produção); o fazer manual espera até 290 min."""
-    av = Path(pasta) / "avatar"
+    av = Path(pasta).resolve() / "avatar"  # absoluto: o node roda em heygen/ (22/10: caminho relativo travou o hackers-atacam)
     if (av / "avatar.mp4").exists():
         return "pronto"
     r = subprocess.run(["node", "heygen-estudio-baixar.mjs", "--id", (av / "video_id.txt").read_text().strip(),
