@@ -1,0 +1,133 @@
+# Ficha r7ex — como o Nei organiza a memória do Jarvis (OpenPCBot), out/2026.
+# Base: post INEMA.AGENTES https://t.me/c/2433384436/7021 (22/10/2026).
+# Nei, 22/10: "faz um r7ex sobre a memória do Jarvis, coloque o link dos repos la no post".
+slug: memoria-jarvis
+tema: "A memória do meu Jarvis: anota o erro e aprende"
+pedido: 'Nei, 22/10/2026: r7ex sobre a memória do Jarvis (camadas, FALHAS/LESSONS/LIMITES, LOOP-R com aprovação humana, revisão a cada 7 dias, silêncio não é aprovação).'
+plano:
+  pessoa: "quem usa ChatGPT/Claude no dia a dia e se irrita porque a IA esquece tudo e repete o mesmo erro"
+  quer: "um assistente que lembra e aprende sozinho (desejo); parar de explicar tudo de novo a cada conversa (dor)"
+  gancho: "provocação + número real: a IA esquece tudo; o Jarvis do Nei já anotou 199 erros e virou 183 lições"
+  nota: 8
+  destino: "https://inematds.github.io/sil-loop-r/guia/"
+  fatos:
+  - 'Contagem em 22/10/2026 no hub ~/projetos/wifi: FALHAS.md tem 199 linhas de falha (| data | o que quebrou | menor correção | prompt/infra |); LESSONS.md tem 183 lições'
+  - 'Post do Nei (INEMA.AGENTES 7021): camadas memória global, por projeto, de aprendizado (falhas, lições, limites) e de continuidade (handoff, /prime); LOOP-R Observa → Analisa → Testa → Propõe → Aprovação humana'
+  - 'Post do Nei: "revisar regras a cada sete dias ou quando houver mais de cinco regras pendentes ... Silêncio não significa aprovação"'
+  - 'Guia SIL Loop R: "Seu agente registra e propõe. Você decide o que permanece." "7 dias · 2 releases · 5 propostas" "Nenhuma proposta é aprovada pelo silêncio." "Sem servidor, conta ou chamadas de API." "Python 3.10+ e Git são suficientes."'
+  - 'Arquivos: memoria.md, FALHAS.md, LESSONS.md, LIMITES.md, decisoes.md — texto simples (markdown) escrito pelo agente'
+
+marca: "INEMA · AGENTES"
+selo: "MEMÓRIA QUE APRENDE"
+fonte: "<b>Jarvis do Nei (OpenPCBot)</b> · FALHAS.md e LESSONS.md, contagem de 22/10/2026 · método SIL Loop R · imagens: ilustração"
+
+abertura:
+  branco: "MEU JARVIS ANOTOU 199 ERROS"
+  destaque: "E APRENDEU COM ELES"
+  cor: amarelo
+  cena: "um robô humanoide branco estilo Optimus com visor preto, de perfil, escrevendo num caderno aberto que acende em luz amarela forte, as linhas escritas brilhando; contraluz dramática; fundo preto liso"
+
+trocas:
+  "cento e noventa e nove": "199"
+  "cento e oitenta e três": "183"
+  "sete dias": "7 dias"
+  "três memórias": "3 memórias"
+
+partes:
+  - etapa: gancho
+    fala: "Sua IA esquece tudo quando você fecha a conversa? O meu Jarvis já anotou cento e noventa e nove erros."
+    prende: "toca numa irritação que todo usuário de ChatGPT tem + número exato e estranho (199) que gera curiosidade"
+    painel:
+      de: erros
+      k: "ERROS ANOTADOS"
+      borda: vm
+      contador: {ate: 199, em: "199", cor: "#ff2a1f", unid: "FALHAS NO CADERNO"}
+  - etapa: prova
+    fala: "E desses erros ele tirou cento e oitenta e três lições. Viraram regras pra não errar de novo."
+    prende: "vira o jogo: o erro vira lição; segundo número real prova que funciona"
+    imagem: "UM caderno de couro preto aberto, de uma página rasgada vermelha saindo UMA lâmpada acesa em luz amarela intensa; contraluz forte; fundo preto liso; sensação de descoberta"
+    painel:
+      de: regras
+      k: "LIÇÕES VIRARAM REGRA"
+      borda: am
+      contador: {ate: 183, em: "183", cor: "#FACC15", unid: "LIÇÕES"}
+  - etapa: desejo
+    fala: "Imagina uma IA que lembra do seu jeito, de cada projeto e de onde você parou ontem."
+    prende: "desejo direto do dia a dia: não precisar explicar tudo de novo"
+    imagem: "UMA mão humana e UMA mão robótica branca se tocando sobre uma pequena chama amarela de memória que flutua entre elas; contraluz forte; fundo preto liso; sensação de continuidade e confiança"
+    lista:
+      k: "O QUE ELE LEMBRA"
+      itens:
+        - [jeito, "🧠 o seu jeito de trabalhar"]
+        - [projeto, "📁 cada projeto"]
+        - [ontem, "⏮️ onde você parou ontem"]
+    painel:
+      k: "SEM EXPLICAR DE NOVO"
+      titulo: "ELE LEMBRA"
+      cor: "#22c55e"
+      de: lembra
+      borda: vd
+  - etapa: facilidade
+    fala: "E não precisa de servidor nem de programa caro: são arquivos de texto, e a IA escreve sozinha."
+    prende: "derruba o 'isso é coisa de programador': texto simples, a IA faz"
+    diagrama:
+      forma: terminal
+      titulo: "A MEMÓRIA É TEXTO"
+      nos:
+        - {de: arquivos, tipo: cmd, txt: "ls memoria/"}
+        - {de: texto, tipo: out, txt: "FALHAS.md  LESSONS.md  LIMITES.md"}
+        - {de: escreve, tipo: out, txt: "memoria.md  decisoes.md  handoff/"}
+        - {de: sozinha, tipo: ok, txt: "a IA anota durante o trabalho"}
+    painel:
+      k: "SEM SERVIDOR"
+      titulo: "SÓ TEXTO"
+      cor: "#22c55e"
+      de: servidor
+      borda: vd
+  - etapa: descoberta
+    fala: "O segredo são três memórias: falhas, lições e limites. E a cada sete dias ele revisa as regras."
+    prende: "o método com nome e 3 itens fáceis de lembrar + ritmo concreto (7 dias)"
+    diagrama:
+      forma: fluxo
+      titulo: "3 MEMÓRIAS"
+      nos:
+        - {de: falhas, ic: "🟥", txt: "FALHAS", sub: "o que quebrou"}
+        - {de: lições, ic: "💡", txt: "LIÇÕES", sub: "a regra nova"}
+        - {de: limites, ic: "🚧", txt: "LIMITES", sub: "o que não dá"}
+        - {de: revisa, ic: "🔁", txt: "REVISÃO", sub: "a cada 7 dias", cor: vd}
+    painel:
+      de: dias
+      k: "REVISÃO DAS REGRAS"
+      borda: am
+      contador: {ate: 7, em: "7", cor: "#FACC15", unid: "DIAS"}
+  - etapa: beneficio
+    fala: "Mas quem decide sou eu. Ele propõe, eu aprovo. E silêncio não é aprovação."
+    prende: "segurança e controle: tira o medo de a IA mudar sozinha; frase de efeito fácil de repetir"
+    imagem: "UM carimbo de aprovação dourado suspenso no ar sobre um documento, segurado por UMA mão humana, o carimbo brilhando em luz amarela forte; fundo preto liso; contraluz; sensação de controle"
+    lista:
+      k: "QUEM MANDA É VOCÊ"
+      itens:
+        - [propõe, "🤖 a IA propõe"]
+        - [aprovo, "✅ você aprova"]
+        - [silêncio, "🚫 silêncio não aprova"]
+    painel:
+      k: "REGRA DE OURO"
+      titulo: "SILÊNCIO ≠ SIM"
+      cor: "#ff2a1f"
+      de: silêncio
+      borda: vm
+  - etapa: comentario
+    fala: "Você quer uma IA que aprende com os erros? Escreve eu quero e me pede o link: tá tudo no inema ponto club."
+    prende: "compromisso positivo ('eu quero') puxa comentário + prova real do guia"
+    print: {url: "https://inematds.github.io/sil-loop-r/guia/", selo: "inema.club"}
+
+cta: {a: "QUER UMA IA QUE APRENDE? ESCREVE EU QUERO 👇", b: "e me pede o link aqui nos comentários"}
+club: "método para sua IA aprender com os erros"
+cores: {esquece: "#ff2a1f", erros: "#ff2a1f", "199": "#ff2a1f", lição: "#FACC15", "183": "#FACC15", regras: "#FACC15",
+        lembra: "#22c55e", sozinha: "#22c55e", falhas: "#ff2a1f", lições: "#FACC15", limites: "#FACC15", "7": "#FACC15",
+        aprovo: "#22c55e", silêncio: "#ff2a1f"}
+
+publicar:
+  fila: lives3
+  titulo: "Minha IA anotou 199 erros e aprendeu com eles #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Como o Nei organiza a memória do Jarvis (OpenPCBot) em outubro de 2026: memória global, por projeto, de aprendizado (FALHAS.md, LESSONS.md, LIMITES.md) e de continuidade (handoff, /prime). Contagem real de 22/10/2026: 199 falhas anotadas e 183 lições. Revisão das regras a cada 7 dias (ou mais de 5 pendentes), a IA propõe e o humano aprova; silêncio não é aprovação. Kit aberto e local: SIL Loop R https://inematds.github.io/sil-loop-r/guia/ ; também Execução Longa https://inematds.github.io/execucao-longa/guia/ e Claude Session Kit https://inematds.github.io/claude-session-kit/guia/. Tudo no https://inema.club. CTA: peça o link nos comentários."
