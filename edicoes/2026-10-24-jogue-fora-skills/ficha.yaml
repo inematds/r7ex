@@ -1,0 +1,117 @@
+# Ficha r7ex — Jogue fora os seus skills (24/10/2026).
+# Irmão do refazvideo ~/projetos/output/explica-2IPR6F3cQ_I (lives3). Sem crédito do autor da referência.
+# Nei, 24/10: "faca um r7ex do assunto e colcoa no lives1".
+slug: jogue-fora-skills
+tema: "Jogue fora os seus skills"
+pedido: 'Nei, 24/10/2026: r7ex do assunto do refazvideo "Jogue fora os seus skills" (doação das Agent Skills, skill demais atrapalha, 3 perguntas, prompt de auditoria), publicar no lives1.'
+plano:
+  pessoa: "quem usa Claude Code, Codex ou outro agente de IA e foi instalando skill atrás de skill porque viu em vídeo"
+  quer: "um agente que acerta de primeira (desejo); parar de ver a IA se perder e escolher a instrução errada (dor)"
+  gancho: "provocação + novidade: a Anthropic acabou de doar as skills para a Linux Foundation, e skill demais deixa o agente pior; cem skills = cem chances de errar; na máquina do Nei, 199 de 328 sem uso em 90 dias"
+  nota: 8
+  destino: "https://github.com/inematds/jogue-fora-skills"
+  fatos:
+  - 'Anthropic doou o padrão Agent Skills ao Agentic AI Foundation (Linux Foundation) em 22/10/2026 — simonwillison.net/2026/Oct/22/donating-agent-skills e outros; a AAIF já hospeda o MCP'
+  - 'Auditoria local na máquina do Nei (scripts/auditar_skills.py, 24/10/2026): 328 skills, 78 de plugins, 129 usadas e 199 sem uso registrado em 90 dias, top 10 = 47% dos usos, ~16.565 palavras de descrição'
+  - '"Cem skills são cem chances de escolher a errada": cada skill carrega nome e descrição em toda sessão (argumento do vídeo de referência, ilustrativo)'
+  - 'As 3 perguntas: roda código exato? sabe algo que o modelo não sabe nem acha? já existe MCP/conector que faz o mesmo?'
+  - 'Prompt de auditoria em português, só leitura, relatório HTML: github.com/inematds/jogue-fora-skills'
+
+marca: "INEMA · AGENTES DE IA"
+selo: "FAXINA DE SKILLS"
+fonte: "<b>Agent Skills</b> doado à Linux Foundation em 22/10/2026 · auditoria local na máquina do Nei, 24/10/2026 · imagens: ilustração"
+
+abertura:
+  branco: "JOGUE FORA"
+  destaque: "OS SEUS SKILLS"
+  cor: amarelo
+  cena: "uma mão jogando com força uma pilha de cartões de papel brancos, cada um com um pequeno ícone de pasta, para dentro de uma lixeira de metal, os cartões voando no ar; luz de recorte branca forte, contraluz dramática, fundo preto liso"
+
+trocas:
+  "Cem skills": "100 skills"
+  "cem chances": "100 chances"
+  "trezentas e vinte e oito": "328"
+  "quase duzentas": "quase 200"
+  "noventa dias": "90 dias"
+  "três perguntas": "3 perguntas"
+
+partes:
+  - etapa: gancho
+    fala: "Você instala skill atrás de skill? Cem skills são cem chances do seu agente errar. E a Anthropic acabou de doar as skills à Linux Foundation."
+    prende: "novidade quente com o nome da Anthropic + provocação contra o que a pessoa fez (instalar skill) + número fácil (cem = cem chances)"
+    logos:
+      - {id: anthropic, nome: "Anthropic", de: Anthropic}
+    painel:
+      de: chances
+      k: "CADA SKILL A MAIS"
+      borda: vm
+      contador: {ate: 100, em: "100", cor: "#ff2a1f", unid: "CHANCES DE ERRAR"}
+  - etapa: prova
+    fala: "Medi na minha máquina: trezentas e vinte e oito skills, quase duzentas sem uso em noventa dias. E na sua, quantas?"
+    prende: "o Nei como testemunha com número real da máquina dele; a pessoa pensa 'e a minha?'"
+    diagrama:
+      forma: terminal
+      titulo: "AUDITORIA NA MINHA MÁQUINA"
+      nos:
+        - {de: Medi, tipo: cmd, txt: "python3 auditar_skills.py --dias 90"}
+        - {de: "328", tipo: out, txt: "skills encontradas: 328"}
+        - {de: "200", tipo: out, txt: "sem uso em 90 dias: 199"}
+    painel:
+      de: "200"
+      k: "PESO MORTO"
+      borda: vm
+      contador: {ate: 199, em: "200", cor: "#ff2a1f", unid: "SKILLS SEM USO"}
+  - etapa: desejo
+    fala: "Imagina pedir uma vez e o agente acertar, sem corrigir."
+    prende: "desejo concreto de quem já brigou com a IA: acertar de primeira"
+    imagem: "um robô humanoide estilo Optimus de visor preto em pé, sozinho, sobre um chão preto limpo, segurando uma única ficha de papel iluminada por um feixe de luz amarela forte; atrás, desfocada no escuro, uma montanha de papéis velhos caindo; sensação de foco e alívio"
+    painel:
+      k: "CONTEXTO LIMPO"
+      titulo: "ACERTA DE PRIMEIRA"
+      cor: "#22c55e"
+      de: acertar
+      borda: vd
+  - etapa: facilidade
+    fala: "Você não apaga nada na mão: um prompt em português te mostra as skills que você nunca usou."
+    prende: "derruba 'dá trabalho / tenho medo de quebrar': é só colar um prompt, e ele não apaga nada"
+    diagrama:
+      forma: fluxo
+      titulo: "UM PROMPT, SÓ LEITURA"
+      nos:
+        - {de: prompt, ic: "📋", txt: "cola o prompt", sub: "Claude Code ou Codex"}
+        - {de: mostra, ic: "📊", txt: "conta o uso real", sub: "no seu histórico"}
+        - {de: nunca, ic: "✅", txt: "mostra o que nunca usou", sub: "sem apagar nada", cor: vd}
+  - etapa: descoberta
+    fala: "Só fica a skill que passa em três perguntas: roda código exato? Sabe o que o modelo não sabe? Não tem ferramenta igual?"
+    prende: "método de 3 itens fácil de lembrar e aplicar na hora; a pessoa já começa a julgar as próprias skills"
+    imagem: "uma peneira de metal grande segurada no ar, por onde caem dezenas de cartões de papel, e só três cartões ficam retidos, brilhando em luz amarela; fundo preto liso, contraluz dramática"
+    lista:
+      k: "AS 3 PERGUNTAS"
+      borda: am
+      itens:
+        - [código, "⚙️ roda código exato?"]
+        - [sabe, "🧠 sabe o que o modelo não sabe?"]
+        - [ferramenta, "🔌 já existe ferramenta igual?"]
+  - etapa: beneficio
+    fala: "O resto vai pra um backup com data: sentiu falta, volta. O agente obedece só o que você usa."
+    prende: "segurança (backup, dá para desfazer) + recompensa (do seu jeito)"
+    imagem: "uma caixa de arquivo de papelão sendo fechada por duas mãos sobre uma mesa preta limpa, uma etiqueta branca em branco na frente, luz neutra com recorte amarelo forte na tampa; fundo preto liso; sensação de ordem e alívio"
+    painel:
+      k: "SEM MEDO"
+      borda: vd
+      itens: [[backup, "📦 backup com data"], [volta, "↩️ sentiu falta, volta"], [usa, "🎯 só o que você usa"]]
+  - etapa: comentario
+    fala: "Tem coragem de fazer a faxina? Escreve eu vou e me pede o link: o prompt tá no inema ponto club."
+    prende: "compromisso positivo ('eu vou') puxa comentário + prova real do repo com o prompt"
+    print: {url: "https://github.com/inematds/jogue-fora-skills", selo: "inema.club"}
+
+cta: {a: "VAI FAZER A FAXINA? ESCREVE EU VOU 👇", b: "e me pede o link aqui nos comentários"}
+club: "prompt de auditoria de skills em português"
+cores: {anthropic: "#FACC15", demais: "#ff2a1f", cem: "#ff2a1f", "100": "#ff2a1f", errar: "#ff2a1f", "328": "#FACC15",
+        "200": "#ff2a1f", primeira: "#22c55e", prompt: "#FACC15", sobra: "#22c55e", "3": "#FACC15", perguntas: "#FACC15",
+        backup: "#22c55e", limpo: "#22c55e", jeito: "#FACC15", faxina: "#FACC15"}
+
+publicar:
+  fila: lives1
+  titulo: "Jogue fora os seus skills: 100 skills = 100 chances de errar #shorts"
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner). Em 22/10/2026 a Anthropic doou o padrão Agent Skills à Linux Foundation (Agentic AI Foundation, a mesma do MCP). Skill demais deixa o agente pior: cada skill carrega nome e descrição em toda sessão; cem skills são cem chances de escolher a errada. Na máquina do Nei: 328 skills, 199 sem uso em 90 dias. Um prompt em português (só leitura) faz a auditoria e conta o uso real. Fica só a skill que passa em 3 perguntas: roda código exato? sabe o que o modelo não sabe? ainda não tem conector que faça igual? O resto vai para um backup com data. Prompt, script e as 3 perguntas: https://github.com/inematds/jogue-fora-skills · vídeo completo: https://www.youtube.com/watch?v=valne4TXPQo · tudo em https://inema.club. CTA: escreve EU VOU e peça o link nos comentários. Não citar o autor do vídeo de referência.'
