@@ -28,8 +28,12 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT  # noqa: E402
 
-PERFIL = Path.home() / ".cache/inemaccbot/perfil-heygen"     # perfil do estúdio (compartilhado: tem fila própria)
-TEMPLATE_HEYGEN = "TEMPLATE-AVATAR16"
+PERFIL = Path(os.environ.get("R7X_HEYGEN_PERFIL", Path.home() / ".cache/inemaccbot/perfil-heygen"))   # perfil do estúdio (compartilhado: tem fila própria)
+TEMPLATE_HEYGEN = os.environ.get("R7X_HEYGEN_TEMPLATE", "TEMPLATE-AVATAR16")
+# Estúdio fora do spark (VPS da Tiza, 25/10/2026): R7X_HEYGEN_DIR=/root/projetos/heygen-estudio com enviar.mjs/baixar.mjs
+HEYGEN_DIR = Path(os.environ.get("R7X_HEYGEN_DIR", R / "heygen"))
+HEYGEN_ENVIAR = os.environ.get("R7X_HEYGEN_ENVIAR", "heygen-studio.mjs")
+HEYGEN_BAIXAR = os.environ.get("R7X_HEYGEN_BAIXAR", "heygen-estudio-baixar.mjs")
 TELA = ":99"                                                  # nunca a tela do Nei (memória heygen-login-na-tela)
 TROCAS_PADRAO = {"inema ponto club": "inema.club", "dois mil e vinte e sete": "2027", "dois mil e trinta": "2030",
                  "dois mil e vinte e seis": "2026"}
@@ -189,9 +193,15 @@ def cmd_plano(pasta):
     arq = p / "plano-critica.json"
     c = json.loads(arq.read_text()) if arq.exists() else {}
     if c.get("hash") != h:
-        r = subprocess.run(["claude", "-p", "--output-format", "json", "--allowedTools", "Read", "--",
-                            (R / "producao/critico-plano.md").read_text()], cwd=p, capture_output=True, text=True, timeout=900,
-                           stdin=subprocess.DEVNULL)
+        pedido = (R / "producao/critico-plano.md").read_text()
+        if os.environ.get("R7X_CRITICO") == "codex":   # máquina só com Codex (VPS da Tiza, 25/10/2026)
+            ult = p / ".critica-codex.txt"
+            r = subprocess.run(["codex", "exec", "--skip-git-repo-check", "-s", "read-only", "--output-last-message", ult, "-"],
+                               cwd=p, input=pedido, capture_output=True, text=True, timeout=900)
+            r.stdout = json.dumps({"result": ult.read_text() if ult.exists() else ""}); ult.unlink(missing_ok=True)
+        else:
+            r = subprocess.run(["claude", "-p", "--output-format", "json", "--allowedTools", "Read", "--", pedido],
+                               cwd=p, capture_output=True, text=True, timeout=900, stdin=subprocess.DEVNULL)
         try:
             res = json.loads(r.stdout)["result"].strip()
             c = json.loads(res[res.index("{"): res.rindex("}") + 1])
@@ -223,8 +233,8 @@ def avatar_enviar(pasta):
     falas(p, f)
     (av / "fala.txt").write_text(fala_total(f) + "\n")
     with open(av / "studio.log", "w") as lg:
-        subprocess.run(["node", "heygen-studio.mjs", "--titulo", f"R7X-{p.name}" + (f"-{(av / 'ESTUDIO_SUFIXO.txt').read_text().strip()}" if (av / 'ESTUDIO_SUFIXO.txt').exists() else ""), "--fala-arquivo", av / "fala.txt",
-                        "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=R / "heygen", env=dict(os.environ, DISPLAY=TELA),
+        subprocess.run(["node", HEYGEN_ENVIAR, "--titulo", f"R7X-{p.name}" + (f"-{(av / 'ESTUDIO_SUFIXO.txt').read_text().strip()}" if (av / 'ESTUDIO_SUFIXO.txt').exists() else ""), "--fala-arquivo", av / "fala.txt",
+                        "--perfil", PERFIL, "--template", TEMPLATE_HEYGEN], cwd=HEYGEN_DIR, env=dict(os.environ, DISPLAY=TELA),
                        stdout=lg, stderr=subprocess.STDOUT, timeout=12000)
     s = (av / "studio.log").read_text()
     if "ERRO:" in s:
@@ -242,9 +252,9 @@ def avatar_conferir(pasta, minutos=0.02):
     av = Path(pasta).resolve() / "avatar"  # absoluto: o node roda em heygen/ (22/10: caminho relativo travou o hackers-atacam)
     if (av / "avatar.mp4").exists():
         return "pronto"
-    r = subprocess.run(["node", "heygen-estudio-baixar.mjs", "--id", (av / "video_id.txt").read_text().strip(),
+    r = subprocess.run(["node", HEYGEN_BAIXAR, "--id", (av / "video_id.txt").read_text().strip(),
                         "--saida", av / "avatar.mp4", "--minutos", str(minutos), "--intervalo", "1" if minutos < 1 else "60"],
-                       cwd=R / "heygen", capture_output=True, text=True, timeout=int(minutos * 60) + 1200)
+                       cwd=HEYGEN_DIR, capture_output=True, text=True, timeout=int(minutos * 60) + 1200)
     if r.returncode == 0:
         return "pronto"
     if r.returncode == 4:
@@ -373,10 +383,16 @@ def cmd_revisar(pasta):
 def cmd_enviar(pasta):
     p, f = ficha(pasta)
     leg = f"r7ex · {f['tema']}" + (f" · {f['publicar']['titulo']}" if f.get("publicar") else "")
+    if os.environ.get("R7X_BOT_ENV"):   # outro bot (VPS da Tiza: @tizaccbot), token lido desse .env
+        subprocess.run(["python3", R / "ferramentas/enviar_telegram.py", p / "video.mp4", leg, "--env", os.environ["R7X_BOT_ENV"]]
+                       + (["--chat", os.environ["R7X_BOT_CHAT"]] if os.environ.get("R7X_BOT_CHAT") else []), check=True, timeout=900)
+        return
     subprocess.run(["node", R / "bin/enviar_bot_v3.mjs", p / "video.mp4", leg], check=True, timeout=600)
 
 
 def cmd_fila(pasta):
+    if os.environ.get("R7X_SEM_FILA"):
+        falha("fila do canal desligada nesta máquina (R7X_SEM_FILA): nada vai para o YouTube daqui")
     p, f = ficha(pasta); pub = f["publicar"]
     subprocess.run(["python3", R / "fila/fila.py", "--add", p / "video.mp4", "--nome", f["tema"], "--titulo", pub["titulo"],
                     "--contexto", pub["contexto"], "--canal", pub.get("fila", "lives7")], check=True)

@@ -25,6 +25,9 @@ page.on('pageerror', e => console.error('pageerror', e.message));
 await page.goto('file://' + tmp);
 await page.waitForFunction(() => window.pronto && window.render, null, { timeout: 60000 });
 await page.evaluate(() => window.pronto);
+// Sem GPU (VPS da Tiza, 25/10/2026): o mapa deck.gl (WebGL) em software custava ~10 s por quadro; no r7ex ele fica todo
+// coberto pelas telas (comparado pixel a pixel: 0,01% da tela, atrás de uma etiqueta). R7X_SEM_MAPA=1 → ~0,2 s por quadro.
+if (process.env.R7X_SEM_MAPA === '1') await page.addStyleTag({ content: '#mapa{display:none!important}' });
 const dur = Number(opt('--dur') || await page.evaluate(() => window.CENA.duracao));
 
 if (saida === '--quadros') {
