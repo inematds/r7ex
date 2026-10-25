@@ -7,11 +7,12 @@ que pega [<entrada>] (o quadro já com o PiP) e devolve [<saida>] com o rosto gr
 cada trecho é um recorte do avatar (trim mantém o tempo original) com dissolve de 0,35 s na entrada e na saída —
 o PiP fica por baixo o tempo todo, então a troca vira um dissolve rosto grande ↔ PiP (Nei, 21/10/2026).
 """
+import os
 import sys
 from pathlib import Path
 
 FADE = .35
-TAG = "/home/nmaldaner/projetos/r7ex/motor/tag-nei.txt"
+TAG = os.environ.get("R7X_TAG", str(Path(__file__).resolve().parent / "tag-nei.txt"))   # VPS da Tiza: R7X_TAG=tag-tiza.txt
 FONTE = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 
