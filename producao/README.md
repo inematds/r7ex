@@ -15,7 +15,7 @@ o retorno do HeyGen e continua o processo.
 - **O agente só revisa.** O revisor (`claude -p`, assinatura, só leitura) recebe `revisor.md`, lê a `ficha.yaml` e a
   `build/folha.jpg` e responde `aprovado` ou `reprovado` com o motivo. Na dúvida, reprova. Ele não corrige nada:
   reprovou, a edição para e o aviso chega no v3.
-- **Uma ida ao estúdio e uma montagem por rodada.** Conferências e revisões não têm limite. A rodada pula se a anterior
+- **Todas as idas ao estúdio na mesma rodada** (25/10/2026: nenhuma espera a anterior ficar pronta; a trava do estúdio só põe uma atrás da outra) **e uma montagem por rodada.** Conferências e revisões não têm limite. A rodada pula se a anterior
   ainda está trabalhando.
 
 ## Comandos

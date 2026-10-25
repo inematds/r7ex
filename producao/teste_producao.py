@@ -66,9 +66,10 @@ except SystemExit:
 a, b = edicao("a"), edicao("b")
 P.add(str(a)); P.add(str(b))
 P.rodada()
-confere([c for c in chamadas if c[0] == "avatar-enviar"] == [("avatar-enviar", "a")], "uma ida ao estúdio por rodada")
-confere(estado(a) == "esperando_avatar" and estado(b) == "enviar_avatar", "a esperando o HeyGen, b na vez do estúdio")
-P.rodada()   # b vai ao estúdio; a: 2ª conferência → pronto → montar → revisão → fila
+confere([c for c in chamadas if c[0] == "avatar-enviar"] == [("avatar-enviar", "a"), ("avatar-enviar", "b")],
+        "todas vão ao estúdio na mesma rodada (25/10: não esperar a anterior ficar pronta)")
+confere(estado(a) == "esperando_avatar" and estado(b) == "esperando_avatar", "a e b esperando o HeyGen")
+P.rodada()   # a: 2ª conferência → pronto → montar → revisão → fila
 confere(estado(a) == "na_fila", "a chegou à fila na 2ª rodada")
 confere(sum(1 for c in chamadas if c == ("fazer", "a")) == 1, "a montou uma vez")
 confere(any(m.startswith("Terminei: r7ex a") for m in avisos), "aviso Terminei no v3")

@@ -50,7 +50,7 @@ o explicavideos nem o cardshorts.
 | 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 550–700 caracteres, palavras dos painéis na fala | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
-| 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99, um por vez) | ⚙️ |
+| 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
 
 **Parte 2: sem sessão aberta**
 

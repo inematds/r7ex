@@ -22,7 +22,7 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 3. `python3 r7ex.py checar <pasta>` até passar.
 4. Avatar: OK do Nei → `avatar/APROVADO_HEYGEN` com a frase dele; ou `--de <mp4>` para reaproveitar.
 5. **Padrão (sem sessão aberta):** `python3 producao/producao.py --add <pasta>`. O timer `r7ex-producao` (5 em 5 min)
-   manda ao estúdio (um por vez), espera o HeyGen, roda o `fazer`, o revisor (claude -p + `producao/revisor.md`) lê a
+   manda ao estúdio todas as pendentes na mesma rodada (sem esperar a anterior ficar pronta), espera o HeyGen, roda o `fazer`, o revisor (claude -p + `producao/revisor.md`) lê a
    folha e, aprovado, manda ao v3 e põe na fila do canal; avisa no v3 "Terminei/Falhou". Reprovou → `parado` com o
    motivo; corrigiu → `producao.py --retomar <pasta>`. Ver: `producao.py --status`. Detalhes: `producao/README.md`.
 6. **Manual** (só se o Nei pedir para acompanhar): `python3 r7ex.py fazer <pasta>`, **ler** `capa/abertura.png` e

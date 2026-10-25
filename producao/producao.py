@@ -151,9 +151,9 @@ def passo(pasta, it, feito):
     """avança uma edição um passo; `feito` limita os passos pesados por rodada. Devolve True se andou."""
     p = Path(pasta); st = it["estado"]; logp = p / "producao.log"
     if st == "enviar_avatar":
-        if feito.get("estudio"):
-            return False
-        feito["estudio"] = True
+        # Nei, 25/10/2026: "sempre tem que mandar e não esperar que ele fique pronto; já liberar para outros irem para o
+        # studio". Todas as edições pendentes vão ao estúdio na MESMA rodada (uma após a outra, pela trava do estúdio);
+        # nenhuma espera o render da anterior. Antes era uma por rodada (5 min cada).
         rc, out = roda(["avatar-enviar", pasta], 12600, logp)
         if rc:
             para(pasta, f"envio do avatar ao estúdio: {out}"); return False
