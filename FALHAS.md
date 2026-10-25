@@ -1,3 +1,5 @@
+| 2026-10-25 | VPS da Tiza sem GPU: render a ~10 s por quadro (3 h por reel) — o mapa deck.gl (WebGL) era pintado em software a cada quadro, mesmo coberto pelas telas | `R7X_SEM_MAPA=1` esconde `#mapa` (0,01% da tela) → 0,25 s/quadro | infra |
+| 2026-10-25 | transcrição em CPU (faster-whisper) caía com `open() got an unexpected keyword argument metadata_errors` (PyAV novo) | decodificar o áudio pelo ffmpeg e passar o array ao modelo | infra |
 | 2026-10-23 | r7ex hackers-atacam parado 1 dia: avatar pronto no HeyGen mas `avatar-conferir` com pasta relativa dava ENOENT (node roda em heygen/) e o vigia lia como falha | `avatar_conferir` usa `Path(pasta).resolve()` | infra |
 | 2026-10-21 | refazer só 1 imagem (volante do musk): o Codex refez TODAS e trocou a abertura aprovada por uma com título menor | `cmd_imagens` só pede as que faltam + "não mexa em outros arquivos" | prompt |
 | 2026-10-21 | Robô e volante gerados invadiram metade inferior | edição image_gen reduzindo assunto e ancorando no topo | prompt |
