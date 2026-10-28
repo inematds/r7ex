@@ -49,6 +49,15 @@ def sem_markdown(x):
     return x
 
 
+def comentario(cta):
+    """o texto que aparece sendo digitado no campo de comentário: cta.comentario, ou a palavra em CAIXA ALTA do cta.b
+    ("comenta EU VOU COORDENAR ou…" → "EU VOU COORDENAR"), ou um pedido do link"""
+    if cta.get("comentario"):
+        return str(cta["comentario"])
+    m = re.search(r"[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9]{2,}(?:\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9]{1,})*", sem_markdown(str(cta.get("b", ""))))
+    return m.group(0) if m else "quero o link 🙋"
+
+
 def montar(pasta, ficha, falas):
     pasta = Path(pasta)
     T = json.loads((pasta / "avatar/tempos.json").read_text())
@@ -64,7 +73,10 @@ def montar(pasta, ficha, falas):
             raise SystemExit(f"{fid}: '{palavra}' não está na fala: " + " ".join(p["w"] for p in F[fid]["palavras"]))
         return v
 
-    DUR = round(F[ids[-1]]["fim"] + 1.4, 2)
+    # com o ritmo (28/10/2026) o avatar já traz os 9 s de cartão depois da última palavra: o vídeo acaba junto com ele.
+    # Sem ritmo, o antigo: 1,4 s depois do fim da fala.
+    ritmo = json.loads((pasta / "avatar/ritmo.json").read_text()) if (pasta / "avatar/ritmo.json").exists() else None
+    DUR = round(F[ids[-1]]["fim"] + (.1 if ritmo else 1.4), 2)
     BR = {"lon": -52.0, "lat": -14.0, "zoom": 3.4}       # mapa escondido atrás do fundo preto (o motor exige câmera)
     camera = [{"t": 0, **BR, "pitch": 30, "bearing": 0}, {"t": DUR, **BR, "pitch": 40, "bearing": 20}]
 
@@ -144,8 +156,11 @@ def montar(pasta, ficha, falas):
         b = (F[f"f{i + 2}"]["ini"] if i + 1 < len(partes) else DUR) - .1
         d = {"ini": a, "fim": b, "forma": dg.get("forma", "fluxo"), "titulo": dg.get("titulo", "")}
         itens = dg.get("nos") or dg.get("linhas") or []
-        d["nos"] = [{**{k: v for k, v in x.items() if k not in ("de", "k")}, "t": em(fid, x["de"], x.get("k", 1)) - .05 if x.get("de") else a + .2}
+        d["nos"] = [{**{k: v for k, v in x.items() if k not in ("de", "k", "logo")}, "t": em(fid, x["de"], x.get("k", 1)) - .05 if x.get("de") else a + .2}
                     for x in itens]
+        for no, x in zip(d["nos"], itens):   # D13 no diagrama (28/10/2026): nó com `logo:` mostra o logo real no lugar do emoji
+            if x.get("logo"):
+                no["ic"] = f'<img src="capa/logo-{x["logo"]}.png" style="max-height:64px;max-width:64px;object-fit:contain">'
         if dg.get("centro"):
             c = dg["centro"]
             d["centro"] = {**{k: v for k, v in c.items() if k != "de"}, "t": em(fid, c["de"]) - .05 if c.get("de") else a + .1}
@@ -154,6 +169,9 @@ def montar(pasta, ficha, falas):
     ult = f"f{len(partes)}"
     cta = {"ini": em(ult, ficha["cta"].get("de", "pede")), "fim": DUR,   # cta.de: deixa da pergunta (padrão "pede")
            "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
+    fala_fim = F[ult]["palavras"][-1]["f"]
+    if DUR - fala_fim >= 4:   # cartão segurado (28/10/2026): o gesto de comentar é encenado depois da última palavra
+        cta.update(fala_fim=fala_fim, comentario=comentario(ficha["cta"]))
     club = {"ini": em(ult, "inema.club"), "fim": DUR, "a": "inema.club", "b": ficha["club"]}
     fontes = [{"ini": .3, "fim": DUR, "html": ficha["fonte"]}]
 

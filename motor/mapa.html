@@ -71,6 +71,24 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#05080c;font-fam
 #club .ic{width:70px;height:70px;border-radius:14px;background:var(--red);display:grid;place-items:center;font:900 40px Inter;color:#fff}
 #club .tx{font:900 40px/1.1 Inter}
 #club .tx small{display:block;font:700 26px Inter;color:#556}
+/* fecho segurado (Nei, 28/10/2026): depois da última palavra o cartão fica ~9 s e o gesto de comentar é encenado:
+   campo de comentário → texto digitando → Publicar → comentário publicado. Sem legenda (a fala acabou). */
+#fecho{position:absolute;inset:0;background:#0c0c10;opacity:0;pointer-events:none}
+#comenta{position:absolute;left:56px;right:56px;top:470px;background:#16161c;border:2px solid rgba(255,255,255,.16);border-radius:28px;
+ padding:26px 30px 30px;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#comenta .h{font:900 26px Inter;letter-spacing:3px;color:#FACC15;text-transform:uppercase;margin-bottom:18px}
+#comenta .lin{display:flex;align-items:center;gap:18px}
+#comenta .av{flex:0 0 72px;height:72px;border-radius:50%;background:#2a2a33;display:grid;place-items:center;font:900 34px Inter}
+#comenta .cx{flex:1;min-height:76px;border-bottom:3px solid #FACC15;font:800 44px/1.2 Inter;color:#fff;display:flex;align-items:center;overflow-wrap:anywhere}
+#comenta .cx .ph{color:rgba(255,255,255,.38);font-weight:700}
+#comenta .cur{display:inline-block;width:4px;height:48px;background:#FACC15;margin-left:4px;vertical-align:middle}
+#comenta .bt{display:flex;justify-content:flex-end;margin-top:22px;position:relative}
+#comenta .pub{background:#FACC15;color:#0c0c10;font:900 38px Inter;border-radius:999px;padding:14px 40px}
+#comenta .mao{position:absolute;font-size:72px;line-height:1}
+#comenta .pos{display:flex;gap:18px;align-items:flex-start;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+#comenta .pos b{display:block;font:800 26px Inter;color:#aab}
+#comenta .pos span{font:800 42px/1.2 Inter;color:#fff}
+#comenta .ok{font:900 26px Inter;color:#22c55e;margin-top:6px}
 /* modo avatar (formato 9:16 do explicavideos): avatar 1080x608 em y=1110, legenda abaixo */
 body.av #vinheta{background:linear-gradient(180deg,rgba(5,8,12,.95) 0,rgba(5,8,12,0) 330px,rgba(5,8,12,0) 900px,rgba(5,8,12,.9) 1100px)}
 body.av #fonte{top:988px;font-size:17px;line-height:1.3;padding:8px 14px}
@@ -216,6 +234,8 @@ body.limpo .pino .pt{width:30px;height:30px}
 <div id="hero"></div>
 <div id="lista"></div>
 <div id="painel" class="painel"></div>
+<div id="fecho"></div>
+<div id="comenta"></div>
 <div id="cta"></div>
 <div id="club"></div>
 <div id="relogio"></div>
@@ -247,7 +267,8 @@ function carregar(src){ if(IMG[src]) return IMG[src].p; const im=new Image(); im
 const preload=[]; if(C.sat){ if(C.sat.base) preload.push(carregar(C.sat.base)); if(C.sat.fundo) preload.push(carregar(C.sat.fundo.src)); (C.sat.ir?.frames||[]).forEach(f=>preload.push(carregar(f))); }
 (C.imagens||[]).forEach(m=>preload.push(carregar(m.src)));  // imagens extras, cada uma com bbox e janela de tempo
 (C.telas||[]).forEach(m=>preload.push(carregar(m.src)));
-(C.paineis||[]).forEach(m=>{ if(m.logo) preload.push(carregar(m.logo)); });    // fotos de tela cheia (sem isso o quadro 0 sai preto)
+(C.paineis||[]).forEach(m=>{ if(m.logo) preload.push(carregar(m.logo)); });
+(C.diagramas||[]).forEach(d=>(d.nos||[]).forEach(n=>{ const m=/src="([^"]+)"/.exec(n.ic||''); if(m) preload.push(carregar(m[1])); }));   // logo no nó (28/10/2026)    // fotos de tela cheia (sem isso o quadro 0 sai preto)
 // ---- partículas de vento (estado sequencial; reconstruído se o tempo voltar)
 let PART=null, tPart=-1;
 function campo(x,y,h){ const V=C.vento; const g=V.grade; const i=(x-g.x0)/g.dx, j=(y-g.y0)/g.dy;
@@ -429,6 +450,25 @@ function diagrama(t){
   D.innerHTML=h+'</div>';
 }
 
+// gesto de comentar no cartão segurado (28/10/2026): tempos relativos ao fim da fala (c.fala_fim), determinístico por t
+function comenta(t,c){
+  const CM=document.getElementById('comenta'), FE=document.getElementById('fecho');
+  if(!c||c.fala_fim==null||t<c.fala_fim+.25){CM.style.opacity=0;FE.style.opacity=0;return;}
+  const e=c.fala_fim, txt=[...c.comentario], t1=e+1.0, cps=12, t2=t1+txt.length/cps, tp=t2+.7, tk=tp+.35, tpub=tk+.25;
+  FE.style.opacity=.62*prog(t,e+.25,.5);
+  const k=prog(t,e+.3,.5); CM.style.opacity=k; CM.style.transform=`translateY(${(1-k)*40}px)`;
+  const n=Math.max(0,Math.min(txt.length,Math.floor((t-t1)*cps))), digitado=t>=tpub?'':txt.slice(0,n).join('');
+  const pisca=Math.floor(t*2.5)%2===0;
+  const campo=digitado?`${digitado}${t<t2+.6||pisca?'<i class="cur"></i>':''}`:(t<t1?`<span class="ph">Adicione um comentário…</span>${pisca?'<i class="cur"></i>':''}`:`<span class="ph">Adicione um comentário…</span>`);
+  // mão chega no Publicar depois de digitar, aperta (botão encolhe) e solta; o comentário aparece publicado
+  const km=prog(t,t2+.1,.55), aperta=t>=tk&&t<tpub;
+  const mao=t>=t2+.1&&t<tpub+.5?`<div class="mao" style="right:${lerp(-40,70,km)}px;top:${lerp(150,40,km)}px;opacity:${Math.min(km*2,1-prog(t,tpub+.1,.4))}">👆</div>`:'';
+  const pub=`<div class="pub" style="transform:scale(${aperta?.92:1});filter:brightness(${aperta?1.25:1})">Publicar</div>`;
+  const kp=prog(t,tpub,.4);
+  const pos=t>=tpub?`<div class="pos" style="opacity:${kp};transform:translateY(${(1-kp)*24}px)"><div class="av">🙋</div><div><b>você · agora</b><span>${txt.join('')}</span><div class="ok">✓ publicado</div></div></div>`:'';
+  CM.innerHTML=`<div class="h">💬 comenta aqui</div><div class="lin"><div class="av">🙋</div><div class="cx">${campo}</div></div><div class="bt">${pub}${mao}</div>${pos}`;
+}
+
 function html(t){
   document.body.classList.toggle('mt',(C.meia||[]).some(([a,b])=>t>=a&&t<b));
   diagrama(t);
@@ -459,6 +499,7 @@ function html(t){
     LS.style.opacity=on.length?vis(t,ls.ini,ls.fim,.3):0; LS.style.borderColor=ls.borda||''; } else LS.style.opacity=0;
   const CT=document.getElementById('cta'); const c=C.cta;
   if(c){CT.innerHTML=`<div class="a">${c.a}</div><div class="b">${c.b}</div>`;CT.style.opacity=vis(t,c.ini,c.fim,.3);}
+  comenta(t,c);
   const CL=document.getElementById('club'); const cl=C.club;
   if(cl){CL.innerHTML=`<div class="ic">▶</div><div class="tx">${cl.a}<small>${cl.b}</small></div>`;CL.style.opacity=vis(t,cl.ini,cl.fim,.3);}
   // telas: foto cheia com zoom lento; selo pequeno (ex.: "ilustração"). Os <img> são criados uma vez (sem piscar)

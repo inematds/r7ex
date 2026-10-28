@@ -1,3 +1,9 @@
+# FALHAS — r7ex
+
+| data | o que quebrou | menor correção | prompt \| infra |
+|---|---|---|---|
+| 2026-10-28 | CTA sem cauda: cartão do comentário 0,8–1,6 s na tela e o vídeo cortando na última palavra (medido em 4 edições) | `r7ex/ritmo.py` congela o avatar 9 s depois da última palavra (trilha continua) + gesto de comentar no `mapa.html` | infra |
+| 2026-10-28 | fala a 202–222 palavras/min sem nenhum silêncio ≥ 0,3 s; encurtar o roteiro não resolve (o HeyGen fala no ritmo dele) | roteiro 450–620 caracteres + `ritmo.py` estica até ~182 palavras/min (máx. 12%) e abre ~0,75 s de silêncio antes da máxima, com a trilha calada no vão | prompt + infra |
 | 2026-10-25 | reels das eleições (pedido 08:28, dia do 2º turno) ficaram ~5 h parados antes do HeyGen: pedi OK do avatar em vez de tratar o pedido explícito como OK; e a produção mandava só 1 edição ao estúdio por rodada | pedido de r7ex que manda fazer e publicar = OK do avatar; `producao.py` manda TODAS as pendentes ao estúdio na mesma rodada (não espera a anterior ficar pronta) | prompt + infra |
 | 2026-10-25 | VPS da Tiza sem GPU: render a ~10 s por quadro (3 h por reel) — o mapa deck.gl (WebGL) era pintado em software a cada quadro, mesmo coberto pelas telas | `R7X_SEM_MAPA=1` esconde `#mapa` (0,01% da tela) → 0,25 s/quadro | infra |
 | 2026-10-25 | transcrição em CPU (faster-whisper) caía com `open() got an unexpected keyword argument metadata_errors` (PyAV novo) | decodificar o áudio pelo ffmpeg e passar o array ao modelo | infra |
@@ -24,15 +30,10 @@
 | 2026-10-19 | Capa divulga sem faixa no último celular; p3 com timeline em vez de mensagem | Edição pontual via image_gen corrigiu telas | prompt |
 | 2026-10-19 | Imagens em systemd usaram Codex 0.116 do /usr/bin | PATH explícito com ~/.npm-global/bin (0.163) | infra |
 | 2026-10-19 | image_gen acrescentou marca no notebook e robôs nas cenas p3/p4 | Edição pontual removeu elementos extras, preservando cenas e texto | prompt |
-# FALHAS — r7ex
-
-| data | o que quebrou | menor correção | prompt \| infra |
-|---|---|---|---|
 | 2026-10-19 | Imagem p2 de seo-formacao gerou símbolo parecido com logotipo apesar da restrição | Edição localizada via image_gen para remover símbolo e caracteres do celular | prompt |
 | 2026-10-19 | Revisor reprovou 10 de 12 reels r7ex da fila: legenda em cima do texto do print (cartão alto demais) e legenda vazando (saas, tres-estagios) | cartão do print até y 1090 (pecas.print_card) + MAX_LEG; refazer cena+render dos 10 com o OK do Nei | infra |
 | 2026-10-19 | Legenda "BILLION CONTEXT ENXUGANDO" vazou da tela (skills15); passou na minha leitura da folha, o revisor claude -p pegou | bloco de legenda quebra também por largura (MAX_LEG 21) + revisor automático na produção | infra |
 | 2026-10-19 | Print do guia (skills15) saiu todo preto com âncora #numeros e a folha mostrou moldura vazia; contador sem "MILHÃO" | print sem âncora + unid com MILHÃO; falta portão: print quase uniforme (desvio baixo) reprovar no `imagens` | infra + prompt |
 | 2026-10-19 | Dois envios ao estúdio HeyGen no mesmo segundo: o 2º caiu com "Opening in existing browser session" (r7e-para-r7ex) | trava atômica (mkdir) no heygen-perfil.mjs, da ferramenta: ~/.cache/inemaccbot/heygen-estudio.trava (commit 592659c) | infra |
 | 2026-10-19 | `fila.py --help` publicou o próximo short do lives7 fora do horário (argumento desconhecido = publicar) | argumento que não seja --add/--status só mostra a ajuda | infra |
-
 | 2026-10-20 | Capa feudo com mão humana ultrapassando metade superior | editar via image_gen com mão entrando pela lateral e coordenadas de composição | prompt |

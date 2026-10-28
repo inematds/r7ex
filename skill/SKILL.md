@@ -17,7 +17,7 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 1. **Plano** (PADRAO §1): pessoa = público geral; o que ela quer; gancho = medo/novidade/provocação com número e fonte;
    nota ≥ 7; destino no inema.club (leia a página: nome, aulas, se é grátis).
 2. `python3 r7ex.py novo <slug>` e preencha `ficha.yaml` (modelo: o reel do hacker): abertura (título branco +
-   destaque), 7 partes (fala por extenso, 550–700 caracteres no total; imagem OU print; painel com itens nas palavras
+   destaque), 7 partes (fala por extenso, 450–620 caracteres no total — ~175 palavras/min, lista até 800 com motivo; imagem OU print; painel com itens nas palavras
    da fala; contador onde houver número), `trocas` para a legenda, CTA em pergunta, `publicar`.
 3. `python3 r7ex.py checar <pasta>` até passar.
 4. Avatar: OK do Nei → `avatar/APROVADO_HEYGEN` com a frase dele; ou `--de <mp4>` para reaproveitar.
@@ -28,6 +28,12 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 6. **Manual** (só se o Nei pedir para acompanhar): `python3 r7ex.py fazer <pasta>`, **ler** `capa/abertura.png` e
    `build/folha.jpg` (nada cobrindo nada, prints legíveis, legenda dentro da tela), depois
    `python3 r7ex.py enviar <pasta>` e `python3 r7ex.py fila <pasta>`. Dizer ao Nei "Terminei: …".
+
+## Ritmo e fecho (28/10/2026)
+- A montagem (`r7ex/ritmo.py`, dentro de `avatar`/`cena`) estica a fala até ~182 palavras/min (máx. 12%), abre ~0,75 s de
+  silêncio antes da máxima (parte 6 ou `ritmo.pausa_antes`) e segura o cartão do comentário 9 s depois da última palavra,
+  com o gesto de comentar (`cta.comentario`). Resultado em `avatar/ritmo.json`; original em `avatar/avatar-heygen.mp4`.
+- Remontar edição antiga sem novo avatar: `python3 r7ex.py cena <pasta>` + `render` + `revisar` (aplica o ritmo sozinho).
 
 ## Regras
 - Tudo que abre navegador roda na tela `:99`; só o LOGIN do HeyGen vai na tela do Nei (`:10`).

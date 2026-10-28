@@ -6,7 +6,7 @@
 
 ## O que é
 
-O r7ex é a linha de produção de reels verticais (9:16) do INEMA. Você entrega uma ideia forte, a tese, e ele monta um vídeo de 30 a 40 segundos com o avatar do Nei falando, imagens geradas pelo Codex e um acabamento de telejornal: título na abertura, painéis que entram na palavra certa, contador e legenda que acende junto com a fala. O roteiro segue 7 etapas de gatilho, do gancho com número até o pedido de comentário, sempre levando a pessoa ao inema.club. Para usar é preciso Python, Node, o Codex e a assinatura do HeyGen, rodando na máquina do INEMA.
+O r7ex é a linha de produção de reels verticais (9:16) do INEMA. Você entrega uma ideia forte, a tese, e ele monta um vídeo de 40 a 50 segundos (30–37 s de fala num ritmo calmo + 9 s de cartão do comentário) com o avatar do Nei falando, imagens geradas pelo Codex e um acabamento de telejornal: título na abertura, painéis que entram na palavra certa, contador e legenda que acende junto com a fala. O roteiro segue 7 etapas de gatilho, do gancho com número até o pedido de comentário, sempre levando a pessoa ao inema.club. Para usar é preciso Python, Node, o Codex e a assinatura do HeyGen, rodando na máquina do INEMA.
 
 ## 🎬 Vídeos sobre o r7ex
 
@@ -47,7 +47,7 @@ o explicavideos nem o cardshorts.
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
 | 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever as 7 partes, a abertura, os painéis e `publicar` | 🧠 |
-| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 550–700 caracteres, palavras dos painéis na fala | ⚙️ |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; lista até 800 com motivo), palavras dos painéis na fala | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
@@ -57,7 +57,7 @@ o explicavideos nem o cardshorts.
 | # | Passo | Comando / o que acontece | Quem |
 |---|---|---|---|
 | 8 | Esperar o avatar | `r7ex.py avatar-conferir` (HeyGen, só leitura) até "pronto" e baixa. **Minutos a horas** | ⚙️ |
-| 9 | Montar | `r7ex.py fazer`: Codex desenha abertura e imagens, prints, tempos das palavras, legenda, render e `build/folha.jpg` | ⚙️ |
+| 9 | Montar | `r7ex.py fazer`: Codex desenha abertura e imagens, prints, tempos das palavras, **ritmo** (`r7ex/ritmo.py`: fala esticada até ~182 palavras/min, ~0,75 s de silêncio antes da máxima, cartão do comentário 9 s depois da última palavra com o gesto de comentar — 28/10/2026), legenda, render e `build/folha.jpg` | ⚙️ |
 | 10 | Revisar | revisor `claude -p` + `producao/revisor.md` lê a folha: aprova, aprova com 🟥 SUGESTÃO ou para com o motivo | 🤖 |
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
@@ -134,7 +134,7 @@ Base real: leio a página do curso/guia antes (nome, quantas aulas, se é gráti
 | 7. Comentário | "Tá tudo no inema.club. Ou me pede o link…" | print do inema.club + CTA vermelho em pergunta |
 
 A ordem 2–6 se adapta ao tema (ex.: no "Quem fatura em 2027" a etapa 3 virou **prova**: "já aconteceu 3 vezes"),
-mas são sempre 7 partes de ~30–40 s.
+mas são sempre 7 partes (~30–37 s de fala + 9 s de cartão desde 28/10/2026).
 
 ## 4. O que o motor faz
 
@@ -152,10 +152,14 @@ O motor **não cria conteúdo nem imagem**: ele **sincroniza e anima**. É uma p
   5. a legenda karaokê;
   6. o CTA em pergunta e a pílula do inema.club.
 - **Filma** a página a 30 quadros por segundo (`motor/render.mjs`, Chrome escondido na tela `:99`).
+- **Antes, acerta o ritmo** (`r7ex/ritmo.py`, 28/10/2026): estica a fala do HeyGen até ~182 palavras/min (máx. 12%),
+  abre ~0,75 s de silêncio antes da máxima e congela o avatar 9 s depois da última palavra (o original fica em
+  `avatar/avatar-heygen.mp4`; a decisão em `avatar/ritmo.json`). Nesses 9 s o motor encena o comentário: campo, texto
+  digitando, "Publicar", comentário publicado.
 - **Junta** (`motor/compor_avatar.sh`):
   - o rosto na caixinha do canto;
   - a voz a −14 LUFS;
-  - a trilha baixinha, que abaixa quando você fala.
+  - a trilha baixinha, que abaixa quando você fala, some na pausa antes da máxima e continua durante o cartão final.
 
 Em uma frase: **o Claude escreve, o Codex desenha, o HeyGen fala e o motor sincroniza tudo com a voz.**
 
@@ -206,6 +210,8 @@ Passo a passo separado: `avatar`, `imagens`, `cena`, `render`, `revisar` (ver `p
 | Estilo das imagens (paleta, robô, sem texto) | `ESTILO` em `r7ex.py` |
 | Cores das palavras na legenda | `cores:` na ficha (por reel) |
 | Trilha | `assets/trilha.mp3` |
+| Ritmo da fala, pausa antes da máxima, duração do cartão final | `r7ex/ritmo.py` (`ALVO_WPM`, `K_MAX`, `PAUSA`, `CAUDA`); `ritmo.pausa_antes` na ficha; `R7X_SEM_RITMO=1` desliga |
+| O gesto de comentar no cartão final | `comenta()` em `motor/mapa.html`; texto em `cta.comentario` |
 
 ### Mudar a estrutura (quantas partes, o que cada uma tem)
 - As partes são a lista `partes:` da ficha. O motor aceita qualquer quantidade. O portão `checar` exige 7

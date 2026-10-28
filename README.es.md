@@ -6,7 +6,7 @@
 
 ## Qué es
 
-r7ex es la línea de producción de reels verticales (9:16) de INEMA. Tú entregas una idea fuerte, la tesis, y él arma un video de 30 a 40 segundos con el avatar de Nei hablando, imágenes generadas por Codex y un acabado de noticiero: título en la apertura, paneles que entran en la palabra correcta, contador y subtítulo que se ilumina junto con el habla. El guion sigue 7 etapas de gatillo, desde el gancho con número hasta el pedido de comentario, siempre llevando a la persona a inema.club. Para usarlo se necesitan Python, Node, Codex y la suscripción de HeyGen, corriendo en la máquina de INEMA.
+r7ex es la línea de producción de reels verticales (9:16) de INEMA. Tú entregas una idea fuerte, la tesis, y él arma un video de 40 a 50 segundos (30–37 s de habla a ritmo calmo + 9 s de tarjeta de comentario) con el avatar de Nei hablando, imágenes generadas por Codex y un acabado de noticiero: título en la apertura, paneles que entran en la palabra correcta, contador y subtítulo que se ilumina junto con el habla. El guion sigue 7 etapas de gatillo, desde el gancho con número hasta el pedido de comentario, siempre llevando a la persona a inema.club. Para usarlo se necesitan Python, Node, Codex y la suscripción de HeyGen, corriendo en la máquina de INEMA.
 
 ## 🎬 Videos sobre el r7ex
 
@@ -85,7 +85,7 @@ Base real: leo antes la página del curso/guía (nombre, cuántas clases, si es 
 | 7. Comentario | "Está todo en inema.club. O pídeme el link…" | captura de inema.club + CTA rojo en pregunta |
 
 El orden 2–6 se adapta al tema (ej.: en "Quién factura en 2027" la etapa 3 se volvió **prueba**: "ya pasó 3 veces"),
-pero siempre son 7 partes de ~30–40 s.
+pero siempre son 7 partes (~30–37 s de habla + 9 s de tarjeta final desde el 28/10/2026).
 
 ## 4. Qué hace el motor
 

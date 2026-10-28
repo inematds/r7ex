@@ -30,6 +30,9 @@ SUGESTÃO (o vídeo segue; liste em `sugestoes`, uma frase cada com o quadro/tem
   dizendo o quadro mais morno e o que faltou (fato forte, logo, texto do assunto, número).
 
 NÃO reprove por:
+- Os últimos ~9 s parados no cartão do comentário, sem legenda, com o avatar congelado e o campo de comentário sendo
+  digitado/publicado: é o fecho segurado (28/10/2026). Defeito seria o vídeo cortar logo na última palavra.
+- Um silêncio curto (~0,75 s) antes da frase final, com o quadro parado: é a pausa antes da máxima.
 - Itens do painel em cinza: eles acendem um a um conforme a fala (é a animação, não erro).
 - Legenda mostrando só parte da frase (é karaokê, palavra por palavra).
 - Gosto pessoal de cor, imagem ou enquadramento que segue o padrão (preto + amarelo, vermelho só no perigo).

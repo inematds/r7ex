@@ -41,6 +41,7 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
      (entra na frente da fila do canal; sai na próxima janela, a fila publica 1 a cada 2 h, 9 h–21 h).
    - Pediu algo que esta fase não faz (upload direto, tópico no Telegram, outra rede) → não faça;
      anote no resumo em "não fiz".
+   Fala de 450–620 caracteres (ritmo 160–190 palavras/min, PADRAO §2); a máxima numa frase curta na parte 6.
 5. `python3 r7ex.py checar <pasta>` até passar (corrija a ficha; até 3 tentativas).
 6. `python3 r7ex.py plano <pasta>` até passar (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6).
    Reprovou → leia as notas, melhore as partes fracas (ou troque o ângulo) e rode de novo, até 3 vezes.

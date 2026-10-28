@@ -3,11 +3,12 @@
 Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo em modelo/ficha.yaml.
 
   python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
-  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 550–700 caracteres, palavras dos painéis na fala, `prende` por parte
+  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–620 caracteres (~175 palavras/min), palavras dos painéis na fala, `prende` por parte
   python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
-  python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra do avatar + cena.js
+  python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra + ritmo (fala ~182 palavras/min, pausa antes da máxima,
+                                          cartão do comentário 9 s depois da última palavra) + cena.js
   python3 r7ex.py render <pasta>          monta o vídeo (tela :99) → <pasta>/video.mp4
   python3 r7ex.py revisar <pasta>         folha de 12 quadros → <pasta>/build/folha.jpg (LER antes de enviar)
   python3 r7ex.py enviar <pasta>          manda ao bot v3
@@ -26,7 +27,9 @@ import yaml
 
 R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
-from r7ex import cena as CENA, pecas, retempo as RT  # noqa: E402
+from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
+
+VERSAO = "1.1.0"   # semver do r7ex (1ª versão marcada: 1.1.0 = fecho segurado + ritmo da fala, 28/10/2026)
 
 PERFIL = Path(os.environ.get("R7X_HEYGEN_PERFIL", Path.home() / ".cache/inemaccbot/perfil-heygen"))   # perfil do estúdio (compartilhado: tem fila própria)
 TEMPLATE_HEYGEN = os.environ.get("R7X_HEYGEN_TEMPLATE", "TEMPLATE-AVATAR16")
@@ -100,14 +103,16 @@ def cmd_checar(pasta):
     if len(f.get("partes") or []) != 7:
         erros.append(f"são {len(f.get('partes') or [])} partes; o padrão é 7")
     tot = fala_total(f)
-    teto = min(int(f.get("fala_max") or 720), 900)   # reel de lista de notícias (vários produtos): até 900 (~50 s), com motivo (21/10/2026)
+    # 28/10/2026 (Nei: fala mais lenta, 160–190 palavras/min; era 550–700 a ~210): 450–620 caracteres ≈ 85–110 palavras ≈ 30–37 s
+    # de fala + pausa + 9 s de cartão. Reel de lista (vários produtos) pode ir até 800 (~48 s de fala), com motivo; mais que isso passa de 1 min.
+    teto = min(int(f.get("fala_max") or 620), 800)
     if f.get("fala_max") and not f.get("fala_max_motivo"):
         erros.append("fala_max sem fala_max_motivo (por que este reel precisa de mais fala)")
-    if not 550 <= len(tot) <= teto:
+    if not 450 <= len(tot) <= teto:
         if (p / "avatar/AVATAR_DE.txt").exists() or (p / "avatar/avatar.mp4").exists():   # avatar já gravado: a fala não muda
-            log(f"aviso: fala com {len(tot)} caracteres (padrão 550–700), aceita porque o avatar já existe")
+            log(f"aviso: fala com {len(tot)} caracteres (padrão 450–620), aceita porque o avatar já existe")
         else:
-            erros.append(f"fala com {len(tot)} caracteres (padrão 550–700; teto desta ficha {teto})")
+            erros.append(f"fala com {len(tot)} caracteres (padrão 450–620, ~175 palavras/min; teto desta ficha {teto})")
     if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
         erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
     if (f.get("plano") or {}).get("nota", 0) < 8:
@@ -146,6 +151,12 @@ def cmd_checar(pasta):
                 pecas.logo_png(pb["logo"])
             except SystemExit as e:
                 erros.append(f"parte {i + 1}: {e}")
+        for no in dg.get("nos") or []:
+            if no.get("logo"):
+                try:
+                    pecas.logo_png(no["logo"])
+                except SystemExit as e:
+                    erros.append(f"parte {i + 1}: {e}")
         if len((x.get("lista") or {}).get("itens") or []) > 4:
             erros.append(f"parte {i + 1}: lista com mais de 4 itens")
         if re.search(r"\d", x["fala"]):
@@ -169,6 +180,13 @@ def cmd_checar(pasta):
         for w in filter(None, palavras):
             if CENA.n(w) not in CENA.n(leg):
                 erros.append(f"parte {i + 1}: '{w}' do painel/diagrama não está na fala/legenda")
+    pa = (f.get("ritmo") or {}).get("pausa_antes")   # a máxima (padrão: 1ª palavra da parte 6); pausa de ~0,75 s antes dela
+    if pa:
+        pn_, de_ = (pa.get("parte", 6), pa.get("de")) if isinstance(pa, dict) else (6, pa)
+        if not 2 <= int(pn_) <= len(f["partes"]):
+            erros.append(f"ritmo.pausa_antes: parte {pn_} não existe")
+        elif de_ and (" " in str(de_).strip() or CENA.n(de_) not in CENA.n(f["partes"][int(pn_) - 1]["fala"])):
+            erros.append(f"ritmo.pausa_antes: '{de_}' tem de ser UMA palavra da fala da parte {pn_}")
     if not any(x.get("print") for x in f["partes"]):
         erros.append("nenhum print real (PADRAO.md: pelo menos 1)")
     if erros:
@@ -279,6 +297,14 @@ def cmd_avatar(pasta, de=None):
     log(f"avatar {d:.1f} s · fala × roteiro {sem:.0%}")
     if sem < 0.90:
         falha(f"o avatar não fala o roteiro ({sem:.0%} < 90%)")
+    log_ritmo(RITMO.aplicar(p, f))
+
+
+def log_ritmo(r):
+    if r:
+        pz = r.get("pausa") or {}
+        log(f"ritmo: {r['wpm_heygen']:.0f} → {r['wpm']:.0f} palavras/min (×{r['k']}) · pausa {pz.get('inserida', 0):.2f} s antes da máxima "
+            f"({pz.get('fala')}) · cartão {r['cauda']:.1f} s depois da última palavra · {r['duracao']:.1f} s")
 
 
 def cmd_imagens(pasta):
@@ -323,6 +349,9 @@ def cmd_imagens(pasta):
                 pecas.logo_card(x["logos"], capa / f"p{i}.png", fundo)
         if (x.get("painel") or {}).get("logo"):
             pecas.logo_solto(x["painel"]["logo"], capa / f"logo-{x['painel']['logo']}.png")
+        for no in (x.get("diagrama") or {}).get("nos") or []:   # logo real no nó do diagrama (28/10/2026)
+            if no.get("logo"):
+                pecas.logo_solto(no["logo"], capa / f"logo-{no['logo']}.png")
     for i, x in enumerate(f["partes"], 1):
         if x.get("print"):
             raw = prints / f"raw-p{i}.png"
@@ -342,6 +371,7 @@ def cmd_cena(pasta):
     t = p / "avatar/tempos.json"
     if not t.exists() or t.stat().st_mtime < (p / "avatar/avatar.mp4").stat().st_mtime:
         d, sem = RT.retempo(p); log(f"retempo {d:.1f} s · {sem:.0%}")
+    log_ritmo(RITMO.aplicar(p, f))                      # edição antiga também ganha o ritmo novo, sem novo avatar
     dur, nt, npn, nl = CENA.montar(p, f, fl)
     log(f"cena.js ok: {dur} s · {nt} telas · {npn} painéis · {nl} blocos de legenda")
 

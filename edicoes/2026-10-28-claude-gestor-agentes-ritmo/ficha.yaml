@@ -1,0 +1,111 @@
+# Ficha r7ex — a novidade: o Claude virou gestor de agentes (28/10/2026).
+# Fatos: ~/projetos/wifi/longrun/2026-10-28-claude-gestor-agentes/FATOS.md (docs oficiais code.claude.com) + curso v7.2.
+slug: claude-gestor-agentes
+tema: "O Claude deixou de ser um chat: agora você coordena uma equipe de agentes"
+pedido: "Nei, 28/10/2026: 'um r7ex falando da novidade em 9x16 lives7 inema.ccode' — a novidade = o Claude passou a gerir várias sessões e agentes num lugar só (sessões em segundo plano, tela que mostra quem precisa de você, projetos na nuvem). Sem citar a fonte. Não chamar de 'Claude 2.0'. CTA para o curso Claude como gestor de agentes (8 aulas)."
+
+plano:
+  pessoa: "quem já usa o Claude ou o ChatGPT no trabalho e vive abrindo uma conversa atrás da outra"
+  quer: "fazer vários trabalhos andarem ao mesmo tempo sem virar babá da IA (desejo) e não ficar para trás de quem já faz (medo)"
+  gancho: "novidade + provocação: você ainda conversa com uma IA de cada vez? O Claude agora toca vários trabalhos ao mesmo tempo, até com o computador desligado"
+  nota: 8
+  destino: "https://inematds.github.io/claude-gestor-de-agentes-v72/ (curso aberto e grátis no inema.club)"
+  fatos:
+    - "docs claude-projects: 'A project is one ongoing conversation where Claude coordinates a stream of related work… starts a thread for each task. Each thread is usually a cloud session: Claude Code running in the cloud rather than on your machine' (beta pública Pro e Max)"
+    - "docs claude-code-on-the-web / FATOS: sessões na nuvem continuam rodando depois que você fecha o app ou desliga o computador"
+    - "docs agent-view: 'Agent view, opened with claude agents, is one screen for all your background sessions' — grupos Needs input, Working, Ready for review, Completed; as que precisam de você no topo"
+    - "curso aula 4 (sessão gestora) é o destino do print da parte 6"
+    - "docs agent-view: claude --bg inicia sessão em segundo plano; o supervisor mantém rodando com o terminal fechado"
+    - "docs agent-view: notificação quando uma sessão precisa de você, termina ou falha"
+    - "curso claude-gestor-de-agentes-v72: 8 aulas, aberto e grátis no inema.club"
+
+marca: "INEMA · CLAUDE GESTOR DE AGENTES"
+selo: "NOVIDADE"
+fonte: "<b>curso Claude como gestor de agentes</b> · 8 aulas, aberto e grátis no inema.club · imagens: ilustração"
+
+abertura:
+  branco: "VOCÊ AINDA FALA COM UMA IA DE CADA VEZ?"
+  destaque: "O CLAUDE VIROU GESTOR"
+  cor: amarelo
+  cena: "um único notebook aberto numa mesa preta, da tela saem vários feixes de luz amarela que se abrem em leque para cima como fios ligando a tela a pontos de luz no escuro, cada ponto como uma estação de trabalho acendendo, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de algo pequeno virando uma operação grande"
+
+trocas:
+  "oito aulas": "8 aulas"
+  "Oito aulas": "8 aulas"
+  "três peças": "3 peças"
+
+partes:
+  - etapa: gancho
+    fala: "Você desligou o computador, e o Claude continua trabalhando para você."
+    prende: "pergunta que acusa o hábito de quase todo mundo + uma novidade difícil de acreditar (computador desligado): o leitor quer saber como"
+    logos: [{id: claude, nome: "Claude"}]
+    painel:
+      de: desligou
+      k: "A NOVIDADE"
+      borda: am
+      titulo: "PC DESLIGADO, CLAUDE TRABALHANDO"
+      cor: "#FACC15"
+  - etapa: medo
+    fala: "Enquanto você espera uma resposta, tem gente com vários trabalhos andando ao mesmo tempo. Quem fica no chat fica para trás."
+    prende: "medo concreto de ficar para trás; contraste entre o operador de chat e o gestor de equipe"
+    imagem: "uma única janela de chat iluminada flutuando sozinha no escuro, ficando pequena e para trás enquanto um feixe de luz vermelha #ff2a1f passa por ela em velocidade, como um trem que vai embora, sob um foco vermelho de cima; fundo preto liso; metade de baixo vazia; sensação de ficar para trás"
+    painel:
+      de: trás
+      k: "UM CHAT DE CADA VEZ"
+      borda: red
+      titulo: "FICANDO PARA TRÁS"
+      cor: "#ff2a1f"
+  - etapa: desejo
+    fala: "Imagina abrir uma tela só e ver quem terminou, quem está trabalhando e quem precisa de você."
+    prende: "o desejo de controle que todo gestor tem: uma tela que responde 'o que precisa de mim agora?'"
+    diagrama:
+      forma: terminal
+      titulo: "CLAUDE AGENTS · UMA TELA SÓ"
+      nos:
+        - {de: tela, tipo: cmd, txt: "claude agents"}
+        - {de: terminou, tipo: ok, txt: "Completed · relatório do cliente"}
+        - {de: trabalhando, tipo: out, txt: "Working · planilha de custos"}
+        - {de: você, tipo: cm, txt: "Needs input · site novo espera sua decisão"}
+  - etapa: facilidade
+    fala: "Você pede, vai cuidar da sua vida, e ela te avisa quando precisar de você."
+    prende: "derruba o 'não tenho tempo para vigiar a IA': ela avisa sozinha"
+    imagem: "um celular preto deitado numa mesa escura com a tela acesa mostrando uma única notificação em destaque, a tela emitindo luz amarela suave para cima, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de ser chamado na hora certa; texto da notificação desfocado"
+    lista:
+      k: "COMO FUNCIONA"
+      borda: am
+      itens: [[pede, "⏩ você pede"], [vida, "🚶 vai cuidar da vida"], [avisa, "🔔 ela avisa: Needs input"]]
+  - etapa: descoberta
+    fala: "Três peças: seus trabalhos rodando sozinhos, uma tela que mostra todos, e a nuvem, que continua quando você desliga."
+    prende: "o nome da solução em 3 peças, fácil de lembrar, com o termo novo 'sessão gestora'"
+    diagrama:
+      forma: hub
+      titulo: "AS 3 PEÇAS"
+      centro: {de: peças, ic: "🧑‍💼", txt: "VOCÊ DECIDE"}
+      nos:
+        - {de: sozinhos, ic: "⏩", txt: "Segundo plano", sub: "claude --bg"}
+        - {de: tela, ic: "📋", txt: "Uma tela só", sub: "claude agents"}
+        - {de: nuvem, ic: "☁️", txt: "Projects na nuvem", sub: "beta Pro/Max", cor: vd}
+  - etapa: beneficio
+    fala: "Você para de ser babá da IA e vira o chefe dela."
+    prende: "a virada de identidade (babá → chefe) que dá status e alívio; prova real com a página da aula da sessão gestora"
+    print: {url: "https://inematds.github.io/claude-gestor-de-agentes-v72/aulas/sessao-gestora/", selo: "aula 4 · você no comando"}
+    painel:
+      de: chefe
+      k: "DE BABÁ A"
+      borda: vd
+      titulo: "CHEFE"
+      cor: "#22c55e"
+  - etapa: comentario
+    fala: "E você, vai continuar no chat ou vai coordenar? Oito aulas grátis. Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    prende: "pergunta que divide (coordenar × ficar no chat) puxa comentário; oferta concreta e sem custo"
+    print: {url: "https://inematds.github.io/claude-gestor-de-agentes-v72/", selo: "8 aulas · aberto e grátis"}
+
+cta: {a: "VAI CONTINUAR NO CHAT OU VAI COORDENAR? 👇", b: "comenta EU VOU COORDENAR ou me pede o link"}
+club: "o curso Claude como gestor de agentes, 8 aulas grátis"
+cores: {desligado: "#FACC15", vários: "#FACC15", trás: "#ff2a1f", chat: "#ff2a1f", trabalhando: "#FACC15", terminou: "#22c55e",
+        gestora: "#FACC15", nuvem: "#FACC15", chefe: "#22c55e", coordenar: "#22c55e", "8": "#FACC15", grátis: "#22c55e", "3": "#FACC15"}
+
+publicar:
+  fila: lives7
+  titulo: "O Claude virou gestor de agentes: vários trabalhos ao mesmo tempo #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner) sobre a novidade do Claude: ele deixou de ser só um chat e passou a gerir várias sessões e agentes num lugar só. Claude Code: sessões em segundo plano (claude --bg) e a agent view (claude agents), uma tela que mostra quem terminou, quem travou e quem precisa de você, com aviso quando uma sessão precisa de você. Projects (beta pública nos planos Pro e Max): uma conversa que coordena várias tarefas na nuvem, que continuam rodando com o computador desligado. As 3 peças: segundo plano, sessão gestora, projetos na nuvem. De operador da IA a gestor dela. Curso Claude como gestor de agentes: 8 aulas, aberto e grátis em https://inematds.github.io/claude-gestor-de-agentes-v72/ (no inema.club). Não citar nenhuma fonte externa nem chamar de 'Claude 2.0'. CTA: comente EU VOU COORDENAR para receber o link."

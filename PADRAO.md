@@ -36,7 +36,16 @@ faltar com a verdade, mas ela vem depois para confirmar e não impor; a emoção
 A fala pode simplificar no mesmo sentido da fonte, nunca contradizê-la. CTA pede compromisso positivo ("eu consigo / eu faço /
 eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-plano.md`) segue esta regra.
 
-## 2. Roteiro — 7 partes, ~30–40 s, fala de 550–700 caracteres
+## 2. Roteiro — 7 partes, fala de 450–620 caracteres (~30–37 s de fala + 9 s de cartão)
+
+**Ritmo (Nei, 28/10/2026).** Medimos 202–222 palavras/min e nenhum silêncio: rápido demais para o público 40+. Agora:
+- fala dimensionada para **160–190 palavras/min**: **450–620 caracteres** (≈ 85–110 palavras). Reel de lista pode ir a
+  `fala_max` ≤ 800 com `fala_max_motivo` (passa de 1 min acima disso);
+- o HeyGen fala no ritmo dele (~210), então a montagem (`r7ex/ritmo.py`) estica a fala até ~182 palavras/min (no máximo
+  12%, tom preservado, boca casada) — nunca acelera;
+- **silêncio de ~0,75 s antes da máxima** (a frase de efeito final; padrão = início da parte 6, ou `ritmo.pausa_antes:
+  {parte: 6, de: <palavra>}`): a voz e a trilha somem, o quadro segura;
+- frases curtas; a máxima numa frase só, curta, que a pessoa repete.
 
 | Parte | Função | Regra |
 |---|---|---|
@@ -85,12 +94,16 @@ Fala nunca termina parte em número solto.
   (como funciona, o que tem no repo, o comando que roda); deixe a abertura com a arte do Codex.
 - **Legenda karaokê:** a palavra falada acende; vermelho = perigo, amarelo = ganho e números.
 - **Fecho:** caixa vermelha com **pergunta** (gera comentário) + pílula "inema.club".
+- **Cartão segurado (Nei, 28/10/2026):** o vídeo NÃO corta na última palavra. O cartão do comentário fica **9 s** depois
+  dela, com o gesto encenado no meio da tela: campo "Adicione um comentário…" → o texto sendo digitado (`cta.comentario`,
+  ou a palavra em CAIXA ALTA do `cta.b`) → "Publicar" apertado → o comentário publicado. Avatar congelado no PiP, trilha
+  continuando até o fade final, sem legenda. Antes: 0,8–1,6 s de cartão.
 
 ## 4. Portões
 
-- ficha: 7 partes, fala 550–700 caracteres, toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
+- ficha: 7 partes, fala 450–620 caracteres (lista: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
 - plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
-- avatar × fala ≥ 90% (retempo); duração < 60 s;
+- avatar × fala ≥ 90% (retempo); ritmo 160–190 palavras/min, pausa antes da máxima e 9 s de cartão (`avatar/ritmo.json`); duração < 60 s;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);
 - revisão da folha de 12 quadros (`r7ex.py revisar`): nada cobrindo nada, prints legíveis, **produto com logo, impacto ≥ 7**.
 

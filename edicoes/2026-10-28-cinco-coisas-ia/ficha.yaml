@@ -1,0 +1,124 @@
+# Ficha r7ex — 5 coisas de IA deste mês que quase ninguém percebeu (28/10/2026).
+# Conteúdo: ~/projetos/output/tres-motores/pautas-5.md (só o conferido ✅; o ⚠️ fica fora ou com ressalva).
+# 1ª edição com o ritmo novo (fala ~182 palavras/min, pausa antes da máxima) e o cartão do comentário segurado 9 s.
+slug: cinco-coisas-ia
+tema: "5 coisas de IA deste mês que quase ninguém percebeu"
+pedido: "Nei, 28/10/2026: 'aplica as duas correções no r7ex ... e já crie um vídeo em cada uma das 3 com o conteúdo dos 5 cenários e mande para o v3 e no lives11'. Canal lives11 (INEMA Futuros). As 5 pautas na etapa de descoberta. Não citar nenhum criador/perfil de onde as ideias vieram."
+fala_max: 800
+fala_max_motivo: "reel de lista: 5 descobertas na parte 5 (o r7ex normal tem 3); ~140 palavras ≈ 44 s de fala no ritmo novo + 9 s de cartão, abaixo de 1 min"
+
+plano:
+  pessoa: "quem já usa ChatGPT ou Claude no trabalho e sente que vive corrigindo a IA no chat"
+  quer: "ficar sabendo o que mudou antes dos outros (novidade/medo de ficar para trás) e fazer a IA trabalhar do jeito dele (desejo)"
+  gancho: "novidade com número + curiosidade: 5 coisas de IA deste mês que quase ninguém percebeu, uma delas um carro com propulsores testado num campo da SpaceX (Tesla Roadster, 15/10/2026)"
+  nota: 8
+  destino: "https://inematds.github.io/claude-gestor-de-agentes-v72/ (curso Claude como gestor de agentes, aberto e gratuito no inema.club)"
+  fatos:
+    - "Agent Skills do Claude: um agente só com uma pasta por tarefa (processo, modelos, checklist) — documentação de Agent Skills da Anthropic; é como o Nei trabalha (r7ex, explicavideos)"
+    - "Agent Skills: a pasta é texto (um SKILL.md com instruções, modelos e checklist em linguagem comum), não precisa de código — documentação de Agent Skills da Anthropic"
+    - "ponytail: github.com/DietrichGebert/ponytail, ~179 mil estrelas (GitHub, conferido 28/10/2026); descrição: 'faz o agente pensar como o sênior mais preguiçoso da sala. O melhor código é o que você nunca escreveu'"
+    - "Understand Anything: github.com/Egonex-AI/Understand-Anything, ~88,7 mil estrelas (GitHub, 28/10/2026), plugin grátis para Claude Code que lê o projeto e desenha um mapa (cada arquivo é um ponto)"
+    - "ECC (Everything Claude Code): github.com/affaan-m/ECC, ~291 mil estrelas (GitHub, 28/10/2026); setup que venceu um hackathon (Anthropic × Forum Ventures); dezenas de agentes, centenas de skills, instala como plugin do Claude Code"
+    - "Tesla Roadster novo apresentado em 15/10/2026 num campo de testes da SpaceX em McGregor, Texas (Electrek 13/10 e 28/09/2026; Motor1); propulsores de gás frio; demonstração de saída de rampa — para comprar, ainda não"
+    - "curso Claude como gestor de agentes: 8 aulas, aberto e gratuito (página do curso)"
+
+marca: "INEMA · 5 DO MÊS EM IA"
+selo: "NOVIDADE"
+fonte: "<b>GitHub</b> (estrelas em 28/10/2026) · Tesla Roadster: Electrek e Motor1, out/2026 · imagens: ilustração"
+
+abertura:
+  branco: "5 COISAS DE IA DESTE MÊS"
+  destaque: "QUASE NINGUÉM PERCEBEU"
+  cor: amarelo
+  cena: "um único carro esportivo preto, sem nenhuma marca, levantando do chão sobre jatos de propulsor de luz amarela que saem por baixo, poeira se abrindo em leque, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de algo impossível acontecendo sem ninguém olhar"
+
+ritmo:
+  pausa_antes: {parte: 6, de: quando}     # a máxima ("Quando ela errar, não corrija no chat. Corrija a pasta.")
+
+trocas:
+  "Cinco coisas": "5 coisas"
+  "das quatro": "das 4"
+  "Um:": "1:"
+  "Dois:": "2:"
+  "Três:": "3:"
+  "Quatro:": "4:"
+  "E cinco:": "E 5:"
+  "é cê cê": "ECC"
+
+partes:
+  - etapa: gancho
+    fala: "Cinco coisas de IA mudaram este mês e quase ninguém viu. Uma é um carro com propulsores, testado na SpaceX."
+    prende: "número + 'quase ninguém percebeu' (medo de ficar de fora) + um carro com propulsores, difícil de ignorar: a pessoa quer ver a lista"
+  - etapa: medo
+    fala: "Quanto do dia você passa corrigindo a IA no chat? Tem gente que já deixa ela trabalhar sozinha."
+    prende: "acusa o hábito de quase todo mundo (corrigir no chat) e mostra quem já passou na frente"
+    imagem: "uma única janela de chat iluminada flutuando no escuro, cheia de linhas riscadas em vermelho, ficando pequena enquanto um feixe de luz vermelha #ff2a1f passa por ela em velocidade e vai embora, sob um foco vermelho de cima; fundo preto liso; metade de baixo vazia; sensação de ficar para trás"
+    painel:
+      de: corrigindo
+      k: "VOCÊ, HOJE"
+      borda: red
+      titulo: "CORRIGINDO NO CHAT"
+      cor: "#ff2a1f"
+  - etapa: desejo
+    fala: "Imagina explicar uma vez só, e ela fazer do seu jeito sempre."
+    prende: "o desejo de não repetir a mesma explicação toda vez"
+    imagem: "um único notebook aberto numa mesa preta trabalhando sozinho, a tela acesa em amarelo com linhas que se escrevem sozinhas, uma cadeira vazia afastada, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de alívio; nenhum texto legível na tela"
+    painel:
+      de: jeito
+      k: "O QUE VOCÊ QUER"
+      borda: am
+      titulo: "DO SEU JEITO"
+      cor: "#FACC15"
+  - etapa: facilidade
+    fala: "Ela não é burra, só não sabe o seu trabalho. E montar a pasta não exige programar."
+    prende: "tira a culpa da pessoa e da IA ao mesmo tempo e derruba o 'não sou técnico' (só para a pasta, que é texto; os plugins são para quem mexe com código)"
+    imagem: "um único robô humanoide industrial estilo Tesla Optimus, painéis brancos e visor preto oval, sentado numa mesa escura recebendo nas mãos uma pasta de arquivo amarela iluminada, a luz da pasta subindo para o visor, sob um foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de aprender"
+    painel:
+      de: programar
+      k: "MONTAR A PASTA"
+      borda: vd
+      titulo: "SEM PROGRAMAR"
+      cor: "#22c55e"
+  - etapa: descoberta
+    fala: "Um: as Skills do Claude, uma pasta por tarefa. Dois: o ponytail, que corta código inútil. Três: o Understand Anything, que mapeia seu sistema. Quatro: o é cê cê, um time de agentes. E cinco: o Roadster da Tesla, por ora só na demonstração."
+    prende: "a lista prometida no gancho, uma descoberta a cada três segundos acendendo no mapa; a quinta fecha a curiosidade do carro com a verdade (só demonstração)"
+    diagrama:
+      forma: hub
+      titulo: "AS 5 DO MÊS"
+      centro: {de: Claude, ic: "🧠", txt: "VOCÊ + A IA"}
+      nos:
+        - {de: pasta, logo: claude, txt: "Skills do Claude", sub: "1 pasta por tarefa"}
+        - {de: ponytail, logo: github, txt: "ponytail", sub: "corta código · 179 mil ⭐"}
+        - {de: mapeia, logo: claudecode, txt: "Understand Anything", sub: "mapa do sistema · 88,7 mil ⭐"}
+        - {de: ECC, logo: claudecode, txt: "ECC", sub: "time de agentes · 291 mil ⭐"}
+        - {de: Roadster, ic: "🚀", txt: "Tesla Roadster", sub: "só demonstração · 15/10", cor: vd}
+    painel:
+      de: ponytail
+      k: "GITHUB · 28/10/2026"
+      borda: am
+      logo: github
+  - etapa: beneficio
+    fala: "A mais simples é a maior: quando ela errar, não corrija no chat. Corrija a pasta."
+    prende: "a máxima, depois de um silêncio: uma regra curta que a pessoa leva e repete"
+    imagem: "uma única pasta de arquivo amarela aberta sobre uma mesa preta, uma folha dentro dela brilhando como se estivesse sendo reescrita por um feixe de luz amarela, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de virada"
+    painel:
+      de: pasta
+      k: "A REGRA"
+      borda: vd
+      titulo: "CORRIJA A PASTA"
+      cor: "#22c55e"
+  - etapa: comentario
+    fala: "Qual das quatro você vai testar primeiro? Comenta o número. Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    prende: "pergunta fácil de responder (um número) puxa comentário; oferta concreta e aberta"
+    print: {url: "https://inematds.github.io/claude-gestor-de-agentes-v72/", selo: "8 aulas · aberto e gratuito"}
+
+cta: {de: primeiro, a: "QUAL DAS 4 FERRAMENTAS VOCÊ VAI TESTAR PRIMEIRO? 👇", b: "comenta o número ou me pede o link", comentario: "EU VOU USAR A 1 📁"}
+club: "o curso Claude como gestor de agentes, 8 aulas"
+cores: {"5": "#FACC15", percebeu: "#FACC15", propulsores: "#FACC15", SpaceX: "#FACC15", chat: "#ff2a1f", corrigindo: "#ff2a1f",
+        jeito: "#FACC15", burra: "#ff2a1f", programar: "#22c55e", pasta: "#22c55e", ponytail: "#FACC15", mapeia: "#FACC15",
+        ECC: "#FACC15", Roadster: "#FACC15", demonstração: "#ff2a1f", primeiro: "#FACC15"}
+
+publicar:
+  fila: lives11
+  titulo: "5 coisas de IA deste mês que quase ninguém percebeu #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Futuros: 5 coisas de IA de outubro de 2026 que quase ninguém percebeu. 1) Um agente só com uma pasta por tarefa (a lógica das Agent Skills do Claude): quando a IA errar, não corrija no chat, corrija a pasta. 2) ponytail, plugin aberto no GitHub (~179 mil estrelas) que faz a IA escrever menos código e reaproveitar o que já existe. 3) Understand Anything, plugin grátis para Claude Code que desenha o mapa do seu sistema (explicação em inglês; a primeira leitura gasta token). 4) ECC (Everything Claude Code), um setup pronto com time de agentes, skills e memória, que venceu um hackathon. 5) O novo Tesla Roadster com propulsores, apresentado em 15/10/2026 num campo de testes da SpaceX — por enquanto só na demonstração. Curso Claude como gestor de agentes, 8 aulas, aberto e gratuito: https://inematds.github.io/claude-gestor-de-agentes-v72/ (inema.club). Não citar nenhum criador nem perfil de onde as ideias vieram; não inventar números além das estrelas do GitHub. CTA: comente qual das 4 ferramentas você vai usar primeiro (o número) ou peça o link."

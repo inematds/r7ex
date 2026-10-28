@@ -1,0 +1,37 @@
+[
+ {
+  "id": "f1",
+  "fala": "Você desligou o computador, e o Claude continua trabalhando para você.",
+  "legenda": "Você desligou o computador, e o Claude continua trabalhando para você."
+ },
+ {
+  "id": "f2",
+  "fala": "Enquanto você espera uma resposta, tem gente com vários trabalhos andando ao mesmo tempo. Quem fica no chat fica para trás.",
+  "legenda": "Enquanto você espera uma resposta, tem gente com vários trabalhos andando ao mesmo tempo. Quem fica no chat fica para trás."
+ },
+ {
+  "id": "f3",
+  "fala": "Imagina abrir uma tela só e ver quem terminou, quem está trabalhando e quem precisa de você.",
+  "legenda": "Imagina abrir uma tela só e ver quem terminou, quem está trabalhando e quem precisa de você."
+ },
+ {
+  "id": "f4",
+  "fala": "Você pede, vai cuidar da sua vida, e ela te avisa quando precisar de você.",
+  "legenda": "Você pede, vai cuidar da sua vida, e ela te avisa quando precisar de você."
+ },
+ {
+  "id": "f5",
+  "fala": "Três peças: seus trabalhos rodando sozinhos, uma tela que mostra todos, e a nuvem, que continua quando você desliga.",
+  "legenda": "Três peças: seus trabalhos rodando sozinhos, uma tela que mostra todos, e a nuvem, que continua quando você desliga."
+ },
+ {
+  "id": "f6",
+  "fala": "Você para de ser babá da IA e vira o chefe dela.",
+  "legenda": "Você para de ser babá da IA e vira o chefe dela."
+ },
+ {
+  "id": "f7",
+  "fala": "E você, vai continuar no chat ou vai coordenar? Oito aulas grátis. Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.",
+  "legenda": "E você, vai continuar no chat ou vai coordenar? 8 aulas grátis. Tá tudo no inema.club. Ou me pede o link aqui nos comentários."
+ }
+]

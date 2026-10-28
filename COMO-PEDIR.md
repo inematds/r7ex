@@ -21,7 +21,8 @@ Modelo de pedido em 1 linha:
 • Frases curtas, sem jargão, como se falasse com um amigo leigo
 • Sua opinião em 1ª pessoa: "eu já passei por isso", "eu criei…"
 • 7 partes: gancho → medo → desejo → facilidade → descoberta (3 itens) → benefício → "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
-• 30 a 40 segundos (550–700 letras); número e ano por extenso na fala
+• fala mais lenta (160–190 palavras/min): 450–620 letras, ~30–37 s de fala; uma pausa antes da frase final; número e ano por extenso na fala
+• no fim, o cartão do comentário fica 9 s na tela, com o comentário sendo digitado e publicado
 
 🎬 O QUE EU FAÇO DEPOIS
 plano (público, gatilho, nota ≥ 7) → sua fala → avatar no estúdio → imagens do Codex (título dentro da abertura) → telejornal (painéis, contador, legenda karaokê) → reviso → te mando aqui → fila do canal (1 a cada 2 h)
