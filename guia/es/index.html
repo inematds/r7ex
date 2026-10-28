@@ -129,6 +129,7 @@
     <a class="sec" href="#fluxo">Cómo funciona</a>
     <a class="sec" href="#guia">Guía de uso</a>
     <a class="sec" href="#exemplos">Ejemplos</a>
+    <a class="sec" href="#novidades">Novedades</a>
     <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
     <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
     <a class="btn" href="https://github.com/inematds/r7ex" target="_blank" rel="noopener">GitHub</a>
@@ -139,7 +140,7 @@
   <div class="glow"></div>
   <div class="wrap">
     <div>
-      <span class="chip">Reel 9:16 · 7 etapas · noticiero</span>
+      <span class="chip">Reel 9:16 · 7 etapas · noticiero · v1.1.0</span>
       <h1>De la tesis al reel que se <span class="amb">viraliza</span></h1>
       <p class="lead">Guion de 7 etapas de gatillo con cara de noticiero: Claude escribe, Codex dibuja, HeyGen habla y el motor sincroniza todo con la voz.</p>
       <div class="cta">
@@ -153,7 +154,7 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">En resumen</span>
-  <p>r7ex es la línea de producción de reels verticales (9:16) de INEMA. Tú entregas una idea fuerte, la tesis, y él arma un video de 30 a 40 segundos con el avatar de Nei hablando, imágenes generadas por Codex y un acabado de noticiero: título en la apertura, paneles que entran en la palabra correcta, contador y subtítulo que se ilumina junto con el habla. El guion sigue 7 etapas de gatillo, desde el gancho con número hasta el pedido de comentario, siempre llevando a la persona a inema.club. Para usarlo se necesitan Python, Node, Codex y la suscripción de HeyGen, corriendo en la máquina de INEMA.</p>
+  <p>r7ex es la línea de producción de reels verticales (9:16) de INEMA. Tú entregas una idea fuerte, la tesis, y él arma un video de unos 40 a 46 segundos (siempre por debajo de 1 minuto) con el avatar de Nei hablando, imágenes generadas por Codex y un acabado de noticiero: título en la apertura, paneles que entran en la palabra correcta, contador y subtítulo que se ilumina junto con el habla. El guion sigue 7 etapas de gatillo, desde el gancho con número hasta el pedido de comentario, siempre llevando a la persona a inema.club. Para usarlo se necesitan Python, Node, Codex y la suscripción de HeyGen, corriendo en la máquina de INEMA.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
@@ -162,14 +163,14 @@
   <p class="sub"><strong>r7ex = r7e + x.</strong> r7e (reel7etapas) aporta el guion en 7 etapas; la x viene de eventosextremospub, el acabado de noticiero que más se viralizó. El repo funciona solo, con copia propia de todo.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Las partes de r7ex: gancho con número, 7 etapas, noticiero, karaoke, avatar y cola" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🎯 Plan antes del habla</h3><p>Público, lo que la persona quiere, gancho con número y fuente, nota de potencial (debajo de 7 cambia el ángulo) y la página de inema.club que lo resuelve.</p></div>
+    <div class="card"><h3>🎯 Plan antes del habla</h3><p>Público, lo que la persona quiere, gancho con número y fuente, nota de potencial (debajo de 8 cambia el ángulo) y la página de inema.club que lo resuelve.</p></div>
     <div class="card"><h3>📺 Cara de noticiero</h3><p>Título dibujado en la apertura, negro y amarillo, franja con sello rojo, paneles y contadores al ritmo del habla y subtítulo karaoke.</p></div>
     <div class="card"><h3>🧩 Independiente</h3><p>Motor de render, estudio de HeyGen, transcripción, pista musical, envío al bot y cola copiados dentro del repo. Cambiar algo aquí no afecta a los otros proyectos.</p></div>
   </div>
   <div class="grid g4" style="margin-top:16px">
     <div class="card"><div class="big">7</div><p>partes en el guion, del gancho al comentario</p></div>
-    <div class="card"><div class="big">30–40 s</div><p>de duración (siempre por debajo de 60 s)</p></div>
-    <div class="card"><div class="big">550–700</div><p>caracteres de habla por reel</p></div>
+    <div class="card"><div class="big">40–46 s</div><p>de duración, con una tarjeta de 9 s al final (siempre por debajo de 60 s)</p></div>
+    <div class="card"><div class="big">450–620</div><p>caracteres de habla por reel (reel de lista: hasta 800, con motivo)</p></div>
     <div class="card"><div class="big">≥ 90%</div><p>del habla coincidiendo con el avatar (filtro del retempo)</p></div>
   </div>
 </div></section>
@@ -186,7 +187,7 @@
     <tr><td>4. Facilidad</td><td>"No necesitas ser especialista, ni programador"</td><td class="mut">panel de límite + "sin ser especialista"</td></tr>
     <tr><td>5. Descubrimiento</td><td>"Son tres ajustes: límite, una clave por uso, alarma…"</td><td class="mut">candado, claves y campana + los 3 ajustes entrando</td></tr>
     <tr><td>6. Beneficio</td><td>"El susto se convierte en un aviso en el celular…"</td><td class="mut">factura rota + "sin límite × con límite"</td></tr>
-    <tr><td>7. Comentario</td><td>"Está todo en inema.club. O pídeme el link…"</td><td class="mut">captura de inema.club + CTA rojo en pregunta</td></tr>
+    <tr><td>7. Comentario</td><td>"Está todo en inema.club. O pídeme el link…"</td><td class="mut">captura de inema.club + CTA rojo en pregunta + tarjeta del comentario en pantalla durante 9 s</td></tr>
   </table></div>
 </div></section>
 
@@ -200,6 +201,7 @@
     <span>Avatar en HeyGen</span><span class="arr">→</span>
     <span>Imágenes de Codex</span><span class="arr">→</span>
     <span>Tiempo de las palabras (Whisper)</span><span class="arr">→</span>
+    <span>Ritmo (~180 palabras/min + tarjeta)</span><span class="arr">→</span>
     <span>Escena</span><span class="arr">→</span>
     <span>Render</span><span class="arr">→</span>
     <span>Hoja de revisión</span><span class="arr">→</span>
@@ -208,7 +210,7 @@
   <div class="grid g3" style="margin-top:26px">
     <div class="card"><span class="num">1</span><h3>Capas por cuadro</h3><p>Fondo negro, imagen del momento con zoom leve, franja superior con sello, panel con ítems y contador, subtítulo karaoke y el CTA en pregunta.</p></div>
     <div class="card"><span class="num">2</span><h3>Filmación</h3><p><code>motor/render.mjs</code> graba la página en un Chrome oculto (pantalla <code>:99</code>), sin abrir nada en la pantalla de quien trabaja.</p></div>
-    <div class="card"><span class="num">3</span><h3>Composición</h3><p><code>motor/compor_avatar.sh</code> pone el rostro en la cajita de la esquina, la voz a −14 LUFS y la pista baja que se atenúa cuando entra la voz.</p></div>
+    <div class="card"><span class="num">3</span><h3>Composición</h3><p><code>motor/compor_avatar.sh</code> pone el rostro en la cajita de la esquina, la voz a −14 LUFS y la pista baja, que se atenúa cuando entra la voz, se silencia en la pausa antes de la frase final y continúa durante la tarjeta final.</p></div>
   </div>
 </div></section>
 
@@ -217,17 +219,18 @@
   <h2>Lo que debe estar en la máquina</h2>
   <p class="sub">r7ex fue hecho para el servidor de INEMA. Las copias en otra máquina necesitan las mismas piezas.</p>
   <div class="grid g3">
-    <div class="card"><h3>Python + Node</h3><p>Python 3 para los scripts y el Whisper local; Node para el motor de render y el estudio de HeyGen.</p><pre><span class="k">npm install</span>   <span class="c"># dependencias del motor</span></pre></div>
+    <div class="card"><h3>Python + Node</h3><p>Python 3 para los scripts y el Whisper local (el de inemavox); Node para el motor de render y el estudio de HeyGen; ffmpeg para el ritmo y la composición; Claude Code (<code>claude -p</code>) para la nota del plan.</p><pre><span class="k">npm install</span>   <span class="c"># dependencias del motor</span></pre></div>
     <div class="card"><h3>Codex CLI</h3><p>Dibuja la apertura con el título y una imagen por parte, con la suscripción.</p><pre><span class="k">codex --version</span></pre></div>
     <div class="card"><h3>HeyGen (estudio)</h3><p>Avatar de Nei con la suscripción, en el navegador oculto. Generar solo con el OK de esa producción.</p><pre><span class="c"># OK de Nei para este reel</span>
-<span class="k">echo</span> <span class="s">'Nei, &lt;data&gt;: "ok"'</span> &gt; avatar/APROVADO_HEYGEN</pre></div>
+<span class="k">mkdir -p</span> edicoes/&lt;pasta&gt;/avatar
+<span class="k">echo</span> <span class="s">'Nei, &lt;data&gt;: "ok"'</span> &gt; edicoes/&lt;pasta&gt;/avatar/APROVADO_HEYGEN</pre></div>
   </div>
 </div></section>
 
 <section id="guia"><div class="wrap">
   <span class="chip">Guía de uso · paso a paso</span>
   <h2>Del pedido al reel en la cola</h2>
-  <p class="sub">Basta un pedido en una línea: <em>"r7ex: &lt;tu tesis&gt; · destino: &lt;curso/página&gt; · canal: lives3 · puedes generar el avatar"</em>. Después, estos son los comandos.</p>
+  <p class="sub">Basta un pedido en una línea: <em>"r7ex: &lt;tu tesis&gt; · destino: &lt;curso/página&gt; · canal: lives7 · puedes generar el avatar"</em>. Después, estos son los comandos.</p>
 
   <div class="step"><div class="b">1</div><div>
     <h3>Crear la edición</h3>
@@ -237,15 +240,16 @@
 
   <div class="step"><div class="b">2</div><div>
     <h3>Pasar el filtro de la ficha</h3>
-    <p>Verifica 7 partes, habla entre 550 y 700 caracteres y si cada palabra de los paneles existe en el habla de esa parte.</p>
-<pre><span class="k">python3 r7ex.py checar</span> <span class="s">edicoes/2026-10-18-hacker</span></pre>
+    <p>Verifica 7 partes, habla entre 450 y 620 caracteres (reel de lista: hasta 800, con <code>fala_max</code> y <code>fala_max_motivo</code> en la ficha) y si cada palabra de los paneles existe en el habla de esa parte. Después, <code>plano</code> califica el guion: necesita gancho ≥ 8 y promedio ≥ 7,5 antes de grabar el avatar.</p>
+<pre><span class="k">python3 r7ex.py checar</span> <span class="s">edicoes/&lt;data&gt;-hacker</span>
+<span class="k">python3 r7ex.py plano</span> <span class="s">edicoes/&lt;data&gt;-hacker</span>   <span class="c"># nota del plan</span></pre>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Hacer todo de una vez</h3>
-    <p>Imágenes + avatar → tiempo de las palabras → escena → render → hoja de 12 cuadros. Con <code>--de</code> reutiliza un avatar ya hecho.</p>
-<pre><span class="k">python3 r7ex.py fazer</span> <span class="s">edicoes/2026-10-18-hacker</span>
-<span class="k">python3 r7ex.py fazer</span> <span class="s">edicoes/2026-10-18-hacker</span> --de avatar.mp4   <span class="c"># el avatar ya existe</span></pre>
+    <p>Imágenes + avatar → tiempo de las palabras → ritmo (habla alargada, pausa antes de la frase final, tarjeta de 9 s) → escena → render → hoja de 12 cuadros. Con <code>--de</code> reutiliza un avatar ya hecho.</p>
+<pre><span class="k">python3 r7ex.py fazer</span> <span class="s">edicoes/&lt;data&gt;-hacker</span>
+<span class="k">python3 r7ex.py fazer</span> <span class="s">edicoes/&lt;data&gt;-hacker</span> --de avatar.mp4   <span class="c"># el avatar ya existe</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
@@ -270,7 +274,7 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
 <section id="exemplos"><div class="wrap">
   <span class="chip">Ejemplos</span>
   <h2>Reels hechos con r7ex</h2>
-  <p class="sub">Cuadros de los reels finales: apertura con el título dibujado, imagen por etapa, panel al ritmo del habla y el cierre con inema.club.</p>
+  <p class="sub">Cuadros de los reels finales: apertura con el título dibujado, imagen por etapa, panel al ritmo del habla y la tarjeta del comentario en pantalla al final, con inema.club.</p>
   <div class="vids">
     <figure><video controls playsinline preload="none" poster="../assets/videos/r7ex-divulga.jpg"><source src="../assets/videos/r7ex-divulga.mp4" type="video/mp4"></video><figcaption>Reel 1: "Mis reels tuvieron cero vistas, 4 lotes hasta acertar" — hecho por el propio r7ex (en portugués).</figcaption></figure>
     <figure><video controls playsinline preload="none" poster="../assets/videos/r7e-para-r7ex.jpg"><source src="../assets/videos/r7e-para-r7ex.mp4" type="video/mp4"></video><figcaption>Reel 2: "El reel de 7 etapas quedó viejo, ahora existe el r7ex" — r7e × r7ex (en portugués).</figcaption></figure>
@@ -278,6 +282,20 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <div class="ex">
     <figure><img src="../assets/ex1.jpg" alt="Cuatro cuadros del reel Hackers robaron las claves" loading="lazy"><figcaption>"Hackers robaron las claves": gancho con número (US$ 1.700 en una noche), miedo, los 3 ajustes y el cierre. <a href="https://youtube.com/shorts/DG30IdeqWcg" target="_blank" rel="noopener">Ver en YouTube</a></figcaption></figure>
     <figure><img src="../assets/ex2.jpg" alt="Cuatro cuadros de otro reel r7ex" loading="lazy"><figcaption>Otro reel del mismo lote, con el mismo avatar e imágenes nuevas dibujadas por Codex.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="novidades"><div class="wrap">
+  <span class="chip">Novedades · v1.1.0 · 28/10/2026</span>
+  <h2>Más tiempo para leer, escuchar y comentar</h2>
+  <p class="sub">Medimos las ediciones anteriores: la voz iba a 202–222 palabras por minuto, sin una sola pausa, y la tarjeta del comentario aparecía en pantalla menos de 2 segundos, porque el video se cortaba en la última palabra. La versión 1.1.0 corrige ambas cosas.</p>
+  <div class="grid g3">
+    <div class="card"><span class="num">1</span><h3>Tarjeta en pantalla durante 9 s</h3><p>El video ya no se corta en la última palabra. La tarjeta del comentario aparece en pantalla unos 9 segundos y representa el gesto: el campo "Agrega un comentario…", el texto que se escribe, el botón Publicar que se presiona y el comentario publicado. El avatar se queda quieto en la esquina y la música continúa hasta el final.</p></div>
+    <div class="card"><span class="num">2</span><h3>Voz a ~180 palabras/min</h3><p>HeyGen habla a unas 200–215 palabras por minuto. La edición alarga la voz hasta un 12%, sin cambiar el tono y con la boca sincronizada, para acercarse a 180. Antes de la frase final, hay una pausa de 0,5 a 0,9 segundos, con la música en silencio.</p></div>
+    <div class="card"><span class="num">3</span><h3>Guion más corto</h3><p>Ahora la voz tiene entre 450 y 620 caracteres, unos 30 a 37 segundos al nuevo ritmo. Un reel de lista puede llegar hasta 800 caracteres, con el motivo escrito en la ficha (<code>fala_max</code> y <code>fala_max_motivo</code>), y sigue por debajo de 1 minuto con la tarjeta.</p></div>
+  </div>
+  <div class="ex" style="margin-top:22px">
+    <figure><img src="../assets/v110-cartao.jpg" alt="Dos cuadros de la tarjeta final: el comentario mientras se escribe, con el botón Publicar presionado, y al lado, el comentario ya publicado" loading="lazy"><figcaption>Edición "5 cosas de IA de este mes", la primera en la versión 1.1.0: a la izquierda, el comentario escrito y Publicar presionado; a la derecha, el comentario publicado, con el avatar quieto en la esquina. La pregunta de la tarjeta habla de 4 herramientas porque el 5.º ítem de la lista es un auto. <a href="https://www.youtube.com/watch?v=2EV6A5lArog" target="_blank" rel="noopener">Ver en YouTube</a></figcaption></figure>
   </div>
 </div></section>
 
@@ -289,12 +307,13 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <div class="phase"><div class="tag">Lote 2</div><div class="d"><strong>r7e "-gatilho"</strong><span>Solo cambió el gancho: miedo o novedad con número, imagen nítida. Mejor, pero "todavía genérico".</span></div></div>
   <div class="phase"><div class="tag">Lote 3</div><div class="d"><strong>Plan antes del habla</strong><span>Habla nueva con el gatillo primero y el alivio en el medio, CTA fijo, capturas reales. "Quedó genérico" en la forma.</span></div></div>
   <div class="phase"><div class="tag">Lote 4</div><div class="d"><strong>r7ex</strong><span>La misma habla del lote 3 con el motor del noticiero. Es el formato estándar a partir de ahora.</span></div></div>
+  <div class="phase"><div class="tag">v1.1.0</div><div class="d"><strong>Ritmo y tarjeta en pantalla (28/10/2026)</strong><span>Voz alargada a ~180 palabras/min, pausa antes de la frase final, guion de 450–620 caracteres y la tarjeta del comentario en pantalla durante 9 s.</span></div></div>
 </div></section>
 
 <footer>
   <div class="wrap">
     <div class="pill">Python</div><div class="pill">Node + Chrome</div><div class="pill">Codex</div><div class="pill">HeyGen</div><div class="pill">Whisper</div>
-    <p style="margin-top:18px">r7ex · licencia MIT ·
+    <p style="margin-top:18px">r7ex v1.1.0 · licencia MIT ·
       <a href="https://github.com/inematds/r7ex">github.com/inematds/r7ex</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
   </div>
