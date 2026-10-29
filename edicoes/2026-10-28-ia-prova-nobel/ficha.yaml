@@ -1,0 +1,123 @@
+# Ficha r7ex — "Uma máquina escreveu a prova que um Nobel está conferindo" (28/10/2026).
+# Par do explicavideo ~/projetos/output/ia-ciencia-fisica (fatos em FATOS.md). Pedido do Nei: rtex + r7ex + r7exp no lives11.
+slug: ia-prova-nobel
+tema: "A IA da OpenAI escreveu a prova de que a teoria de Yang-Mills existe; um Nobel de física está conferindo. A máquina descobre; quem decide é você."
+pedido: "Nei, 28/10/2026: 'explicavideo <lskEzJ7ixw0> e crie um rtex e um r7ex e um rtexjp no lives11 inema.ia e manda para o v3 <rWQ2CP3r75Q> use imagens criadas pelo codex ou q vc tire dos videos'. Este é o 1º dos dois r7ex (gancho de notícia); sem citar as fontes."
+
+plano:
+  pessoa: "quem trabalha com computador e vê a IA fazendo coisas cada vez mais difíceis e se pergunta qual vai ser o próprio papel"
+  quer: "não ficar para trás quando a máquina já faz até ciência (dor) e virar quem coordena e decide o que a máquina faz (desejo)"
+  gancho: "notícia desta semana: a OpenAI anunciou (26/10/2026) que o modelo dela provou a existência da teoria de Yang-Mills em 4 dimensões; o revisor é David Gross, Nobel de Física de 2004"
+  nota: 8
+  destino: "https://inematds.github.io/claude-gestor-de-agentes-v72/ (curso Claude como gestor de agentes, 8 aulas + guia, no inema.club)"
+  fatos:
+    - "Post da OpenAI de 26/10/2026 (captura em rWQ2CP3r75Q e lskEzJ7ixw0): 'this work also includes a proof of the existence of pure Yang-Mills theory, which is part of the Quantum Yang-Mills Theory Clay Mathematics Institute Millennium Prize problem.'"
+    - "Transcrição rWQ2CP3r75Q: prova escrita em 9/9/2026, verificada em Lean em 16/10; grupo de revisão liderado por David Gross (Nobel de Física 2004); a lacuna de massa continua aberta: a OpenAI NÃO ganhou o prêmio inteiro (por isso a fala diz 'a primeira metade')"
+    - "Instituto Clay, 24/05/2000: 7 problemas do milênio, US$ 1 milhão cada; Yang-Mills é de 1954 (seminário de Princeton, pergunta de Pauli)"
+    - "Curso https://inematds.github.io/claude-gestor-de-agentes-v72/ (conferido 28/10/2026): 'Você deixa de conversar e passa a coordenar'; aulas: mandar tarefas para o segundo plano, acompanhar todas numa tela só, sessão gestora 'o que ela decide e o que sobe para você'. A página não diz 'grátis': a fala não diz grátis."
+
+gancho:
+  tipo: noticia
+  data: "2026-10-26"
+  manchete: "NOBEL CONFERE PROVA DE MÁQUINA"
+  destaque: "MÁQUINA"
+  objeto: "uma folha de prova matemática rasgada ao meio, com um carimbo vermelho #ff2a1f de 'VERIFICADO', presa na mão metálica de um robô humanoide de visor preto"
+  prova: {parte: 2, de: "1954"}
+  absolvicao: "não é culpa sua"
+  fontes:
+    - {nome: "OpenAI, 26/10/2026", trecho: "this work also includes a proof of the existence of pure Yang-Mills theory"}
+
+marca: "INEMA · IA FAZ CIÊNCIA"
+selo: "NOTÍCIA"
+fonte: "<b>OpenAI</b> · anúncio de 26/10/2026 · prova em revisão (metade do problema) · imagens: ilustração"
+
+abertura:
+  cor: amarelo
+  cena: "um quadro-negro enorme coberto de equações de física, à noite; à frente, a mão metálica de um único robô humanoide branco estilo Tesla Optimus, de visor preto oval, segurando um giz; um foco de luz branca vindo de cima; do lado, a silhueta de um cientista idoso de óculos conferindo, sem rosto reconhecível; fundo preto; metade de baixo vazia; sensação de assombro"
+
+ritmo:
+  pausa_antes: {parte: 6, de: máquina}
+
+trocas:
+  "mil novecentos e cinquenta e quatro": "1954"
+  "um milhão de dólares": "US$ 1 milhão"
+  "três coisas": "3 coisas"
+
+partes:
+  - etapa: gancho
+    fala: "Uma máquina escreveu uma prova que um prêmio Nobel de física está conferindo linha por linha."
+    prende: "notícia real e quase inacreditável: a IA virou autora de ciência e um Nobel virou o revisor dela; a manchete na tela é mais seca que a fala"
+    painel:
+      de: Nobel
+      k: "OPENAI · 26/10/2026"
+      borda: red
+      titulo: "UM NOBEL REVISANDO A IA"
+      cor: "#ff2a1f"
+  - etapa: medo
+    fala: "É a primeira metade de um problema de mil novecentos e cinquenta e quatro, que vale um milhão de dólares. Se isso te assusta, não é culpa sua: ninguém te contou o que vem agora."
+    prende: "o tamanho do feito (70 anos, prêmio de um milhão) dá peso; a honestidade da 'primeira metade' dá credibilidade; a absolvição vem na hora"
+    imagem: "uma sala de seminário antiga e vazia, com um quadro-negro cheio de equações e a data 1954 escrita a giz no canto, um feixe de luz vermelha #ff2a1f vindo de cima sobre uma cadeira vazia; fundo preto; metade de baixo vazia; sensação de mistério antigo"
+    painel:
+      de: "1954"
+      k: "PRÊMIO DO MILÊNIO"
+      borda: red
+      titulo: "US$ 1 MILHÃO · METADE"
+      cor: "#ff2a1f"
+  - etapa: desejo
+    fala: "Agora imagina ser a pessoa que entende o que a máquina entrega."
+    prende: "vira o medo em desejo: não competir com a máquina, ser quem dá sentido ao que ela faz"
+    imagem: "uma pessoa de costas, sem rosto visível, diante de três telas acesas em amarelo com gráficos e equações, comandando com calma; sob um foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de controle"
+    painel:
+      de: entende
+      k: "O OUTRO LADO"
+      borda: am
+      titulo: "QUEM ENTENDE A MÁQUINA"
+      cor: "#FACC15"
+  - etapa: facilidade
+    fala: "Não precisa ser cientista. Precisa saber coordenar."
+    prende: "derruba a desculpa 'isso é coisa de gênio' com uma frase curta"
+    imagem: "um notebook aberto numa mesa preta mostrando várias janelas de agentes trabalhando ao mesmo tempo, luz amarela da tela, uma xícara de café ao lado; foco de luz amarela de cima; fundo preto; metade de baixo vazia; sensação de que é possível; nenhum texto legível"
+    painel:
+      de: coordenar
+      k: "SEM SER CIENTISTA"
+      borda: vd
+      titulo: "SABER COORDENAR"
+      cor: "#22c55e"
+  - etapa: descoberta
+    fala: "No curso Claude como gestor de agentes você aprende três coisas: delegar, acompanhar e decidir."
+    prende: "nome da solução + 3 verbos fáceis de lembrar, cada um acendendo na palavra"
+    diagrama:
+      forma: fluxo
+      titulo: "GESTOR DE AGENTES"
+      nos:
+        - {de: delegar, ic: "📤", txt: "Delegar", sub: "tarefas em 2º plano"}
+        - {de: acompanhar, ic: "👀", txt: "Acompanhar", sub: "tudo numa tela só"}
+        - {de: decidir, ic: "✅", txt: "Decidir", sub: "o que sobe para você", cor: vd}
+    painel:
+      de: coisas
+      titulo: "3 COISAS"
+      cor: "#FACC15"
+  - etapa: beneficio
+    fala: "A máquina descobre. Quem decide é você."
+    prende: "a máxima depois do silêncio, curta e repetível; devolve o poder a quem assiste"
+    imagem: "um único robô humanoide branco estilo Tesla Optimus, de visor preto oval, entregando uma folha de papel a uma pessoa de costas, sem rosto visível, que a segura com firmeza; foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de virada"
+    painel:
+      de: decide
+      k: "A VIRADA"
+      borda: vd
+      titulo: "QUEM DECIDE É VOCÊ"
+      cor: "#22c55e"
+  - etapa: comentario
+    fala: "Você vai ser quem decide? Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    prende: "pergunta com compromisso positivo e oferta concreta"
+    print: {url: "https://inematds.github.io/claude-gestor-de-agentes-v72/", selo: "8 aulas · gestor de agentes · inema.club"}
+
+cta: {de: decide, a: "VOCÊ VAI SER QUEM DECIDE? 👇", b: "comenta EU DECIDO ou me pede o link", comentario: "EU DECIDO O QUE A IA FAZ 🧠"}
+club: "o curso Claude como gestor de agentes"
+cores: {Nobel: "#ff2a1f", máquina: "#ff2a1f", "1954": "#ff2a1f", milhão: "#ff2a1f", culpa: "#FACC15", entende: "#FACC15",
+        coordenar: "#22c55e", Claude: "#FACC15", delegar: "#FACC15", acompanhar: "#FACC15", decidir: "#22c55e", decide: "#22c55e"}
+
+publicar:
+  fila: lives11
+  titulo: "Uma IA escreveu a prova. Um NOBEL está conferindo #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), canal sobre IA e futuro. Notícia: a OpenAI anunciou em 26/10/2026 que o modelo dela escreveu a prova de que a teoria de Yang-Mills (física de 1954, a pergunta de Pauli em Princeton) existe em 4 dimensões, verificada em Lean; é a primeira metade de um dos 7 problemas do milênio do Instituto Clay (US$ 1 milhão), a lacuna de massa continua aberta; o grupo de revisão é liderado por David Gross, Nobel de Física de 2004. Não diga que a OpenAI ganhou o prêmio. Virada: a máquina descobre, quem decide é você: aprender a coordenar agentes (delegar, acompanhar, decidir) no curso Claude como gestor de agentes https://inematds.github.io/claude-gestor-de-agentes-v72/ no inema.club. NÃO cite canais do YouTube de referência. CTA: comente 'eu decido' ou peça o link."
