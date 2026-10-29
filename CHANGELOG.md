@@ -2,6 +2,13 @@
 
 Semver `X.YY.ZZ`: o minor sobe e carrega o patch; só o major zera o resto.
 
+## 1.2.1 — 28/10/2026 · manchete larga não sai mais da tela nos cortes da capa
+
+- Os cortes de aproximação da capa (1,05× em 1 s e 1,10× em 2 s, mais os 3% do motor) cortavam o "P" e o "T" de uma
+  manchete de 986 px ("PARA DE CORRIGIR IA NO CHAT"). `pecas.batidas` agora mede a manchete na arte e, quando ela não cabe,
+  aproxima só a arte e cola por cima a faixa inteira da manchete original (degradê de 18 px). O corte é preso no meio
+  da manchete medida, não mais em y=480 fixo.
+
 ## 1.2.0 — 28/10/2026 · gancho: quadro 0 + 3 primeiros segundos
 
 Pedido do Nei: os reels usavam as técnicas de chamada que analisamos só na forma; a edição do dia abriu com "5 novidades de

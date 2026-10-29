@@ -2,6 +2,7 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-28 | cortes de aproximação da capa (v1.2.0, 1,10× + 3% do motor) cortaram o "P" e o "T" da manchete de 986 px entre 2 e 5 s | `pecas.batidas` mede a manchete e, se não cabe, cola a faixa original por cima da arte aproximada | infra |
 | 2026-10-28 | gancho de LISTA ("5 novidades de IA…") passou por todos os portões e foi publicado; e o `modelo/ficha.yaml` que o motor copia reprovava no próprio `checar` (683 caracteres, sem `prende`) | bloco `gancho:` obrigatório + `checar` reprova lista/"você sabia"/"eu fiz" e manchete > 6 palavras ou igual à fala; modelo reescrito e testado no `checar` | prompt |
 | 2026-10-28 | CTA sem cauda: cartão do comentário 0,8–1,6 s na tela e o vídeo cortando na última palavra (medido em 4 edições) | `r7ex/ritmo.py` congela o avatar 9 s depois da última palavra (trilha continua) + gesto de comentar no `mapa.html` | infra |
 | 2026-10-28 | fala a 202–222 palavras/min sem nenhum silêncio ≥ 0,3 s; encurtar o roteiro não resolve (o HeyGen fala no ritmo dele) | roteiro 450–620 caracteres + `ritmo.py` estica até ~182 palavras/min (máx. 12%) e abre ~0,75 s de silêncio antes da máxima, com a trilha calada no vão | prompt + infra |

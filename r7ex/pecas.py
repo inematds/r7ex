@@ -36,15 +36,46 @@ def abertura(p, dy=110):
 BATIDAS = (1.05, 1.10)   # v1.2.0: aproximações da capa em 1 s e 2 s (≤ 1,25× com texto, DESIGN; a manchete fica na tela)
 
 
-def batidas(desce, ancora_y=480):
+def manchete(im):
+    """máscara (L) das letras da manchete escrita na arte (branco ou amarelo) + caixa (x0, y0, x1, y1), ou (None, None)"""
+    import numpy as np
+    a = np.asarray(im.convert("RGB")).astype(int)
+    r, g, b = a[..., 0], a[..., 1], a[..., 2]
+    txt = (np.minimum(np.minimum(r, g), b) > 225) | ((r > 200) & (g > 170) & (b < 90))
+    linhas = np.where(txt[:, 100:W - 100].sum(1) > 150)[0]          # linha de manchete: muita letra clara na largura
+    if not len(linhas):
+        return None, None
+    y0, y1 = linhas.min(), linhas.max()
+    cols = np.where(txt[y0:y1 + 1].sum(0) >= 6)[0]
+    m = np.zeros(txt.shape, bool); m[y0:y1 + 1] = txt[y0:y1 + 1]
+    return Image.fromarray((m * 255).astype("uint8")), (int(cols.min()), int(y0), int(cols.max()), int(y1))
+
+
+def batidas(desce, ancora_y=480, margem=40, zoom_motor=1.03):
     """v1.2.0 (28/10/2026): a capa troca de quadro a cada ~1 s até os 3 s — dois cortes secos de aproximação na mesma arte,
-    presos em y=480 (meio da manchete), para a manchete crescer sem sair da tela. → abertura-desce-1.png, -2.png"""
+    presos no meio da manchete. → abertura-desce-1.png, -2.png
+    v1.2.1 (28/10/2026): manchete larga (ex.: 986 px) saía da tela no corte de 1,10× (+3% do motor). Quando não cabe,
+    a arte aproxima e a manchete fica do tamanho original, colada por cima (letras + contorno, borda suave)."""
     im = Image.open(desce).convert("RGB"); out = []
+    masc, caixa = manchete(im)
+    if caixa:
+        ancora_y = (caixa[1] + caixa[3]) / 2
     for i, k in enumerate(BATIDAS, 1):
         w, h = W / k, H / k
         x0, y0 = (W - w) / 2, ancora_y - ancora_y / k
+        z = im.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.LANCZOS)
+        if caixa and (caixa[2] - caixa[0]) * k * zoom_motor > W - 2 * margem:
+            # faixa inteira da manchete (largura toda, folga de 30 px, 18 px de degradê): só as letras deixava "fantasma"
+            # das letras aproximadas atrás das originais
+            fa, fb, fd = max(0, caixa[1] - 30), min(H, caixa[3] + 30), 18
+            faixa = Image.new("L", (W, H), 0); d = ImageDraw.Draw(faixa)
+            d.rectangle((0, fa, W, fb), fill=255)
+            for t in range(1, fd + 1):
+                v = int(255 * (1 - t / (fd + 1)))
+                d.line((0, fa - t, W, fa - t), fill=v); d.line((0, fb + t, W, fb + t), fill=v)
+            z.paste(im, (0, 0), faixa)
         dst = Path(desce).with_name(f"abertura-desce-{i}.png")
-        im.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.LANCZOS).save(dst)
+        z.save(dst)
         out.append(dst)
     return out
 
