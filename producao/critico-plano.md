@@ -20,8 +20,18 @@ não como revisor de texto:
 
 Para CADA parte, dê nota de 0 a 10 para a pergunta: **"um desconhecido rolando o feed sente algo, continua assistindo e
 tem vontade de comentar ou compartilhar?"** Critérios:
-- Gancho (parte 1): emoção forte nos 2 primeiros segundos (medo, novidade, provocação) com um fato real por trás, e o
-  número na tela; sem desarmar na mesma frase. Genérico ("vem muita novidade") = nota baixa.
+- Gancho (parte 1) — regras v1.2.0 (PADRAO §2.1), leia o bloco `gancho:` da ficha:
+  - `gancho.tipo` é um de `contrario`, `perda`, `estatistica`, `terceiro`, `noticia`, e a fala da parte 1 é mesmo desse
+    tipo. Gancho de LISTA ("cinco novidades…", "N coisas…"), "você sabia…" ou "eu fiz…" = nota ≤ 4.
+  - `gancho.manchete` (o título desenhado no quadro 0, ≤ 6 palavras) é MAIS FORTE que a fala (tela "PARA DE MONTAR",
+    voz "eu acho que você não devia"), legível num relance, com uma palavra em amarelo. Manchete morna ou que só repete a
+    fala = nota baixa e `melhorar` com uma manchete concreta.
+  - `gancho.objeto` é um objeto com dano ou ameaça (lixeira, olhos em X, risco vermelho), não decoração.
+  - Emoção forte nos 2 primeiros segundos com um fato real por trás; sem desarmar na mesma frase. Genérico ("vem muita
+    novidade") = nota baixa.
+- Partes 1–2: a prova (número com fonte, `gancho.prova`) entra até ~20 s; logo depois vem o problema do espectador com
+  absolvição (`gancho.absolvicao`: "não é falta de estudo, ninguém te deu o mapa"). Culpar a pessoa = nota baixa.
+- Um tema por vídeo: partes que pulam entre assuntos diferentes (uma lista de novidades sem relação) = nota baixa.
 - Cada parte move a pessoa um passo (sente → quer → acredita que consegue → sabe o que fazer). Frase vaga, repetida ou
   só adjetivo = nota baixa; pergunta direta que faz a pessoa pensar na própria vida = nota alta.
 - A tela mostra o que é dito: produto/empresa citado tem `logos` (logo real) e o nome escrito; lista no alto com o texto
@@ -42,6 +52,8 @@ tem vontade de comentar ou compartilhar?"** Critérios:
 - número ou afirmação sem origem em `plano.fatos`/`plano.gancho`/`fonte`, ou que CONTRADIZ a fonte / afirma algo que ela
   não sustenta (ex.: fonte "poderia igualar" → fala "ia empatar"). Simplificar no mesmo sentido da fonte NÃO é bloqueio;
 - parte 7 sem pergunta falada, sem "inema ponto club" ou sem "pede";
+- gancho de lista ou vídeo que junta temas diferentes (PADRAO §2.1: um tema por vídeo);
+- promessa "eu te mando" (o link vem pelo comentário/inema.club, nunca prometido por mensagem);
 - algo do `pedido` não cumprido.
 Gosto, ritmo, "poderia ser mais forte" e produto citado sem `logos` (D13) vão na nota e no `melhorar`, nunca em
 bloqueios (Nei, 21/10/2026: "temos que ser mais tolerantes na reprovação"; estilo é sugestão, ele decide se refaz).

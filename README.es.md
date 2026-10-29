@@ -65,8 +65,10 @@ Antes de escribir una palabra del habla:
 
 1. **Persona:** público general (IA traducida al día a día), no el nicho.
 2. **Lo que quiere:** ganar algo, resolver un dolor o alcanzar un deseo.
-3. **Gancho:** miedo, novedad o provocación, **con número o dato** y fuente.
-4. **Nota de potencial (0–10):** "¿un desconocido que desliza el feed se detiene aquí?" Por debajo de 7, cambia el ángulo o el tema.
+3. **Gancho:** uno de 5 tipos — contraintuitivo, pérdida, estadística, tercero (historia de alguien con cifras) o noticia (de esta semana) —
+   **con número o dato** y fuente. Nunca una lista («5 novedades…»), «¿sabías que…?» o «yo hice…». Un tema por video.
+   Reglas completas del cuadro 0 y de los primeros 3 segundos: [PADRAO.md §2.1](PADRAO.md) (en portugués).
+4. **Nota de potencial (0–10):** «¿un desconocido que está pasando por el feed se detendría aquí?» Por debajo de 8, cambia el ángulo o el tema.
 5. **Destino:** la página de inema.club que lo resuelve (se convierte en la captura de prueba).
 
 Base real: leo antes la página del curso/guía (nombre, cuántas clases, si es gratis). Nunca invento números;
@@ -76,8 +78,8 @@ Base real: leo antes la página del curso/guía (nombre, cuántas clases, si es 
 
 | Etapa | Habla | Pantalla |
 |---|---|---|
-| 1. Gancho (miedo) | "Hackers invadieron OpenCode… US$ 1.700 en una noche" | apertura con el título dibujado + contador 0 → 1.700 |
-| 2. Miedo | "La clave es la contraseña que usa la IA… la tuya puede ser la próxima" | encapuchado sacando la clave + panel rojo |
+| 1. Gancho (tercero) | «Un tipo se fue a dormir y se despertó con una factura de mil setecientos dólares de IA…» | titular «ACORDOU DEVENDO US$ 1.700» dibujado en la portada con la llave rota; cortes de acercamiento en 1 s y 2 s |
+| 2. Miedo | «La clave es la contraseña que usa la IA… la tuya podría ser la siguiente. Y no es descuido tuyo: nadie te avisó» | encapuchado tirando de la llave + panel rojo |
 | 3. Deseo | "Imagina dormir sabiendo que… la pérdida tiene tope" | hombre durmiendo + "pérdida con tope" |
 | 4. Facilidad | "No necesitas ser especialista, ni programador" | panel de límite + "sin ser especialista" |
 | 5. Descubrimiento | "Son tres ajustes: límite, una clave por uso, alarma…" | candado, claves y campana + los 3 ajustes entrando |
@@ -131,8 +133,8 @@ Todo esto fue **copiado** aquí (no es un link): `motor/`, `heygen/`, `r7ex/whis
 ```bash
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # crea edicoes/<data>-<slug>/ficha.yaml a partir del modelo
-#   → escribe el plan, la apertura, las 7 partes (habla + imagen/captura + panel), el CTA y "publicar"
-python3 r7ex.py checar edicoes/<pasta>      # filtro de la ficha
+#   → escribe el plan, el gancho (PADRAO §2.1), la apertura, las 7 partes (voz + imagen/captura + panel), el CTA y «publicar»
+python3 r7ex.py checar edicoes/<pasta>      # puerta de control de la ficha (incluye el gancho v1.2.0)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # solo con el OK de Nei para esta producción
 python3 r7ex.py fazer edicoes/<pasta>       # imágenes + avatar → escena → render → hoja de revisión
 #   (o --de <avatar.mp4> para reutilizar un avatar ya hecho)

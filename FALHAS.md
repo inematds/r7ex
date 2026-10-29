@@ -2,6 +2,7 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-28 | gancho de LISTA ("5 novidades de IA…") passou por todos os portões e foi publicado; e o `modelo/ficha.yaml` que o motor copia reprovava no próprio `checar` (683 caracteres, sem `prende`) | bloco `gancho:` obrigatório + `checar` reprova lista/"você sabia"/"eu fiz" e manchete > 6 palavras ou igual à fala; modelo reescrito e testado no `checar` | prompt |
 | 2026-10-28 | CTA sem cauda: cartão do comentário 0,8–1,6 s na tela e o vídeo cortando na última palavra (medido em 4 edições) | `r7ex/ritmo.py` congela o avatar 9 s depois da última palavra (trilha continua) + gesto de comentar no `mapa.html` | infra |
 | 2026-10-28 | fala a 202–222 palavras/min sem nenhum silêncio ≥ 0,3 s; encurtar o roteiro não resolve (o HeyGen fala no ritmo dele) | roteiro 450–620 caracteres + `ritmo.py` estica até ~182 palavras/min (máx. 12%) e abre ~0,75 s de silêncio antes da máxima, com a trilha calada no vão | prompt + infra |
 | 2026-10-25 | reels das eleições (pedido 08:28, dia do 2º turno) ficaram ~5 h parados antes do HeyGen: pedi OK do avatar em vez de tratar o pedido explícito como OK; e a produção mandava só 1 edição ao estúdio por rodada | pedido de r7ex que manda fazer e publicar = OK do avatar; `producao.py` manda TODAS as pendentes ao estúdio na mesma rodada (não espera a anterior ficar pronta) | prompt + infra |

@@ -3,7 +3,8 @@
 Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo em modelo/ficha.yaml.
 
   python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
-  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–620 caracteres (~175 palavras/min), palavras dos painéis na fala, `prende` por parte
+  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–620 caracteres (~175 palavras/min), palavras dos painéis na fala, `prende` por parte,
+                                          gancho v1.2.0 (tipo, manchete ≤ 6 palavras ≠ fala, objeto, prova até ~20 s, absolvição; lista reprova)
   python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
@@ -29,7 +30,27 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.1.0"   # semver do r7ex (1ª versão marcada: 1.1.0 = fecho segurado + ritmo da fala, 28/10/2026)
+VERSAO = "1.2.0"   # semver do r7ex (1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 28/10/2026)
+
+# Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
+# fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Cinco tipos de gancho; lista é proibida.
+GANCHO_TIPOS = {
+    "contrario": "manda parar ou inverte o senso comum (\"PARA DE …\")",
+    "perda": "perda hipotética (\"E SE … SUMISSE AMANHÃ?\")",
+    "estatistica": "número que dá medo, com fonte conferida em gancho.fontes",
+    "terceiro": "história de outra pessoa, com número",
+    "noticia": "fato de ontem/desta semana, com data e fonte",
+}
+NUM_EXT = (r"um|uma|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|"
+           r"dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|cem|\d+")
+LISTA_SUBST = (r"coisas|novidades|dicas|motivos|ferramentas|formas|jeitos|passos|erros|sinais|segredos|truques|raz[oõ]es|"
+               r"maneiras|li[cç][oõ]es|ias|apps|aplicativos|sites|habilidades|skills|comandos|prompts|tend[eê]ncias|not[ií]cias|"
+               r"h[aá]bitos|mudan[cç]as|lan[cç]amentos|recursos|ideias|atalhos|plugins|agentes|modelos|perguntas")
+LISTA_ADJ = r"melhores|maiores|piores|principais|grandes|novas|novos|pequenas|pequenos|incr[ií]veis|simples|r[aá]pidas|r[aá]pidos"
+LISTA_RE = re.compile(rf"^\W*(as|os|top)?\s*({NUM_EXT})\s+(({LISTA_ADJ})\s+)?({LISTA_SUBST})\b", re.I)
+PROIBIDO_RE = re.compile(r"^\W*(voc[eê] sabia|sabia que|eu fiz|eu criei|eu testei|eu montei)\b", re.I)
+TEM_NUMERO = re.compile(rf"\d|\b({NUM_EXT}|mil|milh[aã]o|milh[oõ]es|bilh[aã]o|bilh[oõ]es|metade|dobro|triplo|por cento)\b", re.I)
+PALAVRAS_20S = 60   # ~20 s de fala a ~182 palavras/min: a prova (número com fonte) entra antes disso
 
 PERFIL = Path(os.environ.get("R7X_HEYGEN_PERFIL", Path.home() / ".cache/inemaccbot/perfil-heygen"))   # perfil do estúdio (compartilhado: tem fila própria)
 TEMPLATE_HEYGEN = os.environ.get("R7X_HEYGEN_TEMPLATE", "TEMPLATE-AVATAR16")
@@ -97,6 +118,91 @@ def cmd_novo(slug):
     log("criado", p / "ficha.yaml", "— reescreva plano, abertura, as 7 partes, CTA e publicar (modelo: o reel do hacker)")
 
 
+def avatar_gravado(p):
+    return any((p / "avatar" / n).exists() for n in ("avatar.mp4", "AVATAR_DE.txt", "video_id.txt"))
+
+
+def legenda_da(f, x):
+    leg = x.get("legenda") or x["fala"]
+    for a, b in {**TROCAS_PADRAO, **(f.get("trocas") or {})}.items():
+        leg = leg.replace(a, b)
+    return leg
+
+
+def checar_gancho(p, f):
+    """v1.2.0 (28/10/2026): o gancho é o quadro 0 + os 3 primeiros segundos. Devolve a lista de erros."""
+    g, erros = f.get("gancho"), []
+    if not isinstance(g, dict):
+        return ["sem bloco 'gancho:' (tipo, manchete, destaque, objeto, prova, absolvicao; PADRAO.md §2.1)"]
+    fala1 = f["partes"][0]["fala"].strip()
+    tipo = str(g.get("tipo") or "")
+    if tipo not in GANCHO_TIPOS:
+        erros.append(f"gancho.tipo '{tipo}' inválido: use um destes — " + "; ".join(f"{k} = {v}" for k, v in GANCHO_TIPOS.items()))
+    m = str(g.get("manchete") or "").strip()
+    pal = m.split()
+    if not m:
+        erros.append("gancho sem 'manchete' (o título desenhado no quadro 0)")
+    else:
+        if len(pal) > 6:
+            erros.append(f"gancho.manchete com {len(pal)} palavras ('{m}'): no máximo 6 — corte até caber num relance")
+        if m != m.upper():
+            erros.append(f"gancho.manchete em CAIXA ALTA: '{m}'")
+        if CENA.n(m) == CENA.n(fala1) or CENA.n(m) in CENA.n(fala1):
+            erros.append("gancho.manchete igual a um pedaço da fala do gancho: a tela tem de dizer MAIS FORTE que a voz "
+                         "(ex.: voz 'eu acho que você não devia montar agente', tela 'PARA DE MONTAR AGENTE')")
+    d = str(g.get("destaque") or "").strip()
+    if not d or " " in d:
+        erros.append("gancho.destaque: UMA palavra da manchete, a que fica em amarelo")
+    elif pal and CENA.n(d) not in [CENA.n(w) for w in pal]:
+        erros.append(f"gancho.destaque '{d}' não é uma palavra da manchete '{m}'")
+    for nome, txt in (("manchete", m), ("fala da parte 1", fala1), ("tema", str(f.get("tema") or ""))):
+        if LISTA_RE.search(txt):
+            erros.append(f"gancho de LISTA na {nome} ('{txt[:60]}'): proibido ('N coisas/novidades…'). Um tema por vídeo — "
+                         "escolha o mais forte e faça um vídeo para cada outro")
+        if PROIBIDO_RE.search(txt):
+            erros.append(f"{nome} abre com 'você sabia' / 'eu fiz' ('{txt[:60]}'): proibido no gancho — comece pela tese")
+    if not str(g.get("objeto") or "").strip():
+        erros.append("gancho sem 'objeto' (objeto-metáfora com dano ou ameaça no quadro 0: lixeira, risco vermelho, olhos em X…)")
+    if tipo in ("estatistica", "terceiro") and not TEM_NUMERO.search(m + " " + fala1):
+        erros.append(f"gancho {tipo} sem número na manchete nem na fala da parte 1")
+    fontes = g.get("fontes") or []
+    if tipo in ("estatistica", "terceiro", "noticia"):
+        if not fontes or not all(isinstance(x, dict) and (x.get("url") or x.get("nome")) and x.get("trecho") for x in fontes):
+            erros.append(f"gancho {tipo} precisa de gancho.fontes: [{{url ou nome, trecho}}] conferidas")
+    if tipo == "noticia":
+        try:
+            dia = dt.date.fromisoformat(str(g.get("data")))
+            base = dt.date.fromisoformat(p.name[:10]) if re.match(r"\d{4}-\d{2}-\d{2}", p.name) else dt.date.today()
+            if not 0 <= (base - dia).days <= 7:
+                erros.append(f"gancho notícia com data {dia}: tem de ser desta semana (até 7 dias antes de {base})")
+        except ValueError:
+            erros.append("gancho notícia sem 'data' (aaaa-mm-dd do fato)")
+    pv = g.get("prova") or {}
+    if not pv.get("de"):
+        erros.append("gancho sem 'prova: {parte, de}' (a palavra do número/prova com fonte, até ~20 s)")
+    else:
+        pn_ = int(pv.get("parte", 1))
+        if pn_ not in (1, 2):
+            erros.append("gancho.prova.parte: 1 ou 2 (a prova entra até ~20 s)")
+        else:
+            antes = sum(len(legenda_da(f, x).split()) for x in f["partes"][:pn_ - 1])
+            toks = [CENA.n(w) for w in legenda_da(f, f["partes"][pn_ - 1]).split()]
+            alvo = CENA.n(pv["de"])
+            k = next((j for j, w in enumerate(toks) if w == alvo or (len(alvo) > 3 and alvo in w)), None)
+            if " " in str(pv["de"]).strip() or k is None:
+                erros.append(f"gancho.prova.de '{pv['de']}' tem de ser UMA palavra da fala/legenda da parte {pn_}")
+            elif antes + k > PALAVRAS_20S:
+                erros.append(f"a prova '{pv['de']}' entra na palavra {antes + k} (~{(antes + k) / 3:.0f} s): tem de ser até a {PALAVRAS_20S}ª (~20 s)")
+            elif not TEM_NUMERO.search(legenda_da(f, f["partes"][pn_ - 1])) and not ((f["partes"][pn_ - 1].get("painel") or {}).get("contador")):
+                erros.append(f"a parte {pn_} da prova não tem número (na fala ou no contador)")
+    ab = CENA.n(g.get("absolvicao") or "")
+    if not ab:
+        erros.append("gancho sem 'absolvicao' (o problema do espectador sem culpa: 'não é falta de estudo, ninguém te deu o mapa')")
+    elif not any(ab in CENA.n(x["fala"]) for x in f["partes"][1:3]):
+        erros.append("gancho.absolvicao tem de estar, igual, na fala da parte 2 ou 3 (logo depois do problema)")
+    return erros
+
+
 def cmd_checar(pasta):
     p, f = ficha(pasta)
     erros = []
@@ -117,9 +223,15 @@ def cmd_checar(pasta):
         erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
     if (f.get("plano") or {}).get("nota", 0) < 8:
         erros.append("nota de potencial < 8: troque o ângulo ou o tema (PADRAO.md §1, D15)")
-    for k in ("branco", "destaque", "cena"):
+    for k in (("cena",) if f.get("gancho") else ("branco", "destaque", "cena")):   # com gancho, o título é gancho.manchete
         if not (f.get("abertura") or {}).get(k):
             erros.append(f"abertura sem '{k}'")
+    eg = checar_gancho(p, f)
+    if eg and avatar_gravado(p):   # edição com avatar já gravado: a fala não muda (mesma regra do tamanho da fala)
+        for e in eg:
+            log(f"aviso (gancho v1.2, aceito porque o avatar já existe): {e}")
+    else:
+        erros += eg
     for i, x in enumerate(f["partes"]):
         texto = CENA.n(x.get("legenda") or x["fala"])
         if i > 0 and not (x.get("imagem") or x.get("print") or x.get("diagrama") or x.get("logos")):
@@ -311,10 +423,19 @@ def cmd_imagens(pasta):
     p, f = ficha(pasta)
     capa, prints = p / "capa", p / "prints"; capa.mkdir(exist_ok=True); prints.mkdir(exist_ok=True)
     pecas.preto(capa / "preto.png")
-    a = f["abertura"]
-    linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
-              f"serifa: no topo, branco, \"{a['branco']}\"; logo abaixo, maior, em {COR.get(a.get('cor', 'amarelo'), a.get('cor'))}, "
-              f"\"{a['destaque']}\". Todo o texto na METADE DE CIMA da imagem; a metade de baixo sem texto. Confira a grafia exata, com acentos."]
+    a, g = f["abertura"], f.get("gancho")
+    if g:   # v1.2.0: a manchete do gancho (≤ 6 palavras, uma em amarelo) + o objeto com dano; é a capa, legível no quadro 0
+        linhas = [f"1. abertura.png — capa de impacto (é a capa do vídeo: tem de funcionar parada, num relance): {a['cena']}. "
+                  f"No centro da cena, grande e nítido, o objeto-metáfora com dano ou ameaça: {g['objeto']}. "
+                  f"Manchete ESCRITA DENTRO da arte, em CAIXA ALTA, português, fonte bold sem serifa bem grossa, enorme, em 1 a 3 linhas: "
+                  f"\"{g['manchete']}\" — tudo em branco, MENOS a palavra \"{g['destaque']}\", em amarelo #FACC15. "
+                  "A manchete fica na METADE DE CIMA, entre 8% e 46% da altura, com margem de 7% nas laterais (nada encosta na borda); "
+                  "a metade de baixo sem texto (ali entra o rosto). Contraste alto: letra legível em tamanho de miniatura. "
+                  "Confira a grafia exata, com acentos; nenhuma outra palavra na imagem."]
+    else:
+        linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
+                  f"serifa: no topo, branco, \"{a['branco']}\"; logo abaixo, maior, em {COR.get(a.get('cor', 'amarelo'), a.get('cor'))}, "
+                  f"\"{a['destaque']}\". Todo o texto na METADE DE CIMA da imagem; a metade de baixo sem texto. Confira a grafia exata, com acentos."]
     nome = {}                                            # D13: parte com logos → o Codex faz só o fundo, o logo real é colado
     for i, x in enumerate(f["partes"][1:], 2):
         if x.get("imagem"):
@@ -395,9 +516,10 @@ def cmd_render(pasta):
 
 
 def cmd_revisar(pasta):
-    p, _ = ficha(pasta); v = p / "video.mp4"; b = p / "build"; b.mkdir(exist_ok=True)
+    p, f = ficha(pasta); v = p / "video.mp4"; b = p / "build"; b.mkdir(exist_ok=True)
     d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", v]))
-    ts = [0.2, 1.5, 3.5] + [round(5 + (d - 6) * i / 8, 2) for i in range(9)]
+    # v1.2.0: com gancho, os 3 primeiros quadros são a capa (0 s) e os dois cortes (1 s, 2 s), para o revisor ver a troca
+    ts = ([0.05, 1.2, 2.2] if f.get("gancho") else [0.2, 1.5, 3.5]) + [round(5 + (d - 6) * i / 8, 2) for i in range(9)]
     qs = []
     for k, t in enumerate(ts):
         q = b / f"q{k:02d}.jpg"

@@ -104,6 +104,19 @@ def montar(pasta, ficha, falas):
                 fk = ts[k + 1] + .3 if k + 1 < len(lgs) else b
                 telas.append({"src": f"capa/p{i + 1}-{k + 1}.png", "ini": ts[k], "fim": fk, "fade": .25, "zoom": .05})
             continue
+        if i == 0 and ficha.get("gancho") and b > 2.6:
+            # v1.2.0 (28/10/2026): troca de quadro a cada ~1 s até os 3 s — capa (0 s) → corte de aproximação (1 s) → outro (2 s),
+            # a manchete sempre na tela. Corte seco de enquadramento, não pulso de brilho (que não conta como troca, video/style.md).
+            from . import pecas
+            desce = pasta / "capa/abertura-desce.png"
+            if desce.exists() and not (pasta / "capa/abertura-desce-2.png").exists():
+                pecas.batidas(desce)
+            cortes = [-1.0, 1.0, 2.0]
+            for k, src_k in enumerate([src, "capa/abertura-desce-1.png", "capa/abertura-desce-2.png"]):
+                fk = cortes[k + 1] + .1 if k < 2 else b
+                telas.append({"src": src_k, "ini": cortes[k], "fim": fk, "fade": .08, "zoom": .02 if k < 2 else .03,
+                              "escurece": "base"})
+            continue
         d = {"src": src, "ini": a, "fim": b, "fade": .3, "zoom": zoom}
         # escurece a foto por baixo da legenda/painel/avatar (a vinheta do motor fica ABAIXO das telas; 19/10/2026)
         if i == 0:

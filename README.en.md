@@ -65,8 +65,10 @@ Before writing a single word of the speech:
 
 1. **Person:** general audience (AI translated into everyday life), not the niche.
 2. **What they want:** gain something, solve a pain or reach a desire.
-3. **Hook:** fear, news or provocation, **with a number or fact** and a source.
-4. **Potential score (0–10):** "would a stranger scrolling the feed stop here?" Below 7, change the angle or the topic.
+3. **Hook:** one of 5 types — contrarian, loss, statistic, third party (someone’s story with a number), or news (from this week) —
+   **with a number or fact** and a source. Never a list (“5 new things…”), “did you know…”, or “I did…”. One topic per video.
+   Full rules for frame 0 and the first 3 seconds: [PADRAO.md §2.1](PADRAO.md) (in Portuguese).
+4. **Potential score (0–10):** “Would a stranger stop scrolling the feed here?” Below 8, change the angle or topic.
 5. **Destination:** the inema.club page that solves it (it becomes the proof screenshot).
 
 Real basis: I read the course/guide page first (name, how many lessons, whether it's free). I never make up a number;
@@ -76,8 +78,8 @@ Real basis: I read the course/guide page first (name, how many lessons, whether 
 
 | Stage | Speech | Screen |
 |---|---|---|
-| 1. Hook (fear) | "Hackers broke into OpenCode… US$ 1,700 in one night" | opening with the drawn title + counter 0 → 1,700 |
-| 2. Fear | "The key is the password the AI uses… yours could be next" | hooded figure pulling out the key + red panel |
+| 1. Hook (third party) | “A guy went to sleep and woke up with a $1,700 AI bill…” | headline “ACORDOU DEVENDO US$ 1.700” drawn on the cover with the broken key; zoom-in cuts at 1 s and 2 s |
+| 2. Fear | “The key is the password the AI uses… yours could be next. And it’s not your carelessness: nobody warned you” | hooded figure pulling the key + red panel |
 | 3. Desire | "Imagine sleeping knowing that… the damage has a ceiling" | man sleeping + "damage with a ceiling" |
 | 4. Ease | "You don't need to be an expert, or a programmer" | limit panel + "no expert needed" |
 | 5. Discovery | "It's three tweaks: a limit, one key per use, an alarm…" | padlock, keys and bell + the 3 tweaks coming in |
@@ -131,8 +133,8 @@ All of this was **copied** here (not linked): `motor/`, `heygen/`, `r7ex/whisper
 ```bash
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # creates edicoes/<data>-<slug>/ficha.yaml from the template
-#   → write the plan, the opening, the 7 parts (speech + image/screenshot + panel), the CTA and "publicar"
-python3 r7ex.py checar edicoes/<pasta>      # sheet gate
+#   → write the plan, the hook (PADRAO §2.1), the opening, the 7 parts (speech + image/screenshot + panel), the CTA, and "publicar"
+python3 r7ex.py checar edicoes/<pasta>      # storyboard gate (includes hook v1.2.0)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # only with Nei's OK for this production
 python3 r7ex.py fazer edicoes/<pasta>       # images + avatar → scene → render → review sheet
 #   (or --de <avatar.mp4> to reuse a ready-made avatar)

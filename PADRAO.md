@@ -14,7 +14,7 @@ Objetivo de todo reel: **trazer gente para o inema.club.** Se não viralizar, n�
 |---|---|
 | pessoa | público geral (IA traduzida para o dia a dia), não o nicho |
 | quer | ganhar algo, resolver uma dor ou chegar a um desejo — uma frase |
-| gancho | medo, novidade ou provocação, **com número ou fato** (e fonte) |
+| gancho | um dos 5 tipos do §2.1 (contrário, perda, estatística, terceiro, notícia), **com número ou fato** (e fonte); nunca lista |
 | nota | 0–10: "um desconhecido rolando o feed para aqui?" Abaixo de **8**, troque o ângulo ou o tema |
 | destino | o curso/guia/formação do inema.club que resolve (URL para o print) |
 
@@ -25,7 +25,7 @@ ser viral").** Cada parte tem `prende:` (por que um desconhecido continua ali). 
 (crítico `claude -p` + `producao/critico-plano.md`) dá nota por parte e lista **bloqueios** objetivos (fato sem origem em
 `plano.fatos`, produto sem logo, fecho incompleto, pedido do Nei não cumprido). Passa com **zero bloqueios, gancho ≥ 8,
 média ≥ 7,5 e nenhuma parte < 6** (calibrado em 21/10: "todas ≥ 8" não convergia). Fatos da fonte vão em `plano.fatos`
-(com o trecho); o que o Nei exigiu vai em `pedido:`; reel de lista pode ter `fala_max` (≤ 900) com `fala_max_motivo`.
+(com o trecho); o que o Nei exigiu vai em `pedido:`; um tema com muitos itens (ex.: os comandos de UMA ferramenta) pode ter `fala_max` (≤ 800) com `fala_max_motivo` — nunca temas diferentes juntos (§2.1).
 A produção só manda ao estúdio roteiro aprovado. **Ético e competitivo:** o fato verdadeiro mais forte, dito com força
 ("vazou", "apareceu no código", "num teste custou 1 centavo"); a incerteza vai na linha de fonte, não amolece a fala.
 Nada inventado — exagero falso zera a parte.
@@ -39,7 +39,7 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 ## 2. Roteiro — 7 partes, fala de 450–620 caracteres (~30–37 s de fala + 9 s de cartão)
 
 **Ritmo (Nei, 28/10/2026).** Medimos 202–222 palavras/min e nenhum silêncio: rápido demais para o público 40+. Agora:
-- fala dimensionada para **160–190 palavras/min**: **450–620 caracteres** (≈ 85–110 palavras). Reel de lista pode ir a
+- fala dimensionada para **160–190 palavras/min**: **450–620 caracteres** (≈ 85–110 palavras). Um tema com muitos itens pode ir a
   `fala_max` ≤ 800 com `fala_max_motivo` (passa de 1 min acima disso);
 - o HeyGen fala no ritmo dele (~210), então a montagem (`r7ex/ritmo.py`) estica a fala até ~182 palavras/min (no máximo
   12%, tom preservado, boca casada) — nunca acelera;
@@ -49,8 +49,8 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 
 | Parte | Função | Regra |
 |---|---|---|
-| 1 | **Gancho** | o gatilho + o número; nunca desarmar na mesma frase |
-| 2 | **Medo / prova** | por que isso é com você (ou "já aconteceu 3 vezes") |
+| 1 | **Gancho** | um dos 5 tipos do §2.1 + o número; manchete do quadro 0 mais forte que a fala; nunca desarmar na mesma frase |
+| 2 | **Medo / prova** | a prova com fonte (até ~20 s) e o problema do espectador **com absolvição** ("não é falta de estudo, ninguém te deu o mapa") |
 | 3 | **Desejo** | como fica se der certo |
 | 4 | **Facilidade** | derruba "não sou técnico / não tenho tempo" |
 | 5 | **Descoberta** | o método ou o nome da solução, com 3 itens |
@@ -60,6 +60,49 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 A ordem 2–6 pode se adaptar ao tema (as etapas são checklist de gatilhos), mas são sempre 7 partes.
 Fala: número e ano **por extenso** (o avatar lê); a legenda troca por algarismo (`trocas` na ficha).
 Fala nunca termina parte em número solto.
+
+### 2.1 Gancho: o quadro 0 e os 3 primeiros segundos (v1.2.0, 28/10/2026)
+
+O Nei perguntou se os reels usavam as técnicas de chamada que analisamos; usavam só a forma. A edição de 28/10 abriu com
+"5 novidades de IA…", um gancho de **lista**, que nenhum reel de referência usa. Regras novas (Nei: "sim, aplica no r7ex também"):
+
+1. **`gancho.tipo` obrigatório**, um destes:
+
+   | tipo | o que é | exemplo de manchete |
+   |---|---|---|
+   | `contrario` | manda parar ou inverte o senso comum | PARA DE MONTAR AGENTE DE IA |
+   | `perda` | perda hipotética | E SE O CLAUDE SUMISSE AMANHÃ? |
+   | `estatistica` | número que dá medo, com fonte em `gancho.fontes` | METADE DO CÓDIGO É LIXO |
+   | `terceiro` | história de outra pessoa, com número | ACORDOU DEVENDO US$ 1.700 |
+   | `noticia` | fato de ontem/desta semana, com `data` e fonte | SAIU O CARRO VOADOR? |
+
+   **Proibido:** lista ("5 novidades…", "N coisas…"), "você sabia que…", "eu fiz…". O `checar` reprova.
+2. **Manchete do quadro 0** (`gancho.manchete`): no máximo **6 palavras**, CAIXA ALTA, **uma** palavra em amarelo
+   (`gancho.destaque`), **mais forte que a fala** (tela "PARA DE MONTAR", voz "eu acho que você não devia montar"). O `checar`
+   reprova manchete igual a um pedaço da fala. Ela é a capa: pronta e legível no quadro 0.
+3. **Objeto-metáfora com dano ou ameaça** (`gancho.objeto`: lixeira, olhos em X, risco vermelho, chave partida) no centro da
+   abertura; o pedido ao Codex leva o objeto e a manchete. **Troca de quadro a cada ~1 s nos 3 primeiros segundos:** a montagem
+   corta a capa em 0 s → aproximação 1,05× em 1 s → 1,10× em 2 s (`pecas.batidas`, presa no meio da manchete). É corte de
+   enquadramento, não pulso de brilho (que não conta como troca no `video/style.md`).
+4. **Prova com fonte até ~20 s** (`gancho.prova: {parte: 1|2, de: <palavra do número>}`, até a 60ª palavra) e, logo depois,
+   o **problema do espectador com absolvição** (`gancho.absolvicao`, igual na fala da parte 2 ou 3: "não é falta de estudo,
+   ninguém te deu o mapa").
+5. **Um tema por vídeo.** O r7ex não junta temas diferentes numa lista. Pedido com vários temas → a ficha propõe N vídeos,
+   um por tema (no bot: faz o mais forte e lista os outros no resumo, um `/r7ex` para cada).
+6. A parte 7 ("tá tudo no inema ponto club…"), o cartão de 9 s e o ritmo de 160–190 palavras/min ficam como estão. Nunca
+   prometer "eu te mando".
+
+```yaml
+gancho:
+  tipo: terceiro
+  manchete: "ACORDOU DEVENDO US$ 1.700"
+  destaque: "1.700"
+  objeto: "uma chave dourada partida ao meio, com um risco vermelho, presa a um cartão de crédito rachado"
+  prova: {parte: 1, de: "1.700"}
+  absolvicao: "não é descuido seu"
+  fontes: [{nome: "relatos de usuários afetados, out/2026", trecho: "US$ 1.700 de conta numa noite"}]
+  # noticia: data: 2026-10-27  (até 7 dias antes da edição)
+```
 
 ## 3. Tela — motor do eventosextremospub
 
@@ -72,7 +115,9 @@ Fala nunca termina parte em número solto.
   (y ~860–1150), item a item na palavra. O `painel` embaixo (à esquerda do avatar) leva UMA coisa: `titulo` (texto
   grande, `cor` opcional), `contador` ou `logo` (id do pacote). Ficha antiga com `painel.itens` sobe sozinha para a lista.
 
-- **Abertura:** o título do gancho **desenhado pelo Codex dentro da arte** (branco + amarelo ou vermelho), metade de cima.
+- **Abertura:** a manchete do gancho (`gancho.manchete`, ≤ 6 palavras, uma em amarelo) **desenhada pelo Codex dentro da arte**, metade de
+  cima, com o objeto com dano no centro; nos 3 primeiros segundos a capa troca de quadro a cada ~1 s (§2.1). Ficha antiga sem
+  `gancho:` continua com `abertura.branco` + `destaque`.
 - **Imagens:** uma por parte, **UM assunto só em ação dramática** (quebrando, acendendo, se abrindo, sendo puxado), grande,
   na metade de cima; luz de cinema (foco forte ou contraluz com recorte), amarela no assunto ou vermelha #ff2a1f no perigo;
   fundo preto liso e metade de baixo vazia. Na ficha, descreva um objeto + a ação + a sensação; nunca "cinco objetos",
@@ -101,7 +146,8 @@ Fala nunca termina parte em número solto.
 
 ## 4. Portões
 
-- ficha: 7 partes, fala 450–620 caracteres (lista: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
+- ficha: 7 partes, fala 450–620 caracteres (um tema com muitos itens: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
+- gancho (v1.2.0, §2.1): `gancho.tipo` válido, manchete ≤ 6 palavras em CAIXA ALTA e diferente da fala, `destaque` = uma palavra dela, `objeto`, `prova` até a 60ª palavra, `absolvicao` na parte 2 ou 3, fontes (estatística/terceiro/notícia) e data (notícia); lista, "você sabia" e "eu fiz" reprovam. Edição com avatar já gravado só recebe aviso;
 - plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
 - avatar × fala ≥ 90% (retempo); ritmo 160–190 palavras/min, pausa antes da máxima e 9 s de cartão (`avatar/ritmo.json`); duração < 60 s;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);

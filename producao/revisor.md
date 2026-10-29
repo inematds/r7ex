@@ -11,7 +11,8 @@ Leia, nesta ordem:
 3. Se um quadro da folha estiver pequeno demais para julgar, abra o quadro em tamanho real: `build/q00.jpg` … `build/q11.jpg`.
 
 REPROVE (defeito) só se:
-- Título da abertura com erro de grafia, palavra cortada ou diferente do que a ficha pede (`abertura.branco` + `abertura.destaque`).
+- Título da abertura com erro de grafia, palavra cortada ou diferente do que a ficha pede (`gancho.manchete`; nas fichas antigas
+  sem `gancho:`, `abertura.branco` + `abertura.destaque`), ou ilegível no quadro 0 (é a capa do vídeo).
 - Quadro vazio, todo preto ou com moldura sem conteúdo (ex.: print da página que não carregou).
 - Print da página ilegível ou de página errada (a página tem de ser a do `print.url` da parte de comentário).
 - Número na tela diferente do número da fala, ou sem sentido sozinho (ex.: "1,3 DE SKILLS" em vez de "1,3 MILHÃO DE SKILLS").
@@ -26,6 +27,9 @@ SUGESTÃO (o vídeo segue; liste em `sugestoes`, uma frase cada com o quadro/tem
 - Embaixo (à esquerda do avatar) mais de uma coisa, ou lista embaixo (D14).
 - Elementos encostando/sobrepondo de leve sem impedir a leitura.
 - Texto inventado dentro de uma arte (fora a abertura).
+- GANCHO (v1.2.0, ficha com `gancho:`): no quadro 0 a manchete sem a palavra `gancho.destaque` em amarelo, ou sem o objeto com
+  dano/ameaça (`gancho.objeto`) visível; ou os 3 primeiros quadros da folha (0 s, ~1,2 s, ~2,2 s: `build/q00.jpg`–`q02.jpg`) sem
+  mudança visível de enquadramento. Os dois cortes de aproximação na mesma arte em 1 s e 2 s são o padrão, não defeito.
 - IMPACTO (D15): dê nota 0–10 para "um desconhecido rolando o feed para e assiste até o fim?". Abaixo de 7, sugestão
   dizendo o quadro mais morno e o que faltou (fato forte, logo, texto do assunto, número).
 

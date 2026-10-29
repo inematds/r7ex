@@ -5,6 +5,9 @@ Uso: /r7ex <tema ou tese, do seu jeito>
   /r7ex a IA vai cortar gerentes, no lives3
   /r7ex fim do Python? no lives4 agora
 
+Um tema por vídeo: mandou vários temas? Ele faz o mais forte e propõe os outros (um /r7ex para cada).
+O gancho é de um de 5 tipos (contrário, perda, estatística, história de alguém, notícia) — nunca lista ("5 novidades…").
+
 O que ele entende do texto:
   canal: lives1, lives4… ou o nome ("INEMA Tec"). Sem canal → lives7
   "agora", "urgente", "hoje" → entra na FRENTE da fila do canal

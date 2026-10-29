@@ -46,8 +46,8 @@ o explicavideos nem o cardshorts.
 |---|---|---|---|
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
-| 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever as 7 partes, a abertura, os painéis e `publicar` | 🧠 |
-| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; lista até 800 com motivo), palavras dos painéis na fala | ⚙️ |
+| 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição — v1.2.0), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova) | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
@@ -114,8 +114,10 @@ Antes de escrever uma palavra da fala:
 
 1. **Pessoa:** público geral (IA traduzida para o dia a dia), não o nicho.
 2. **O que ela quer:** ganhar algo, resolver uma dor ou chegar a um desejo.
-3. **Gancho:** medo, novidade ou provocação, **com número ou fato** e fonte.
-4. **Nota de potencial (0–10):** "um desconhecido rolando o feed para aqui?" Abaixo de 7, troque o ângulo ou o tema.
+3. **Gancho:** um de 5 tipos — contrário, perda, estatística, terceiro (história de alguém com número) ou notícia (desta semana) —
+   **com número ou fato** e fonte. Nunca lista ("5 novidades…"), "você sabia…" ou "eu fiz…". Um tema por vídeo.
+   Regras completas do quadro 0 e dos 3 primeiros segundos: [PADRAO.md §2.1](PADRAO.md).
+4. **Nota de potencial (0–10):** "um desconhecido rolando o feed para aqui?" Abaixo de 8, troque o ângulo ou o tema.
 5. **Destino:** a página do inema.club que resolve (vira o print de prova).
 
 Base real: leio a página do curso/guia antes (nome, quantas aulas, se é grátis). Nunca invento número;
@@ -125,8 +127,8 @@ Base real: leio a página do curso/guia antes (nome, quantas aulas, se é gráti
 
 | Etapa | Fala | Tela |
 |---|---|---|
-| 1. Gancho (medo) | "Hackers invadiram o OpenCode… US$ 1.700 numa noite" | abertura com o título desenhado + contador 0 → 1.700 |
-| 2. Medo | "A chave é a senha que a IA usa… a sua pode ser a próxima" | encapuzado puxando a chave + painel vermelho |
+| 1. Gancho (terceiro) | "Um cara foi dormir e acordou com mil e setecentos dólares de conta de IA…" | manchete "ACORDOU DEVENDO US$ 1.700" desenhada na capa com a chave partida; cortes de aproximação em 1 s e 2 s |
+| 2. Medo | "A chave é a senha que a IA usa… a sua pode ser a próxima. E não é descuido seu: ninguém te avisou" | encapuzado puxando a chave + painel vermelho |
 | 3. Desejo | "Imagina dormir sabendo que… o prejuízo tem teto" | homem dormindo + "prejuízo com teto" |
 | 4. Facilidade | "Você não precisa ser especialista, nem programador" | painel de limite + "sem ser especialista" |
 | 5. Descoberta | "São três ajustes: limite, uma chave por uso, alarme…" | cadeado, chaves e sino + os 3 ajustes entrando |
@@ -184,8 +186,8 @@ Tudo isso foi **copiado** para cá (não é link): `motor/`, `heygen/`, `r7ex/wh
 ```bash
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # cria edicoes/<data>-<slug>/ficha.yaml a partir do modelo
-#   → escreva o plano, a abertura, as 7 partes (fala + imagem/print + painel), o CTA e "publicar"
-python3 r7ex.py checar edicoes/<pasta>      # portão da ficha
+#   → escreva o plano, o gancho (PADRAO §2.1), a abertura, as 7 partes (fala + imagem/print + painel), o CTA e "publicar"
+python3 r7ex.py checar edicoes/<pasta>      # portão da ficha (inclui o gancho v1.2.0)
 python3 r7ex.py plano edicoes/<pasta>       # crítico de viralidade (D15): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6
 #   produto citado → `logos:` (logo real, D13); lista no alto (`lista:`), embaixo uma coisa só (`painel.titulo|contador|logo`, D14)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # só com o OK do Nei para esta produção

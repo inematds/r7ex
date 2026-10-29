@@ -33,6 +33,22 @@ def abertura(p, dy=110):
     dst = Path(p).with_name("abertura-desce.png"); out.save(dst); return dst
 
 
+BATIDAS = (1.05, 1.10)   # v1.2.0: aproximações da capa em 1 s e 2 s (≤ 1,25× com texto, DESIGN; a manchete fica na tela)
+
+
+def batidas(desce, ancora_y=480):
+    """v1.2.0 (28/10/2026): a capa troca de quadro a cada ~1 s até os 3 s — dois cortes secos de aproximação na mesma arte,
+    presos em y=480 (meio da manchete), para a manchete crescer sem sair da tela. → abertura-desce-1.png, -2.png"""
+    im = Image.open(desce).convert("RGB"); out = []
+    for i, k in enumerate(BATIDAS, 1):
+        w, h = W / k, H / k
+        x0, y0 = (W - w) / 2, ancora_y - ancora_y / k
+        dst = Path(desce).with_name(f"abertura-desce-{i}.png")
+        im.crop((round(x0), round(y0), round(x0 + w), round(y0 + h))).resize((W, H), Image.LANCZOS).save(dst)
+        out.append(dst)
+    return out
+
+
 def screenshot(url, saida):
     """print 540x960 @2x da página (Chrome headless do Playwright)"""
     if not CHROME:

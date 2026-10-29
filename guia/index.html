@@ -129,7 +129,7 @@
     <a class="sec" href="#fluxo">Como funciona</a>
     <a class="sec" href="#guia">Guia de uso</a>
     <a class="sec" href="#exemplos">Exemplos</a>
-    <a class="sec" href="#novidades">Novidades</a>
+    <a class="sec" href="#gancho">Novidades</a>
     <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
     <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
     <a class="btn" href="https://github.com/inematds/r7ex" target="_blank" rel="noopener">GitHub</a>
@@ -140,7 +140,7 @@
   <div class="glow"></div>
   <div class="wrap">
     <div>
-      <span class="chip">Reel 9:16 · 7 etapas · telejornal · v1.1.0</span>
+      <span class="chip">Reel 9:16 · 7 etapas · telejornal · v1.2.0</span>
       <h1>Da tese ao reel que <span class="amb">viraliza</span></h1>
       <p class="lead">Roteiro de 7 etapas de gatilho com cara de telejornal: o Claude escreve, o Codex desenha, o HeyGen fala e o motor sincroniza tudo com a voz.</p>
       <div class="cta">
@@ -154,7 +154,7 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">Em resumo</span>
-  <p>O r7ex é a linha de produção de reels verticais (9:16) do INEMA. Você entrega uma ideia forte, a tese, e ele monta um vídeo de cerca de 40 a 46 segundos (sempre abaixo de 1 minuto) com o avatar do Nei falando, imagens geradas pelo Codex e um acabamento de telejornal: título na abertura, painéis que entram na palavra certa, contador e legenda que acende junto com a fala. O roteiro segue 7 etapas de gatilho, do gancho com número até o pedido de comentário, sempre levando a pessoa ao inema.club. Para usar é preciso Python, Node, o Codex e a assinatura do HeyGen, rodando na máquina do INEMA.</p>
+  <p>O r7ex é a linha de produção de reels verticais (9:16) do INEMA. Você entrega uma ideia forte, a tese, e ele monta um vídeo de cerca de 40 a 46 segundos (sempre abaixo de 1 minuto) com o avatar do Nei falando, imagens geradas pelo Codex e um acabamento de telejornal: título na abertura, painéis que entram na palavra certa, contador e legenda que acende junto com a fala. O roteiro segue 7 etapas de gatilho, do gancho (um de 5 tipos, com a manchete já escrita no primeiro quadro) até o pedido de comentário, sempre levando a pessoa ao inema.club. Para usar é preciso Python, Node, o Codex e a assinatura do HeyGen, rodando na máquina do INEMA.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
@@ -163,7 +163,7 @@
   <p class="sub"><strong>r7ex = r7e + x.</strong> O r7e (reel7etapas) dá o roteiro em 7 etapas; o x vem do eventosextremospub, o acabamento de telejornal que mais viralizou. O repo funciona sozinho, com cópia própria de tudo.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="As partes do r7ex: gancho com número, 7 etapas, telejornal, karaokê, avatar e fila" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🎯 Plano antes da fala</h3><p>Público, o que a pessoa quer, gancho com número e fonte, nota de potencial (abaixo de 8 troca o ângulo) e a página do inema.club que resolve.</p></div>
+    <div class="card"><h3>🎯 Plano antes da fala</h3><p>Público, o que a pessoa quer, gancho de um dos 5 tipos com número e fonte (nunca lista), nota de potencial (abaixo de 8 troca o ângulo) e a página do inema.club que resolve. Um tema por vídeo.</p></div>
     <div class="card"><h3>📺 Cara de telejornal</h3><p>Título desenhado na abertura, preto e amarelo, faixa com selo vermelho, painéis e contadores no tempo da fala e legenda karaokê.</p></div>
     <div class="card"><h3>🧩 Independente</h3><p>Motor de render, estúdio do HeyGen, transcrição, trilha, envio ao bot e fila copiados para dentro do repo. Mudar aqui não afeta os outros projetos.</p></div>
   </div>
@@ -181,7 +181,7 @@
   <p class="sub">A ordem das etapas 2 a 6 pode se adaptar ao tema (no reel "Quem fatura em 2027" a etapa 3 virou prova), mas são sempre 7 partes.</p>
   <div class="tw"><table>
     <tr><th>Etapa</th><th>Fala</th><th>Tela</th></tr>
-    <tr><td>1. Gancho (medo)</td><td>"Hackers invadiram o OpenCode… US$ 1.700 numa noite"</td><td class="mut">abertura com o título desenhado + contador 0 → 1.700</td></tr>
+    <tr><td>1. Gancho (terceiro)</td><td>"Um cara foi dormir e acordou com mil e setecentos dólares de conta de IA…"</td><td class="mut">manchete "ACORDOU DEVENDO US$ 1.700" desenhada na capa com a chave partida; cortes de aproximação em 1 s e 2 s</td></tr>
     <tr><td>2. Medo</td><td>"A chave é a senha que a IA usa… a sua pode ser a próxima"</td><td class="mut">encapuzado puxando a chave + painel vermelho</td></tr>
     <tr><td>3. Desejo</td><td>"Imagina dormir sabendo que… o prejuízo tem teto"</td><td class="mut">homem dormindo + "prejuízo com teto"</td></tr>
     <tr><td>4. Facilidade</td><td>"Você não precisa ser especialista, nem programador"</td><td class="mut">painel de limite + "sem ser especialista"</td></tr>
@@ -240,7 +240,7 @@
 
   <div class="step"><div class="b">2</div><div>
     <h3>Passar no portão da ficha</h3>
-    <p>Confere 7 partes, fala entre 450 e 620 caracteres (reel de lista: até 800, com <code>fala_max</code> e <code>fala_max_motivo</code> na ficha) e se cada palavra dos painéis existe na fala daquela parte. Depois, <code>plano</code> dá nota ao roteiro: precisa de gancho ≥ 8 e média ≥ 7,5 antes de gravar o avatar.</p>
+    <p>Confere 7 partes, fala entre 450 e 620 caracteres (um tema com muitos itens: até 800, com <code>fala_max</code> e <code>fala_max_motivo</code> na ficha), se cada palavra dos painéis existe na fala daquela parte e o bloco <code>gancho</code>: tipo válido, manchete de até 6 palavras diferente da fala, prova até ~20 s e absolvição. Gancho de lista reprova. Depois, <code>plano</code> dá nota ao roteiro: precisa de gancho ≥ 8 e média ≥ 7,5 antes de gravar o avatar.</p>
 <pre><span class="k">python3 r7ex.py checar</span> <span class="s">edicoes/&lt;data&gt;-hacker</span>
 <span class="k">python3 r7ex.py plano</span> <span class="s">edicoes/&lt;data&gt;-hacker</span>   <span class="c"># nota do plano</span></pre>
   </div></div>
@@ -285,6 +285,38 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   </div>
 </div></section>
 
+<section id="gancho"><div class="wrap">
+  <span class="chip">Novidades · v1.2.0 · 28/10/2026</span>
+  <h2>O gancho decide nos 3 primeiros segundos</h2>
+  <p class="sub">Comparamos os reels do r7ex com reels que prendem: eles usavam a mesma forma, mas não as técnicas de chamada. A edição de 28/10 abriu com "5 novidades de IA…", um gancho de lista, que nenhum dos reels de referência usa. A versão 1.2.0 trata o primeiro quadro como a capa do vídeo.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Tipo de gancho</th><th>O que é</th><th>Manchete de exemplo</th></tr></thead>
+    <tbody>
+    <tr><td><code>contrario</code></td><td>manda parar ou inverte o senso comum</td><td class="mut">PARA DE CORRIGIR IA NO CHAT</td></tr>
+    <tr><td><code>perda</code></td><td>perda hipotética</td><td class="mut">E SE SEU CHAT SUMISSE AMANHÃ?</td></tr>
+    <tr><td><code>estatistica</code></td><td>número que dá medo, com fonte conferida</td><td class="mut">METADE DO CÓDIGO É LIXO</td></tr>
+    <tr><td><code>terceiro</code></td><td>história de outra pessoa, com número</td><td class="mut">ACORDOU DEVENDO US$ 1.700</td></tr>
+    <tr><td><code>noticia</code></td><td>fato desta semana, com data e fonte</td><td class="mut">SAIU O CARRO VOADOR?</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><span class="num">1</span><h3>Manchete mais forte que a fala</h3><p>No primeiro quadro a manchete já está escrita: até 6 palavras, em caixa alta, com uma palavra em amarelo. Ela diz mais forte do que a voz: a tela manda "PARA DE CORRIGIR", e a voz diz "eu acho que você não devia". Lista ("5 novidades…"), "você sabia…" e "eu fiz…" são reprovados pelo <code>checar</code>.</p></div>
+    <div class="card"><span class="num">2</span><h3>Objeto com dano e troca a cada 1 s</h3><p>No centro da capa aparece um objeto quebrado ou ameaçado, como uma lixeira, uma chave partida ou um risco vermelho. Nos 3 primeiros segundos a imagem muda de enquadramento a cada segundo: a capa no 0 s e duas aproximações, em 1 s e em 2 s, sem tirar a manchete da tela.</p></div>
+    <div class="card"><span class="num">3</span><h3>Prova, absolvição e um tema</h3><p>O número com fonte aparece até os 20 segundos. Logo depois vem o problema de quem assiste, sem culpa ("não é falta de estudo, ninguém te deu o mapa"). Cada vídeo trata um tema só: se o pedido traz vários, a ficha propõe um vídeo para cada um.</p></div>
+  </div>
+  <div class="ex" style="margin-top:22px">
+    <figure><img src="assets/v120-gancho.jpg" alt="Três quadros da capa com a manchete PARA DE CORRIGIR IA NO CHAT, em 0, 1 e 2 segundos, cada um um pouco mais próximo" loading="lazy"><figcaption>Teste da montagem na versão 1.2.0, com uma manchete de teste sobre uma ilustração de chat riscado de vermelho: a capa em 0 s e os cortes de aproximação em 1 s e em 2 s. O rosto do Nei entra na metade de baixo, que não aparece aqui.</figcaption></figure>
+  </div>
+  <pre style="margin-top:22px"><code>gancho:
+  tipo: terceiro
+  manchete: "ACORDOU DEVENDO US$ 1.700"   # até 6 palavras, caixa alta
+  destaque: "1.700"                       # a palavra em amarelo
+  objeto: "chave dourada partida, com um risco vermelho"
+  prova: {parte: 1, de: "1.700"}          # número com fonte até ~20 s
+  absolvicao: "não é descuido seu"        # igual na fala da parte 2 ou 3
+  fontes: [{nome: "relatos de usuários, out/2026", trecho: "US$ 1.700 numa noite"}]</code></pre>
+</div></section>
+
 <section id="novidades"><div class="wrap">
   <span class="chip">Novidades · v1.1.0 · 28/10/2026</span>
   <h2>Mais tempo para ler, ouvir e comentar</h2>
@@ -308,12 +340,13 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <div class="phase"><div class="tag">Lote 3</div><div class="d"><strong>Plano antes da fala</strong><span>Fala nova com o gatilho primeiro e o alívio no meio, CTA fixo, prints reais. "Ficou padrão" na forma.</span></div></div>
   <div class="phase"><div class="tag">Lote 4</div><div class="d"><strong>r7ex</strong><span>Mesma fala do lote 3 com o motor do telejornal. É o formato padrão a partir de agora.</span></div></div>
   <div class="phase"><div class="tag">v1.1.0</div><div class="d"><strong>Ritmo e cartão segurado (28/10/2026)</strong><span>Fala esticada para ~180 palavras/min, pausa antes da máxima, roteiro de 450–620 caracteres e o cartão do comentário 9 s na tela.</span></div></div>
+  <div class="phase"><div class="tag">v1.2.0</div><div class="d"><strong>Gancho no quadro 0 (28/10/2026)</strong><span>5 tipos de gancho, manchete de até 6 palavras mais forte que a fala, objeto com dano, troca de quadro a cada ~1 s, prova até 20 s e um tema por vídeo.</span></div></div>
 </div></section>
 
 <footer>
   <div class="wrap">
     <div class="pill">Python</div><div class="pill">Node + Chrome</div><div class="pill">Codex</div><div class="pill">HeyGen</div><div class="pill">Whisper</div>
-    <p style="margin-top:18px">r7ex v1.1.0 · licença MIT ·
+    <p style="margin-top:18px">r7ex v1.2.0 · licença MIT ·
       <a href="https://github.com/inematds/r7ex">github.com/inematds/r7ex</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
   </div>
