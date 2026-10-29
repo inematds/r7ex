@@ -289,18 +289,19 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <span class="chip">Novedades · v1.2.0 · 28/10/2026</span>
   <h2>El gancho se decide en los primeros 3 segundos</h2>
   <p class="sub">Comparamos los reels de r7ex con reels que enganchan: usaban la misma estructura, pero no las técnicas para llamar la atención. La edición del 28/10 empezaba con "5 novedades de IA…", un gancho en forma de lista que no aparece en ninguno de los reels de referencia. La versión 1.2.0 trata el primer cuadro como la portada del video.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Tipo de gancho</th><th>Qué es</th><th>Titular de ejemplo</th></tr></thead>
+  <div class="tw"><table style="min-width:0">
+    <thead><tr><th>Tipo de gancho</th><th>Qué es</th></tr></thead>
     <tbody>
-    <tr><td><code>contrario</code></td><td>manda parar o invierte el sentido común</td><td class="mut">PARA DE CORRIGIR IA NO CHAT</td></tr>
-    <tr><td><code>perda</code></td><td>pérdida hipotética</td><td class="mut">E SE SEU CHAT SUMISSE AMANHÃ?</td></tr>
-    <tr><td><code>estatistica</code></td><td>número que asusta, con la fuente verificada</td><td class="mut">METADE DO CÓDIGO É LIXO</td></tr>
-    <tr><td><code>terceiro</code></td><td>historia de otra persona, con un número</td><td class="mut">ACORDOU DEVENDO US$ 1.700</td></tr>
-    <tr><td><code>noticia</code></td><td>hecho de esta semana, con fecha y fuente</td><td class="mut">SAIU O CARRO VOADOR?</td></tr>
+    <tr><td><code>contrario</code><br><strong>PARA DE CORRIGIR IA NO CHAT</strong><br><small class="mut">(deja de corregir la IA en el chat)</small></td><td>manda parar o invierte el sentido común</td></tr>
+    <tr><td><code>perda</code><br><strong>E SE SEU CHAT SUMISSE AMANHÃ?</strong><br><small class="mut">(¿y si tu chat desapareciera mañana?)</small></td><td>pérdida hipotética</td></tr>
+    <tr><td><code>estatistica</code><br><strong>METADE DO CÓDIGO É LIXO</strong><br><small class="mut">(la mitad del código es basura)</small></td><td>número que asusta, con la fuente verificada</td></tr>
+    <tr><td><code>terceiro</code><br><strong>ACORDOU DEVENDO US$ 1.700</strong><br><small class="mut">(despertó debiendo US$ 1.700)</small></td><td>historia de otra persona, con un número</td></tr>
+    <tr><td><code>noticia</code><br><strong>SAIU O CARRO VOADOR?</strong><br><small class="mut">(¿salió el coche volador?)</small></td><td>hecho de esta semana, con fecha y fuente</td></tr>
     </tbody>
   </table></div>
+  <p class="sub" style="margin-top:10px;font-size:.9rem">Los nombres de los tipos (contrario, perda, estatistica, terceiro, noticia) son los valores literales de <code>gancho.tipo</code> en la ficha. Los titulares quedan en portugués, tal como aparecen en el video; la traducción va debajo.</p>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><span class="num">1</span><h3>El titular es más potente que lo que se dice</h3><p>El titular ya aparece escrito en el primer cuadro: hasta 6 palabras, en mayúsculas, con una palabra en amarillo. Lo que dice es más contundente que la voz: la pantalla ordena "PARA DE CORRIGIR" y la voz dice "creo que no deberías". Las listas ("5 novedades…"), "¿sabías que…?" y "yo hice…" no pasan el <code>checar</code>.</p></div>
+    <div class="card"><span class="num">1</span><h3>El titular es más potente que lo que se dice</h3><p>El titular ya aparece escrito en el primer cuadro: hasta 6 palabras, en mayúsculas, con una palabra en amarillo. Lo que dice es más contundente que la voz: la pantalla dice "PARA DE CORRIGIR" (deja de corregir), y la voz dice "creo que no deberías". Las listas ("5 novedades…"), "¿sabías que…?" y "yo hice…" no pasan el <code>checar</code>.</p></div>
     <div class="card"><span class="num">2</span><h3>Objeto dañado y cambio cada 1 s</h3><p>En el centro de la portada aparece un objeto roto o amenazado, como una papelera, una llave partida o una marca roja. En los primeros 3 segundos, el encuadre cambia cada segundo: la portada en el segundo 0 y dos acercamientos, en los segundos 1 y 2, sin quitar el titular de la pantalla.</p></div>
     <div class="card"><span class="num">3</span><h3>Prueba, absolución y un tema</h3><p>El número con su fuente aparece antes de los 20 segundos. Justo después viene el problema de quien mira, sin culparlo ("no es falta de estudio, nadie te dio el mapa"). Cada video trata un solo tema: si la solicitud incluye varios, la ficha propone un video para cada uno.</p></div>
   </div>
@@ -313,7 +314,7 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   destaque: "1.700"                       # la palabra en amarillo
   objeto: "chave dourada partida, com um risco vermelho"
   prova: {parte: 1, de: "1.700"}          # número con fuente hasta ~20 s
-  absolvicao: "não é descuido seu"        # igual na fala da parte 2 ou 3
+  absolvicao: "não é descuido seu"        # igual que en el diálogo de la parte 2 o 3
   fontes: [{nome: "relatos de usuários, out/2026", trecho: "US$ 1.700 numa noite"}]</code></pre>
 </div></section>
 

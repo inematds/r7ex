@@ -289,18 +289,19 @@ edicoes/&lt;pasta&gt;/build/folha.jpg</pre>
   <span class="chip">What’s new · v1.2.0 · 28/10/2026</span>
   <h2>The hook is decided in the first 3 seconds</h2>
   <p class="sub">We compared r7ex reels with reels that hold attention: they used the same format, but not the same hook techniques. The 28/10 edit opened with "5 AI updates…", a list hook that none of the reference reels use. Version 1.2.0 treats the first frame as the video cover.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Hook type</th><th>What it is</th><th>Example headline</th></tr></thead>
+  <div class="tw"><table style="min-width:0">
+    <thead><tr><th>Hook type</th><th>What it is</th></tr></thead>
     <tbody>
-    <tr><td><code>contrario</code></td><td>tells you to stop or turns common sense upside down</td><td class="mut">PARA DE CORRIGIR IA NO CHAT</td></tr>
-    <tr><td><code>perda</code></td><td>hypothetical loss</td><td class="mut">E SE SEU CHAT SUMISSE AMANHÃ?</td></tr>
-    <tr><td><code>estatistica</code></td><td>a scary number, with a verified source</td><td class="mut">METADE DO CÓDIGO É LIXO</td></tr>
-    <tr><td><code>terceiro</code></td><td>someone else’s story, with a number</td><td class="mut">ACORDOU DEVENDO US$ 1.700</td></tr>
-    <tr><td><code>noticia</code></td><td>this week’s news, with a date and source</td><td class="mut">SAIU O CARRO VOADOR?</td></tr>
+    <tr><td><code>contrario</code><br><strong>PARA DE CORRIGIR IA NO CHAT</strong><br><small class="mut">(stop correcting AI in the chat)</small></td><td>tells you to stop or turns common sense upside down</td></tr>
+    <tr><td><code>perda</code><br><strong>E SE SEU CHAT SUMISSE AMANHÃ?</strong><br><small class="mut">(what if your chat disappeared tomorrow?)</small></td><td>hypothetical loss</td></tr>
+    <tr><td><code>estatistica</code><br><strong>METADE DO CÓDIGO É LIXO</strong><br><small class="mut">(half the code is junk)</small></td><td>a scary number, with a verified source</td></tr>
+    <tr><td><code>terceiro</code><br><strong>ACORDOU DEVENDO US$ 1.700</strong><br><small class="mut">(woke up owing US$1,700)</small></td><td>someone else’s story, with a number</td></tr>
+    <tr><td><code>noticia</code><br><strong>SAIU O CARRO VOADOR?</strong><br><small class="mut">(did the flying car come out?)</small></td><td>this week’s news, with a date and source</td></tr>
     </tbody>
   </table></div>
+  <p class="sub" style="margin-top:10px;font-size:.9rem">The type names (contrario, perda, estatistica, terceiro, noticia) are the literal values of <code>gancho.tipo</code> in the sheet. The headlines stay in Portuguese, as they appear in the video; the translation goes below.</p>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><span class="num">1</span><h3>Headline stronger than the speech</h3><p>The headline is already written in the first frame: up to 6 words, in uppercase, with one word in yellow. It says it more forcefully than the voice: the screen says "STOP CORRECTING", while the voice says "I don’t think you should". Lists ("5 updates…"), "did you know…" and "I made…" are rejected by <code>checar</code>.</p></div>
+    <div class="card"><span class="num">1</span><h3>Headline stronger than the speech</h3><p>The headline is already written in the first frame: up to 6 words, in uppercase, with one word in yellow. It says it more forcefully than the voice: the screen says "PARA DE CORRIGIR" (stop correcting), and the voice says "I don't think you should". Lists ("5 updates…"), "did you know…" and "I made…" are rejected by <code>checar</code>.</p></div>
     <div class="card"><span class="num">2</span><h3>Damaged object and a change every 1 s</h3><p>A broken or threatened object appears in the center of the cover, such as a trash can, a broken key, or a red scratch. In the first 3 seconds, the image changes framing every second: the cover at 0 s and two zooms, at 1 s and 2 s, without removing the headline from the screen.</p></div>
     <div class="card"><span class="num">3</span><h3>Proof, absolution, and one topic</h3><p>The sourced number appears by 20 seconds. Right after that comes the viewer’s problem, without blame ("it’s not that you haven’t studied; nobody gave you the map"). Each video covers just one topic: if the request includes several, the sheet proposes one video for each.</p></div>
   </div>
