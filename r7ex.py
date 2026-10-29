@@ -547,7 +547,8 @@ def cmd_fila(pasta):
         falha("fila do canal desligada nesta máquina (R7X_SEM_FILA): nada vai para o YouTube daqui")
     p, f = ficha(pasta); pub = f["publicar"]
     subprocess.run(["python3", R / "fila/fila.py", "--add", p / "video.mp4", "--nome", f["tema"], "--titulo", pub["titulo"],
-                    "--contexto", pub["contexto"], "--canal", pub.get("fila", "lives7")], check=True)
+                    "--contexto", pub["contexto"], "--canal", pub.get("fila", "lives7")]
+                   + (["--playlist", pub["playlist"]] if pub.get("playlist") else []), check=True)
 
 
 def cmd_fazer(pasta, de=None):

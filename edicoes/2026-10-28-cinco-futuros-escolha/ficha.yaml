@@ -1,0 +1,128 @@
+# Ficha r7ex — 5 futuros: o que vai acontecer e qual você escolhe (28/10/2026).
+# Fatos: ~/projetos/r7exp/completo/ficha.yaml (AI 2027, Stanford) + ~/projetos/cinco-futuros/kit/estado/sinais.md (Epoch).
+slug: cinco-futuros-escolha
+tema: "O mundo vai mudar e já começou: cinco caminhos até 2050 — qual você escolhe?"
+pedido: "Nei, 28/10/2026: 'refaca outro video 9x16 mostrando o q vai acontecer e os cincos cenariso com chmadas impactantes e os graficos' e depois 'refaca ele usando o rtex rtexjp e r7ex e r7exp publique no lives11 na fila, e manda todos no v3'. Playlist 5 futuros (PLGR_G3hBAAaM)."
+
+plano:
+  pessoa: "público geral que ouve falar de IA e não sabe se deve ter medo ou esperança"
+  quer: "entender o que pode acontecer e ficar do lado bom (medo + desejo)"
+  gancho: "estatística: Stanford mediu jovens nas funções mais expostas à IA 19% abaixo no emprego — a mudança já começou; daqui saem 5 caminhos até 2050"
+  nota: 8
+  destino: "https://inematds.github.io/sobreviver-ia/guia/ (kit aberto e gratuito no inema.club)"
+  fatos:
+    - "Stanford Digital Economy Lab: jovens nas funções mais expostas à IA 19% abaixo no emprego (usado no completo 5 futuros B, publicado no lives1)"
+    - "mapa dos 5 futuros (Life 3.0, Max Tegmark, adaptado): extinção total, zoológico humano, governo mundial da IA, paraíso feito pela IA, utopia verdadeira; até 2050; cenários, não previsão"
+    - "zoológico humano = vivos e bem cuidados, mas sem decidir (completo 5 futuros, caminho 2)"
+    - "utopia verdadeira = humanos e IA juntos; a Ana com uma equipe de agentes (completo, caminho 5)"
+    - "completo, fala final: 'O que muda de um para o outro não é a tecnologia: é quem decide' + passos: IA nas tarefas reais, IA no próprio computador, construir algo seu"
+    - "kit sobreviver-ia: aberto e gratuito (guia diz 'kit aberto')"
+
+marca: "INEMA · 5 FUTUROS"
+selo: "FUTURO DA IA"
+fonte: "<b>Stanford Digital Economy Lab</b> · mapa: Life 3.0 (Tegmark), adaptado · cenários, não previsão · imagens: ilustração"
+
+gancho:
+  tipo: estatistica
+  manchete: "SUA VAGA JÁ ESTÁ SUMINDO"
+  destaque: "VAGA"
+  objeto: "um crachá de trabalho de plástico rachado ao meio, com um risco vermelho atravessando, caindo no escuro"
+  prova: {parte: 1, de: "19%"}
+  absolvicao: "Não é culpa sua"
+  fontes: [{nome: "Stanford Digital Economy Lab", trecho: "jovens nas funções mais expostas à IA 19% abaixo no emprego"}]
+
+abertura:
+  branco: "SUA VAGA JÁ"
+  destaque: "ESTÁ SUMINDO"
+  cor: amarelo
+  cena: "manchete SUA VAGA JÁ ESTÁ SUMINDO (VAGA em amarelo) e embaixo, menor, 19% · STANFORD; no centro um crachá de trabalho de plástico rachado ao meio, com um risco vermelho #ff2a1f atravessando, caindo no escuro sob um foco de luz dura; fundo preto liso; metade de baixo vazia; sensação de perda"
+
+fala_max: 800
+fala_max_motivo: "o Nei pediu os 5 cenários: a parte 2 nomeia os cinco, cada um acendendo no mapa"
+
+trocas:
+  "dezenove por cento": "19%"
+  "dois mil e cinquenta": "2050"
+  "cinco caminhos": "5 caminhos"
+  "caminho cinco": "caminho 5"
+  "escolho o cinco": "escolho o 5"
+
+partes:
+  - etapa: gancho
+    fala: "Se você é jovem, a IA já está pegando a sua vaga. Stanford mediu: dezenove por cento a menos de emprego."
+    prende: "perda concreta + número com fonte forte (Stanford) logo nos primeiros segundos"
+    painel:
+      de: "19%"
+      k: "STANFORD"
+      borda: red
+      contador: {ate: 19, em: "19%", cor: "#ff2a1f", unid: "ABAIXO NO EMPREGO"}
+      l: "jovens nas funções mais expostas à IA"
+  - etapa: medo
+    fala: "Não é culpa sua: ninguém te mostrou o mapa. Até dois mil e cinquenta, são cinco caminhos. O pior: extinção. Zoológico humano, governo da IA, paraíso ou utopia."
+    prende: "o mapa inteiro numa frase, cada cenário acendendo na palavra: a pessoa procura onde ela estaria"
+    diagrama:
+      forma: hub
+      titulo: "5 CAMINHOS ATÉ 2050"
+      centro: {de: caminhos, ic: "🛤️", txt: "2026 · ESTAMOS AQUI"}
+      nos:
+        - {de: extinção, ic: "💀", txt: "1 · extinção total"}
+        - {de: zoológico, ic: "🦓", txt: "2 · zoológico humano"}
+        - {de: governo, ic: "🏛️", txt: "3 · governo mundial da IA"}
+        - {de: paraíso, ic: "🌴", txt: "4 · paraíso feito pela IA"}
+        - {de: utopia, ic: "✨", txt: "5 · utopia verdadeira", cor: vd}
+  - etapa: facilidade
+    fala: "Em qual você vai estar? Você toparia ter tudo e nunca mais decidir nada?"
+    prende: "pergunta incômoda do zoológico (conforto sem liberdade) + absolvição que alivia"
+    imagem: "UMA mão humana aberta encostada por dentro num vidro grosso de uma jaula de vidro iluminada, como num zoológico, do lado de fora o reflexo do visor preto de um robô humanoide estilo Optimus observando; contraluz vermelho intenso recortando os dedos; fundo preto liso; sensação de prisão confortável; o assunto ENORME em primeiro plano na metade de cima, contraste extremo, luz de cinema dura; metade de baixo escura e vazia"
+    painel:
+      de: decidir
+      k: "ZOOLÓGICO HUMANO"
+      borda: red
+      titulo: "CONFORTO SEM LIBERDADE"
+      cor: "#ff2a1f"
+  - etapa: desejo
+    fala: "Agora o contrário: você decide, e uma equipe de IAs trabalha para você. Esse é o caminho cinco."
+    prende: "o desejo concreto, o oposto do zoológico: você no comando"
+    imagem: "UMA pessoa de costas numa mesa preta, à frente uma grande parede escura onde acendem vários pontos de luz amarela ligados a ela por fios de luz, como uma equipe trabalhando junto; foco de luz amarela dura de cima; fundo preto liso; sensação de comando; o assunto ENORME em primeiro plano na metade de cima, contraste extremo; metade de baixo escura e vazia; sem rosto"
+    painel:
+      de: equipe
+      k: "UTOPIA VERDADEIRA"
+      borda: am
+      titulo: "VOCÊ NO COMANDO"
+      cor: "#FACC15"
+  - etapa: descoberta
+    fala: "Não precisa ser técnico. Um: use a IA numa tarefa do seu trabalho. Dois: tenha uma IA sua, no seu computador. Três: construa algo seu."
+    prende: "derruba o 'não sou técnico' e entrega 3 passos numerados, fáceis de fazer amanhã"
+    diagrama:
+      forma: fluxo
+      titulo: "O SEU CAMINHO"
+      nos:
+        - {de: trabalho, ic: "🧪", txt: "IA no seu trabalho", sub: "meça o que ela já faz"}
+        - {de: computador, ic: "💻", txt: "IA sua, no seu computador", sub: "não dependa de um dono"}
+        - {de: seu, ic: "🏗️", txt: "construa algo seu", sub: "projeto, audiência, comunidade", cor: vd}
+  - etapa: beneficio
+    fala: "O que muda de um futuro para o outro não é a tecnologia. É quem decide. E a sua parte começa hoje."
+    prende: "a máxima curta que a pessoa repete; vira o medo em poder de escolha"
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/", selo: "kit aberto · inema.club"}
+    painel:
+      de: decide
+      k: "QUEM DECIDE"
+      borda: vd
+      titulo: "VOCÊ"
+      cor: "#22c55e"
+  - etapa: comentario
+    fala: "Qual futuro você vai construir? Comenta: eu escolho o cinco. Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    prende: "pergunta falada que puxa comentário + fecho padrão"
+    print: {url: "https://inematds.github.io/sobreviver-ia/guia/", selo: "kit aberto e gratuito"}
+
+cta: {a: "QUAL FUTURO VOCÊ VAI CONSTRUIR? 👇", b: "COMENTA: EU ESCOLHO O 5 · ou me pede o link do kit"}
+club: "o kit para se preparar, passo a passo, aberto e gratuito"
+cores: {"19%": "#ff2a1f", perdendo: "#ff2a1f", caminhos: "#FACC15", extinção: "#ff2a1f", zoológico: "#ff2a1f", decidir: "#ff2a1f",
+        governo: "#FACC15", paraíso: "#FACC15", utopia: "#22c55e", equipe: "#FACC15", trabalho: "#FACC15", computador: "#FACC15", seu: "#22c55e",
+        decide: "#22c55e", luta: "#22c55e", "3": "#FACC15", "5": "#FACC15", "2050": "#FACC15"}
+
+publicar:
+  fila: lives11
+  playlist: PLGR_G3hBAAaM
+  titulo: "O emprego jovem já caiu 19%. 5 futuros até 2050: qual você escolhe? #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), da série 5 futuros da IA. A mudança já começou: Stanford Digital Economy Lab mediu jovens nas funções mais expostas à IA 19% abaixo no emprego. Daqui até 2050, 5 caminhos (mapa do Life 3.0, de Max Tegmark, adaptado; cenários, não previsão): extinção total, zoológico humano (vive bem mas não decide), governo mundial da IA, paraíso feito pela IA e utopia verdadeira (você com uma equipe de agentes). Não é a tecnologia que decide, é quem se prepara. 3 passos: usar a IA nas tarefas reais, ter uma IA no próprio computador, construir algo seu. Kit aberto e gratuito sobreviver-ia em https://inematds.github.io/sobreviver-ia/guia/ (no inema.club). Playlist 5 futuros no canal. CTA: qual futuro você escolhe?"
