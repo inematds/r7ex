@@ -111,6 +111,12 @@ def estado_inicial(p):
     return "enviar_avatar"
 
 
+def so_v3(p):
+    """publicar.so_v3: true na ficha = vídeo de teste, entregue só no v3 (Nei 29/10/2026: 'faz aqueles vídeos e me manda')."""
+    import yaml
+    return bool(((yaml.safe_load((p / "ficha.yaml").read_text()) or {}).get("publicar") or {}).get("so_v3"))
+
+
 def na_fila(p):
     if not FILA.exists():
         return False
@@ -204,7 +210,9 @@ def passo(pasta, it, feito):
             with Estado() as d:
                 d[pasta]["enviado_v3"] = True
         lugar = "já estava na fila"
-        if not na_fila(p):                                # nunca entra duas vezes na fila
+        if so_v3(p):                                      # teste (publicar.so_v3: true): só no v3, sem fila nem YouTube
+            lugar = "mandado só ao v3 (teste, sem fila)"
+        elif not na_fila(p):                              # nunca entra duas vezes na fila
             rc, out = roda(["fila", pasta], 300, logp)
             if rc:
                 para(pasta, f"entrada na fila: {out}"); return False

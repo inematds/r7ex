@@ -46,7 +46,7 @@ o explicavideos nem o cardshorts.
 |---|---|---|---|
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
-| 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição — v1.2.0), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
+| 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição, entrega — v1.3.1; tipo `provocacao` no PADRAO §2.2), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
 | 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova) | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
@@ -187,7 +187,7 @@ Tudo isso foi **copiado** para cá (não é link): `motor/`, `heygen/`, `r7ex/wh
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # cria edicoes/<data>-<slug>/ficha.yaml a partir do modelo
 #   → escreva o plano, o gancho (PADRAO §2.1), a abertura, as 7 partes (fala + imagem/print + painel), o CTA e "publicar"
-python3 r7ex.py checar edicoes/<pasta>      # portão da ficha (inclui o gancho v1.2.0)
+python3 r7ex.py checar edicoes/<pasta>      # portão da ficha (inclui o gancho v1.3.1)
 python3 r7ex.py plano edicoes/<pasta>       # crítico de viralidade (D15): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6
 #   produto citado → `logos:` (logo real, D13); lista no alto (`lista:`), embaixo uma coisa só (`painel.titulo|contador|logo`, D14)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # só com o OK do Nei para esta produção

@@ -1,0 +1,176 @@
+slug: prov-nenhum-aumento
+tema: 'Figure, Atlas e Optimus correm para trabalhar em fábricas em escala: e se o robô ficar com o seu trabalho?'
+pedido: 'Nei, 29/10/2026: "vamos fazer um teste com as sugestoes q vc falou sobre os robos faz aqueles videos e me manda". TESTE do gancho de provocação (PADRAO §2.2), mesmo miolo de 2026-10-28-corrida-humanoides-emprego;
+  só a abertura muda.'
+plano:
+  pessoa: quem trabalha em fábrica, armazém, logística ou qualquer serviço repetitivo e já viu vídeo de robô humanoide e pensou no próprio emprego
+  quer: não ser trocado por um robô (dor) e virar a pessoa que opera e programa esses robôs (desejo)
+  gancho: 'perda hipotética do emprego, com fato: a Hyundai e a Boston Dynamics planejam começar com vinte e cinco mil robôs Atlas nas fábricas da Hyundai e da Kia (anúncio do RMAC citado na referência
+    jHb70I1Zqiw)'
+  nota: 8
+  destino: 'https://inematds.github.io/HG1/ (HG1: Academia de Humanoides, 7 tiers, 70+ módulos, 100% gratuito, no inema.club)'
+  fatos:
+  - 'Hyundai/Boston Dynamics (transcrição da referência jHb70I1Zqiw, src/transcript.txt): ''Boston Dynamics'' RMAC announcement describes plans that begin with 25,000 Atlas robots across Hyundai Motor and
+    Kia plants worldwide. That is a plan for the coming years, rather than a headcount of robots already on the job.'' e ''Hyundai is targeting parts sequencing at Metaplant America beginning in 2028.'''
+  - 'Hyundai e empregos (mesma transcrição): ''Many viewers will also wonder what this means for factory jobs. The plan starts with repetitive parts handling, and Hyundai hasn''t said how many human roles
+    will change'' — por isso a fala só PERGUNTA ''e se…'', não afirma demissão'
+  - 'Figure 03 (mesma transcrição, relato do CEO da Figure): ''The robot ran over eight days, 200 hours straight, no breaks. Every time I needed a battery charge, it would swap the robot behind it. That
+    record relied on swaps, so no single battery lasted 200 hours.'' — tarefa de separação de pacotes (roteiro/pt.json: ''o Figure zero três aparece em tarefas de separação de pacotes... uma operação continuou
+    por cerca de duzentas horas... os robôs eram trocados quando precisavam carregar'')'
+  - 'Tesla Optimus (mesma transcrição): ''Elon Musk called Optimus the hardest product to scale manufacturing that we''ve ever made at Tesla'' — a corrida é para fabricar em escala'
+  - 'Boston Dynamics (mesma transcrição): ''Mark DiLeo, who leads Atlas Service and Repair, says the production version was made to be serviced in a customer environment'' e ''Repairs have to be quick because
+    a company running a large fleet cannot treat every breakdown like a research project'' — a fábrica com robôs precisa de gente que opera e conserta'
+  - 'HG1: Academia de Humanoides, página https://inematds.github.io/HG1/ (conferida 28/10/2026): ''7 Tiers Progressivos • 70+ Módulos • 100% Gratuito''; tiers ''Tier 1.0 Conhecendo Humanoides'' (✓ Principais
+    modelos (Unitree, Tesla, Figure)), ''Tier 2.0 Operando Humanoides'' (✓ Interfaces de controle ✓ Segurança e melhores práticas ✓ Simuladores (Gazebo, Isaac Sim)) e ''Tier 3.0 Programando Humanoides''
+    (✓ Python e ROS2 avançado ✓ Visão computacional e IA)'
+  - 'Área Robot do INEMA, https://eventos.inema.pro/robot/ (conferida 28/10/2026): ''Tesla Optimus, Unitree e Figure saíram do vídeo de demonstração e começam a entrar em fábricas. Estes dois cursos [HG1
+    e FTH], em português, mostram como eles funcionam e como programar um em simulador, sem comprar o robô.'' e ''7 cursos abertos'''
+gancho:
+  tipo: provocacao
+  manchete: NENHUM PEDE AUMENTO
+  destaque: AUMENTO
+  objeto: 'um contracheque de salário rasgado ao meio com um risco vermelho #ff2a1f, preso na mão metálica de um robô humanoide branco de visor preto'
+  prova:
+    parte: 1
+    de: '25.000'
+  absolvicao: não é culpa sua
+  fontes:
+  - nome: Boston Dynamics, anúncio do RMAC citado na referência jHb70I1Zqiw
+    trecho: plans that begin with 25,000 Atlas robots across Hyundai Motor and Kia plants worldwide
+  entrega: quem está trocando gente por robô e como virar quem opera e programa esses robôs, de graça
+marca: INEMA · ROBÔS E TRABALHO
+selo: ALERTA EMPREGO
+fonte: '<b>Boston Dynamics/Hyundai</b> · plano do RMAC (meta, não robôs já operando) · Figure: relato do CEO (200 h revezando robôs para carregar) · imagens: ilustração'
+abertura:
+  cor: amarelo
+  cena: 'uma fila de robôs humanoides brancos estilo Tesla Optimus, de visor preto oval, numa fábrica escura, passando o crachá num relógio de ponto antigo; em primeiro plano, um contracheque de salário
+    rasgado ao meio no chão, cortado por um risco vermelho #ff2a1f; foco de luz de cima; fundo preto liso; metade de baixo vazia; ironia e ameaça'
+ritmo:
+  pausa_antes:
+    parte: 6
+    de: robô
+trocas:
+  vinte e cinco mil: '25.000'
+  duzentas horas: 200 horas
+partes:
+- etapa: gancho
+  fala: A Hyundai quer vinte e cinco mil funcionários novos nas fábricas. Nenhum vai pedir aumento. São robôs.
+  prende: 'gancho de provocação (v1.3.1): afirma e cutuca, com nome ou número na 1ª frase; teste contra a versão 2026-10-28-corrida-humanoides-emprego'
+  painel:
+    de: '25.000'
+    k: PLANO HYUNDAI · BOSTON DYNAMICS
+    borda: red
+    contador:
+      ate: 25000
+      em: '25.000'
+      cor: '#ff2a1f'
+      unid: ROBÔS ATLAS NO PLANO
+    l: meta anunciada, não robôs já operando
+- etapa: medo
+  fala: 'E eles não cansam: na Figure, robôs separaram pacotes por duzentas horas seguidas. Se isso te dá medo, não é culpa sua: ninguém te mostrou o outro lado.'
+  prende: o medo fica concreto (máquina que não para) e a absolvição vem na hora, tirando a culpa de quem está assistindo
+  imagem: 'um único robô humanoide branco estilo Tesla Optimus, de visor preto oval, separando caixas de papelão numa esteira escura, movimento rápido, um relógio de parede vermelho #ff2a1f ao fundo, sob
+    um foco de luz vermelha de cima; fundo preto liso; metade de baixo vazia; sensação de máquina que não para; nenhum texto legível'
+  painel:
+    de: '200'
+    k: FIGURE · RELATO DO CEO
+    borda: red
+    titulo: 200 HORAS SEGUIDAS
+    l: revezando robôs para carregar
+    cor: '#ff2a1f'
+- etapa: desejo
+  fala: 'Agora imagina: o robô chega, e quem dá as ordens é você.'
+  prende: 'vira o medo em desejo: em vez de ser trocado, ser quem comanda a máquina'
+  imagem: uma pessoa de costas, sem rosto visível, de macacão de fábrica, segurando um tablet aceso em amarelo diante de um robô humanoide branco estilo Tesla Optimus de visor preto que obedece parado,
+    sob um foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de controle e orgulho; nenhum texto legível
+  painel:
+    de: ordens
+    k: O OUTRO LADO
+    borda: am
+    titulo: QUEM OPERA E CONSERTA
+    cor: '#FACC15'
+- etapa: facilidade
+  fala: 'Não precisa ser engenheiro nem ter robô: começa no simulador, de graça.'
+  prende: derruba as duas desculpas ('não sou técnico', 'robô é caro') de uma vez
+  imagem: um notebook aberto numa mesa preta mostrando na tela um robô humanoide virtual em 3D numa grade de simulador, a luz amarela da tela iluminando a mesa, sob um foco de luz amarela de cima; fundo
+    preto liso; metade de baixo vazia; sensação de que é fácil começar; nenhum texto legível
+  painel:
+    de: simulador
+    k: SEM COMPRAR O ROBÔ
+    borda: vd
+    titulo: NO SIMULADOR, GRÁTIS
+    cor: '#22c55e'
+- etapa: descoberta
+  fala: Na Academia de Humanoides você vê como ele funciona, aprende a operar e a programar.
+  prende: o nome da solução e um caminho de 3 passos fácil de lembrar, cada um acendendo na palavra
+  diagrama:
+    forma: fluxo
+    titulo: ACADEMIA DE HUMANOIDES
+    nos:
+    - de: funciona
+      ic: 🧠
+      txt: Como funciona
+      sub: Tesla, Figure, Unitree
+    - de: operar
+      ic: 🎮
+      txt: Operar
+      sub: controle e segurança
+    - de: programar
+      ic: 💻
+      txt: Programar
+      sub: Python, ROS 2, simulador
+      cor: vd
+  painel:
+    de: Academia
+    titulo: 3 PASSOS
+    cor: '#FACC15'
+- etapa: beneficio
+  fala: O robô vai chegar. A pergunta é quem manda nele.
+  prende: 'a máxima depois do silêncio: curta, dura e repetível; devolve o poder para quem assiste'
+  imagem: um único robô humanoide branco estilo Tesla Optimus, de visor preto oval, parado de pé numa fábrica escura, iluminado por um foco de luz amarela de cima, com a sombra de uma pessoa (sem rosto)
+    projetada à frente dele, maior que o robô; fundo preto liso; metade de baixo vazia; sensação de virada
+  painel:
+    de: manda
+    k: A PERGUNTA
+    borda: vd
+    titulo: QUEM MANDA NELE?
+    cor: '#22c55e'
+- etapa: comentario
+  fala: Você vai ser quem comanda? Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  prende: pergunta com compromisso positivo (a pessoa escreve 'eu vou'), oferta concreta e grátis
+  print:
+    url: https://inematds.github.io/HG1/
+    selo: 70+ módulos · 100% gratuito · inema.club
+cta:
+  de: comanda
+  a: VOCÊ VAI SER QUEM COMANDA? 👇
+  b: comenta EU VOU ou me pede o link
+  comentario: EU VOU APRENDER A COMANDAR 🤖
+club: a Academia de Humanoides, 70+ módulos grátis
+cores:
+  robô: '#ff2a1f'
+  trabalho: '#ff2a1f'
+  cansam: '#ff2a1f'
+  medo: '#ff2a1f'
+  culpa: '#FACC15'
+  opera: '#FACC15'
+  ordens: '#FACC15'
+  graça: '#22c55e'
+  simulador: '#22c55e'
+  Academia: '#FACC15'
+  funciona: '#FACC15'
+  operar: '#FACC15'
+  programar: '#22c55e'
+  manda: '#22c55e'
+  comanda: '#FACC15'
+  '25000': '#ff2a1f'
+  '200': '#ff2a1f'
+publicar:
+  fila: lives6
+  titulo: '25 mil funcionários novos. Nenhum pede aumento #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Robot. Gancho de medo: e se o robô ficar com o seu trabalho? A Boston Dynamics e a Hyundai planejam começar com 25.000 robôs humanoides
+    Atlas nas fábricas da Hyundai e da Kia (plano do RMAC, meta para os próximos anos, não robôs já operando; a Hyundai não disse quantos empregos vão mudar). Na Figure, os robôs Figure 03 separaram pacotes
+    por 200 horas seguidas revezando para carregar (relato do CEO). A Tesla diz que o Optimus é o produto mais difícil de fabricar em escala que ela já fez. Virada: em vez de ser trocado, ser quem opera,
+    conserta e programa esses robôs. Começa no simulador, sem comprar robô e de graça: HG1 Academia de Humanoides (7 tiers, 70+ módulos, 100% gratuito) https://inematds.github.io/HG1/ e a área Robot https://eventos.inema.pro/robot/
+    (inema.club). Máxima: ''O robô vai chegar. A pergunta é quem manda nele.'' Não inventar números. CTA: comente ''eu vou'' ou peça o link.'
+  so_v3: true

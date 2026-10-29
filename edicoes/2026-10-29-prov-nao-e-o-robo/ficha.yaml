@@ -1,0 +1,173 @@
+slug: prov-nao-e-o-robo
+tema: 'Robôs e IA já estão mudando o trabalho: você vai esperar ou se qualificar?'
+pedido: 'Nei, 29/10/2026: "vamos fazer um teste com as sugestoes q vc falou sobre os robos faz aqueles videos e me manda". TESTE do gancho de provocação (PADRAO §2.2), mesmo miolo de 2026-10-28-robos-mudando-trabalho;
+  só a abertura muda.'
+plano:
+  pessoa: trabalhador comum (fábrica, escritório, serviço) que vê robô e IA nas notícias e sente que o emprego dele pode ser o próximo
+  quer: não perder o emprego para um robô (dor) e virar quem trabalha com o robô, não quem é trocado por ele (desejo)
+  gancho: 'perda hipotética com número: e se amanhã um robô estiver no seu lugar? O Fórum Econômico Mundial calcula 92 milhões de empregos eliminados até 2030 (Future of Jobs Report 2025)'
+  nota: 8
+  destino: https://inematds.github.io/robot/ (Robótica do Zero ao Expert, curso aberto e gratuito, 6 trilhas, no inema.club)
+  fatos:
+  - 'Fórum Econômico Mundial, Future of Jobs Report 2025 (jan/2025): 92 milhões de empregos atuais deslocados/eliminados até 2030 (''displacement of the equivalent of 8% (or 92 million) of current jobs'');
+    usado no reel robo-trabalho de 09/10/2026 (''noventa e dois milhões de empregos eliminados até dois mil e trinta'')'
+  - 'Fórum Econômico Mundial, Future of Jobs Report 2025: ''job creation ... 170 million new roles'' até 2030 — vagas novas que pedem novas habilidades (requalificação)'
+  - 'Fórum Econômico Mundial, Future of Jobs Report 2025: 40% dos empregadores esperam reduzir pessoal onde a IA automatiza tarefas (a imprensa, ex. CNN jan/2025, noticiou 41%; o reel de 09/10 usou ''quarenta
+    e um por cento das empresas dizem que vão cortar vagas por causa da inteligência artificial'') — aqui dito como ''quatro em cada dez empresas'', que bate com as duas leituras'
+  - 'Página do curso https://inematds.github.io/robot/ (conferida 28/10/2026): ''Robótica do Zero ao Expert'' · ''CURSO ABERTO E GRATUITO · EDIÇÃO 2026'' · ''Comece pelo 1.1, sem comprar nada: tudo roda
+    no simulador'' · 6 trilhas: Trilha 1 ''Você monta: um rover que desvia de obstáculos'', Trilha 3 ''Visão e IA: Raspberry Pi 5, OpenCV e YOLO26 detectando objetos'', Trilha 5 ''o braço SO-101 que aprende
+    por demonstração'''
+  - 'Página https://eventos.inema.pro/mostratec/ (conferida 28/10/2026): ''Todos os cursos do INEMA.CLUB são abertos e gratuitos'' (base do ''grátis'', junto com a página do curso acima)'
+gancho:
+  tipo: contrario
+  manchete: NÃO É O ROBÔ
+  destaque: ROBÔ
+  objeto: 'um crachá de funcionário com foto apagada (sem rosto), partido ao meio e caído no chão, com um grande X vermelho #ff2a1f, e atrás dele a sombra de um robô humanoide ocupando a cadeira de trabalho'
+  prova:
+    parte: 1
+    de: '92'
+  absolvicao: ninguém te preparou
+  fontes:
+  - nome: Fórum Econômico Mundial, Future of Jobs Report 2025
+    trecho: displacement of the equivalent of 8% (or 92 million) of current jobs
+  entrega: por que o risco é o colega que domina a máquina e por onde começar a aprender robótica de graça
+marca: INEMA · ROBÔS E TRABALHO
+selo: ALERTA INEMA
+fonte: '<b>Fórum Econômico Mundial</b> · Future of Jobs Report 2025 · curso: inematds.github.io/robot · imagens: ilustração'
+abertura:
+  cor: amarelo
+  cena: 'uma estação de trabalho de fábrica no escuro, sob um foco de luz vermelha; na cadeira, um robô humanoide industrial estilo Tesla Optimus, painéis brancos e visor preto oval, trabalhando; no chão,
+    em primeiro plano, um crachá de funcionário partido ao meio com um X vermelho #ff2a1f (foto sem rosto); fundo preto liso; metade de baixo vazia; sensação de ter perdido o lugar'
+ritmo:
+  pausa_antes:
+    parte: 6
+    de: robô
+trocas:
+  Noventa e dois milhões: 92 milhões
+  noventa e dois milhões: 92 milhões
+  dois mil e trinta: '2030'
+  quatro em cada dez: 4 em 10
+  cento e setenta milhões: 170 milhões
+  três passos: 3 passos
+  Quatro em cada dez: 4 em 10
+partes:
+- etapa: gancho
+  fala: Para de ter medo do robô. Quem vai tirar teu emprego é o colega que manda nele. Noventa e dois milhões de vagas somem até dois mil e trinta.
+  prende: 'gancho de provocação (v1.3.1): afirma e cutuca, com nome ou número na 1ª frase; teste contra a versão 2026-10-28-robos-mudando-trabalho'
+  avatar: meia
+  painel:
+    de: '92'
+    k: FÓRUM ECONÔMICO MUNDIAL · 2025
+    borda: red
+    contador:
+      ate: 92
+      em: '92'
+      cor: '#ff2a1f'
+      unid: MILHÕES DE EMPREGOS ATÉ 2030
+- etapa: medo
+  fala: 'Quatro em cada dez empresas vão cortar gente pela IA. Não é culpa sua: ninguém te preparou.'
+  prende: o medo sai da fábrica e chega no escritório de quem assiste; logo vem a absolvição, que tira a culpa e segura a pessoa
+  imagem: 'um único robô humanoide industrial estilo Tesla Optimus, painéis brancos e visor preto oval, sentado numa mesa de escritório escura diante de um monitor aceso, enquanto uma caixa de papelão com
+    objetos pessoais (caneca, porta-retrato sem foto) é empurrada para fora da mesa, sob um foco de luz vermelha #ff2a1f; fundo preto liso; metade de baixo vazia; sensação de demissão'
+  painel:
+    de: '4'
+    k: EMPRESAS QUE VÃO CORTAR · FEM 2025
+    borda: red
+    titulo: 4 EM CADA 10
+    cor: '#ff2a1f'
+- etapa: desejo
+  fala: Mas vão nascer cento e setenta milhões de vagas novas. Imagina ser quem treina o robô.
+  prende: 'a virada: o mesmo estudo do medo traz a esperança, e a pessoa se vê do outro lado, mandando no robô'
+  imagem: 'mãos humanas com luvas de trabalho ajustando o braço de um robô humanoide estilo Tesla Optimus, visor preto oval, numa bancada escura, faíscas amarelas suaves saindo da junta, sob um foco de
+    luz amarela #FACC15 de cima; sem rosto humano; fundo preto liso; metade de baixo vazia; sensação de controle'
+  painel:
+    de: '170'
+    k: VAGAS NOVAS ATÉ 2030 · FEM 2025
+    borda: am
+    contador:
+      ate: 170
+      em: '170'
+      cor: '#FACC15'
+      unid: MILHÕES DE VAGAS NOVAS
+- etapa: facilidade
+  fala: Não precisa ser engenheiro. Começa no simulador, sem comprar nada.
+  prende: derruba as duas desculpas ('não sou técnico' e 'não tenho dinheiro pra robô')
+  imagem: um notebook aberto numa mesa escura mostrando na tela um pequeno robô de rodas em 3D num simulador, a luz amarela da tela subindo, sob um foco de luz amarela de cima; nenhum texto legível; fundo
+    preto liso; metade de baixo vazia; sensação de facilidade
+  painel:
+    de: comprar
+    k: TUDO RODA NO SIMULADOR
+    borda: vd
+    titulo: SEM COMPRAR NADA
+    cor: '#22c55e'
+- etapa: descoberta
+  fala: 'São três passos: montar um robô, fazer ele enxergar e treinar um braço.'
+  prende: o caminho com 3 passos concretos e visuais, cada um acendendo no diagrama na palavra
+  diagrama:
+    forma: fluxo
+    titulo: O CAMINHO
+    nos:
+    - de: montar
+      ic: 🔌
+      txt: Montar o 1º robô
+      sub: um rover que desvia de obstáculos
+    - de: enxergar
+      ic: 👁️
+      txt: Fazer enxergar
+      sub: câmera e visão com IA
+    - de: braço
+      ic: 🦾
+      txt: Treinar um braço
+      sub: aprende por demonstração
+      cor: vd
+  painel:
+    de: passos
+    titulo: 3 PASSOS
+    cor: '#FACC15'
+- etapa: beneficio
+  fala: O robô vai chegar. Quem vai mandar nele?
+  prende: 'a máxima depois do silêncio: curta, provoca, a pessoa repete e quer responder ''eu'''
+  imagem: um único robô humanoide estilo Tesla Optimus, visor preto oval, de pé no escuro e parado, com um controle de comando amarelo luminoso numa mão humana em primeiro plano apontado para ele, sob um
+    foco de luz amarela de cima; sem rosto humano; fundo preto liso; metade de baixo vazia; sensação de virada
+  painel:
+    de: mandar
+    k: A PERGUNTA
+    borda: vd
+    titulo: QUEM MANDA NELE?
+    cor: '#22c55e'
+- etapa: comentario
+  fala: E você, vai esperar ou se qualificar? Tá tudo no inema ponto club, grátis. Ou me pede o link aqui nos comentários.
+  prende: pergunta direta de escolha que a pessoa responde com orgulho ('eu vou me qualificar'); oferta concreta e gratuita
+  print:
+    url: https://inematds.github.io/robot/
+    selo: curso aberto e gratuito · inema.club
+cta:
+  de: qualificar
+  a: VAI ESPERAR OU SE QUALIFICAR? 👇
+  b: comenta EU VOU ou me pede o link
+  comentario: EU VOU ME QUALIFICAR 🦾
+club: o curso Robótica do Zero ao Expert, aberto e gratuito, 6 trilhas
+cores:
+  robô: '#ff2a1f'
+  sumir: '#ff2a1f'
+  cortar: '#ff2a1f'
+  culpa: '#ff2a1f'
+  novas: '#FACC15'
+  treina: '#FACC15'
+  engenheiro: '#ff2a1f'
+  simulador: '#22c55e'
+  montar: '#FACC15'
+  enxergar: '#FACC15'
+  braço: '#22c55e'
+  mandar: '#22c55e'
+  qualificar: '#FACC15'
+  grátis: '#22c55e'
+publicar:
+  fila: lives6
+  titulo: 'Não é o robô que vai tirar teu emprego #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Robot. Gancho de medo: e se amanhã um robô estiver no seu lugar no trabalho? O Fórum Econômico Mundial (Future of Jobs Report 2025)
+    calcula 92 milhões de empregos eliminados até 2030 e cerca de 4 em cada 10 empresas dizem que vão cortar pessoal por causa da IA. Não é culpa de quem assiste: ninguém preparou as pessoas pra isso. A
+    virada: o mesmo relatório prevê 170 milhões de vagas novas até 2030, para quem se qualificar. O caminho em 3 passos: montar o primeiro robô, fazer ele enxergar e treinar um braço que aprende por demonstração
+    — sem comprar nada, começando no simulador. Curso Robótica do Zero ao Expert, aberto e gratuito, 6 trilhas: https://inematds.github.io/robot/ (inema.club). Máxima: ''O robô vai chegar. Quem vai mandar
+    nele?'' CTA: comente se vai esperar ou se qualificar, ou peça o link. Não inventar números.'
+  so_v3: true

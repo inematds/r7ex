@@ -2,6 +2,13 @@
 
 Semver `X.YY.ZZ`: o minor sobe e carrega o patch; só o major zera o resto.
 
+## 1.3.1 — 29/10/2026 · gancho de provocação + entrega (soma, não substitui)
+
+- 6º tipo de gancho `provocacao`: a 1ª frase afirma algo que cutuca, com nome ou número, e pede `gancho.fontes`.
+  O `checar` reprova provocação em pergunta ou sem nome/número. Os 5 tipos e o "E se…" seguem valendo.
+- `gancho.entrega` (o que a pessoa leva do vídeo): sem ela o `checar` só avisa.
+- PADRAO §2.2 com as aberturas que bombaram (5 referências + gitbombando) e 4 provocações para o tema robô/emprego.
+
 ## 1.2.1 — 28/10/2026 · manchete larga não sai mais da tela nos cortes da capa
 
 - Os cortes de aproximação da capa (1,05× em 1 s e 1,10× em 2 s, mais os 3% do motor) cortavam o "P" e o "T" de uma

@@ -30,7 +30,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.2.0"   # semver do r7ex (1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 28/10/2026)
+VERSAO = "1.3.1"   # semver do r7ex (1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Cinco tipos de gancho; lista é proibida.
@@ -40,7 +40,11 @@ GANCHO_TIPOS = {
     "estatistica": "número que dá medo, com fonte conferida em gancho.fontes",
     "terceiro": "história de outra pessoa, com número",
     "noticia": "fato de ontem/desta semana, com data e fonte",
+    # v1.3.1 (Nei 29/10/2026): soma, não substitui. Afirmação que cutuca, com nome ou número já na 1ª frase.
+    "provocacao": "afirmação que cutuca quem assiste, com nome ou número na 1ª frase e uma pergunta deixada no ar "
+                  "(\"A Hyundai contratou 25 mil funcionários. Nenhum pede aumento.\")",
 }
+TEM_NOME = re.compile(r"\s[A-ZÁÉÍÓÚÂÊÔÃÕ][\wáéíóúâêôãõç]+")   # nome próprio depois da 1ª palavra (Hyundai, Claude, GitHub…)
 NUM_EXT = (r"um|uma|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|"
            r"dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|cem|\d+")
 LISTA_SUBST = (r"coisas|novidades|dicas|motivos|ferramentas|formas|jeitos|passos|erros|sinais|segredos|truques|raz[oõ]es|"
@@ -165,8 +169,17 @@ def checar_gancho(p, f):
         erros.append("gancho sem 'objeto' (objeto-metáfora com dano ou ameaça no quadro 0: lixeira, risco vermelho, olhos em X…)")
     if tipo in ("estatistica", "terceiro") and not TEM_NUMERO.search(m + " " + fala1):
         erros.append(f"gancho {tipo} sem número na manchete nem na fala da parte 1")
+    if tipo == "provocacao":
+        frase1 = re.split(r"(?<=[.!?])\s", fala1)[0]
+        if frase1.rstrip().endswith("?"):
+            erros.append(f"gancho provocação abre com pergunta ('{frase1[:60]}'): afirme — 'Nenhum pede aumento.', não 'Seu emprego é o próximo?'")
+        if not (TEM_NUMERO.search(frase1) or TEM_NOME.search(frase1)):
+            erros.append(f"gancho provocação sem nome nem número na 1ª frase ('{frase1[:60]}'): diga quem (Hyundai, Claude…) ou quanto")
+    if not str(g.get("entrega") or "").strip():
+        log("aviso: gancho sem 'entrega' (o que a pessoa leva do vídeo e quer ver, ex.: 'quem está trocando gente por robô e "
+            "o que fazer antes'); o gitbombando bombou porque entregou conteúdo que as pessoas querem")
     fontes = g.get("fontes") or []
-    if tipo in ("estatistica", "terceiro", "noticia"):
+    if tipo in ("estatistica", "terceiro", "noticia", "provocacao"):
         if not fontes or not all(isinstance(x, dict) and (x.get("url") or x.get("nome")) and x.get("trecho") for x in fontes):
             erros.append(f"gancho {tipo} precisa de gancho.fontes: [{{url ou nome, trecho}}] conferidas")
     if tipo == "noticia":
@@ -546,6 +559,8 @@ def cmd_fila(pasta):
     if os.environ.get("R7X_SEM_FILA"):
         falha("fila do canal desligada nesta máquina (R7X_SEM_FILA): nada vai para o YouTube daqui")
     p, f = ficha(pasta); pub = f["publicar"]
+    if pub.get("so_v3"):
+        falha("ficha de teste (publicar.so_v3: true): vai só ao v3, não entra na fila do canal")
     subprocess.run(["python3", R / "fila/fila.py", "--add", p / "video.mp4", "--nome", f["tema"], "--titulo", pub["titulo"],
                     "--contexto", pub["contexto"], "--canal", pub.get("fila", "lives7")]
                    + (["--playlist", pub["playlist"]] if pub.get("playlist") else []), check=True)

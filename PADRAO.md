@@ -104,6 +104,49 @@ gancho:
   # noticia: data: 2026-10-27  (até 7 dias antes da edição)
 ```
 
+### 2.2 Provocação e entrega (v1.3.1, 29/10/2026) — soma ao §2.1, não substitui
+
+O Nei comparou os r7ex do robô com os 5 reels de referência e o gitbombando, que bombaram ("os do robô ficaram bons, as
+novas sugestões também, não quero substituir o anterior; o bombando deu certo porque entregou conteúdo que as pessoas querem").
+Os 5 tipos e o "E se…" continuam. Entram duas coisas:
+
+1. **6º tipo, `provocacao`:** a 1ª frase **afirma** (não pergunta) algo que cutuca quem assiste, com **nome ou número**, e
+   deixa uma pergunta no ar (por quê? e eu?). Precisa de `gancho.fontes`. O `checar` reprova pergunta e frase sem nome nem número.
+2. **`gancho.entrega`** (todo tipo): em uma linha, o que a pessoa **leva** do vídeo e quer ver — o Top 10 do dia, quem está
+   trocando gente por robô, o que fazer antes. Sem ela o `checar` avisa (não reprova). Provocação sem entrega é só barulho.
+
+Aberturas que bombaram (use como régua, não como molde):
+
+| Vídeo | 1ª fala |
+|---|---|
+| referência 1 | "Eu acho que você não devia mais montar agente de IA." |
+| referência 2 | "Você sabia que metade do código que o Claude escreve é lixo?" |
+| referência 3 | "IA, você viu que ontem saiu o carro voador?" |
+| referência 4 | "Se o Claude Code sumisse amanhã, você saberia mexer no sistema que ele montou pra você?" |
+| referência 5 | "O cara que ganhou o hackathon montou o produto inteiro em oito horas, sem digitar uma linha de código." |
+| gitbombando | "Hoje o GitHub escolheu um professor. E ele não é gente." (tela: +2.371 ESTRELAS PRA UM PROFESSOR ROBÔ) |
+
+Em comum: falam de algo que a pessoa faz ou usa, com nome; o fato estranho vem na 1ª frase; abrem uma pergunta que só o
+vídeo responde; e entregam o que prometem.
+
+Provocação no tema robô/emprego (exemplos de 29/10):
+
+| Tela | 1ª fala |
+|---|---|
+| NENHUM PEDE AUMENTO | "A Hyundai contratou vinte e cinco mil funcionários. Nenhum pede aumento." |
+| NÃO É O ROBÔ | "Para de ter medo do robô. Quem vai tirar teu emprego é o colega que já manda nele." (tipo `contrario`) |
+| 5 ANOS × 1 FOTO | "Você levou cinco anos pra aprender teu trabalho. Esse robô aprendeu vendo uma foto." |
+| O ROBÔ TÁ GANHANDO | "Tem gente chutando robô na rua. E o robô tá ganhando." |
+
+```yaml
+gancho:
+  tipo: provocacao
+  manchete: "NENHUM PEDE AUMENTO"
+  destaque: "AUMENTO"
+  entrega: "quais empresas já trocam gente por robô e o que fazer antes de chegar na sua"
+  fontes: [{nome: "Hyundai, plano de humanoides", trecho: "25 mil robôs humanoides nas fábricas"}]
+```
+
 ## 3. Tela — motor do eventosextremospub
 
 **Mudança de 20/10/2026 (D13, D14):**

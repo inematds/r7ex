@@ -15,9 +15,10 @@ Modelo de pedido em 1 linha:
 👉 "r7ex: <sua tese> · destino: <curso/página> · canal: lives3 · pode gerar o avatar"
 
 🎙️ ESTILO DA NARRAÇÃO (como eu escrevo a sua fala)
-• 1ª frase = o gancho, de um destes 5 tipos (v1.2.0):
+• 1ª frase = o gancho, de um destes 6 tipos (v1.3.1):
   contrário ("para de…"), perda ("e se … sumisse amanhã?"), estatística (número de medo com fonte),
-  terceiro (história de alguém com número: "um cara acordou devendo mil e setecentos dólares") ou notícia (fato desta semana)
+  terceiro (história de alguém com número: "um cara acordou devendo mil e setecentos dólares") notícia (fato desta semana) ou provocação (afirma e cutuca, com nome ou número: "a Hyundai contratou vinte e cinco mil funcionários. Nenhum pede aumento.")
+• Sempre com a ENTREGA: o que você leva do vídeo e quer ver
 • Nada de lista ("5 novidades…", "N coisas…"), "você sabia…" ou "eu fiz…"
 • Na tela, a manchete do quadro 0: até 6 palavras, caixa alta, uma em amarelo, MAIS FORTE que a fala, com um objeto quebrado/ameaçado
 • A prova (número com fonte) entra até ~20 s; logo depois, o seu problema sem culpa ("não é falta de estudo, ninguém te deu o mapa")

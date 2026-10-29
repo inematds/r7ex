@@ -134,7 +134,7 @@ All of this was **copied** here (not linked): `motor/`, `heygen/`, `r7ex/whisper
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # creates edicoes/<data>-<slug>/ficha.yaml from the template
 #   → write the plan, the hook (PADRAO §2.1), the opening, the 7 parts (speech + image/screenshot + panel), the CTA, and "publicar"
-python3 r7ex.py checar edicoes/<pasta>      # storyboard gate (includes hook v1.2.0)
+python3 r7ex.py checar edicoes/<pasta>      # storyboard gate (includes hook v1.3.1)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # only with Nei's OK for this production
 python3 r7ex.py fazer edicoes/<pasta>       # images + avatar → scene → render → review sheet
 #   (or --de <avatar.mp4> to reuse a ready-made avatar)

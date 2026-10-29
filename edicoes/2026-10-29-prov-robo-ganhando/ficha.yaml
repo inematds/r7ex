@@ -1,0 +1,169 @@
+slug: prov-robo-ganhando
+tema: Tem gente querendo destruir as máquinas antes que elas levem o emprego — quebrar não devolve o trabalho; quem se prepara fica
+pedido: 'Nei, 29/10/2026: "vamos fazer um teste com as sugestoes q vc falou sobre os robos faz aqueles videos e me manda". TESTE do gancho de provocação (PADRAO §2.2), mesmo miolo de 2026-10-28-destruir-maquinas-emprego;
+  só a abertura muda.'
+plano:
+  pessoa: trabalhador comum (motorista, entregador, operário, atendente) que tem medo de que a máquina faça o trabalho dele
+  quer: não perder o emprego para o robô (dor) e virar quem comanda a máquina (desejo)
+  gancho: 'perda hipotética: "e se amanhã a máquina fizer o seu trabalho?" + prova: nos comentários de um reel viral de robô de entrega chutado e carro sem motorista atacado, "eles estão roubando nossos
+    empregos" (6 mil curtidas)'
+  nota: 8
+  destino: https://inematds.github.io/robot/ (curso Robótica do Zero ao Expert, aberto e gratuito, no inema.club)
+  fatos:
+  - 'Robôs de entrega chutados, montados ou pichados: Serve Robotics, menos de 1% de 100 mil viagens (Semafor, 01/04/2026); Filadélfia: robô de entrega chutado e pichado (reportagem local) — FATOS.md §2'
+  - 'Comentário do reel viral de origem (robô de entrega chutado, gente pulando em carro sem motorista): "isso mesmo, eles estão roubando nossos empregos" (6 mil curtidas) — ficha 2026-10-23-guerra-maquinas'
+  - 'Ludistas (Inglaterra): tecelões quebravam teares; Frame Breaking Act de 1812 tornou quebrar máquina crime com pena de morte; 12 mil soldados; 17 enforcados em York em 1813; o movimento acabou e as
+    máquinas ficaram (Wikipedia "Luddite", Victorian Web) — FATOS.md §6'
+  - 'WEF Future of Jobs 2025: até 2030, 170 milhões de empregos criados e 92 milhões eliminados; 39% das habilidades mudam (WEF, 08/01/2025) — FATOS.md §7'
+  - 'Curso Robótica do Zero ao Expert, https://inematds.github.io/robot/ (conferida 28/10/2026): "CURSO ABERTO E GRATUITO · EDIÇÃO 2026", "Do primeiro LED ao robô com IA, no seu ritmo", "ESP32, sensores
+    e motores; depois câmera e visão com Raspberry Pi 5, navegação com ROS 2 e, no fim, um braço que aprende por demonstração", "Nunca mexi com eletrônica. Trilha 1 · Primeiros passos: comece pelo 1.1,
+    sem comprar nada: tudo roda no simulador"'
+  - 'Área Robot, https://eventos.inema.pro/robot/ (conferida 28/10/2026): "Não precisa ter um robô: os cursos usam simuladores gratuitos" e "Os cursos do INEMA.CLUB são abertos e gratuitos"'
+gancho:
+  tipo: provocacao
+  manchete: O ROBÔ TÁ GANHANDO
+  destaque: GANHANDO
+  objeto: 'um crachá de trabalhador rachado ao meio caído no chão escuro, cortado por um risco vermelho #ff2a1f, aos pés de um robô humanoide de visor preto, com uma marreta caída ao lado'
+  prova:
+    parte: 1
+    de: curtiram
+  absolvicao: não é culpa sua ter medo
+  fontes:
+  - nome: comentário no reel viral de robôs atacados (Facebook, out/2026)
+    trecho: eles estão roubando nossos empregos (6 mil curtidas)
+  entrega: por que brigar com a máquina nunca funcionou (1812) e o que fazer no lugar
+marca: INEMA · ROBÔS E TRABALHO
+selo: ALERTA EMPREGO
+fonte: '<b>comentários do reel viral</b> · Semafor, abr/2026 · Wikipedia (Luddites) · WEF Future of Jobs 2025 · imagens: ilustração'
+abertura:
+  cor: vermelho
+  cena: 'um único crachá de trabalhador rachado ao meio caído num chão de fábrica escuro, cortado por um risco vermelho #ff2a1f, aos pés de um robô humanoide industrial estilo Tesla Optimus de painéis brancos
+    e visor preto oval, de pé, e uma marreta caída ao lado; contraluz vermelha de sirene recortando o robô; fundo preto liso; metade de baixo vazia; sensação de ameaça ao seu trabalho'
+ritmo:
+  pausa_antes:
+    parte: 6
+    de: quebrar
+trocas:
+  seis mil: 6 mil
+  mil oitocentos e doze: '1812'
+partes:
+- etapa: gancho
+  fala: 'Tem gente chutando robô na rua, e seis mil curtiram: estão roubando nossos empregos. E quem tá ganhando é o robô.'
+  prende: 'gancho de provocação (v1.3.1): afirma e cutuca, com nome ou número na 1ª frase; teste contra a versão 2026-10-28-destruir-maquinas-emprego'
+  painel:
+    de: curtiram
+    k: NOS COMENTÁRIOS DO REEL VIRAL
+    borda: red
+    contador:
+      ate: 6
+      dec: 0
+      em: '6'
+      cor: '#ff2a1f'
+      unid: ' mil curtidas'
+    l: “estão roubando nossos empregos”
+- etapa: medo
+  fala: 'Em mil oitocentos e doze, quebrar máquina dava pena de morte. As máquinas ficaram. Não é culpa sua ter medo: ninguém te mostrou o caminho.'
+  prende: responde 'quebrar resolve?' com uma história que pouca gente conhece (pena de morte, e a máquina ficou); a absolvição tira a culpa logo depois do medo
+  imagem: um tear mecânico antigo de madeira e ferro, inteiro e de pé, iluminado por uma única vela, com uma marreta caída no chão ao lado e lascas de madeira; luz quente recortando o ferro; fundo preto
+    liso; metade de baixo vazia; sensação de derrota
+  painel:
+    de: morte
+    k: LUDISTAS · INGLATERRA · 1812
+    borda: red
+    titulo: PENA DE MORTE
+    cor: '#ff2a1f'
+- etapa: desejo
+  fala: Imagina comandar o robô, e não perder a vaga.
+  prende: 'inverte o papel: em vez de vítima da máquina, o chefe dela; desejo concreto de manter o trabalho'
+  imagem: um único robô humanoide estilo Tesla Optimus, painéis brancos e visor preto oval, numa bancada de fábrica escura, recebendo comando de uma mão humana segurando um tablet aceso em amarelo (tela
+    sem texto legível), sem rosto visível; foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de controle
+  painel:
+    de: comandar
+    k: 170 MI DE EMPREGOS NOVOS ATÉ 2030 · WEF
+    borda: am
+    titulo: QUEM COMANDA FICA
+    cor: '#FACC15'
+- etapa: facilidade
+  fala: 'Não precisa ter robô: começa no simulador, sem comprar nada.'
+  prende: 'derruba a desculpa ''não tenho robô'' com algo que custa zero: o simulador'
+  imagem: um notebook aberto numa mesa escura mostrando um pequeno robô 3D em simulação na tela acesa em verde e amarelo (sem texto legível), sob foco de luz amarela; fundo preto liso; metade de baixo vazia;
+    sensação de começo fácil
+  painel:
+    de: simulador
+    k: SEM TER ROBÔ
+    borda: vd
+    titulo: SÓ O SIMULADOR
+    cor: '#22c55e'
+- etapa: descoberta
+  fala: 'É o Robótica do Zero ao Expert, grátis: sensores, câmera e um braço que aprende.'
+  prende: o nome da solução e 3 itens que a pessoa visualiza, do básico ao braço robótico
+  diagrama:
+    forma: fluxo
+    titulo: ROBÓTICA DO ZERO AO EXPERT
+    nos:
+    - de: sensores
+      ic: ⚡
+      txt: Sensores e motores
+      sub: ESP32, do primeiro LED
+    - de: câmera
+      ic: 📷
+      txt: Visão com câmera
+      sub: Raspberry Pi 5
+    - de: braço
+      ic: 🦾
+      txt: Braço que aprende
+      sub: por demonstração
+      cor: vd
+  painel:
+    de: grátis
+    titulo: ABERTO E GRÁTIS
+    cor: '#22c55e'
+- etapa: beneficio
+  fala: Quebrar a máquina não devolve o emprego. Quem aprende, fica.
+  prende: 'a máxima depois do silêncio: uma frase curta que a pessoa repete e compartilha'
+  imagem: uma marreta caída e esquecida no chão escuro em primeiro plano, desfocada; ao fundo, nítido, um robô humanoide de visor preto trabalhando ao lado de uma pessoa de costas sob contraluz amarela;
+    fundo preto liso; metade de baixo vazia; sensação de virada
+  painel:
+    de: fica
+    k: A REGRA
+    borda: vd
+    titulo: QUEM APRENDE, FICA
+    cor: '#22c55e'
+- etapa: comentario
+  fala: Vai quebrar ou aprender? Escreve eu vou. Tá tudo no inema ponto club, ou me pede o link nos comentários.
+  prende: escolha binária fácil e compromisso positivo ('eu vou') que a pessoa tem orgulho de escrever
+  print:
+    url: https://inematds.github.io/robot/
+    selo: aberto e gratuito · inema.club
+cta:
+  de: escreve
+  a: VAI QUEBRAR OU APRENDER? 👇
+  b: escreve EU VOU ou me pede o link
+  comentario: EU VOU 🦾
+club: o curso Robótica do Zero ao Expert, aberto e gratuito
+cores:
+  trabalho: '#ff2a1f'
+  chutando: '#ff2a1f'
+  roubando: '#ff2a1f'
+  empregos: '#ff2a1f'
+  morte: '#ff2a1f'
+  ficaram: '#ff2a1f'
+  comandar: '#FACC15'
+  vaga: '#ff2a1f'
+  simulador: '#22c55e'
+  grátis: '#22c55e'
+  sensores: '#FACC15'
+  câmera: '#FACC15'
+  braço: '#22c55e'
+  quebrar: '#ff2a1f'
+  fica: '#22c55e'
+  aprender: '#FACC15'
+publicar:
+  fila: lives6
+  titulo: 'Chutaram o robô. E ele tá ganhando #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Robot. Tema: o medo de perder o emprego para as máquinas. Tem gente chutando robô de entrega e pulando em carro sem motorista nos EUA;
+    num reel viral, o comentário "eles estão roubando nossos empregos" teve 6 mil curtidas. Em 1812, na Inglaterra, quebrar máquina virou crime com pena de morte (ludistas) e as máquinas ficaram. Não é
+    culpa de quem tem medo: ninguém mostrou o outro caminho. O WEF prevê 170 milhões de empregos novos até 2030. Máxima: "Quebrar a máquina não devolve o emprego. Quem aprende, fica." Solução: o curso Robótica
+    do Zero ao Expert, aberto e gratuito, começa no simulador sem comprar nada (sensores e motores, visão com câmera, braço que aprende por demonstração): https://inematds.github.io/robot/ (inema.club).
+    Não dizer que os carros queimados em Los Angeles foram por causa de emprego. CTA: comente EU VOU ou peça o link.'
+  so_v3: true

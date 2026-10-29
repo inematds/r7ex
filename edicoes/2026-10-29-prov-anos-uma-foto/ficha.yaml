@@ -1,0 +1,175 @@
+slug: prov-anos-uma-foto
+tema: 'Um robô treina uma tarefa a partir de UMA foto da mesa (Real2Sim): e se a tarefa que você levou anos para dominar ele aprender assim?'
+pedido: 'Nei, 29/10/2026: "vamos fazer um teste com as sugestoes q vc falou sobre os robos faz aqueles videos e me manda". TESTE do gancho de provocação (PADRAO §2.2), mesmo miolo de 2026-10-28-robo-foto-emprego;
+  só a abertura muda.'
+plano:
+  pessoa: qualquer trabalhador que faz uma tarefa manual ou repetitiva (fábrica, estoque, montagem, logística) e ouve falar de robô com IA, não o especialista em robótica
+  quer: não perder o emprego para um robô (dor) e virar quem sabe ensinar e operar o robô (desejo)
+  gancho: 'perda hipotética: e se o trabalho que você levou anos para aprender um robô aprender com uma foto? Prova: o Google mostrou uma foto da mesa virando simulação e o robô real subindo de 56% para
+    75% de acerto (Gemini 4 Argon, 13/10/2026)'
+  nota: 8
+  destino: 'https://eventos.inema.pro/robot/ (área Robot do INEMA: a simulação Real2Sim que treina o robô a partir de uma foto + 7 cursos, entre eles Robótica do Zero ao Expert, 180 h; ''Tudo aberto e gratuito'')'
+  fatos:
+  - 'Google, post ''Gemini 4 Argon for Robotics'' (https://developers.googleblog.com/en/gemini-4-argon-for-robotics/, 13/10/2026), resumido em ~/projetos/output/robotica-NL0yDYXAQ0E/pesquisa.md §1.5: ''a
+    partir de UMA foto RGB aérea de uma bancada bimanual ... Argon reconstrói malhas ... no MuJoCo ... exporta 4.500+ episódios ... Resultado: taxa de sucesso no robô físico de 56% para 75% e tempo de conclusão
+    de 35 s para 24 s'' (o VLA usado e o tamanho do teste não são informados — vai na linha de fonte)'
+  - 'mesma fonte: ''4.500+ episódios com aleatorização de domínio'' — base de ''treina milhares de vezes'' na simulação antes de fazer de verdade'
+  - 'guia robotica-real2sim (https://inematds.github.io/robotica-real2sim/guia/, conferido 28/10/2026): ''O gargalo da robótica sempre foi dado: gente de óculos de VR guiando o braço por horas. Aqui o dado
+    sai da simulação, e a simulação sai de uma foto.'' — base do ''antes, alguém guiava o braço por horas'''
+  - 'README robotica-real2sim: ''Precisa de Python, do MuJoCo (simulador gratuito)'' e ''serve para quem quer entender e testar robótica com IA sem ter robô'' — base de ''não precisa ter robô, dá pra começar
+    no computador'''
+  - 'página https://eventos.inema.pro/robot/ (conferida 28/10/2026): ''aqui estão os cursos abertos, a simulação que treina o robô a partir de uma foto ... Tudo aberto e gratuito'', ''7 cursos'', ''Curso
+    · PT · 180 h Robótica do Zero ao Expert'' — base de ''aberto e gratuito'' na fala e do print'
+  - 'medo do emprego: é perda HIPOTÉTICA (pergunta ''e se''), não afirmação de que robôs estão tirando empregos; nenhum número de demissão é dito'
+gancho:
+  tipo: provocacao
+  manchete: ANOS CONTRA UMA FOTO
+  destaque: FOTO
+  objeto: 'um crachá de funcionário sem foto, rachado ao meio, caindo de uma mesa preta, cortado por um grande risco vermelho #ff2a1f; atrás, a mão metálica branca de um robô humanoide estilo Optimus segurando
+    uma única foto impressa de uma bancada'
+  prova:
+    parte: 2
+    de: subiu
+  absolvicao: não é culpa sua
+  entrega: como uma foto vira simulação que treina o robô, e como testar isso no computador sem ter robô
+  fontes:
+  - nome: Google Developers Blog, Gemini 4 Argon for Robotics (13/10/2026)
+    url: https://developers.googleblog.com/en/gemini-4-argon-for-robotics/
+    trecho: a partir de UMA foto RGB de uma bancada, reconstrói a cena no simulador e treina o robô
+marca: INEMA · ROBÔS E TRABALHO
+selo: ALERTA INEMA
+fonte: '<b>Google</b> · Gemini 4 Argon for Robotics, 13/10/2026 (56%→75% no robô físico; teste não detalhado) · imagens: ilustração'
+abertura:
+  cor: amarelo
+  cena: 'um único crachá de funcionário sem foto, rachado ao meio, caindo no escuro, cortado na diagonal por um grande risco vermelho #ff2a1f; atrás dele, a mão metálica branca de um robô humanoide estilo
+    Optimus de visor preto segura uma única foto impressa de uma bancada, sob um foco de luz vindo de cima; fundo preto liso; metade de baixo vazia; sensação de ameaça'
+ritmo:
+  pausa_antes:
+    parte: 6
+    de: quem
+trocas:
+  cinquenta e seis: 56%
+  setenta e cinco por cento: 75%
+  três passos: 3 passos
+partes:
+- etapa: gancho
+  fala: O robô do Google aprendeu uma tarefa com uma foto. Você levou anos.
+  prende: 'gancho de provocação (v1.3.1): afirma e cutuca, com nome ou número na 1ª frase; teste contra a versão 2026-10-28-robo-foto-emprego'
+  painel:
+    de: foto
+    k: ANOS × UMA FOTO
+    borda: red
+    titulo: UMA FOTO
+    cor: '#ff2a1f'
+- etapa: medo
+  fala: 'O Google mostrou: a foto vira simulação, o robô treina e o acerto subiu de cinquenta e seis para setenta e cinco por cento. Não é culpa sua: ninguém te avisou.'
+  prende: a prova vem do Google, com número que sobe na tela; o medo fica concreto e logo vem a absolvição
+  logos:
+  - id: google
+    nome: Google · Gemini 4 Argon
+  imagem: 'fundo para um logo: um único braço robótico branco sobre uma bancada preta, pegando um cubo com precisão, iluminado por um foco de luz vermelha #ff2a1f vindo de cima; centro do quadro livre;
+    fundo preto liso; metade de baixo vazia; sensação de ameaça que avança rápido'
+  painel:
+    de: subiu
+    k: GOOGLE · 13/10/2026
+    borda: red
+    contador:
+      ate: 75
+      em: 75%
+      cor: '#ff2a1f'
+      unid: '% DE ACERTO (ERA 56%)'
+- etapa: desejo
+  fala: 'Imagina o contrário: você ser quem ensina o robô.'
+  prende: 'vira o medo em desejo: sair do lado de quem perde para o lado de quem comanda'
+  imagem: um único robô humanoide industrial estilo Tesla Optimus, painéis brancos e visor preto oval, de pé numa oficina escura, recebendo nas mãos uma foto impressa iluminada que uma mão humana (só a
+    mão, sem rosto) lhe entrega, sob um foco de luz amarela vindo de cima; fundo preto liso; metade de baixo vazia; sensação de comando
+  painel:
+    de: ensina
+    k: O OUTRO LADO
+    borda: am
+    titulo: QUEM ENSINA
+    cor: '#FACC15'
+- etapa: facilidade
+  fala: 'Não precisa ter robô: começa no computador, com simulador gratuito.'
+  prende: 'derruba o ''isso não é para mim'': sem robô, sem diploma, no computador de casa'
+  imagem: um único notebook aberto sobre uma mesa preta, a tela acesa mostrando um braço robótico branco em simulação 3D sobre uma mesa virtual, sob um foco de luz amarela vindo de cima; fundo preto liso;
+    metade de baixo vazia; sensação de acesso; nenhum texto legível na tela
+  painel:
+    de: computador
+    k: SEM TER ROBÔ
+    borda: vd
+    titulo: NO COMPUTADOR
+    cor: '#22c55e'
+- etapa: descoberta
+  fala: 'Três passos: a foto vira cópia da mesa, o robô treina milhares de vezes, e depois faz de verdade.'
+  prende: o método com nome e 3 passos fáceis de lembrar, cada um acendendo no diagrama na palavra
+  diagrama:
+    forma: fluxo
+    titulo: DA FOTO AO ROBÔ
+    nos:
+    - de: foto
+      ic: 📷
+      txt: A foto
+      sub: vira cópia da mesa
+    - de: treina
+      ic: 🔁
+      txt: O treino
+      sub: milhares de vezes na simulação
+    - de: verdade
+      ic: 🤖
+      txt: O robô real
+      sub: depois faz de verdade
+      cor: vd
+  painel:
+    de: passos
+    titulo: 3 PASSOS
+    cor: '#FACC15'
+- etapa: beneficio
+  fala: Quem só faz, compete com ele. Quem ensina, fica.
+  prende: 'a máxima depois de um silêncio: uma regra curta que a pessoa leva e repete'
+  imagem: um único robô humanoide estilo Tesla Optimus, painéis brancos e visor preto oval, parado de frente sob um foco de luz amarela, com uma foto impressa brilhando na mão, como quem espera instrução;
+    fundo preto liso; metade de baixo vazia; sensação de virada
+  painel:
+    de: fica
+    k: A REGRA
+    borda: vd
+    titulo: QUEM ENSINA FICA
+    cor: '#22c55e'
+- etapa: comentario
+  fala: Você vai ser quem ensina o robô? Tá tudo no inema ponto club, gratuito. Ou me pede o link aqui nos comentários.
+  prende: pergunta de compromisso positivo ('eu vou ensinar') puxa comentário; oferta concreta e gratuita
+  print:
+    url: https://eventos.inema.pro/robot/
+    selo: 7 cursos · aberto e gratuito
+cta:
+  de: ensina
+  a: VOCÊ VAI SER QUEM ENSINA O ROBÔ? 👇
+  b: comenta EU VOU ENSINAR ou me pede o link
+  comentario: EU VOU ENSINAR O ROBÔ 🤖
+club: 'a área Robot: Real2Sim e 7 cursos abertos, entre eles Robótica do Zero ao Expert (180 h)'
+cores:
+  trabalho: '#ff2a1f'
+  foto: '#FACC15'
+  anos: '#ff2a1f'
+  Google: '#FACC15'
+  subiu: '#ff2a1f'
+  culpa: '#FACC15'
+  vaga: '#ff2a1f'
+  ensina: '#FACC15'
+  gratuito: '#22c55e'
+  computador: '#22c55e'
+  passos: '#FACC15'
+  treina: '#FACC15'
+  verdade: '#22c55e'
+  fica: '#22c55e'
+  compete: '#ff2a1f'
+publicar:
+  fila: lives6
+  titulo: 'Você levou anos. O robô, uma foto #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Robot. Gancho de medo de perder o emprego (pergunta hipotética): e se o trabalho que você levou anos para aprender um robô aprender
+    olhando uma foto? Prova: o Google mostrou (Gemini 4 Argon for Robotics, 13/10/2026, https://developers.googleblog.com/en/gemini-4-argon-for-robotics/) uma única foto de uma bancada virando simulação
+    no MuJoCo; o robô treinou lá dentro (4.500+ episódios) e o acerto no robô físico subiu de 56% para 75%. Antes, alguém guiava o braço por horas. Virada: seja quem ensina o robô. Dá para começar sem robô
+    e sem ser engenheiro, no computador, com simulador gratuito. 3 passos: a foto vira cópia da mesa, o robô treina milhares de vezes, e só depois faz de verdade. Máxima: ''Quem só faz, compete com ele.
+    Quem ensina, fica.'' Área Robot do INEMA, aberta e gratuita (simulação Real2Sim + 7 cursos, entre eles Robótica do Zero ao Expert, 180 h): https://eventos.inema.pro/robot/ . Guia Real2Sim: https://inematds.github.io/robotica-real2sim/guia/
+    . Não afirmar que robôs já estão tirando empregos; é uma pergunta. CTA: comente ''eu vou ensinar o robô'' ou peça o link.'
+  so_v3: true

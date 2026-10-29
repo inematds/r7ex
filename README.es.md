@@ -134,7 +134,7 @@ Todo esto fue **copiado** aquí (no es un link): `motor/`, `heygen/`, `r7ex/whis
 cd ~/projetos/r7ex
 python3 r7ex.py novo <slug>                 # crea edicoes/<data>-<slug>/ficha.yaml a partir del modelo
 #   → escribe el plan, el gancho (PADRAO §2.1), la apertura, las 7 partes (voz + imagen/captura + panel), el CTA y «publicar»
-python3 r7ex.py checar edicoes/<pasta>      # puerta de control de la ficha (incluye el gancho v1.2.0)
+python3 r7ex.py checar edicoes/<pasta>      # puerta de control de la ficha (incluye el gancho v1.3.1)
 echo 'Nei, <data>: "<frase do OK>"' > edicoes/<pasta>/avatar/APROVADO_HEYGEN   # solo con el OK de Nei para esta producción
 python3 r7ex.py fazer edicoes/<pasta>       # imágenes + avatar → escena → render → hoja de revisión
 #   (o --de <avatar.mp4> para reutilizar un avatar ya hecho)
