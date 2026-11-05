@@ -235,7 +235,7 @@ Passo a passo separado: `avatar`, `imagens`, `cena`, `render`, `revisar` (ver `p
   com Google. A sessão dura ~30 dias; o aviso vermelho chega no v3 um dia antes (`~/projetos/wifi/heygen-aviso`).
 - **Publicação:** sempre pela fila (`fila/fila.py`, timer systemd `fila-lives7`, 9 h às 21 h, 1 a cada 2 h),
   nunca upload direto. Cada publicação avisa no v3.
-  Exceção (Nei, 05/11/2026): quando a entrega precisa do link do YouTube (portal, link no tópico do Telegram), publicar direto com o yt-pubx no canal pedido (mesmo título e contexto do item) e marcar o item da fila como `feito` com `video_id` e nota `direto`, para não sair duas vezes; publicação direta → mensagem azul no v3. Nos outros casos o portal pode entrar antes e ganhar o link do vídeo depois.
+  Exceção (Nei, 05/11/2026): quando a entrega precisa do link do YouTube (portal, link no tópico do Telegram), publicar direto com o yt-pubx no canal pedido (mesmo título e contexto do item) e marcar o item da fila como `feito` com `video_id` e nota `direto`, para não sair duas vezes; aviso no v3 em texto normal (faixa azul só no Metricool). Nos outros casos o portal pode entrar antes e ganhar o link do vídeo depois.
 
 ## Licença
 MIT.
