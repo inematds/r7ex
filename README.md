@@ -62,7 +62,7 @@ o explicavideos nem o cardshorts.
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
 
-**Pelo bot, sem sessão nenhuma (22/10/2026): `/r7ex <tema>` no inemaccbot.** (O `/rtex` do bot ainda cai aqui por apelido antigo, mas desde 05/11/2026 rtex é outro projeto, `~/projetos/rtex`; repontar o comando está pendente.)
+**Pelo bot, sem sessão nenhuma (22/10/2026): `/r7ex <tema>` no inemaccbot.** (Desde 05/11/2026 o `/rtex` do bot roda o repo `rtex` e existe o `/rtexjp`; até então o `/rtex` era apelido deste.)
 
 | # | Passo | Comando / o que acontece | Quem |
 |---|---|---|---|

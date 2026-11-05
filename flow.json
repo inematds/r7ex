@@ -4,7 +4,7 @@
   "versao_def": 1,
   "alvos": {
     "unico": {
-      "gatilho": "o Nei manda /r7ex (ou /rtex) com o tema ou a tese do reel, e o canal se quiser"
+      "gatilho": "o Nei manda /r7ex com o tema ou a tese do reel, e o canal se quiser"
     }
   },
   "fases": [

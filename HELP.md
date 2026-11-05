@@ -1,4 +1,5 @@
-/r7ex — reel viral r7ex (o /rtex ainda cai aqui por apelido antigo; rtex é outro projeto desde 05/11/2026) pelo bot, sem aprovar nada no meio
+/r7ex — reel viral r7ex (7 etapas) pelo bot, sem aprovar nada no meio
+Outros formatos: /rtex (N peças, avatar real) · /rtexjp (ilustrado azul-marinho, sem HeyGen)
 
 Uso: /r7ex <tema ou tese, do seu jeito>
   /r7ex hackers vão atacar todo mundo, cita PHP2Shell e OpenCode
