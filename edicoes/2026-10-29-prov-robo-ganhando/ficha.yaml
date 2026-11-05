@@ -21,13 +21,13 @@ plano:
   - 'Área Robot, https://eventos.inema.pro/robot/ (conferida 28/10/2026): "Não precisa ter um robô: os cursos usam simuladores gratuitos" e "Os cursos do INEMA.CLUB são abertos e gratuitos"'
 gancho:
   tipo: provocacao
-  manchete: O ROBÔ TÁ GANHANDO
-  destaque: GANHANDO
+  manchete: CHUTAR ROBÔ NÃO SALVA EMPREGO
+  destaque: CHUTAR
   objeto: 'um crachá de trabalhador rachado ao meio caído no chão escuro, cortado por um risco vermelho #ff2a1f, aos pés de um robô humanoide de visor preto, com uma marreta caída ao lado'
   prova:
     parte: 1
     de: curtiram
-  absolvicao: não é culpa sua ter medo
+  absolvicao: não é culpa sua
   fontes:
   - nome: comentário no reel viral de robôs atacados (Facebook, out/2026)
     trecho: eles estão roubando nossos empregos (6 mil curtidas)
@@ -48,7 +48,7 @@ trocas:
   mil oitocentos e doze: '1812'
 partes:
 - etapa: gancho
-  fala: 'Tem gente chutando robô na rua, e seis mil curtiram: estão roubando nossos empregos. E quem tá ganhando é o robô.'
+  fala: 'Tem gente chutando robô na rua, e seis mil curtiram: estão roubando nossos empregos. Quem tá ganhando a briga?'
   prende: 'gancho de provocação (v1.3.1): afirma e cutuca, com nome ou número na 1ª frase; teste contra a versão 2026-10-28-destruir-maquinas-emprego'
   painel:
     de: curtiram
@@ -62,29 +62,29 @@ partes:
       unid: ' mil curtidas'
     l: “estão roubando nossos empregos”
 - etapa: medo
-  fala: 'Em mil oitocentos e doze, quebrar máquina dava pena de morte. As máquinas ficaram. Não é culpa sua ter medo: ninguém te mostrou o caminho.'
+  fala: 'Em mil oitocentos e doze, quebrar máquina dava pena de morte. E a máquina ficou. Ter medo não é culpa sua: ninguém te mostrou o caminho.'
   prende: responde 'quebrar resolve?' com uma história que pouca gente conhece (pena de morte, e a máquina ficou); a absolvição tira a culpa logo depois do medo
   imagem: um tear mecânico antigo de madeira e ferro, inteiro e de pé, iluminado por uma única vela, com uma marreta caída no chão ao lado e lascas de madeira; luz quente recortando o ferro; fundo preto
     liso; metade de baixo vazia; sensação de derrota
   painel:
     de: morte
-    k: LUDISTAS · INGLATERRA · 1812
+    k: LUDISTAS · 1812 · 17 ENFORCADOS EM 1813
     borda: red
     titulo: PENA DE MORTE
     cor: '#ff2a1f'
 - etapa: desejo
-  fala: Imagina comandar o robô, e não perder a vaga.
+  fala: Imagina você dando ordem pro robô, e o seu emprego seguro.
   prende: 'inverte o papel: em vez de vítima da máquina, o chefe dela; desejo concreto de manter o trabalho'
   imagem: um único robô humanoide estilo Tesla Optimus, painéis brancos e visor preto oval, numa bancada de fábrica escura, recebendo comando de uma mão humana segurando um tablet aceso em amarelo (tela
     sem texto legível), sem rosto visível; foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de controle
   painel:
-    de: comandar
+    de: ordem
     k: 170 MI DE EMPREGOS NOVOS ATÉ 2030 · WEF
     borda: am
     titulo: QUEM COMANDA FICA
     cor: '#FACC15'
 - etapa: facilidade
-  fala: 'Não precisa ter robô: começa no simulador, sem comprar nada.'
+  fala: 'E não precisa ter robô: começa no simulador, sem gastar nada.'
   prende: 'derruba a desculpa ''não tenho robô'' com algo que custa zero: o simulador'
   imagem: um notebook aberto numa mesa escura mostrando um pequeno robô 3D em simulação na tela acesa em verde e amarelo (sem texto legível), sob foco de luz amarela; fundo preto liso; metade de baixo vazia;
     sensação de começo fácil
@@ -95,13 +95,13 @@ partes:
     titulo: SÓ O SIMULADOR
     cor: '#22c55e'
 - etapa: descoberta
-  fala: 'É o Robótica do Zero ao Expert, grátis: sensores, câmera e um braço que aprende.'
+  fala: 'É o Robótica do Zero ao Expert, grátis: do sensor à câmera, até um braço que aprende.'
   prende: o nome da solução e 3 itens que a pessoa visualiza, do básico ao braço robótico
   diagrama:
     forma: fluxo
     titulo: ROBÓTICA DO ZERO AO EXPERT
     nos:
-    - de: sensores
+    - de: sensor
       ic: ⚡
       txt: Sensores e motores
       sub: ESP32, do primeiro LED
@@ -160,10 +160,9 @@ cores:
   aprender: '#FACC15'
 publicar:
   fila: lives6
-  titulo: 'Chutaram o robô. E ele tá ganhando #shorts'
+  titulo: 'Chutar robô não salva emprego. Sabe quem tá ganhando? #shorts'
   contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA Robot. Tema: o medo de perder o emprego para as máquinas. Tem gente chutando robô de entrega e pulando em carro sem motorista nos EUA;
     num reel viral, o comentário "eles estão roubando nossos empregos" teve 6 mil curtidas. Em 1812, na Inglaterra, quebrar máquina virou crime com pena de morte (ludistas) e as máquinas ficaram. Não é
     culpa de quem tem medo: ninguém mostrou o outro caminho. O WEF prevê 170 milhões de empregos novos até 2030. Máxima: "Quebrar a máquina não devolve o emprego. Quem aprende, fica." Solução: o curso Robótica
     do Zero ao Expert, aberto e gratuito, começa no simulador sem comprar nada (sensores e motores, visão com câmera, braço que aprende por demonstração): https://inematds.github.io/robot/ (inema.club).
     Não dizer que os carros queimados em Los Angeles foram por causa de emprego. CTA: comente EU VOU ou peça o link.'
-  so_v3: true

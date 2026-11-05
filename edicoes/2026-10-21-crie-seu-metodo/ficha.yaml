@@ -1,0 +1,136 @@
+# Ficha r7ex — curso "Crie seu método" (21/10/2026). Só preparação (sem avatar, fila ou envio).
+# Fatos: ~/projetos/wifi/longrun/2026-10-21-crie-seu-metodo-videos/FATOS.md + ~/projetos/crie-seu-metodo-v72/conteudo/pt/aulas/.
+slug: crie-seu-metodo
+tema: "Se a próxima IA apaga seu trabalho, você estava polindo a ferramenta: o curso Crie seu método"
+pedido: "Nei, 21/10/2026: r7ex explicando o curso Crie seu método e o método; gancho na chamada do curso ('Se a próxima IA apaga seu trabalho, você estava polindo a ferramenta'); só números do curso (7 aulas, 3 camadas, 13 peças); 2–3 partes com diagrama; print de página do curso; fila lives3."
+
+plano:
+  pessoa: "quem vende automação, agente ou software com IA (freelancer, agência, dono de negócio) e vê cada IA nova baratear o que faz"
+  quer: "parar de ter o trabalho apagado a cada modelo novo (medo) e ter um método que se vende e se repete em qualquer negócio (desejo)"
+  gancho: "provocação/medo: a chamada do curso, 'Se a próxima IA apaga seu trabalho, você estava polindo a ferramenta'"
+  nota: 8
+  destino: "https://inematds.github.io/crie-seu-metodo-v72/ (aberto e grátis no inema.club)"
+  fatos:
+    - "chamada do curso (curso.json, inicio.titulo): 'Se a próxima IA apaga seu trabalho, você estava polindo a ferramenta'"
+    - "curso.json, kicker/lead: 'Curso · 7 aulas'; 'Pare de vender automação. Comece a vender método. Em sete aulas práticas…'"
+    - "aula 5, lead: 'Hoje um agente faz engenharia reversa de quase qualquer software, e uma automação sai em minutos. Vender isso solto ficou barato.'"
+    - "aula 5, passos/Método: 'sequência de peças que você aplica do mesmo jeito em qualquer negócio: imobiliária, clínica, escritório… Muda o ângulo; a estrutura fica.'"
+    - "aula 1, título: 'A empresa em 3 camadas: você coordena os agentes, os agentes atendem a equipe'"
+    - "aula 5, METODO.md com 13 peças ('Um método com treze peças quebra em silêncio')"
+    - "aula 6, diagrama 'O mesmo ângulo em quatro lugares': anúncio, landing, atendimento, vendedor"
+    - "aula 7, lead: 'Se sai um modelo novo e você só fica mais rápido, você estava trabalhando o critério.'"
+    - "FATOS.md: curso aberto e gratuito no INEMA.CLUB"
+    - "aula 1, diagrama/passos: Você coordena e aprova; Agentes resolvem pelo contrato escrito; Equipe pede ao agente num canal fixo"
+    - "aula 6, diagrama: Anúncio fala de uma dor; Landing com a mesma dor; Atendimento já sabe o ângulo; Vendedor abre perguntando"
+
+gancho:
+  tipo: contrario
+  manchete: "A PRÓXIMA IA TE APAGA"
+  destaque: "APAGA"
+  objeto: "uma chave inglesa cromada, polida até brilhar, se desfazendo em pó metálico a partir da ponta, sob luz vermelha"
+  prova: {parte: 2, de: "minutos"}
+  absolvicao: "não é culpa sua"
+  entrega: "por que a IA nova apaga quem vende ferramenta e o que vender no lugar (o método)"
+
+marca: "INEMA · CRIE SEU MÉTODO"
+selo: "PROVOCAÇÃO"
+fonte: "<b>curso Crie seu método</b> · 7 aulas, aberto e grátis no inema.club · imagens: ilustração"
+
+abertura:
+  branco: "A PRÓXIMA IA APAGA SEU TRABALHO?"
+  destaque: "VOCÊ POLIA A FERRAMENTA"
+  cor: vermelho
+  cena: "uma única chave inglesa cromada, polida até brilhar como espelho, se desfazendo em pó metálico e estilhaços a partir da ponta, sob um foco de luz vermelha intensa vindo de cima; um pano de polir caindo ao lado; reflexo num chão preto molhado; fundo preto liso; sensação de perda"
+
+trocas:
+  "treze peças": "13 peças"
+  "treze": "13"
+  "três camadas": "3 camadas"
+  "sete aulas": "7 aulas"
+  "Sete aulas": "7 aulas"
+
+partes:
+  - etapa: gancho
+    fala: "A próxima IA vai apagar o seu trabalho. Não é azar: você estava polindo a ferramenta."
+    prende: "acusação direta a quem trabalha com IA: o leitor se pergunta 'é o meu caso?' e espera a explicação"
+    painel:
+      de: polindo
+      k: "CURSO CRIE SEU MÉTODO"
+      borda: red
+      titulo: "POLINDO A FERRAMENTA"
+      cor: "#ff2a1f"
+  - etapa: medo
+    fala: "Um agente copia quase qualquer software, e automação sai em minutos. Quem paga por isso?"
+    prende: "prova concreta do medo (clonar software, automação em minutos): quem vende automação sente que o preço dele está caindo"
+    imagem: "um cubo de vidro luminoso, como um software, se partindo e soltando de dentro uma cópia idêntica dele mesmo, as duas metades se separando no ar sob um foco de luz vermelha #ff2a1f vindo de cima; estilhaços finos de vidro; fundo preto liso; sensação de ser copiado"
+    lista:
+      k: "O QUE BARATEOU"
+      borda: red
+      itens: [[copia, "🔍 engenharia reversa de quase tudo"], [automação, "⏱️ automação sai em minutos"], [paga, "📉 vender isso solto ficou barato"]]
+    painel:
+      de: paga
+      k: "FICOU BARATO"
+      borda: red
+      titulo: "VENDER SÓ AUTOMAÇÃO?"
+      cor: "#ff2a1f"
+  - etapa: desejo
+    fala: "Não é culpa sua. Imagina montar uma vez e vender pra clínica, imobiliária e escritório."
+    prende: "virada do medo para o desejo: algo que a IA nova não apaga e que se vende de novo em cada cliente"
+    imagem: "um carimbo pesado de metal escuro descendo com força e marcando a mesma forma dourada luminosa numa superfície preta, com faíscas amarelas saindo da borda no impacto, sob um foco de luz amarela de cima; fundo preto liso; sensação de algo que se repete igual"
+    lista:
+      k: "O MESMO MÉTODO EM"
+      borda: am
+      itens: [[clínica, "🏥 na clínica"], [imobiliária, "🏠 na imobiliária"], [escritório, "🏢 no escritório"]]
+    painel:
+      de: montar
+      k: "MUDA O ÂNGULO"
+      borda: am
+      titulo: "A ESTRUTURA FICA"
+      cor: "#FACC15"
+  - etapa: facilidade
+    fala: "No método, a equipe pede ao agente e você só aprova. A IA nova só acelera isso."
+    prende: "derruba o 'não tenho tempo': o dono sai do meio dos pedidos; diagrama simples de 3 caixas que se entende num olhar"
+    diagrama:
+      forma: fluxo
+      titulo: "A EMPRESA EM 3 CAMADAS"
+      nos:
+        - {de: aprova, ic: "🧑‍💼", txt: "Você", sub: "coordena e aprova"}
+        - {de: agente, ic: "🤖", txt: "Agentes", sub: "resolvem pelo contrato escrito"}
+        - {de: equipe, ic: "👥", txt: "Equipe", sub: "pede ao agente, num canal só", cor: vd}
+  - etapa: descoberta
+    fala: "Seu anúncio promete uma coisa e o vendedor outra: o cliente some. O segredo: a mesma dor do começo ao fim."
+    prende: "o nome da solução com número (13 peças) e o segredo revelado: a mesma dor em quatro lugares, que quase ninguém faz"
+    diagrama:
+      forma: hub
+      titulo: "O MESMO ÂNGULO EM 4 LUGARES"
+      centro: {de: segredo, ic: "📘", txt: "SEU MÉTODO · 13 PEÇAS"}
+      nos:
+        - {de: anúncio, ic: "📣", txt: "Anúncio", sub: "fala de uma dor"}
+        - {de: mesma, ic: "📄", txt: "Página", sub: "a mesma dor no título"}
+        - {de: dor, ic: "💬", txt: "Atendimento", sub: "já sabe o ângulo"}
+        - {de: vendedor, ic: "🎯", txt: "Vendedor", sub: "abre perguntando", cor: vd}
+  - etapa: beneficio
+    fala: "Sai um modelo novo e você acelera. Aí você sabe que tem método."
+    prende: "fecha o gancho (apaga × acelera) com alívio; prova real com a página da aula do teste do modelo novo"
+    print: {url: "https://inematds.github.io/crie-seu-metodo-v72/aulas/criterio/", selo: "aula 7 · o critério"}
+    painel:
+      de: acelera
+      k: "O MODELO NOVO"
+      borda: vd
+      titulo: "ACELERA"
+      cor: "#22c55e"
+  - etapa: comentario
+    fala: "Vai parar de polir a ferramenta? Comenta eu faço. Sete aulas grátis no inema ponto club, ou pede o link."
+    prende: "oferta concreta e sem custo (7 aulas grátis) + pergunta que divide (apaga ou acelera?) puxa comentário"
+    print: {url: "https://inematds.github.io/crie-seu-metodo-v72/", selo: "7 aulas · aberto e grátis"}
+
+cta: {de: "Comenta", a: "VAI PARAR DE POLIR A FERRAMENTA? 👇", b: "comenta EU FAÇO ou me pede o link", comentario: "EU FAÇO"}
+club: "o curso Crie seu método, 7 aulas grátis"
+cores: {apaga: "#ff2a1f", polindo: "#ff2a1f", ferramenta: "#ff2a1f", reversa: "#ff2a1f", minutos: "#ff2a1f", barato: "#ff2a1f",
+        método: "#FACC15", segredo: "#FACC15", aprova: "#FACC15", copia: "#ff2a1f", paga: "#ff2a1f", "13": "#FACC15", rápido: "#22c55e",
+        "7": "#FACC15", grátis: "#22c55e"}
+
+publicar:
+  fila: lives3
+  titulo: "Se a próxima IA apaga seu trabalho, você estava polindo a ferramenta #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), provocativo: se a próxima IA apaga o seu trabalho, você estava polindo a ferramenta. Hoje um agente faz engenharia reversa de quase qualquer software e uma automação sai em minutos; vender só isso ficou barato. O que vale é o método: peças repetíveis em qualquer negócio (clínica, imobiliária, escritório), muda o ângulo e a estrutura fica. A empresa em 3 camadas (você coordena os agentes, os agentes atendem a equipe), o método em 13 peças e um ângulo só do anúncio à landing, ao atendimento e ao vendedor. Curso Crie seu método: 7 aulas, aberto e grátis em https://inematds.github.io/crie-seu-metodo-v72/ (no inema.club). Não citar nenhuma fonte externa. CTA: comente EU FAÇO se vai parar de polir a ferramenta, ou peça o link nos comentários."
