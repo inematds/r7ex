@@ -1,0 +1,81 @@
+# Ficha r7ex — reel B (manipulação): 16,8 bi no trimestre e IPO em novembro (19/10/2026).
+# Fontes: CNBC 18/10/2026 (receita Q3, IPO previsto, consultora de IPO); anthropic.com/news/public-benefit-fund.
+slug: bigtech-ipo
+tema: "Anthropic fatura US$ 16,8 bi no trimestre, vai à bolsa em novembro e anuncia fundo de 'benefício público' — bondade ou imagem?"
+
+plano:
+  pessoa: "quem lê manchete de IA e não sabe em quem acreditar"
+  quer: "não ser feito de bobo pelo discurso (dor) e entender o jogo para ganhar com a IA (desejo)"
+  gancho: "provocação com número: US$ 16,8 bi no 3º trimestre + IPO previsto para novembro (CNBC, 18/10/2026)"
+  nota: 8
+  destino: "https://inematds.github.io/profissional2027x/ (inema.club, formação Profissional 2027, sem mensalidade)"
+
+marca: "INEMA · BIG TECH VAI TE PAGAR?"
+selo: "ALERTA INEMA"
+fonte: "<b>CNBC</b> · 18/10/2026 · Anthropic, Public Benefit Fund · imagens: ilustração"
+
+abertura:
+  branco: "16,8 BILHÕES NUM TRIMESTRE"
+  destaque: "QUER TE PAGAR?"
+  cor: vermelho
+  cena: "salão escuro de bolsa de valores; em primeiro plano um sino de abertura prateado sendo tocado por uma mão de robô humanoide de visor preto; telões ao fundo desfocados em vermelho; luz de recorte forte no sino"
+
+trocas:
+  "Dezesseis vírgula oito bilhões": "16,8 bilhões"
+  "três perguntas": "3 perguntas"
+
+partes:
+  - etapa: gancho
+    fala: "Dezesseis vírgula oito bilhões de dólares num trimestre. E bem antes de estrear na bolsa, em novembro, a Anthropic promete dividir as ações com o povo."
+    painel:
+      de: trimestre
+      k: "ANTHROPIC · 3º TRIMESTRE"
+      borda: red
+      contador: {ate: 16.8, dec: 1, em: "16,8", cor: "#ff2a1f", unid: "BILHÕES DE DÓLARES"}
+      l: "estreia na bolsa prevista para **novembro**"
+  - etapa: medo
+    fala: "Uma consultora de abertura de capital disse à CNBC: o anúncio é bom pra imagem. Coincidência?"
+    imagem: "um palco escuro com um único holofote branco iluminando um púlpito vazio; na sombra atrás da cortina, uma mão de robô humanoide segurando um roteiro; clima de bastidor"
+    painel:
+      k: "BOM PRA IMAGEM"
+      borda: red
+      itens: [[consultora, "🗣️ consultora de abertura de capital"], [imagem, "📸 bom pra imagem"], [Coincidência, "🤔 coincidência?"]]
+  - etapa: desejo
+    fala: "Imagina saber ler esses anúncios antes de cair no discurso."
+    imagem: "uma pessoa de costas segurando uma lupa sobre uma folha de jornal escura; através da lupa, uma luz amarela revela o que está por trás; resto da sala escuro"
+    painel:
+      k: "LER O JOGO"
+      itens: [[anúncios, "📰 ler os anúncios"], [discurso, "🧠 antes do discurso"]]
+  - etapa: facilidade
+    fala: "Você não precisa ser economista. Só precisa fazer três perguntas."
+    imagem: "três pontos de interrogação de metal pesado sobre uma mesa preta, iluminados de cima por um foco amarelo; o resto escuro"
+    painel:
+      k: "SEM SER ECONOMISTA"
+      itens: [[economista, "✅ sem ser economista"], [perguntas, "❓ 3 perguntas"]]
+  - etapa: descoberta
+    fala: "Quem paga? Quanto paga? E quem decide pra quem vai? Por enquanto, quem decide é a própria empresa."
+    imagem: "uma balança antiga enorme numa sala escura; num prato, uma torre de vidro de tecnologia em miniatura; no outro, poucas moedas; a balança pende para a torre; luz vermelha de recorte"
+    painel:
+      k: "AS 3 PERGUNTAS"
+      borda: vd
+      itens: [[Quem, "💰 quem paga?"], [Quanto, "💵 quanto paga?"], [decide, "⚖️ quem decide?"]]
+  - etapa: beneficio
+    fala: "Quem entende o jogo não espera o cheque. Aprende a usar a inteligência artificial e cobra por isso."
+    imagem: "uma pessoa de costas numa oficina iluminada em amarelo, com um notebook aberto e ferramentas na bancada, de costas para uma torre de vidro escura distante na janela"
+    painel:
+      k: "QUEM ENTENDE O JOGO"
+      borda: vd
+      itens: [[jogo, "♟️ entende o jogo"], [cheque, "🚫 não espera o cheque"], [cobra, "💰 cobra por isso"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/profissional2027x/", selo: "formação Profissional 2027 · inema.club"}
+
+cta: {a: "É BONDADE OU É IMAGEM? 👇", b: "ou me pede o link da formação nos comentários"}
+club: "a formação Profissional 2027, sem mensalidade"
+cores: {"16,8": "#ff2a1f", bolsa: "#FACC15", novembro: "#FACC15", imagem: "#ff2a1f", discurso: "#ff2a1f", perguntas: "#FACC15",
+        decide: "#ff2a1f", empresa: "#ff2a1f", jogo: "#FACC15", cobra: "#FACC15"}
+
+publicar:
+  fila: lives1
+  titulo: "US$ 16,8 bi num trimestre e agora a big tech quer te pagar? Bondade ou imagem #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), tom provocativo. Fatos (CNBC, 18/10/2026): a Anthropic informou receita de US$ 16,8 bilhões no 3º trimestre, IPO previsto para novembro; uma consultora de IPO disse que o anúncio do fundo de benefício público (5% das ações, distribuições diretas) é benéfico para a imagem. Provocação: bondade ou marketing pré-IPO? Três perguntas: quem paga, quanto paga, quem decide. Saída: entender o jogo, aprender a usar IA e cobrar por isso (formação Profissional 2027 no inema.club). Não citar o canal de origem."

@@ -1,0 +1,85 @@
+# Ficha r7ex — reel C (compensação): 71% acham que a IA corta empregos; a big tech oferece o troco (19/10/2026).
+# Fontes: Pew Research (ago/2026, via CNBC 18/10/2026); anthropic.com/news/public-benefit-fund; OpenAI, abr/2026 (fundo público com dividendos).
+slug: bigtech-troco-b
+tema: "71% acham que a IA vai cortar empregos; Anthropic e OpenAI já falam em pagar direto ao cidadão — compensação ou troco?"
+
+plano:
+  pessoa: "quem trabalha em escritório ou pequeno negócio e sente que a IA vem para o seu lugar"
+  quer: "não virar dependente de compensação (dor) e ter lugar na mesa com a IA (desejo)"
+  gancho: "medo com número: 71% dos americanos acham que a IA vai reduzir empregos em 2 anos (Pew, ago/2026)"
+  nota: 8
+  destino: "https://inematds.github.io/profissional2027x/ (inema.club, formação Profissional 2027, sem mensalidade)"
+
+marca: "INEMA · BIG TECH VAI TE PAGAR?"
+selo: "ALERTA INEMA"
+fonte: "<b>Pew Research</b> · ago/2026 · Anthropic, 18/10/2026 · OpenAI, abr/2026 · imagens: ilustração"
+
+abertura:
+  branco: "71% TEMEM A IA"
+  destaque: "E JÁ TEM TROCO"
+  cor: vermelho
+  cena: "um escritório vazio à noite, fileiras de mesas com caixas de papelão cheias de objetos pessoais, uma luz vermelha de saída acesa no fundo; luz fria azul"
+
+trocas:
+  "Setenta e um por cento": "71%"
+  "dois anos": "2 anos"
+  "cinco por cento": "5%"
+  "Três passos": "3 passos"
+
+partes:
+  - etapa: gancho
+    fala: "Setenta e um por cento dos americanos acham que a inteligência artificial vai cortar empregos em dois anos. E a big tech já oferece o troco."
+    painel:
+      de: americanos
+      k: "PEW RESEARCH · AGO/2026"
+      borda: red
+      contador: {ate: 71, em: "71%", cor: "#ff2a1f", unid: "% ACHAM QUE A IA CORTA EMPREGOS"}
+      l: "nos próximos **2 anos**"
+  - etapa: medo
+    fala: "A Anthropic separou cinco por cento das ações pra distribuição direta. A OpenAI quer pagar dividendo ao cidadão."
+    print: {url: "https://www.anthropic.com/news/public-benefit-fund", selo: "anthropic.com · 18/10/2026"}
+    painel:
+      k: "JÁ ESTÃO OFERECENDO"
+      borda: red
+      itens: [[Anthropic, "🏦 Anthropic: 5% das ações"], [OpenAI, "💵 OpenAI: dividendo ao cidadão"]]
+  - etapa: desejo
+    fala: "Mas você quer o troco ou quer um lugar na mesa?"
+    imagem: "uma sala de conselho de vidro no alto de um arranha-céu à noite, mesa longa, uma única cadeira vazia iluminada por um foco vermelho, a cidade lá embaixo"
+    painel:
+      k: "TROCO × MESA"
+      itens: [[troco, "🪙 o troco"], [mesa, "🪑 um lugar na mesa"]]
+  - etapa: facilidade
+    fala: "E esse lugar não exige diploma de engenheiro."
+    imagem: "mãos de uma pessoa comum abrindo um notebook numa mesa de cozinha simples à noite, uma xícara de café ao lado, luz branca da tela"
+    painel:
+      k: "SEM SER ENGENHEIRO"
+      itens: [[lugar, "🪑 o seu lugar"], [diploma, "✅ sem diploma de engenheiro"]]
+  - etapa: descoberta
+    fala: "Três passos: escolher um processo de uma empresa pequena, automatizar com inteligência artificial e medir o resultado."
+    diagrama:
+      forma: fluxo
+      titulo: "71% acham que a IA corta empregos. Você quer o troco da big tech ou um lugar na mesa? #shorts"
+      nos:
+        - {de: processo, ic: "📋", txt: "UM PROCESSO", sub: "de uma empresa pequena"}
+        - {de: automatizar, ic: "🤖", txt: "AUTOMATIZAR", sub: "com IA"}
+        - {de: medir, ic: "📊", txt: "MEDIR", sub: "o resultado", cor: vd}
+  - etapa: beneficio
+    fala: "Em vez de esperar compensação, você vira quem implementa."
+    imagem: "uma pessoa de costas numa loja de bairro à noite mostrando ao dono um notebook com gráficos luminosos (nada legível); prateleiras cheias; luz quente só nos dois"
+    painel:
+      k: "QUEM IMPLEMENTA"
+      borda: vd
+      itens: [[compensação, "🙅 esperar compensação"], [implementa, "🛠️ virar quem implementa"]]
+  - etapa: comentario
+    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/profissional2027x/", selo: "formação Profissional 2027 · inema.club"}
+
+cta: {a: "VOCÊ QUER O TROCO OU A MESA? 👇", b: "ou me pede o link da formação nos comentários"}
+club: "a formação Profissional 2027, sem mensalidade"
+cores: {"71%": "#ff2a1f", empregos: "#ff2a1f", troco: "#ff2a1f", Anthropic: "#FACC15", OpenAI: "#FACC15", mesa: "#FACC15",
+        diploma: "#FACC15", processo: "#FACC15", medir: "#FACC15", compensação: "#ff2a1f", implementa: "#FACC15"}
+
+publicar:
+  fila: lives11
+  titulo: "71% acham que a IA vai cortar empregos — e a big tech já oferece o troco #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner), tom provocativo. Fatos: Pew Research (ago/2026): 71% dos adultos americanos acham que a IA vai levar a menos empregos nos próximos 2 anos. Anthropic (18/10/2026) separou 5% das ações num fundo que pode fazer distribuições diretas; OpenAI (abr/2026) propôs fundo público que paga dividendos ao cidadão. Provocação: compensação ou troco? Saída: escolher um processo de uma empresa pequena, automatizar com IA e medir o resultado — virar quem implementa (formação Profissional 2027 no inema.club). CTA: você quer o troco ou a mesa? Não citar o canal de origem."
