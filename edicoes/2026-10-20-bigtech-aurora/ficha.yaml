@@ -1,0 +1,103 @@
+# Ficha r7ex — reel B: três modelos "Aurora" apareceram na OpenAI na semana em que a rival virou boazinha (20/10/2026).
+# Fatos: aurora-red/green/blue-alpha surgiram na lista de modelos da API da OpenAI em 17–18/10/2026, sem anúncio/preço/documentação.
+slug: 2026-10-20-bigtech-aurora
+tema: "Big techs de IA: boazinhas ou espertas? A dona do Claude dá 5% e a OpenAI solta 3 modelos secretos na mesma semana"
+
+plano:
+  pessoa: "qualquer pessoa que usa ChatGPT ou Claude e acha que essas empresas brigam pelo bem da humanidade"
+  quer: "entender o jogo para não virar plateia nem refém de uma empresa só (desejo de esperteza + medo de dependência)"
+  gancho: "provocação + número: 3 modelos Aurora apareceram na API da OpenAI em 17–18/10/2026, na semana do fundo de 5% da Anthropic"
+  nota: 8
+  destino: "https://inematds.github.io/ia-de-elite/guia/ (IA de Elite, guia e kit abertos e grátis no inema.club)"
+
+gancho:
+  tipo: estatistica
+  manchete: "NINGUÉM TE AVISOU"
+  destaque: "AVISOU"
+  objeto: "três esferas de luz (vermelha, verde e azul) presas atrás de uma fita vermelha de acesso proibido, dentro de fumaça cinza"
+  prova: {parte: 1, de: "modelos"}
+  absolvicao: "não é desatenção sua"
+  fontes:
+    - {nome: "lista de modelos da API da OpenAI (17–18/10/2026; Crypto Briefing, 36Kr)", trecho: "aurora-red-alpha, aurora-green-alpha e aurora-blue-alpha, sem anúncio, preço ou documentação"}
+  entrega: "o jogo por trás das big techs de IA e 3 atitudes para não virar refém de uma só"
+
+marca: "INEMA · BOAZINHAS OU ESPERTAS?"
+selo: "GUERRA DA IA"
+fonte: "<b>OpenAI</b> · aurora-red/green/blue-alpha, 17–18/out/2026 · Anthropic, 18/out/2026 · imagens: ilustração"
+
+abertura:
+  branco: "3 MODELOS SECRETOS NA OPENAI"
+  destaque: "COINCIDÊNCIA?"
+  cor: vermelho
+  cena: "TRÊS esferas de luz flutuando lado a lado dentro de fumaça cinza espessa, uma vermelha, uma verde e uma azul, brilhando intensamente; fundo preto liso; sensação de mistério; sem pessoas"
+
+trocas:
+  "três modelos": "3 modelos"
+  "cinco por cento": "5%"
+
+partes:
+  - etapa: gancho
+    fala: "Três modelos da OpenAI apareceram sem te avisar, na semana em que a dona do Claude posou de boazinha. Coincidência?"
+    prende: "provocação com nome e número: dois gigantes no mesmo momento, e algo escondido que a pessoa quer saber"
+    painel:
+      de: modelos
+      k: "OPENAI · 17–18/OUT"
+      borda: red
+      contador: {ate: 3, em: "modelos", cor: "#ff2a1f", unid: "MODELOS SECRETOS"}
+      l: "lista de modelos da OpenAI"
+  - etapa: medo
+    fala: "Chamam Aurora: vermelho, verde e azul. Sem anúncio, sem preço. Não é desatenção sua: eles quiseram assim."
+    prende: "mistério concreto: nome, cores e nada de explicação; quem usa ChatGPT quer saber o que vem"
+    imagem: "UMA esfera de luz vermelha intensa flutuando dentro de fumaça cinza espessa, foco de luz forte de cima; fundo preto liso; sensação de mistério e alerta; sem pessoas"
+    painel:
+      de: Aurora
+      k: "AURORA · ALPHA"
+      borda: red
+      itens: [[anúncio, "🚫 sem anúncio"], [preço, "🚫 sem preço"], [quiseram, "❓ ninguém foi avisado"]]
+  - etapa: desejo
+    fala: "Eu acho que não. Enquanto todos aplaudiam o Claude bonzinho, a OpenAI roubou a atenção."
+    prende: "vira a chave: dá ao espectador a leitura esperta que ninguém contou"
+    imagem: "UMA nuvem de fumaça densa saindo de uma única tocha de metal, a chama brilhando em amarelo intenso; contraluz forte; fundo preto liso; sensação de distração"
+    painel:
+      k: "GUERRA DA ATENÇÃO · 17–18/OUT × 18/OUT"
+      borda: red
+      itens: [[bonzinho, "😇 todos falando do Claude bonzinho"], [atenção, "🎯 a OpenAI roubou a atenção"]]
+  - etapa: facilidade
+    fala: "Uma vende segurança, a outra velocidade. Se uma sumir, seu trabalho para?"
+    prende: "compara as duas rivais numa frase e mostra o risco para quem usa: a dependência"
+    imagem: "DUAS grandes peças de xadrez de vidro escuro frente a frente num tabuleiro, uma brilhando em branco frio e outra em vermelho intenso; foco de luz de cima; fundo preto liso; sensação de duelo"
+    painel:
+      k: "MESMO OBJETIVO"
+      itens: [[segurança, "🛡️ uma vende segurança"], [velocidade, "⚡ a outra velocidade"], [trabalho, "🔗 e se uma sumir amanhã?"]]
+  - etapa: descoberta
+    fala: "Pra não virar refém: leia os termos, tenha dois modelos e conheça os abertos."
+    prende: "três atitudes simples que qualquer um faz hoje, em diagrama"
+    diagrama:
+      forma: fluxo
+      titulo: "PARA NÃO VIRAR PLATEIA"
+      nos:
+        - {de: termos, ic: "📄", txt: "leia os termos de uso", sub: "quem é dono do que você manda"}
+        - {de: dois, ic: "🔀", txt: "mais de um modelo", sub: "nada de refém"}
+        - {de: abertos, ic: "🔓", txt: "modelos abertos", sub: "no seu computador", cor: vd}
+  - etapa: beneficio
+    fala: "Aí quem manda é você: se uma muda o preço, você troca e segue."
+    prende: "máxima curta que a pessoa repete: jogador, não plateia"
+    imagem: "UMA mão movendo uma única peça de xadrez que brilha em amarelo intenso sobre um tabuleiro escuro, contraluz forte; fundo preto liso; sensação de controle"
+    painel:
+      k: "JOGADOR, NÃO PLATEIA"
+      borda: vd
+      itens: [[manda, "🟢 quem manda é você"], [preço, "♟️ mudou o preço? troca e segue"]]
+  - etapa: comentario
+    fala: "Comenta: boazinhas ou espertas? Tá tudo no inema ponto club, ou me pede o link."
+    prende: "pergunta que divide e puxa comentário, com o guia aberto e grátis"
+    print: {url: "https://inematds.github.io/ia-de-elite/guia/", selo: "guia aberto e grátis · inema.club"}
+
+cta: {a: "BOAZINHAS OU ESPERTAS? 👇", b: "comenta BOAZINHAS ou ESPERTAS"}
+club: "IA de Elite: os hábitos de quem usa IA no topo"
+cores: {Claude: "#FACC15", secretos: "#ff2a1f", OpenAI: "#ff2a1f", Aurora: "#ff2a1f", fumaça: "#ff2a1f", dependa: "#ff2a1f",
+        contratos: "#FACC15", mais: "#FACC15", abertos: "#FACC15", jogo: "#FACC15", escolhe: "#FACC15"}
+
+publicar:
+  fila: lives11
+  titulo: "3 modelos secretos na OpenAI na semana da Anthropic boazinha #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Em 18/10/2026 a Anthropic (dona do Claude) anunciou um fundo de benefício público com 5% das ações; em 17–18/10/2026 três modelos chamados aurora-red-alpha, aurora-green-alpha e aurora-blue-alpha apareceram na lista de modelos da API da OpenAI, sem anúncio, preço ou documentação. Leitura do Nei: big techs de IA não são boazinhas nem vilãs, são espertas — guerra da atenção pelos investidores; uma vende segurança, a outra velocidade, as duas querem dependência. O que fazer: olhar os contratos, usar mais de um modelo e conhecer os modelos abertos. Guia aberto IA de Elite no inema.club. CTA: boazinhas ou espertas? compromisso real ou jogada de mercado?"
