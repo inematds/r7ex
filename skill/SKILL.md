@@ -17,7 +17,7 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 1. **Plano** (PADRAO §1): pessoa = público geral; o que ela quer; gancho com número e fonte; nota ≥ 8; destino no
    inema.club (leia a página: nome, aulas, se é grátis). **Um tema por vídeo**: vários temas → proponha um vídeo por tema.
    **Gancho (PADRAO §2.1, v1.2.0):** bloco `gancho:` com `tipo` (`contrario` | `perda` | `estatistica` | `terceiro` |
-   `noticia`; lista, "você sabia" e "eu fiz" reprovam), `manchete` (quadro 0, ≤ 6 palavras, CAIXA ALTA, mais forte que a
+   `noticia` | `provocacao` (v1.3.1: afirma e cutuca, com nome ou número na 1ª frase); lista, "você sabia" e "eu fiz" reprovam; `entrega` = o que a pessoa leva do vídeo, PADRAO §2.2), `manchete` (quadro 0, ≤ 6 palavras, CAIXA ALTA, mais forte que a
    fala), `destaque` (a palavra em amarelo), `objeto` (com dano/ameaça), `prova` (até ~20 s), `absolvicao` (parte 2 ou 3),
    `fontes` (estatística/terceiro/notícia) e `data` (notícia).
 2. `python3 r7ex.py novo <slug>` e preencha `ficha.yaml` (modelo: o reel do hacker, gancho `terceiro`): gancho, abertura
@@ -43,5 +43,5 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 - Tudo que abre navegador roda na tela `:99`; só o LOGIN do HeyGen vai na tela do Nei (`:10`).
 - Nunca número em algarismo na fala (o avatar lê errado); a legenda troca por algarismo.
 - "Grátis" só quando a página diz ou o Nei afirma. Nunca inventar número.
-- Publicar só pela fila; nunca upload direto. Avatar gerado só com OK daquela produção.
+- Publicar só pela fila; nunca upload direto. Exceção (Nei, 05/11/2026): quando a entrega precisa do link do YouTube (portal, link no tópico do Telegram), publicar direto com o yt-pubx no canal pedido (mesmo título e contexto do item) e marcar o item da fila como `feito` com `video_id` e nota `direto`, para não sair duas vezes; publicação direta → mensagem azul no v3. Nos outros casos o portal pode entrar antes e ganhar o link do vídeo depois. Avatar gerado só com OK daquela produção.
 - Mudança de padrão (layout, estrutura, plano): README §7; padrão novo → kit inema-design primeiro (D9–D11).

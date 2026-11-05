@@ -62,7 +62,7 @@ o explicavideos nem o cardshorts.
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
 
-**Pelo bot, sem sessão nenhuma (22/10/2026): `/r7ex <tema>` ou `/rtex <tema>` no inemaccbot.**
+**Pelo bot, sem sessão nenhuma (22/10/2026): `/r7ex <tema>` no inemaccbot.** (O `/rtex` do bot ainda cai aqui por apelido antigo, mas desde 05/11/2026 rtex é outro projeto, `~/projetos/rtex`; repontar o comando está pendente.)
 
 | # | Passo | Comando / o que acontece | Quem |
 |---|---|---|---|
@@ -235,6 +235,7 @@ Passo a passo separado: `avatar`, `imagens`, `cena`, `render`, `revisar` (ver `p
   com Google. A sessão dura ~30 dias; o aviso vermelho chega no v3 um dia antes (`~/projetos/wifi/heygen-aviso`).
 - **Publicação:** sempre pela fila (`fila/fila.py`, timer systemd `fila-lives7`, 9 h às 21 h, 1 a cada 2 h),
   nunca upload direto. Cada publicação avisa no v3.
+  Exceção (Nei, 05/11/2026): quando a entrega precisa do link do YouTube (portal, link no tópico do Telegram), publicar direto com o yt-pubx no canal pedido (mesmo título e contexto do item) e marcar o item da fila como `feito` com `video_id` e nota `direto`, para não sair duas vezes; publicação direta → mensagem azul no v3. Nos outros casos o portal pode entrar antes e ganhar o link do vídeo depois.
 
 ## Licença
 MIT.
