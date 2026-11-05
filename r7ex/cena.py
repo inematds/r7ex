@@ -3,7 +3,7 @@ Mesma lógica do gerar_cena.py da edição modelo eventosextremospub/edicoes/202
 import difflib, json, re, unicodedata
 from pathlib import Path
 
-BORDA = {"red": "rgba(255,42,31,.7)", "am": "rgba(250,204,21,.75)", "vd": "rgba(34,197,94,.7)"}
+BORDA = {"red": "rgba(255,42,31,.7)", "vm": "rgba(255,42,31,.7)", "am": "rgba(250,204,21,.75)", "vd": "rgba(34,197,94,.7)"}
 NUM = re.compile(r"\d")
 MAX_LEG = 21                          # letras por bloco de legenda (23 já encosta na borda; 25 vazou)
 

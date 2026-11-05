@@ -1,0 +1,91 @@
+# Ficha r7ex — kit reserva-hotel (vídeos dos kits de atendimento, 19/10/2026). Reel que promove o repo.
+# Fatos: ~/projetos/reserva-hotel (README, docs/ESPECIFICACAO.md; pytest 98 passed em 19/10/2026). Sem número externo.
+# iCal: exporta link por tipo/quarto (a OTA lê e bloqueia as datas); o calendário da OTA entra por arquivo (sem URL no v1).
+# Prints: app local com a pousada de exemplo (exemplos/pousada.json), capturados em 540x960@2x e postos em prints/raw-pN.png.
+slug: reserva-hotel-promo
+tema: "Pousada cheia de reserva direta, zero de comissão: o reserva-hotel, grátis e aberto"
+
+plano:
+  pessoa: "dono de pousada ou hotel pequeno que vive no WhatsApp e paga comissão para os sites de reserva"
+  quer: "parar de vender o mesmo quarto duas vezes e de responder hóspede à meia-noite (dor) e encher a casa com reserva direta (desejo)"
+  gancho: "provocação: zero de comissão na reserva direta, com o hóspede reservando sozinho pelo WhatsApp (fato do sistema, sem número externo)"
+  nota: 7
+  destino: "https://inematds.github.io/reserva-hotel/guia/"
+
+marca: "INEMA · RESERVA-HOTEL"
+selo: "CÓDIGO ABERTO"
+fonte: "<b>reserva-hotel</b> · código aberto, github.com/inematds · 98 testes passando · imagens: ilustração"
+
+abertura:
+  branco: "SUA POUSADA CHEIA"
+  destaque: "ZERO DE COMISSÃO"
+  cor: amarelo
+  cena: "uma chave de quarto de pousada com chaveiro de madeira, enorme, girando no ar e acendendo em luz amarela forte de cima, soltando um brilho limpo; sombras profundas, fundo preto liso"
+
+trocas:
+  "noventa e oito": "98"
+  "onze da noite": "23h"
+  "duas vezes": "2 vezes"
+  "inema ponto club": "inema.club"
+
+partes:
+  - etapa: gancho
+    fala: "Sua pousada cheia de reserva direta, com zero de comissão e sem você preso no WhatsApp."
+    painel:
+      de: "zero"
+      k: "RESERVA DIRETA"
+      borda: am
+      itens: [[cheia, "🏨 pousada cheia"], [zero, "💰 zero de comissão"], [WhatsApp, "📱 sem ficar preso no WhatsApp"]]
+  - etapa: medo
+    fala: "Hoje o hóspede pergunta às onze da noite, você confere caderno, Booking e Airbnb, e um dia vende o mesmo quarto duas vezes."
+    imagem: "uma porta de quarto de pousada num corredor escuro com DUAS chaves idênticas enfiadas na mesma fechadura, uma luz vermelha forte batendo de lado nas chaves; sensação de erro e constrangimento; fundo preto"
+    painel:
+      k: "O CAOS DE HOJE"
+      borda: red
+      itens: [[23h, "🌙 hóspede às 23h"], [caderno, "📒 caderno, Booking, Airbnb"], ["vezes", "🚪 o mesmo quarto 2 vezes"]]
+  - etapa: desejo
+    fala: "Imagina o hóspede reservando sozinho, a qualquer hora, já com o sinal combinado."
+    imagem: "um celular em pé sobre um balcão de recepção escuro, a tela acesa em amarelo com um grande sinal de visto de reserva confirmada, a luz da tela iluminando uma chave de quarto ao lado; calma e confiança; fundo preto"
+    painel:
+      k: "O HÓSPEDE RESERVA SOZINHO"
+      borda: am
+      itens: [[sozinho, "🙋 reserva sozinho"], [hora, "🕐 a qualquer hora"], [sinal, "💳 sinal combinado"]]
+  - etapa: facilidade
+    fala: "A gente deixou pronto o reserva hotel: ele responde no WhatsApp, conta cada noite e bloqueia as datas na Booking e no Airbnb pelo calendário."
+    diagrama:
+      forma: hub
+      titulo: "UM SISTEMA, A POUSADA INTEIRA"
+      centro: {de: reserva, ic: "🏨", txt: "reserva-hotel"}
+      nos:
+        - {de: responde, ic: "💬", txt: "Responde no WhatsApp", sub: "datas, preço e sinal"}
+        - {de: noite, ic: "📅", txt: "Conta cada noite", sub: "sem overbooking"}
+        - {de: bloqueia, ic: "🔒", txt: "Bloqueia nas OTAs", sub: "calendário iCal"}
+        - {de: calendário, ic: "🔁", txt: "Booking e Airbnb", sub: "as mesmas datas", cor: vd}
+  - etapa: descoberta
+    fala: "A equipe recebe os avisos no Telegram, faz o check-in pela recepção, e são noventa e oito testes passando."
+    print: {url: "https://inematds.github.io/reserva-hotel/guia/", selo: "a recepção · app real"}
+    painel:
+      k: "TESTADO DE VERDADE"
+      borda: vd
+      itens: [[Telegram, "✈️ avisos no Telegram"], [check-in, "🛎️ check-in pela recepção"]]
+      contador: {de: 0, ate: 98, em: "98", cor: "#FACC15", unid: "TESTES PASSANDO"}
+  - etapa: beneficio
+    fala: "É código aberto, roda no seu servidor e os dados ficam com você."
+    print: {url: "https://inematds.github.io/reserva-hotel/guia/", selo: "reserva feita pelo chat"}
+    painel:
+      k: "SEU, DE VERDADE"
+      borda: vd
+      itens: [[aberto, "🔓 código aberto"], [servidor, "🖥️ no seu servidor"], [dados, "🛡️ os dados com você"]]
+  - etapa: comentario
+    fala: "O sistema e o guia tão no inema ponto club. Ou me pede o link aqui nos comentários."
+    print: {url: "https://inematds.github.io/reserva-hotel/guia/", selo: "inema.club"}
+
+cta: {a: "QUANTO VOCÊ PAGA DE COMISSÃO HOJE? 👇", b: "me pede o link aqui nos comentários"}
+club: "o reserva-hotel + o guia passo a passo"
+cores: {zero: "#FACC15", cheia: "#FACC15", direta: "#FACC15", "23h": "#ff2a1f", "2": "#ff2a1f", vezes: "#ff2a1f", sozinho: "#FACC15",
+        pronto: "#FACC15", "98": "#FACC15", aberto: "#FACC15", "voce": "#FACC15"}
+
+publicar:
+  fila: lives7
+  titulo: "Pousada cheia de reserva direta, zero de comissão: o sistema grátis e aberto #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner) promovendo o reserva-hotel (repositório aberto inematds/reserva-hotel), sistema de reservas para pousadas e hotéis pequenos: o hóspede cota e reserva sozinho pelo chat do site ou pelo WhatsApp (Evolution API), com preço, sinal e desconto de reserva direta; inventário noite a noite sem overbooking, tarifas por temporada, estadia mínima e bloqueios; calendário iCal por tipo de quarto para bloquear as datas na Booking e no Airbnb, e importação do calendário deles por arquivo; equipe na página da recepção (check-in, check-out, sinal pago, no-show) e avisos/atendimento pelo Telegram; lembrete com pré-check-in, lista de espera, convite pós-estadia com consentimento, LGPD; Docker na VPS e backup. 98 testes automáticos passando. Repositório: https://github.com/inematds/reserva-hotel . Guia: https://inematds.github.io/reserva-hotel/guia/ . Portal: https://inema.club . CTA: peça o link nos comentários."
