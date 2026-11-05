@@ -68,9 +68,16 @@ def montar(pasta, ficha, falas):
     ids = [t["id"] for t in T]
 
     def em(fid, palavra, k=1):
+        # Sem rigor (Nei, 05/11/2026): sem a k-ésima vez, usa a última vez que a palavra aparece; sem nenhuma,
+        # o item entra no começo da fala. Só avisa, não para a montagem.
         v = acha(F[fid]["palavras"], palavra, k)
+        j = k - 1
+        while v is None and j >= 1:
+            v = acha(F[fid]["palavras"], palavra, j); j -= 1
         if v is None:
-            raise SystemExit(f"{fid}: '{palavra}' não está na fala: " + " ".join(p["w"] for p in F[fid]["palavras"]))
+            v = F[fid]["ini"]
+        if j < k - 1 or v == F[fid]["ini"]:
+            print(f"[r7ex] aviso {fid}: '{palavra}' (vez {k}) não achada na fala; entra em {v:.2f} s")
         return v
 
     # com o ritmo (28/10/2026) o avatar já traz os 9 s de cartão depois da última palavra: o vídeo acaba junto com ele.
