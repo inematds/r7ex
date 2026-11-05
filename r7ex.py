@@ -30,7 +30,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.3.2"   # semver do r7ex (1.3.2 = palavra do painel sem rigor, 05/11; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.3.3"   # semver do r7ex (1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Cinco tipos de gancho; lista é proibida.
@@ -234,7 +234,7 @@ def cmd_checar(pasta):
             erros.append(f"fala com {len(tot)} caracteres (padrão 450–620, ~175 palavras/min; teto desta ficha {teto})")
     if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
         erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
-    if (f.get("plano") or {}).get("nota", 0) < 8:
+    if (f.get("plano") or {}).get("nota", 0) < 8 and not avatar_gravado(p):   # avatar gravado: só remonta
         erros.append("nota de potencial < 8: troque o ângulo ou o tema (PADRAO.md §1, D15)")
     for k in (("cena",) if f.get("gancho") else ("branco", "destaque", "cena")):   # com gancho, o título é gancho.manchete
         if not (f.get("abertura") or {}).get(k):
@@ -257,7 +257,10 @@ def cmd_checar(pasta):
         if dg and not 2 <= len(dg.get("nos") or dg.get("linhas") or []) <= 6:
             erros.append(f"parte {i + 1}: diagrama com 2 a 6 nós/linhas")
         if not str(x.get("prende") or "").strip():   # D15: por que um desconhecido continua aqui
-            erros.append(f"parte {i + 1} sem 'prende:' (por que um desconhecido para e continua nesta parte)")
+            if avatar_gravado(p):   # edição antiga com avatar gravado (Nei 05/11/2026: remontar sem tanto rigor)
+                log(f"aviso: parte {i + 1} sem 'prende:', aceito porque o avatar já existe")
+            else:
+                erros.append(f"parte {i + 1} sem 'prende:' (por que um desconhecido para e continua nesta parte)")
         for lg in sum(([y] if "id" in y else y.get("junto", []) for y in x.get("logos") or []), []):
             try:
                 pecas.logo_png(lg["id"])
