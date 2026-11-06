@@ -1,0 +1,147 @@
+slug: protegendo-seus-repos
+tema: 'Se a sua conta do GitHub sumir amanhã, você perde tudo? Backup em camadas dos repositórios git'
+pedido: 'Nei, 05/11/2026: página-projeto "protegendo seus repos" + portal + Telegram INEMA.DEV + explicavideo no lives3 + "um r7ex". Tese: outra conta no GitHub não salva; backup em camadas
+  (outra empresa, conta sem vínculo, token que não apaga) + fotos datadas no disco + teste de restauração; tá tudo no inema.club. Sem citar fonte, nada sensível.'
+plano:
+  pessoa: quem guarda trabalho no GitHub (dev, criador de conteúdo, professor, pequena empresa) e nunca pensou no dia em que a conta é bloqueada ou invadida
+  quer: não perder anos de código num bloqueio ou numa invasão (dor) e ter tudo de volta no mesmo dia (desejo)
+  gancho: 'perda hipotética: a conta do GitHub bloqueada amanhã (denúncia, robô antifraude, engano de política) e você não consegue nem baixar o que é seu'
+  nota: 8
+  destino: 'https://inematds.github.io/protegendo-seus-repos/guia/ (guia Protegendo seus repos, no inema.club)'
+  fatos:
+  - 'VISAO.md §1: ''Bloqueio da conta. Uma denúncia, um robô antifraude, um engano de política. A conta fica suspensa e você não consegue nem baixar o que é seu.'''
+  - 'VISAO.md §1: ''Invasão. Alguém pega um token ou a senha e apaga repositórios, ou reescreve o histórico com um push --force.'''
+  - 'VISAO.md §2: ''Por que outra conta do GitHub protege pouco'' — bloqueio: ''É a mesma empresa. Se as contas estão ligadas (mesmo e-mail, mesmo telefone, mesma máquina), a revisão pode alcançar as duas.''; invasão: ''Se a mesma máquina tem os tokens das duas contas, quem invade pega os dois e apaga o original e a cópia.'''
+  - 'VISAO.md §4 Camada 1: ''GitLab, numa conta sem vínculo'' — ''Outra empresa. Um bloqueio no GitHub não chega lá.'' e ''Token só de envio... sem permissão de apagar projetos. Quem invadir a máquina não consegue apagar a cópia.'''
+  - 'VISAO.md §4 Camada 2: ''Todo dia um timer atualiza um espelho completo de cada repo num disco local'' e ''tira uma foto daquele dia'' — ''Um repo apagado ou estragado no GitHub não apaga as fotos antigas. Você volta ao dia que quiser.'''
+  - 'VISAO.md §4 Restaurar: ''a parte que todo mundo esquece de testar'' — ''Teste a volta antes de precisar dela: escolha 3 repos, restaure num lugar novo e compare.'''
+  - 'VISAO.md §3: regra 3-2-1 (3 cópias, 2 lugares, 1 fora de casa) e ''pelo menos uma cópia que a sua máquina do dia a dia não consegue apagar.'''
+gancho:
+  tipo: perda
+  manchete: GITHUB BLOQUEOU. PERDEU TUDO?
+  destaque: TUDO
+  objeto: 'um cadeado de aço enorme fechado sobre uma pasta de projetos de código, com uma corrente partida e um risco vermelho #ff2a1f cortando a pasta'
+  prova:
+    parte: 2
+    de: denúncia
+  absolvicao: não é descuido seu
+  entrega: por que outra conta no GitHub não salva e as três camadas de backup que trazem tudo de volta no mesmo dia
+marca: INEMA · PROTEJA SEU CÓDIGO
+selo: ALERTA BACKUP
+fonte: '<b>guia Protegendo seus repos</b> · inema.club · cenário hipotético · imagens: ilustração'
+abertura:
+  cor: amarelo
+  cena: 'um notebook aberto numa mesa escura com a tela tomada por um cadeado vermelho #ff2a1f gigante; ao lado, uma pasta de projetos de código presa por uma corrente partida; foco de luz forte de cima; fundo preto liso; metade de baixo vazia; sensação de perda súbita; nenhum texto legível além da manchete'
+ritmo:
+  pausa_antes:
+    parte: 6
+    de: Backup
+trocas: {}
+partes:
+- etapa: gancho
+  fala: Se o GitHub bloquear a sua conta amanhã, você perde todo o seu código?
+  prende: 'perda hipotética de algo que a pessoa usa todo dia, com nome (GitHub); a pergunta só o vídeo responde'
+  painel:
+    de: bloquear
+    k: E SE FOR AMANHÃ?
+    borda: red
+    titulo: CONTA BLOQUEADA
+    cor: '#ff2a1f'
+- etapa: medo
+  fala: 'Basta uma denúncia ou um robô antifraude, e você não baixa nem o que é seu. E outra conta no GitHub não salva: é a mesma empresa. Não é descuido seu: ninguém te ensinou isso.'
+  prende: 'o medo fica concreto (um robô decide) e derruba a saída óbvia (outra conta), com absolvição na hora'
+  imagem: 'uma única pasta de arquivos de código sendo puxada para dentro de um cofre de aço que se fecha, a porta do cofre batendo, sob um foco de luz vermelha #ff2a1f de cima; fundo preto liso; metade de baixo vazia; sensação de perder o acesso ao que é seu; nenhum texto legível; o centro da imagem livre para um logo'
+  logos:
+  - id: github
+    nome: GitHub
+  painel:
+    de: empresa
+    k: OUTRA CONTA NO GITHUB?
+    borda: red
+    titulo: MESMA EMPRESA, MESMO RISCO
+    cor: '#ff2a1f'
+- etapa: desejo
+  fala: 'Agora imagina: a conta cai e, no mesmo dia, tá tudo de volta.'
+  prende: 'vira o medo em alívio: o problema existe, mas não te derruba'
+  imagem: 'uma pasta de projetos de código voltando a se acender em amarelo dentro de um notebook aberto, como se renascesse, sob um foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de alívio; nenhum texto legível'
+  painel:
+    de: volta
+    k: O OUTRO LADO
+    borda: am
+    titulo: TUDO DE VOLTA NO MESMO DIA
+    cor: '#FACC15'
+- etapa: facilidade
+  fala: 'Nem precisa ser especialista: um script copia tudo, todo dia, sozinho.'
+  prende: 'derruba "não sou técnico" e "não tenho tempo" de uma vez: roda sozinho'
+  imagem: 'um único HD externo preto ligado num notebook, com uma luz amarela piscando enquanto copia, sob um foco de luz amarela de cima; fundo preto liso; metade de baixo vazia; sensação de algo automático e tranquilo; nenhum texto legível'
+  painel:
+    de: sozinho
+    k: SEM ESFORÇO
+    borda: vd
+    titulo: TODO DIA, SOZINHO
+    cor: '#22c55e'
+- etapa: descoberta
+  fala: 'São três camadas: cópia no GitLab, outra empresa; fotos datadas no disco; e o teste de restaurar.'
+  prende: 'o método com nome e 3 passos fáceis de lembrar, cada um acendendo na palavra'
+  diagrama:
+    forma: fluxo
+    titulo: BACKUP EM 3 CAMADAS
+    nos:
+    - de: GitLab
+      ic: ☁️
+      txt: GitLab
+      sub: conta sem vínculo, token que não apaga
+    - de: fotos
+      ic: 💾
+      txt: Fotos datadas
+      sub: volta a qualquer dia
+    - de: restaurar
+      ic: ✅
+      txt: Teste de restaurar
+      sub: antes de precisar
+      cor: vd
+  painel:
+    de: camadas
+    titulo: 3 CAMADAS
+    cor: '#FACC15'
+- etapa: beneficio
+  fala: Backup que você nunca testou não é backup.
+  prende: 'a máxima depois do silêncio: curta, dura, repetível; cutuca quem acha que já está protegido'
+  imagem: 'um único HD externo preto rachado ao meio, com uma luz vermelha #ff2a1f vazando da rachadura, sob um foco de luz de cima; fundo preto liso; metade de baixo vazia; sensação de falsa segurança desmascarada; nenhum texto legível'
+  painel:
+    de: testou
+    k: A REGRA
+    borda: vd
+    titulo: TESTOU A VOLTA?
+    cor: '#22c55e'
+- etapa: comentario
+  fala: Você vai proteger os seus hoje? Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários.
+  prende: pergunta com compromisso positivo (a pessoa escreve 'eu vou'), oferta concreta
+  print:
+    url: https://inematds.github.io/protegendo-seus-repos/guia/
+    selo: guia completo · inema.club
+cta:
+  de: proteger
+  a: VOCÊ VAI PROTEGER OS SEUS HOJE? 👇
+  b: comenta EU VOU ou me pede o link
+  comentario: EU VOU FAZER MEU BACKUP 🔒
+club: o guia Protegendo seus repos
+cores:
+  bloquear: '#ff2a1f'
+  código: '#ff2a1f'
+  denúncia: '#ff2a1f'
+  antifraude: '#ff2a1f'
+  empresa: '#ff2a1f'
+  descuido: '#FACC15'
+  volta: '#FACC15'
+  sozinho: '#22c55e'
+  camadas: '#FACC15'
+  GitLab: '#FACC15'
+  fotos: '#FACC15'
+  restaurar: '#22c55e'
+  testou: '#22c55e'
+  proteger: '#FACC15'
+publicar:
+  fila: lives3
+  titulo: 'O GitHub bloqueou sua conta. Você perdeu tudo? #shorts'
+  contexto: 'Short vertical do INEMA.CLUB (Nei Maldaner), canal INEMA FTD. Gancho de perda: e se o GitHub bloquear a sua conta amanhã (denúncia, robô antifraude, engano de política) e você não conseguir nem baixar o que é seu? Outra conta no GitHub não salva: é a mesma empresa, e numa invasão quem pega os tokens apaga o original e a cópia. Solução: backup em 3 camadas — cópia no GitLab (outra empresa, conta sem vínculo, token que envia mas não apaga), fotos datadas no disco local (volta a qualquer dia) e teste de restauração. Máxima: ''Backup que você nunca testou não é backup.'' Guia completo: https://inematds.github.io/protegendo-seus-repos/guia/ (inema.club). Não inventar números. CTA: comente ''eu vou'' ou peça o link.'

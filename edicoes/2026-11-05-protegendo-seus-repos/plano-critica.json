@@ -1,0 +1,58 @@
+{
+ "partes": [
+  {
+   "n": 1,
+   "nota": 8,
+   "porque": "Gancho de perda real com GitHub nomeado; a manchete 'GITHUB BLOQUEOU. PERDEU TUDO?' é mais forte que a fala, e o cadeado com a corrente partida mostra o dano. Mas 'todo o seu código' soa técnico e frio.",
+   "melhorar": "Falar de anos de trabalho e de sentimento: 'Se o GitHub bloquear a sua conta amanhã, você perde anos de trabalho?'. Pôr o logo real do GitHub em `logos` na parte 1, porque a empresa é citada."
+  },
+  {
+   "n": 2,
+   "nota": 7,
+   "porque": "O medo fica concreto (denúncia, robô antifraude) e a absolvição vem na hora, mas a parte espreme três ideias: bloqueio, outra conta e 'não é culpa sua'. O painel só cobre 'empresa'. Além disso, 'não salva' é mais duro que a fonte ('protege pouco', 'pode alcançar as duas').",
+   "melhorar": "Dividir o ritmo: 'Basta uma denúncia ou um robô antifraude, e você não baixa nem o que é seu.' Depois: 'Criar outra conta? É a mesma empresa: o bloqueio pode pegar as duas.' Por fim: 'Não é descuido seu, ninguém te ensinou isso.' Na tela, painel 'UM ROBÔ DECIDE' no 'antifraude' antes do 'MESMA EMPRESA'."
+  },
+  {
+   "n": 3,
+   "nota": 7,
+   "porque": "Vira o medo em alívio com 'imagina'. A frase é curta mas genérica e a imagem da pasta acendendo é abstrata.",
+   "melhorar": "Fala mais pessoal: 'Agora imagina: a conta cai de manhã e, no almoço, você já tá trabalhando de novo, com tudo de volta.' Na tela, mostrar a pasta voltando com um check verde em vez da pasta 'renascendo'."
+  },
+  {
+   "n": 4,
+   "nota": 8,
+   "porque": "Derruba 'não sou técnico' e 'não tenho tempo' numa frase só, e 'todo dia, sozinho' bate com o timer da fonte.",
+   "melhorar": "Fala mais próxima da pessoa: 'Nem precisa ser especialista: um script copia tudo, todo dia, enquanto você dorme.'"
+  },
+  {
+   "n": 5,
+   "nota": 7,
+   "porque": "O método com nome e três passos é claro e o diagrama acende cada camada, mas 'fotos datadas' e 'teste de restaurar' são jargão e soam como lista. GitLab é citado sem logo real.",
+   "melhorar": "Fala: 'Três camadas: uma cópia no GitLab, outra empresa; uma foto do seu código todo dia; e você testa a volta.' Pôr o logo real do GitLab em `logos` ou no nó do diagrama."
+  },
+  {
+   "n": 6,
+   "nota": 9,
+   "porque": "Máxima curta e dura, fácil de repetir, que cutuca quem acha que já está protegido. Vem logo depois do silêncio e o HD rachado mostra o que é dito.",
+   "melhorar": ""
+  },
+  {
+   "n": 7,
+   "nota": 8,
+   "porque": "Pergunta com compromisso positivo ('eu vou'), 'inema ponto club' e 'me pede o link' estão na fala. O CTA na tela confirma.",
+   "melhorar": "Puxar o orgulho: 'E você, vai proteger o seu código hoje? Comenta EU VOU. Tá tudo no inema ponto club, ou me pede o link aqui nos comentários.'"
+  }
+ ],
+ "bloqueios": [],
+ "resumo": "Roteiro sólido e fiel à fonte, sem bloqueios. Os pontos fracos são a parte 2 com três ideias espremidas, o jargão da parte 5 ('fotos datadas') e a falta de logos do GitHub (parte 1) e do GitLab (parte 5).",
+ "notas": [
+  8,
+  7,
+  7,
+  8,
+  7,
+  9,
+  8
+ ],
+ "hash": "f22a685addf2f89108f17aaba735fc6c3d5cd870"
+}
