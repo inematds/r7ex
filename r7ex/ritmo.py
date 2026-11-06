@@ -95,7 +95,8 @@ def aplicar(pasta, ficha=None, refazer=False):
         return round(t * k + (P if corte is not None and t >= corte else 0), 3)
 
     dk = d0 * k + P
-    cauda = round(max(0.0, m(fl) + CAUDA - dk), 3)
+    cs = float(((ficha or {}).get("ritmo") or {}).get("cauda", CAUDA))   # ficha pode encurtar o cartão (short > 60 s)
+    cauda = round(max(0.0, m(fl) + cs - dk), 3)
     total = round(dk + cauda, 3)
 
     xs = corte * k if corte is not None else None

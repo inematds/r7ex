@@ -1,0 +1,147 @@
+# Ficha r7ex — Ex-CEO do Google: não estamos prontos (Eric Schmidt), 24/10/2026, fila lives11.
+slug: nao-estamos-prontos
+fala_max: 820
+fala_max_motivo: "cada parte nomeia a empresa citada (Google, OpenAI, Claude Code, Codex) com logo, como o crítico pediu"
+tema: "O ex-chefe do Google avisa: a IA vem maior e mais rápida, e a sociedade não está pronta"
+pedido: 'Nei, 24/10/2026: "refazvideo https://www.youtube.com/watch?v=21WbdvCVROA  lives11  16x9 e 9x16  e mmais um r7ex  inema.ia
+  e mande no v3". Base: entrevista de Eric Schmidt no podcast da Blackstone (comentada num vídeo que não citamos).'
+
+plano:
+  pessoa: "pessoa comum que usa celular e trabalha, ouve falar de IA todo dia e não sabe se deve se preocupar"
+  quer: "não ser pega de surpresa e saber o que fazer agora para ficar do lado de quem usa a IA"
+  gancho: 'medo + autoridade + número: "em San Francisco acham que em dois anos a IA vira o jogo; o homem que comandou o Google avisa: não estamos prontos" (Eric Schmidt, podcast Blackstone)'
+  nota: 8
+  destino: "https://inema.club"
+  fatos:
+    - 'Eric Schmidt foi CEO do Google de 2001 a 2011 (dez anos)'
+    - 'Schmidt, podcast da Blackstone: "cada onda é maior, mas também mais rápida, e nós não estamos prontos como sociedade"'
+    - 'Schmidt: "existe o consenso de San Francisco: todo mundo em San Francisco acha que isso acontece em dois anos" (ele acha que talvez numa década)'
+    - 'Schmidt: num teste interno da OpenAI, agentes de IA colaboraram para violar normas, invadiram coisas e fizeram um pequeno estrago; ninguém se feriu'
+    - 'Schmidt: carro autônomo projetado nos anos 90, primeiro teste real em 2004, "são vinte e dois anos"; a IA se espalha com custo de conexão quase zero'
+    - 'Schmidt: amigo dele entrega uma tarefa aos agentes às 17 h, ela termina entre 2 e 4 da manhã, e ele acorda com o resultado'
+    - 'Schmidt: "eu fui de construir a casa para projetar a casa" com Claude Code e Codex; ainda manda aprender a programar "para ser arquiteto"'
+    - 'Schmidt: perdeu a leitura profunda por causa das redes sociais; os jovens cientistas que dão certo desligam o telefone'
+
+marca: "INEMA · INTELIGÊNCIA ARTIFICIAL"
+selo: "NÃO ESTAMOS PRONTOS"
+fonte: '<b>Eric Schmidt, podcast Blackstone</b> · Google CEO 2001–2011 · imagens: ilustração'
+
+abertura:
+  branco: "EX-CHEFE DO GOOGLE AVISA"
+  destaque: "NÃO ESTAMOS PRONTOS"
+  cor: vermelho
+  cena: "uma cidade grande ao anoitecer vista do alto, e sobre ela uma onda gigante feita de luz e circuitos, prestes a quebrar sobre os prédios; um robô humanoide de visor preto de pé no topo do prédio mais alto, de costas, olhando a onda; contraluz vermelha recortando a onda; sensação de urgência"
+
+trocas:
+  "vinte e dois anos": "22 anos"
+  "dois anos": "2 anos"
+  "dez anos": "10 anos"
+  "cinco da tarde": "17h"
+
+partes:
+  - etapa: gancho
+    fala: "O homem que comandou o Google por dez anos avisa: a IA vem maior, mais rápida, e nós não estamos prontos."
+    logos:
+      - {id: google, nome: "Google", de: Google}
+    prende: "autoridade (ex-chefe do Google) + medo direto em 'nós'; a pessoa quer saber prontos para quê"
+    painel:
+      k: "ERIC SCHMIDT · EX-CEO DO GOOGLE"
+      contador: {ate: 10, dec: 0, em: "10", cor: "#ff2a1f", unid: " anos no comando"}
+      de: comandou
+      borda: red
+
+  - etapa: medo
+    fala: "Em San Francisco acham que em dois anos tudo vira. E num teste da OpenAI, os agentes se juntaram e quebraram as regras."
+    logos:
+      - {id: openai, nome: "OpenAI", de: OpenAI}
+    prende: "prazo curto e concreto + máquina desobedecendo; vira ameaça perto, não ficção"
+    imagem: "um robô humanoide de visor preto arrancando uma corrente de aço presa a um painel de servidor, faíscas saindo; luz vermelha forte recortando o robô, fundo preto"
+    lista:
+      k: "O QUE JÁ ACONTECEU"
+      borda: red
+      itens:
+        - [anos, "⏳ virada em 2 anos?"]
+        - [regras, "🤖 agentes quebraram as regras"]
+    painel:
+      k: "TESTE INTERNO · NINGUÉM SE FERIU"
+      titulo: "QUEBRARAM AS REGRAS"
+      cor: "#ff2a1f"
+      de: quebraram
+      borda: red
+
+  - etapa: prova
+    fala: "O carro sem motorista está há vinte e dois anos em teste. A IA não pede estrada: chega no celular que está na sua mão."
+    prende: "comparação que todo mundo entende: o carro demorou, a IA já chegou; explica por que é tão rápido"
+    imagem: "um celular de pé sobre uma mesa escura, a tela acesa soltando um feixe de luz amarela que se abre como uma onda para cima; luz de cinema amarela no celular, fundo preto"
+    painel:
+      k: "CARRO SEM MOTORISTA · 2004 → 2026"
+      contador: {ate: 22, dec: 0, em: "22", cor: "#FACC15", unid: " anos"}
+      de: carro
+      borda: am
+
+  - etapa: desejo
+    fala: "Imagina entregar a tarefa às cinco da tarde e acordar com o trabalho pronto. Quem sabe usar já faz isso."
+    prende: "o desejo de trabalhar dormindo; a pessoa se imagina acordando com a tarefa pronta"
+    imagem: "um quarto escuro de madrugada, uma pessoa dormindo de costas, sem rosto, e na escrivaninha ao lado um notebook aberto com a tela acesa trabalhando sozinho, uma luz amarela suave saindo dela; relógio digital vermelho no canto marcando 03:00"
+    painel:
+      k: "AGENTES DE MADRUGADA"
+      titulo: "ACORDA COM TUDO PRONTO"
+      cor: "#FACC15"
+      de: acordar
+      borda: am
+
+  - etapa: facilidade
+    fala: "Com Claude Code e Codex, o ex-chefe do Google deixou de construir a casa e passou a projetar. Você vira o arquiteto."
+    logos:
+      - {id: claudecode, nome: "Claude Code", de: Claude}
+      - {id: codex, nome: "Codex", de: Codex}
+    prende: "o papel novo é projetar, não construir: a pessoa se vê no comando da ferramenta"
+    imagem: "uma mão segurando um lápis sobre a planta azul de uma casa, e a casa se erguendo em luz amarela tridimensional a partir do papel; contraluz amarela, fundo preto"
+    painel:
+      k: "DE PEDREIRO A ARQUITETO"
+      titulo: "VOCÊ PROJETA"
+      cor: "#FACC15"
+      de: arquiteto
+      borda: vd
+
+  - etapa: descoberta
+    fala: "Então: aprenda a pedir como arquiteto, deixe agentes trabalharem por você e, o mais difícil, desligue o celular para pensar."
+    prende: "método simples em 3 itens, o último inesperado (desligar o celular), que a pessoa vai querer comentar"
+    imagem: "um celular virado para baixo sobre um caderno aberto, ao lado de uma xícara de café, e uma luz amarela forte de cima iluminando só o caderno; fundo preto"
+    lista:
+      k: "O QUE FAZER AGORA"
+      borda: vd
+      itens:
+        - [arquiteto, "📐 pedir como arquiteto"]
+        - [agentes, "🤖 ter seus agentes"]
+        - [desligue, "📵 desligar para pensar"]
+
+  - etapa: comentario
+    fala: "E você, acha que são dois anos ou dez? Dá seu palpite aqui embaixo. Tá tudo no inema ponto club, ou me pede o link."
+    prende: "pergunta de palpite, fácil de responder, gera comentário e discussão"
+    print:
+      url: https://inema.club
+      selo: inema.club
+
+cta:
+  a: "2 ANOS OU 10? 👇"
+  b: "ou me pede o link nos comentários"
+  de: palpite
+club: "cursos e guias de IA de graça"
+
+cores:
+  prontos: "#ff2a1f"
+  regras: "#ff2a1f"
+  quebraram: "#ff2a1f"
+  rápida: "#ff2a1f"
+  acordar: "#FACC15"
+  arquiteto: "#FACC15"
+  agentes: "#FACC15"
+
+publicar:
+  fila: lives11
+  titulo: "Ex-chefe do Google avisa: NÃO estamos prontos para a IA #shorts"
+  contexto: 'Short vertical do INEMA (Nei Maldaner). Eric Schmidt, que comandou o Google por dez anos (2001–2011), disse no podcast da Blackstone que cada onda de tecnologia é maior e mais rápida e que a sociedade não está pronta. Em San Francisco muitos acham que a virada vem em 2 anos (ele acha que talvez numa década). Num teste interno da OpenAI, agentes de IA se juntaram para violar regras (ninguém se feriu). O carro autônomo levou 22 anos; a IA chega pelo celular. Quem sabe usar entrega a tarefa às 17h e acorda com o resultado. Schmidt: você vira arquiteto e a IA constrói. Três coisas: pedir como arquiteto, ter seus agentes, desligar o celular para pensar. Não cite o vídeo de referência nem o canal que comentou a entrevista. Pergunta: 2 anos ou 10? Termine com: No inema.club você aprende inteligência artificial de graça: https://inema.club'
+
+ritmo:
+  cauda: 8.0   # 05/11: com 9 s o short dava 60,6 s
