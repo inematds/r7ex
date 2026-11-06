@@ -106,8 +106,8 @@ def main():
             pl = subprocess.run(["python3", str(Path.home() / "projetos/wifi/fila-espanhol/yt_api.py"), "add", x["playlist"], x["video_id"]],
                                 capture_output=True, text=True, timeout=120, env={**os.environ, "CANAL": x.get("canal", CANAL)})
             log(f"playlist {x['playlist']}: {(pl.stdout + pl.stderr).strip()[-200:]}")
-        avisa(f"Fila r7ex ({x.get('canal', CANAL)}): publiquei {x.get('titulo_yt') or x['nome']}\n{url}\n" +
-              (f"Faltam {restantes}. Próximo às {proxima_hora()}." if restantes else "Terminei: a fila do r7ex acabou."))
+        if not restantes:  # (Nei, 06/11/2026: aviso do YouTube no v3 só se der erro); só avisa quando a fila acaba
+            avisa("Terminei: a fila do r7ex acabou.")
         return
     x["tentativas"] = x.get("tentativas", 0) + 1
     cota = re.search(r"uploadLimitExceeded|quotaExceeded|exceeded the number of videos", saida)
