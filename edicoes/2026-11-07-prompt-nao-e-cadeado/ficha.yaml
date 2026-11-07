@@ -1,0 +1,121 @@
+# Ficha r7ex — 5 travas contra injeção de prompt (07/11/2026). Pedido do Nei: "faz um r7ex com as 5 defesas".
+slug: prompt-nao-e-cadeado
+tema: "Prompt não é cadeado: as 5 travas que seguram um agente de IA contra injeção de prompt"
+
+fala_max: 800
+fala_max_motivo: "um tema só com cinco itens (as 5 travas contra injeção de prompt), cada um dito por extenso"
+
+pedido: "r7ex com as 5 defesas contra prompt injection (marcar texto de fora, hierarquia de instruções, ferramentas mínimas, humano aprova, planejador separado do executor)"
+
+plano:
+  pessoa: "quem já usa ou quer usar agente de IA com acesso a e-mail, arquivos ou sistemas (Claude Code, n8n, bots), não só programador"
+  quer: "deixar o agente trabalhar sozinho sem medo de ele apagar ou vazar algo por causa de uma ordem escondida (dor) e dormir tranquilo (desejo)"
+  gancho: "contrário: para de confiar no prompt; um e-mail com ordem escondida basta. Injeção de prompt é o risco nº 1 da lista OWASP Top 10 para aplicações com LLM"
+  nota: 8
+  destino: "https://inematds.github.io/agente-blindado/guia/"
+  fatos:
+    - "OWASP Top 10 for LLM Applications (edições 2023 e 2025): LLM01 = Prompt Injection, o primeiro item da lista"
+    - "Claude Code pede permissão antes de rodar comandos e editar arquivos (modo padrão de permissões); n8n tem aprovação humana (human-in-the-loop) para ferramentas do AI Agent"
+    - "injeção indireta: o agente lê conteúdo de fora (e-mail, página, PDF) com instruções escondidas e as executa"
+
+gancho:
+  tipo: contrario
+  manchete: "SEU PROMPT NÃO É CADEADO"
+  destaque: "CADEADO"
+  entrega: "as 5 travas que seguram um agente de IA mesmo quando o ataque chega"
+  objeto: "um cadeado dourado feito de letras de texto se desmanchando, aberto e rachado, com um risco vermelho em cima, diante de um robô humanoide de visor preto"
+  prova: {parte: 2, de: "risco"}
+  absolvicao: "não é descuido seu"
+  fontes:
+    - {nome: "OWASP Top 10 for LLM Applications 2025", trecho: "LLM01:2025 Prompt Injection"}
+
+marca: "INEMA · AGENTE SEGURO"
+selo: "ALERTA INEMA"
+fonte: "<b>OWASP Top 10 for LLM Applications 2025</b> · LLM01 Prompt Injection · imagens: ilustração"
+
+abertura:
+  cor: vermelho
+  cena: "escritório escuro de madrugada, um notebook aberto mostrando uma caixa de e-mail, e um envelope com brilho vermelho saindo da tela"
+
+trocas:
+  "ene oito ene": "n8n"
+  "número um": "número 1"
+  "cinco travas": "5 travas"
+
+partes:
+  - etapa: gancho
+    fala: "Você acha que o prompt protege seu agente de IA? Um e-mail com ordem escondida, e ele pode apagar tudo."
+    prende: "manda parar algo que a pessoa faz hoje e mostra o estrago concreto: um e-mail comum vira ordem de apagar"
+    imagem: "um envelope de e-mail aberto sobre uma mesa preta, de dentro sai uma linha de texto vermelha brilhante que se enrola como uma corda em volta de um botão de lixeira; sensação de armadilha"
+    painel:
+      de: "e-mail"
+      k: "INJEÇÃO DE PROMPT"
+      borda: red
+      titulo: "UMA ORDEM ESCONDIDA"
+      cor: "#ff2a1f"
+  - etapa: medo
+    fala: "Nome disso: injeção de prompt, risco número um da segurança de IA. E não é descuido seu: ninguém te contou."
+    prende: "dá nome ao medo e prova com fonte mundial; logo vem a absolvição, a pessoa fica sem culpa e quer a saída"
+    imagem: "um robô humanoide de visor preto, estilo Optimus, sentado diante de uma tela que projeta uma luz vermelha no visor, a mão dele indo na direção de um botão vermelho; sensação de controle perdido"
+    painel:
+      de: "risco"
+      k: "OWASP TOP 10 · LLM 2025"
+      borda: red
+      contador: {ate: 1, em: "1", cor: "#ff2a1f", unid: "RISCO DE IA · OWASP"}
+      l: "LLM01: Prompt Injection"
+  - etapa: desejo
+    fala: "Imagina seu agente ler qualquer e-mail e você dormir tranquilo, porque nada sério acontece sem seu OK."
+    prende: "troca o medo por um desejo concreto: usar o agente sem medo"
+    imagem: "o mesmo robô de visor preto lendo uma pilha única de papel com calma, envolto por um escudo amarelo luminoso transparente; sensação de segurança"
+    painel:
+      k: "DORMIR TRANQUILO"
+      borda: am
+      titulo: "NADA SEM VOCÊ"
+  - etapa: facilidade
+    fala: "Nem precisa programar: o Claude Code já pergunta antes de agir, e no ene oito ene é só ligar."
+    prende: "derruba a desculpa 'isso não é para mim'"
+    logos: [{id: claudecode, nome: "Claude Code"}, {id: n8n, nome: "n8n"}]
+    imagem: "close de um dedo ligando um único interruptor grande que acende em amarelo, numa placa escura, com um cadeado pequeno gravado ao lado; sensação de algo simples e rápido"
+    painel:
+      k: "JÁ VEM PRONTO"
+      titulo: "VOCÊ SÓ APROVA"
+  - etapa: descoberta
+    fala: "São cinco travas. Um, e-mail é recado, não ordem. Dois, sua palavra vale mais. Três, só a chave que ele precisa. Quatro, apagar só com o seu sim. Cinco, quem decide não executa."
+    prende: "o método com nome e cinco itens curtos; cada um acende no diagrama na hora em que é dito"
+    diagrama:
+      forma: fluxo
+      titulo: "AS 5 TRAVAS"
+      nos:
+        - {de: recado, ic: "🏷️", txt: "Marcar o de fora", sub: "texto externo vira dado, não ordem"}
+        - {de: palavra, ic: "👑", txt: "Suas ordens primeiro", sub: "hierarquia de instruções"}
+        - {de: chave, ic: "🧰", txt: "Só o necessário", sub: "ferramentas mínimas"}
+        - {de: sim, ic: "✋", txt: "Você aprova", sub: "antes de apagar ou pagar"}
+        - {de: decide, ic: "🧠", txt: "Quem planeja não executa", sub: "planejador × executor", cor: vd}
+    painel:
+      de: travas
+      titulo: "5 TRAVAS"
+  - etapa: beneficio
+    fala: "O e-mail malicioso chega, bate na trava e para. Segurança de verdade mora fora do prompt."
+    prende: "a máxima: uma frase curta que a pessoa repete"
+    imagem: "uma seta vermelha de energia batendo num cadeado de aço amarelo luminoso e se partindo em faíscas, o cadeado intacto; sensação de vitória"
+    painel:
+      k: "SEGURANÇA FORA DO PROMPT"
+      borda: vd
+      titulo: "O ESTRAGO NÃO PASSA"
+  - etapa: comentario
+    fala: "Qual trava você liga hoje? Comenta o número. Tá tudo no inema ponto club, ou me pede o link aqui nos comentários."
+    prende: "pede um comentário fácil e leva ao inema.club"
+    print: {url: "https://inematds.github.io/agente-blindado/guia/", selo: "inema.club"}
+
+ritmo:
+  pausa_antes: {parte: 6, de: "Segurança"}
+
+cta: {a: "QUAL TRAVA VOCÊ LIGA HOJE? 👇", b: "comenta o número", comentario: "a 4, você aprova 🔒"}
+club: "as 5 travas, passo a passo"
+cores: {confiar: "#ff2a1f", escondida: "#ff2a1f", apaga: "#ff2a1f", injeção: "#ff2a1f", trava: "#FACC15",
+        estrago: "#FACC15", travas: "#FACC15", aprova: "#FACC15", para: "#FACC15", fora: "#FACC15"}
+
+publicar:
+  fila: lives4
+  titulo: "Seu prompt não é cadeado: 5 travas para o agente de IA #shorts"
+  contexto: "Short vertical do INEMA.CLUB (Nei Maldaner). Injeção de prompt é o risco nº 1 da lista OWASP Top 10 para LLM (2025): um e-mail ou página com ordem escondida faz o agente executar algo que você não pediu. As 5 travas: marcar o texto que vem de fora, hierarquia de instruções (suas ordens primeiro), ferramentas mínimas, humano aprova antes de ações destrutivas, e planejador separado do executor. A segurança mora fora do prompt. Kit gratuito Agente Blindado (5 travas + banco de 10 ataques): https://inematds.github.io/agente-blindado/guia/ e no inema.club. CTA: peça o link nos comentários."
