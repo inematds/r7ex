@@ -30,10 +30,10 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.3.4"   # semver do r7ex (1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.4.4"   # semver do r7ex (1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
-# fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Cinco tipos de gancho; lista é proibida.
+# fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
 GANCHO_TIPOS = {
     "contrario": "manda parar ou inverte o senso comum (\"PARA DE …\")",
     "perda": "perda hipotética (\"E SE … SUMISSE AMANHÃ?\")",
@@ -43,7 +43,15 @@ GANCHO_TIPOS = {
     # v1.3.1 (Nei 29/10/2026): soma, não substitui. Afirmação que cutuca, com nome ou número já na 1ª frase.
     "provocacao": "afirmação que cutuca quem assiste, com nome ou número na 1ª frase e uma pergunta deixada no ar "
                   "(\"A Hyundai contratou 25 mil funcionários. Nenhum pede aumento.\")",
+    # v1.4.4 (D20, Nei 12/11/2026: "não adianta estar claro e correto se não chama atenção, não mexe na dor ou desejo").
+    # Regra: ~/projetos/inema-design/regras/chamada.md. Os dois falam com a pessoa ("você") na 1ª frase.
+    "promessa": "o ganho, com a garantia verdadeira, falado em 'você' (\"Seu agente nunca mais diz 'pronto' sem prova.\")",
+    "acusacao": "revela o que está acontecendo com a pessoa, em 'você' (\"Seu agente mente pra você.\")",
 }
+VOCE = re.compile(r"\b(voc[eê]s?|seus?|suas?|te|teu|tua)\b", re.I)
+CTA_PROIBIDO = re.compile(r"\bpe[cd]e\s+o\s+link\b|\blink\s+na\s+bio\b|\bcoment[ae]\s+a\s+palavra\b|\b(te|lhe)\s+(mando|envio)\b|"
+                          r"\bno\s+(direct|privado)\b|\bfixad[oa]\b", re.I)
+CTA_PALAVRA = re.compile(r"\b[Cc]oment[ae]\s+[\"'“]?[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{3,}\b")
 TEM_NOME = re.compile(r"\s[A-ZÁÉÍÓÚÂÊÔÃÕ][\wáéíóúâêôãõç]+")   # nome próprio depois da 1ª palavra (Hyundai, Claude, GitHub…)
 NUM_EXT = (r"um|uma|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|"
            r"dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|cem|\d+")
@@ -169,6 +177,8 @@ def checar_gancho(p, f):
         erros.append("gancho sem 'objeto' (objeto-metáfora com dano ou ameaça no quadro 0: lixeira, risco vermelho, olhos em X…)")
     if tipo in ("estatistica", "terceiro") and not TEM_NUMERO.search(m + " " + fala1):
         erros.append(f"gancho {tipo} sem número na manchete nem na fala da parte 1")
+    if tipo in ("promessa", "acusacao") and not VOCE.search(re.split(r"(?<=[.!?])\s", fala1)[0]):
+        erros.append(f"gancho {tipo} sem 'você/seu/sua' na 1ª frase ('{fala1[:60]}'): fale da dor/desejo da pessoa (chamada.md)")
     if tipo == "provocacao":
         frase1 = re.split(r"(?<=[.!?])\s", fala1)[0]
         if frase1.rstrip().endswith("?"):
@@ -232,8 +242,20 @@ def cmd_checar(pasta):
             log(f"aviso: fala com {len(tot)} caracteres (padrão 450–620), aceita porque o avatar já existe")
         else:
             erros.append(f"fala com {len(tot)} caracteres (padrão 450–620, ~175 palavras/min; teto desta ficha {teto})")
-    if "inema ponto club" not in f["partes"][-1]["fala"] or "pede" not in f["partes"][-1]["fala"]:
-        erros.append("a parte 7 precisa de 'inema ponto club' e 'me pede o link' (CTA fixo)")
+    f7 = f["partes"][-1]["fala"]
+    if "inema ponto club" not in f7:
+        erros.append("a parte 7 precisa de 'inema ponto club' (onde está; 'grátis, direto na internet' se for verdade)")
+    # D20 (Nei 12/11/2026): "no CTA não deve pedir para a pessoa colocar palavra ou link; deve sempre criar engajamento
+    # natural". Antes o CTA fixo era "Ou me pede o link aqui nos comentários". Edição com avatar gravado só recebe aviso.
+    m = CTA_PROIBIDO.search(f7) or CTA_PALAVRA.search(f7)
+    for prob in ([f"a parte 7 pede palavra/link ('{m.group(0)}'): pergunta de verdade + inema ponto club (chamada.md §4)"] if m else []) \
+            + ([] if "?" in f7 else ["a parte 7 sem pergunta: o fecho pergunta algo da vida/opinião da pessoa, ligado à dor/desejo"]) \
+            + ([] if "pede" in [CENA.n(w) for w in f7.split()] or (f.get("cta") or {}).get("de") else
+               ["cta.de: sem 'pede' na fala, diga a palavra da parte 7 onde a caixa da pergunta entra (1ª palavra da pergunta)"]):
+        if avatar_gravado(p):
+            log(f"aviso: {prob} — aceito porque o avatar já existe")
+        else:
+            erros.append(prob)
     if (f.get("plano") or {}).get("nota", 0) < 8 and not avatar_gravado(p):   # avatar gravado: só remonta
         erros.append("nota de potencial < 8: troque o ângulo ou o tema (PADRAO.md §1, D15)")
     for k in (("cena",) if f.get("gancho") else ("branco", "destaque", "cena")):   # com gancho, o título é gancho.manchete

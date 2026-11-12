@@ -65,8 +65,8 @@ Antes de escribir una palabra del habla:
 
 1. **Persona:** público general (IA traducida al día a día), no el nicho.
 2. **Lo que quiere:** ganar algo, resolver un dolor o alcanzar un deseo.
-3. **Gancho:** uno de 5 tipos — contraintuitivo, pérdida, estadística, tercero (historia de alguien con cifras) o noticia (de esta semana) —
-   **con número o dato** y fuente. Nunca una lista («5 novedades…»), «¿sabías que…?» o «yo hice…». Un tema por video.
+3. **Gancho:** contraste, pérdida, estadística, tercera persona (historia de alguien con un número), noticia (de esta semana), provocación, promesa o acusación (el dolor/deseo de quien ve, dirigido a «tú», v1.4.4) — **con un número, un hecho o un dolor/deseo** y una fuente.
+  Nunca una lista («5 novedades…»), «¿sabías que…?» o «yo hice…». Un tema por video.
    Reglas completas del cuadro 0 y de los primeros 3 segundos: [PADRAO.md §2.1](PADRAO.md) (en portugués).
 4. **Nota de potencial (0–10):** «¿un desconocido que está pasando por el feed se detendría aquí?» Por debajo de 8, cambia el ángulo o el tema.
 5. **Destino:** la página de inema.club que lo resuelve (se convierte en la captura de prueba).
@@ -84,7 +84,7 @@ Base real: leo antes la página del curso/guía (nombre, cuántas clases, si es 
 | 4. Facilidad | "No necesitas ser especialista, ni programador" | panel de límite + "sin ser especialista" |
 | 5. Descubrimiento | "Son tres ajustes: límite, una clave por uso, alarma…" | candado, claves y campana + los 3 ajustes entrando |
 | 6. Beneficio | "El susto se convierte en un aviso en el celular…" | factura rota + "sin límite × con límite" |
-| 7. Comentario | "Está todo en inema.club. O pídeme el link…" | captura de inema.club + CTA rojo en pregunta |
+| 7. Comentario | «Y tú, ¿ya…? Está todo en inema.club, gratis.» (una pregunta de verdad, sin pedir un enlace, v1.4.4) | captura de inema.club + CTA rojo en forma de pregunta |
 
 El orden 2–6 se adapta al tema (ej.: en "Quién factura en 2027" la etapa 3 se volvió **prueba**: "ya pasó 3 veces"),
 pero siempre son 7 partes (~30–37 s de habla + 9 s de tarjeta final desde el 28/10/2026).

@@ -14,7 +14,7 @@ Objetivo de todo reel: **trazer gente para o inema.club.** Se não viralizar, n�
 |---|---|
 | pessoa | público geral (IA traduzida para o dia a dia), não o nicho |
 | quer | ganhar algo, resolver uma dor ou chegar a um desejo — uma frase |
-| gancho | um dos 5 tipos do §2.1 (contrário, perda, estatística, terceiro, notícia), **com número ou fato** (e fonte); nunca lista |
+| gancho | um dos tipos do §2.1–2.3 (contrário, perda, estatística, terceiro, notícia, provocação, promessa, acusação), **com número, fato ou a dor/desejo em "você"**; nunca lista |
 | nota | 0–10: "um desconhecido rolando o feed para aqui?" Abaixo de **8**, troque o ângulo ou o tema |
 | destino | o curso/guia/formação do inema.club que resolve (URL para o print) |
 
@@ -49,13 +49,13 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 
 | Parte | Função | Regra |
 |---|---|---|
-| 1 | **Gancho** | um dos 5 tipos do §2.1 + o número; manchete do quadro 0 mais forte que a fala; nunca desarmar na mesma frase |
+| 1 | **Gancho** | um dos tipos do §2.1–2.3 + o número ou a dor/desejo em "você"; manchete do quadro 0 mais forte que a fala; nunca desarmar na mesma frase |
 | 2 | **Medo / prova** | a prova com fonte (até ~20 s) e o problema do espectador **com absolvição** ("não é falta de estudo, ninguém te deu o mapa") |
 | 3 | **Desejo** | como fica se der certo |
 | 4 | **Facilidade** | derruba "não sou técnico / não tenho tempo" |
 | 5 | **Descoberta** | o método ou o nome da solução, com 3 itens |
 | 6 | **Benefício / urgência** | o depois, ou "aproveita antes de…" |
-| 7 | **Comentário** | "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários." |
+| 7 | **Comentário** | pergunta de verdade sobre a vida/opinião da pessoa + "tá tudo no inema ponto club" (grátis, direto na internet, se for verdade); nunca "me pede o link" nem "comenta PALAVRA" (§2.3) |
 
 A ordem 2–6 pode se adaptar ao tema (as etapas são checklist de gatilhos), mas são sempre 7 partes.
 Fala: número e ano **por extenso** (o avatar lê); a legenda troca por algarismo (`trocas` na ficha).
@@ -103,6 +103,22 @@ gancho:
   fontes: [{nome: "relatos de usuários afetados, out/2026", trecho: "US$ 1.700 de conta numa noite"}]
   # noticia: data: 2026-10-27  (até 7 dias antes da edição)
 ```
+
+### 2.3 Chamada: clareza + atenção, e o CTA sem palavra nem link (v1.4.4, 12/11/2026, D20)
+
+Nei: "não adianta ele estar claro e correto se não chama atenção, não mexe na dor ou desejo". E: "no CTA não deve pedir
+para a pessoa colocar palavra ou link; deve sempre criar engajamento natural e [dizer] que o kit está disponível free no
+inema.club, direto na internet". Regra única para todos os motores: `~/projetos/inema-design/regras/chamada.md`.
+
+1. **Dois tipos de gancho a mais (soma):** `promessa` (o ganho com a garantia verdadeira, em "você": "Seu agente nunca
+   mais diz 'pronto' sem prova.") e `acusacao` (revela o que está acontecendo com a pessoa: "Seu agente mente pra você.").
+   O `checar` reprova os dois sem "você/seu/sua" na 1ª frase.
+2. **Método com nome:** quando o vídeo entrega um método ou kit, a parte 5 (Descoberta) diz o NOME dele, e o nome volta
+   na parte 7. Inventário ("8 frases", "9 soluções") nunca vai na manchete.
+3. **Parte 7 nova:** uma pergunta de verdade, ligada à dor/desejo, que a pessoa responde com a opinião ou a experiência
+   dela, + "tá tudo no inema ponto club" ("o kit está grátis no inema ponto club, direto na internet", quando for verdade).
+   Proibido: "me pede o link", "comenta PALAVRA", "link na bio", "te mando". Sem "pede" na fala, `cta.de` = a palavra
+   onde a caixa da pergunta entra (1ª palavra da pergunta). Edição com avatar já gravado só recebe aviso.
 
 ### 2.2 Provocação e entrega (v1.3.1, 29/10/2026) — soma ao §2.1, não substitui
 

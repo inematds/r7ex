@@ -65,8 +65,8 @@ Before writing a single word of the speech:
 
 1. **Person:** general audience (AI translated into everyday life), not the niche.
 2. **What they want:** gain something, solve a pain or reach a desire.
-3. **Hook:** one of 5 types — contrarian, loss, statistic, third party (someone’s story with a number), or news (from this week) —
-   **with a number or fact** and a source. Never a list (“5 new things…”), “did you know…”, or “I did…”. One topic per video.
+3. **Hook:** contrast, loss, statistic, third party (someone’s story with a number), news (from this week), provocation, promise, or accusation (the viewer’s pain/desire addressed as “you,” v1.4.4) — **with a number, fact, or pain/desire** and a source.
+  Never a list (“5 new things…”), “did you know…”, or “I did…”. One topic per video.
    Full rules for frame 0 and the first 3 seconds: [PADRAO.md §2.1](PADRAO.md) (in Portuguese).
 4. **Potential score (0–10):** “Would a stranger stop scrolling the feed here?” Below 8, change the angle or topic.
 5. **Destination:** the inema.club page that solves it (it becomes the proof screenshot).
@@ -84,7 +84,7 @@ Real basis: I read the course/guide page first (name, how many lessons, whether 
 | 4. Ease | "You don't need to be an expert, or a programmer" | limit panel + "no expert needed" |
 | 5. Discovery | "It's three tweaks: a limit, one key per use, an alarm…" | padlock, keys and bell + the 3 tweaks coming in |
 | 6. Benefit | "The scare turns into a notification on your phone…" | torn bill + "no limit × with limit" |
-| 7. Comment | "It's all on inema.club. Or ask me for the link…" | inema.club screenshot + red CTA as a question |
+| 7. Comment | “And you, have you…? It’s all on inema.club, free.” (a genuine question, no asking for a link, v1.4.4) | screenshot of inema.club + red CTA phrased as a question |
 
 The order of 2–6 adapts to the topic (e.g.: in "Who makes money in 2027" stage 3 became **proof**: "it has already happened 3 times"),
 but there are always 7 parts (~30–37 s of speech + 9 s of end card since 10/28/2026).

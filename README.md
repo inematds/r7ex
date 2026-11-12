@@ -114,8 +114,8 @@ Antes de escrever uma palavra da fala:
 
 1. **Pessoa:** público geral (IA traduzida para o dia a dia), não o nicho.
 2. **O que ela quer:** ganhar algo, resolver uma dor ou chegar a um desejo.
-3. **Gancho:** um de 5 tipos — contrário, perda, estatística, terceiro (história de alguém com número) ou notícia (desta semana) —
-   **com número ou fato** e fonte. Nunca lista ("5 novidades…"), "você sabia…" ou "eu fiz…". Um tema por vídeo.
+3. **Gancho:** contrário, perda, estatística, terceiro (história de alguém com número), notícia (desta semana), provocação,
+   promessa ou acusação (a dor/desejo da pessoa em "você", v1.4.4) — **com número, fato ou dor/desejo** e fonte. Nunca lista ("5 novidades…"), "você sabia…" ou "eu fiz…". Um tema por vídeo.
    Regras completas do quadro 0 e dos 3 primeiros segundos: [PADRAO.md §2.1](PADRAO.md).
 4. **Nota de potencial (0–10):** "um desconhecido rolando o feed para aqui?" Abaixo de 8, troque o ângulo ou o tema.
 5. **Destino:** a página do inema.club que resolve (vira o print de prova).
@@ -133,7 +133,7 @@ Base real: leio a página do curso/guia antes (nome, quantas aulas, se é gráti
 | 4. Facilidade | "Você não precisa ser especialista, nem programador" | painel de limite + "sem ser especialista" |
 | 5. Descoberta | "São três ajustes: limite, uma chave por uso, alarme…" | cadeado, chaves e sino + os 3 ajustes entrando |
 | 6. Benefício | "O susto vira um aviso no celular…" | fatura rasgada + "sem limite × com limite" |
-| 7. Comentário | "Tá tudo no inema.club. Ou me pede o link…" | print do inema.club + CTA vermelho em pergunta |
+| 7. Comentário | "E você, já…? Tá tudo no inema.club, grátis." (pergunta de verdade, sem pedir link, v1.4.4) | print do inema.club + CTA vermelho em pergunta |
 
 A ordem 2–6 se adapta ao tema (ex.: no "Quem fatura em 2027" a etapa 3 virou **prova**: "já aconteceu 3 vezes"),
 mas são sempre 7 partes (~30–37 s de fala + 9 s de cartão desde 28/10/2026).

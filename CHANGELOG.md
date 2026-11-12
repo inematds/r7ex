@@ -2,6 +2,15 @@
 
 Semver `X.YY.ZZ`: o minor sobe e carrega o patch; só o major zera o resto.
 
+## 1.4.4 — 12/11/2026 · chamada: clareza + atenção, CTA sem palavra nem link (D20)
+
+- Nei: "não adianta estar claro e correto se não chama atenção, não mexe na dor ou desejo". Regra única de todos os
+  motores em `~/projetos/inema-design/regras/chamada.md`; PADRAO §2.3.
+- Ganchos `promessa` e `acusacao` (soma): o `checar` reprova os dois sem "você/seu/sua" na 1ª frase.
+- Parte 7: sai o CTA fixo "Ou me pede o link aqui nos comentários". O `checar` reprova "pede o link", "comenta PALAVRA",
+  "link na bio", "te mando" e fecho sem pergunta; sem "pede" na fala pede `cta.de`. Edição com avatar gravado só avisa.
+- Crítico do plano com a pergunta dos 15 s (dor/desejo, por que importa, nome do método) e o CTA novo.
+
 ## 1.3.1 — 29/10/2026 · gancho de provocação + entrega (soma, não substitui)
 
 - 6º tipo de gancho `provocacao`: a 1ª frase afirma algo que cutuca, com nome ou número, e pede `gancho.fontes`.

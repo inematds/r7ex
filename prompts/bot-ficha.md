@@ -47,14 +47,17 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
    Fala de 450–620 caracteres (ritmo 160–190 palavras/min, PADRAO §2); a máxima numa frase curta na parte 6.
    **Gancho (PADRAO §2.1, v1.2.0)** — bloco `gancho:` da ficha:
    - `tipo`: `contrario`, `perda`, `estatistica` (número de medo, com `fontes` conferidas), `terceiro` (história
-     de outra pessoa com número) ou `noticia` (fato desta semana, com `data` e `fontes`). Proibido: lista
+     de outra pessoa com número) ou `noticia` (fato desta semana, com `data` e `fontes`), `provocacao`, `promessa` ou `acusacao` (dor/desejo da pessoa
+     em "você" na 1ª frase; PADRAO §2.3 e `~/projetos/inema-design/regras/chamada.md`). Proibido: lista
      ("cinco novidades…", "N coisas…"), "você sabia…", "eu fiz…".
    - `manchete`: o título desenhado no quadro 0, ≤ 6 palavras, CAIXA ALTA, MAIS FORTE que a fala da parte 1
      (tela "PARA DE MONTAR", voz "eu acho que você não devia"); `destaque` = a palavra dela em amarelo.
    - `objeto`: objeto-metáfora com dano ou ameaça para o centro da abertura (lixeira, olhos em X, risco vermelho).
    - `prova: {parte: 1|2, de: <palavra do número>}` até ~20 s; `absolvicao`: a frase sem culpa que está, igual,
      na fala da parte 2 ou 3 ("não é falta de estudo, ninguém te deu o mapa").
-   - Nunca prometa "eu te mando" (o CTA da parte 7 continua o mesmo).
+   - Parte 7 (PADRAO §2.3, Nei 12/11/2026): pergunta de verdade ligada à dor/desejo + "tá tudo no inema ponto club"
+     (grátis, direto na internet, se for verdade). Nunca "me pede o link", "comenta PALAVRA" nem "eu te mando".
+     Sem "pede" na fala: `cta.de` = 1ª palavra da pergunta. Método ou kit no vídeo: o NOME dele na parte 5 e na 7.
 5. `python3 r7ex.py checar <pasta>` até passar (corrija a ficha; até 3 tentativas).
 6. `python3 r7ex.py plano <pasta>` até passar (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6).
    Reprovou → leia as notas, melhore as partes fracas (ou troque o ângulo) e rode de novo, até 3 vezes.
