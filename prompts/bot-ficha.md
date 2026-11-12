@@ -50,8 +50,7 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
      de outra pessoa com número) ou `noticia` (fato desta semana, com `data` e `fontes`), `provocacao`, `promessa` ou `acusacao` (dor/desejo da pessoa
      em "você" na 1ª frase; PADRAO §2.3 e `~/projetos/inema-design/regras/chamada.md`). Proibido: lista
      ("cinco novidades…", "N coisas…"), "você sabia…", "eu fiz…".
-   - `manchete`: o título desenhado no quadro 0, ≤ 6 palavras, CAIXA ALTA, MAIS FORTE que a fala da parte 1
-     (tela "PARA DE MONTAR", voz "eu acho que você não devia"); `destaque` = a palavra dela em amarelo.
+   - `manchete`: o título desenhado no quadro 0, até 9 palavras, CAIXA ALTA, CLARA E COMPLETA (Nei, 12/11/2026: "manchete tem que ser objetiva mas clara… uma informação clara e entendida, e aí vamos atrás de detalhes"): quem lê só ela entende o que acontece (quem + o quê; "SUA IA DIZ 'PRONTO' SEM TER FEITO"), nunca enigmática ("IA COM PROVA") nem slogan sem sujeito; a fala traz os detalhes; `destaque` = a palavra dela em amarelo.
    - `objeto`: objeto-metáfora com dano ou ameaça para o centro da abertura (lixeira, olhos em X, risco vermelho).
    - `prova: {parte: 1|2, de: <palavra do número>}` até ~20 s; `absolvicao`: a frase sem culpa que está, igual,
      na fala da parte 2 ou 3 ("não é falta de estudo, ninguém te deu o mapa").

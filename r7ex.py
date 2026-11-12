@@ -155,13 +155,14 @@ def checar_gancho(p, f):
     if not m:
         erros.append("gancho sem 'manchete' (o título desenhado no quadro 0)")
     else:
-        if len(pal) > 6:
-            erros.append(f"gancho.manchete com {len(pal)} palavras ('{m}'): no máximo 6 — corte até caber num relance")
+        if len(pal) > 9:   # v1.4.4 (Nei 12/11/2026): clara e completa vale mais que curta; era ≤ 6
+            erros.append(f"gancho.manchete com {len(pal)} palavras ('{m}'): no máximo 9 — a informação inteira, clara, sem enfeite")
+        elif len(pal) > 6:
+            log(f"aviso: gancho.manchete com {len(pal)} palavras: confira na folha se cabe na capa")
         if m != m.upper():
             erros.append(f"gancho.manchete em CAIXA ALTA: '{m}'")
         if CENA.n(m) == CENA.n(fala1) or CENA.n(m) in CENA.n(fala1):
-            erros.append("gancho.manchete igual a um pedaço da fala do gancho: a tela tem de dizer MAIS FORTE que a voz "
-                         "(ex.: voz 'eu acho que você não devia montar agente', tela 'PARA DE MONTAR AGENTE')")
+            log("aviso: gancho.manchete igual a um pedaço da fala: tudo bem se for a informação clara; a fala traz os detalhes")
     d = str(g.get("destaque") or "").strip()
     if not d or " " in d:
         erros.append("gancho.destaque: UMA palavra da manchete, a que fica em amarelo")

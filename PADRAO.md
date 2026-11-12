@@ -49,7 +49,7 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 
 | Parte | Função | Regra |
 |---|---|---|
-| 1 | **Gancho** | um dos tipos do §2.1–2.3 + o número ou a dor/desejo em "você"; manchete do quadro 0 mais forte que a fala; nunca desarmar na mesma frase |
+| 1 | **Gancho** | um dos tipos do §2.1–2.3 + o número ou a dor/desejo em "você"; manchete do quadro 0 clara e completa (a informação inteira, entendida sozinha); nunca desarmar na mesma frase |
 | 2 | **Medo / prova** | a prova com fonte (até ~20 s) e o problema do espectador **com absolvição** ("não é falta de estudo, ninguém te deu o mapa") |
 | 3 | **Desejo** | como fica se der certo |
 | 4 | **Facilidade** | derruba "não sou técnico / não tenho tempo" |
@@ -77,9 +77,9 @@ O Nei perguntou se os reels usavam as técnicas de chamada que analisamos; usava
    | `noticia` | fato de ontem/desta semana, com `data` e fonte | SAIU O CARRO VOADOR? |
 
    **Proibido:** lista ("5 novidades…", "N coisas…"), "você sabia que…", "eu fiz…". O `checar` reprova.
-2. **Manchete do quadro 0** (`gancho.manchete`): no máximo **6 palavras**, CAIXA ALTA, **uma** palavra em amarelo
-   (`gancho.destaque`), **mais forte que a fala** (tela "PARA DE MONTAR", voz "eu acho que você não devia montar"). O `checar`
-   reprova manchete igual a um pedaço da fala. Ela é a capa: pronta e legível no quadro 0.
+2. **Manchete do quadro 0** (`gancho.manchete`): até **9 palavras** (acima de 6 o `checar` avisa para conferir a capa), CAIXA ALTA,
+   **uma** palavra em amarelo (`gancho.destaque`), CLARA E COMPLETA (Nei, 12/11/2026: "manchete tem que ser objetiva mas clara… uma informação clara e entendida, e aí vamos atrás de detalhes"): quem lê só ela entende o que acontece (quem + o quê; "SUA IA DIZ 'PRONTO' SEM TER FEITO"), nunca enigmática ("IA COM PROVA") nem slogan sem sujeito; a fala traz os detalhes (v1.4.4; antes: "≤ 6 palavras, mais forte que a fala").
+   Manchete igual a um pedaço da fala só gera aviso. Ela é a capa: pronta e legível no quadro 0.
 3. **Objeto-metáfora com dano ou ameaça** (`gancho.objeto`: lixeira, olhos em X, risco vermelho, chave partida) no centro da
    abertura; o pedido ao Codex leva o objeto e a manchete. **Troca de quadro a cada ~1 s nos 3 primeiros segundos:** a montagem
    corta a capa em 0 s → aproximação 1,05× em 1 s → 1,10× em 2 s (`pecas.batidas`, presa no meio da manchete). É corte de
