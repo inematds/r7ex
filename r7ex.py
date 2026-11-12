@@ -51,7 +51,7 @@ GANCHO_TIPOS = {
 VOCE = re.compile(r"\b(voc[eê]s?|seus?|suas?|te|teu|tua)\b", re.I)
 CTA_PROIBIDO = re.compile(r"\bpe[cd]e\s+o\s+link\b|\blink\s+na\s+bio\b|\bcoment[ae]\s+a\s+palavra\b|\b(te|lhe)\s+(mando|envio)\b|"
                           r"\bno\s+(direct|privado)\b|\bfixad[oa]\b", re.I)
-CTA_PALAVRA = re.compile(r"\b[Cc]oment[ae]\s+[\"'“]?[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{3,}\b")
+CTA_PALAVRA = re.compile(r"\b[Cc]oment[ae]\s+[\"'“]?[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{2,}\b")
 TEM_NOME = re.compile(r"\s[A-ZÁÉÍÓÚÂÊÔÃÕ][\wáéíóúâêôãõç]+")   # nome próprio depois da 1ª palavra (Hyundai, Claude, GitHub…)
 NUM_EXT = (r"um|uma|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|"
            r"dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|cem|\d+")
@@ -252,6 +252,17 @@ def cmd_checar(pasta):
             + ([] if "?" in f7 else ["a parte 7 sem pergunta: o fecho pergunta algo da vida/opinião da pessoa, ligado à dor/desejo"]) \
             + ([] if "pede" in [CENA.n(w) for w in f7.split()] or (f.get("cta") or {}).get("de") else
                ["cta.de: sem 'pede' na fala, diga a palavra da parte 7 onde a caixa da pergunta entra (1ª palavra da pergunta)"]):
+        if avatar_gravado(p):
+            log(f"aviso: {prob} — aceito porque o avatar já existe")
+        else:
+            erros.append(prob)
+    cta = f.get("cta") or {}
+    pedido_re = re.compile(r"\b(quero|me\s+manda|manda\s+o|o\s+link|passo\s+a\s+passo|eu\s+quero)\b", re.I)
+    extras = [f"cta.{k} pede palavra/link ('{(CTA_PROIBIDO.search(str(cta.get(k) or '')) or CTA_PALAVRA.search(str(cta.get(k) or ''))).group(0)}')"
+              for k in ("a", "b") if CTA_PROIBIDO.search(str(cta.get(k) or "")) or CTA_PALAVRA.search(str(cta.get(k) or ""))]
+    if pedido_re.search(str(cta.get("comentario") or "")):
+        extras.append(f"cta.comentario é pedido ('{cta['comentario']}'): o texto digitado é uma RESPOSTA de opinião/experiência (§2.3)")
+    for prob in extras:
         if avatar_gravado(p):
             log(f"aviso: {prob} — aceito porque o avatar já existe")
         else:

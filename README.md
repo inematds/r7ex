@@ -47,7 +47,7 @@ o explicavideos nem o cardshorts.
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
 | 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição, entrega — v1.3.1; tipo `provocacao` no PADRAO §2.2), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
-| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova) | ⚙️ |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`) | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |

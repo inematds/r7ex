@@ -95,11 +95,11 @@ partes:
   #       - {de: nota, ic: "🎯", txt: "Agente-ready", sub: "nota de 0 a 100", cor: vd}
   #   (hub: + centro: {de: repo, ic: "📦", txt: "inemaseo-sistemas"}; terminal: nos com tipo: cmd|out|ok|cm e barra: "título")
   - etapa: comentario
-    fala: "Tá tudo no inema ponto club. Ou me pede o link aqui nos comentários."
-    prende: "pede um comentário fácil e leva ao inema.club"
+    fala: "E você, já deixou de proteger a sua conta por preguiça? Tá tudo no inema ponto club, grátis, direto na internet."
+    prende: "pergunta da vida da pessoa, ligada à dor; leva ao inema.club sem pedir palavra nem link (PADRAO §2.3)"
     print: {url: "https://inema.club", selo: "inema.club"}
 
-cta: {a: "QUER O PASSO A PASSO? 👇", b: "me pede o link aqui nos comentários", comentario: "quero o passo a passo 🙋"}
+cta: {de: "você", a: "E VOCÊ, JÁ DEIXOU? 👇", b: "tá tudo no inema.club · grátis", comentario: "já, e quase perdi tudo 😬"}   # comentario = uma RESPOSTA de opinião/experiência, nunca pedido de link (§2.3)
 club: "as 3 proteções, passo a passo"
 cores: {roubaram: "#ff2a1f", chave: "#FACC15", noite: "#ff2a1f", proxima: "#ff2a1f", senha: "#FACC15",
         teto: "#FACC15", limite: "#FACC15", alarme: "#FACC15", susto: "#ff2a1f", aviso: "#FACC15", "1700": "#ff2a1f"}
