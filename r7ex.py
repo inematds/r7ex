@@ -45,7 +45,7 @@ GANCHO_TIPOS = {
                   "(\"A Hyundai contratou 25 mil funcionários. Nenhum pede aumento.\")",
     # v1.4.4 (D20, Nei 12/11/2026: "não adianta estar claro e correto se não chama atenção, não mexe na dor ou desejo").
     # Regra: ~/projetos/inema-design/regras/chamada.md. Os dois falam com a pessoa ("você") na 1ª frase.
-    "promessa": "o ganho, com a garantia verdadeira, falado em 'você' (\"Seu agente nunca mais diz 'pronto' sem prova.\")",
+    "promessa": "o ganho, com a garantia verdadeira, falado em 'você' (\"O seu agente nunca mais vai dizer pronto se não tiver provado. É isso que este método faz.\")",
     "acusacao": "revela o que está acontecendo com a pessoa, em 'você' (\"Seu agente mente pra você.\")",
 }
 VOCE = re.compile(r"\b(voc[eê]s?|seus?|suas?|te|teu|tua)\b", re.I)

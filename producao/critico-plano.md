@@ -33,7 +33,7 @@ tem vontade de comentar ou compartilhar?"** Critérios:
   desejo")**: ouvindo só as partes 1–2, um desconhecido sabe qual é o problema, que é COM ELE, por que importa e, se o
   vídeo entrega um método/kit, o NOME da solução? Não → nota da parte 1 ≤ 6 e `melhorar` com a abertura reescrita.
   Rótulo técnico na fala (nome de engenharia sem a frase comum ao lado) e inventário ("8 frases", "9 soluções") na
-  manchete perdem nota. Regra: `~/projetos/inema-design/regras/chamada.md`.
+  manchete perdem nota. Frase de cartaz comprimida ("nunca mais diz pronto sem prova"), sem sujeito ou com substantivo no lugar do verbo, perde nota: a fala é frase completa de gente ("o seu agente nunca mais vai dizer pronto se não tiver provado"), com ponte ("é isso que este método faz") e convite ("vou explicar como"). Regra: `~/projetos/inema-design/regras/chamada.md`.
 - Partes 1–2: a prova (número com fonte, `gancho.prova`) entra até ~20 s; logo depois vem o problema do espectador com
   absolvição (`gancho.absolvicao`: "não é falta de estudo, ninguém te deu o mapa"). Culpar a pessoa = nota baixa.
 - Um tema por vídeo: partes que pulam entre assuntos diferentes (uma lista de novidades sem relação) = nota baixa.
