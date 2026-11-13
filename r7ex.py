@@ -4,7 +4,8 @@ Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo e
 
   python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
   python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–620 caracteres (~175 palavras/min), palavras dos painéis na fala, `prende` por parte,
-                                          gancho v1.2.0 (tipo, manchete ≤ 6 palavras ≠ fala, objeto, prova até ~20 s, absolvição; lista reprova)
+                                          gancho v1.2.0 (tipo, manchete ≤ 6 palavras ≠ fala, objeto, prova até ~20 s, absolvição; lista reprova);
+                                          avisa sem gancho.referencias (3–5) e sem frase de comunidade antes da pergunta da parte 7 (v1.5.4)
   python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
@@ -30,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.4.4"   # semver do r7ex (1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.5.4"   # semver do r7ex (1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -141,6 +142,26 @@ def legenda_da(f, x):
     return leg
 
 
+REF_CAMPOS = ("canal", "titulo", "abertura", "gatilho")
+PERTENCE = re.compile(r"\btoda\s+semana\b|\bcomunidade\b|\ba\s+gente\b|\bjunt[oa]s?\b|\bfaz\s+parte\b", re.I)
+
+
+def checar_referencias(refs):
+    """v1.5.4 (Retenção, Nei 13/11/2026 "aplica"): gancho.referencias = 3–5 vídeos de quem fala do tema no YouTube
+    ({canal, titulo, abertura (1ª fala 0–35 s), gatilho}). Só AVISA: é a régua do crítico, não entra no roteiro."""
+    if not refs:
+        log("aviso: gancho sem 'referencias' (3–5 {canal, titulo, abertura, gatilho} de quem fala do tema no YouTube: "
+            "yt-dlp --flat-playlist \"ytsearch15:<termo>\" + legenda automática 0–35 s; README passo 2)")
+        return
+    if not isinstance(refs, list) or len(refs) < 3:
+        log(f"aviso: gancho.referencias com {len(refs) if isinstance(refs, list) else 0} item(ns): levante 3–5")
+        return
+    for i, x in enumerate(refs, 1):
+        falta = [k for k in REF_CAMPOS if not (isinstance(x, dict) and str(x.get(k) or "").strip())]
+        if falta:
+            log(f"aviso: gancho.referencias[{i}] sem {', '.join(falta)}")
+
+
 def checar_gancho(p, f):
     """v1.2.0 (28/10/2026): o gancho é o quadro 0 + os 3 primeiros segundos. Devolve a lista de erros."""
     g, erros = f.get("gancho"), []
@@ -219,6 +240,7 @@ def checar_gancho(p, f):
                 erros.append(f"a prova '{pv['de']}' entra na palavra {antes + k} (~{(antes + k) / 3:.0f} s): tem de ser até a {PALAVRAS_20S}ª (~20 s)")
             elif not TEM_NUMERO.search(legenda_da(f, f["partes"][pn_ - 1])) and not ((f["partes"][pn_ - 1].get("painel") or {}).get("contador")):
                 erros.append(f"a parte {pn_} da prova não tem número (na fala ou no contador)")
+    checar_referencias(g.get("referencias"))
     ab = CENA.n(g.get("absolvicao") or "")
     if not ab:
         erros.append("gancho sem 'absolvicao' (o problema do espectador sem culpa: 'não é falta de estudo, ninguém te deu o mapa')")
@@ -246,6 +268,9 @@ def cmd_checar(pasta):
     f7 = f["partes"][-1]["fala"]
     if "inema ponto club" not in f7:
         erros.append("a parte 7 precisa de 'inema ponto club' (onde está; 'grátis, direto na internet' se for verdade)")
+    elif not PERTENCE.search(f7.split("?")[0] if "?" in f7 else f7):   # v1.5.4: pertencimento ANTES da pergunta final
+        log("aviso: parte 7 sem frase de comunidade antes da pergunta (ex.: 'toda semana tem kit novo, grátis, no inema ponto "
+            "club'; PADRAO §2.4)")
     # D20 (Nei 12/11/2026): "no CTA não deve pedir para a pessoa colocar palavra ou link; deve sempre criar engajamento
     # natural". Antes o CTA fixo era "Ou me pede o link aqui nos comentários". Edição com avatar gravado só recebe aviso.
     m = CTA_PROIBIDO.search(f7) or CTA_PALAVRA.search(f7)

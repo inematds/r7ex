@@ -22,6 +22,13 @@ gancho:
   absolvicao: "não é descuido seu"   # o problema do espectador sem culpa, igual na fala da parte 2 ou 3
   fontes:                            # obrigatório em estatistica, terceiro e noticia (noticia também tem data: aaaa-mm-dd)
     - {nome: "relatos de usuários afetados pelo ataque ao OpenCode, out/2026", trecho: "US$ 1.700 de conta numa noite"}
+  # v1.5.4 (Retenção): 3–5 vídeos de quem fala do tema no YouTube (yt-dlp --flat-playlist "ytsearch15:<termo>" + legenda
+  # automática, 1ª fala 0–35 s). Régua do crítico: o nosso gancho tem de ser pelo menos tão forte quanto o melhor.
+  # Número de terceiro NÃO entra no roteiro. Sem referências o checar só avisa.
+  referencias:
+    - {canal: "<canal de segurança, 120 mil views>", titulo: "<título do vídeo>", abertura: "<1ª fala, 0–35 s>", gatilho: "perda concreta"}
+    - {canal: "<canal BR de IA>", titulo: "<título>", abertura: "<1ª fala>", gatilho: "medo + número"}
+    - {canal: "<canal de dev>", titulo: "<título>", abertura: "abre pedindo like (fraco)", gatilho: "nenhum"}
 
 marca: "INEMA · CHAVES DE IA"        # faixa do topo
 selo: "ALERTA INEMA"                 # selo vermelho do topo
@@ -62,7 +69,7 @@ partes:
       k: "PREJUÍZO COM TETO"
       titulo: "O GASTO TEM TETO"
   - etapa: facilidade
-    fala: "Você não precisa ser especialista, nem programador."
+    fala: "Não precisa ser programador."
     prende: "derruba a desculpa 'isso não é para mim'"
     imagem: "um controle deslizante de limite travado por um cadeado amarelo luminoso, numa mesa escura"
     painel:
@@ -95,11 +102,11 @@ partes:
   #       - {de: nota, ic: "🎯", txt: "Agente-ready", sub: "nota de 0 a 100", cor: vd}
   #   (hub: + centro: {de: repo, ic: "📦", txt: "inemaseo-sistemas"}; terminal: nos com tipo: cmd|out|ok|cm e barra: "título")
   - etapa: comentario
-    fala: "E você, já deixou de proteger a sua conta por preguiça? Tá tudo no inema ponto club, grátis, direto na internet."
-    prende: "pergunta da vida da pessoa, ligada à dor; leva ao inema.club sem pedir palavra nem link (PADRAO §2.3)"
+    fala: "Toda semana tem kit novo, grátis, no inema ponto club. E você, já deixou de proteger a sua conta por preguiça?"
+    prende: "comunidade antes (toda semana tem kit novo) e depois a pergunta da vida da pessoa, ligada à dor; sem pedir palavra nem link (PADRAO §2.3, §2.4)"
     print: {url: "https://inema.club", selo: "inema.club"}
 
-cta: {de: "você", a: "E VOCÊ, JÁ DEIXOU? 👇", b: "tá tudo no inema.club · grátis", comentario: "já, e quase perdi tudo 😬"}   # comentario = uma RESPOSTA de opinião/experiência, nunca pedido de link (§2.3)
+cta: {de: "você", a: "E VOCÊ, JÁ DEIXOU? 👇", b: "toda semana kit novo · inema.club", comentario: "já, e quase perdi tudo 😬"}   # comentario = uma RESPOSTA de opinião/experiência, nunca pedido de link (§2.3)
 club: "as 3 proteções, passo a passo"
 cores: {roubaram: "#ff2a1f", chave: "#FACC15", noite: "#ff2a1f", proxima: "#ff2a1f", senha: "#FACC15",
         teto: "#FACC15", limite: "#FACC15", alarme: "#FACC15", susto: "#ff2a1f", aviso: "#FACC15", "1700": "#ff2a1f"}

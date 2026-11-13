@@ -55,7 +55,7 @@ eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-pla
 | 4 | **Facilidade** | derruba "não sou técnico / não tenho tempo" |
 | 5 | **Descoberta** | o método ou o nome da solução, com 3 itens |
 | 6 | **Benefício / urgência** | o depois, ou "aproveita antes de…" |
-| 7 | **Comentário** | pergunta de verdade sobre a vida/opinião da pessoa + "tá tudo no inema ponto club" (grátis, direto na internet, se for verdade); nunca "me pede o link" nem "comenta PALAVRA" (§2.3) |
+| 7 | **Comentário** | frase de comunidade com o inema ponto club (§2.4: "toda semana tem kit novo, grátis, no inema ponto club") + pergunta de verdade sobre a vida/opinião da pessoa (grátis só se for verdade); nunca "me pede o link" nem "comenta PALAVRA" (§2.3) |
 
 A ordem 2–6 pode se adaptar ao tema (as etapas são checklist de gatilhos), mas são sempre 7 partes.
 Fala: número e ano **por extenso** (o avatar lê); a legenda troca por algarismo (`trocas` na ficha).
@@ -163,6 +163,33 @@ gancho:
   fontes: [{nome: "Hyundai, plano de humanoides", trecho: "25 mil robôs humanoides nas fábricas"}]
 ```
 
+### 2.4 Retenção: pesquisa de ganchos e CTA de pertencimento (v1.5.4, 13/11/2026)
+
+Caso: os vídeos do /swarm (13/11/2026) foram publicados e reprovados pelo Nei ("muito fraca, nem eu consigo ficar
+assistindo"). A seção Retenção do explicavideos (`~/projetos/explicavideos/engine/v2/PADRAO-VIRAL.md`, 2.26.11) vale
+para o r7ex em duas coisas (Nei, 13/11/2026: "aplica"):
+
+1. **Pesquisa de ganchos antes da ficha** (`gancho.referencias`): 3–5 vídeos de quem fala do tema no YouTube, cada um
+   `{canal, titulo, abertura, gatilho}`. Levante títulos com `yt-dlp --flat-playlist "ytsearch15:<termo>"` e a 1ª fala
+   (0–35 s) pela legenda automática; anote o gatilho (número antes/depois, perda concreta, imagem fácil, "você também
+   pode", promessa do fim; "INSANE" sem conteúdo e abrir pedindo like são fracos). Modelo:
+   `~/projetos/output/explica-gemini-swarm/ganchos/LISTA.md`. O crítico do plano compara: o nosso gancho tem de ser
+   pelo menos tão forte quanto o melhor delas. **Número de terceiro não entra no roteiro**: é só régua. Sem
+   referências ou com menos de 3, o `checar` avisa (não reprova).
+2. **CTA de pertencimento:** na parte 7, antes da pergunta final, uma frase curta de comunidade que já carrega o
+   "inema ponto club" ("Toda semana tem kit novo, grátis, no inema ponto club."), no lugar do "tá tudo no inema ponto
+   club" depois da pergunta (a fala continua em 450–620 caracteres). Depois, a pergunta de verdade (§2.3). Continua
+   proibido "comenta PALAVRA", "me pede o link" e "te mando". Sem frase de comunidade antes da pergunta, o `checar` avisa.
+
+```yaml
+gancho:
+  referencias:
+    - {canal: "<canal>", titulo: "<título>", abertura: "<1ª fala, 0–35 s>", gatilho: "perda concreta"}
+partes:
+  # … parte 7:
+  - fala: "Toda semana tem kit novo, grátis, no inema ponto club. E você, já deixou de proteger a sua conta por preguiça?"
+```
+
 ## 3. Tela — motor do eventosextremospub
 
 **Mudança de 20/10/2026 (D13, D14):**
@@ -207,6 +234,7 @@ gancho:
 
 - ficha: 7 partes, fala 450–620 caracteres (um tema com muitos itens: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
 - gancho (v1.2.0, §2.1): `gancho.tipo` válido, manchete ≤ 6 palavras em CAIXA ALTA e diferente da fala, `destaque` = uma palavra dela, `objeto`, `prova` até a 60ª palavra, `absolvicao` na parte 2 ou 3, fontes (estatística/terceiro/notícia) e data (notícia); lista, "você sabia" e "eu fiz" reprovam. Edição com avatar já gravado só recebe aviso;
+- retenção (v1.5.4, §2.4): aviso sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7;
 - plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
 - avatar × fala ≥ 90% (retempo); ritmo 160–190 palavras/min, pausa antes da máxima e 9 s de cartão (`avatar/ritmo.json`); duração < 60 s;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);

@@ -34,6 +34,13 @@ tem vontade de comentar ou compartilhar?"** Critérios:
   vídeo entrega um método/kit, o NOME da solução? Não → nota da parte 1 ≤ 6 e `melhorar` com a abertura reescrita.
   Rótulo técnico na fala (nome de engenharia sem a frase comum ao lado) e inventário ("8 frases", "9 soluções") na
   manchete perdem nota. Frase de cartaz comprimida ("nunca mais diz pronto sem prova"), sem sujeito ou com substantivo no lugar do verbo, perde nota: a fala é frase completa de gente ("o seu agente nunca mais vai dizer pronto se não tiver provado"), com ponte ("é isso que este método faz") e convite ("vou explicar como"). Regra: `~/projetos/inema-design/regras/chamada.md`.
+- **Régua das referências (v1.5.4, PADRAO §2.4):** `gancho.referencias` (quando houver) são 3–5 vídeos de quem fala
+  do tema no YouTube, com `titulo`, `abertura` (1ª fala, 0–35 s) e `gatilho`. Ache a mais forte e pergunte: o nosso
+  gancho (manchete + fala da parte 1) é PELO MENOS TÃO FORTE quanto ela para um desconhecido? Mais fraco → nota da
+  parte 1 ≤ 7 e `melhorar` dizendo qual referência ganha e por quê, com uma abertura nossa melhor. Copiar a fala ou o
+  número de terceiro não é melhorar: número de terceiro não entra no roteiro (só número nosso ou oficial, com fonte).
+  Diga no `resumo` se o gancho ganha ou perde da melhor referência. Sem `referencias`, julgue sem a régua (não é
+  bloqueio).
 - Partes 1–2: a prova (número com fonte, `gancho.prova`) entra até ~20 s; logo depois vem o problema do espectador com
   absolvição (`gancho.absolvicao`: "não é falta de estudo, ninguém te deu o mapa"). Culpar a pessoa = nota baixa.
 - Um tema por vídeo: partes que pulam entre assuntos diferentes (uma lista de novidades sem relação) = nota baixa.
@@ -46,8 +53,10 @@ tem vontade de comentar ou compartilhar?"** Critérios:
 - Ética: nada inventado; cada número/afirmação (fala, lista, painel) tem de bater com `plano.fatos` (fatos da fonte, com o
   trecho), `plano.gancho` ou `fonte`. Fato fora deles = nota baixa e peça para incluir a origem. Vazamento pode ser dito com força
   ("vazou", "apareceu no código"), mas não como lançamento confirmado. Exagero falso = nota 0 na parte.
-- Parte 7 (§2.3): pergunta de verdade sobre a vida/opinião da pessoa, ligada à dor/desejo, + "inema ponto club" (grátis,
-  direto na internet, se for verdade). Engajamento natural: NUNCA pedir palavra ("comenta X") nem link ("me pede o link").
+- Parte 7 (§2.3, §2.4): primeiro uma frase curta de COMUNIDADE com o "inema ponto club" ("toda semana tem kit novo,
+  grátis, no inema ponto club"), que faz a pessoa querer fazer parte; depois a pergunta de verdade sobre a vida/opinião
+  dela, ligada à dor/desejo. Sem a frase de comunidade = nota da parte 7 ≤ 7 e `melhorar` com ela. Engajamento
+  natural: NUNCA pedir palavra ("comenta X") nem link ("me pede o link").
 
 - `pedido` na ficha (quando houver) é o que o Nei pediu explicitamente: é fixo. Não sugira cortar o que está lá (ex.:
   "citar cada modelo", uma frase de fecho exata); julgue e sugira melhorias DENTRO disso.

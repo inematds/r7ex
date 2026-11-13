@@ -45,10 +45,10 @@ o explicavideos nem o cardshorts.
 | # | Passo | Comando / o que acontece | Quem |
 |---|---|---|---|
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
-| 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) | 🧠 |
+| 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) + **ganchos de quem fala do tema** (v1.5.4): títulos com `yt-dlp --flat-playlist "ytsearch15:<termo>"` e a 1ª fala (0–35 s) pela legenda automática → `gancho.referencias` (3–5 `{canal, titulo, abertura, gatilho}`; número de terceiro não entra no roteiro, só serve de régua) | 🧠 |
 | 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição, entrega — v1.3.1; tipo `provocacao` no PADRAO §2.2), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
-| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`) | ⚙️ |
-| 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5 | 🤖 |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`); **avisos** v1.5.4: sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7 | ⚙️ |
+| 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5; compara o gancho com a melhor `gancho.referencias` e cobra a frase de comunidade na parte 7 (v1.5.4) | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
 
@@ -133,7 +133,7 @@ Base real: leio a página do curso/guia antes (nome, quantas aulas, se é gráti
 | 4. Facilidade | "Você não precisa ser especialista, nem programador" | painel de limite + "sem ser especialista" |
 | 5. Descoberta | "São três ajustes: limite, uma chave por uso, alarme…" | cadeado, chaves e sino + os 3 ajustes entrando |
 | 6. Benefício | "O susto vira um aviso no celular…" | fatura rasgada + "sem limite × com limite" |
-| 7. Comentário | "E você, já…? Tá tudo no inema.club, grátis." (pergunta de verdade, sem pedir link, v1.4.4) | print do inema.club + CTA vermelho em pergunta |
+| 7. Comentário | "Toda semana tem kit novo, grátis, no inema.club. E você, já…?" (comunidade antes, depois a pergunta de verdade, sem pedir link, v1.5.4) | print do inema.club + CTA vermelho em pergunta |
 
 A ordem 2–6 se adapta ao tema (ex.: no "Quem fatura em 2027" a etapa 3 virou **prova**: "já aconteceu 3 vezes"),
 mas são sempre 7 partes (~30–37 s de fala + 9 s de cartão desde 28/10/2026).

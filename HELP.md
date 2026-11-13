@@ -8,7 +8,7 @@ Uso: /r7ex <tema ou tese, do seu jeito>
 
 Um tema por vídeo: mandou vários temas? Ele faz o mais forte e propõe os outros (um /r7ex para cada).
 O gancho é contrário, perda, estatística, história de alguém, notícia, provocação, promessa ou acusação (a dor ou o desejo de quem assiste, em "você") — nunca lista ("5 novidades…").
-O fecho faz uma pergunta de verdade e diz que está tudo no inema.club; nunca pede palavra nem link.
+O fecho diz que toda semana tem kit novo, grátis, no inema.club e faz uma pergunta de verdade; nunca pede palavra nem link.
 
 O que ele entende do texto:
   canal: lives1, lives4… ou o nome ("INEMA Tec"). Sem canal → lives7

@@ -29,6 +29,12 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
 1. **Plano** (PADRAO §1): pessoa, o que quer, gancho com número/fato e fonte, nota ≥ 8, destino no
    inema.club (leia a página: nome, aulas, se é grátis). Confira os fatos na web e guarde a origem em
    `plano.fatos`. Nunca invente número; "grátis" só se a página disser.
+   **Pesquisa de ganchos (PADRAO §2.4, v1.5.4):** antes de escrever o gancho, levante quem fala do tema no
+   YouTube: `yt-dlp --flat-playlist --print "%(channel)s | %(view_count)s | %(title)s | %(id)s" "ytsearch15:<termo>"`
+   (PT e EN) e, nos 3–5 mais vistos e próximos do tema, a 1ª fala (0–35 s) pela legenda automática
+   (`yt-dlp --skip-download --write-auto-subs --sub-langs "pt.*,en.*" --sub-format vtt -o "/tmp/r7ex-ganchos/%(id)s" <url>`).
+   Grave em `gancho.referencias` (3–5 `{canal, titulo, abertura, gatilho}`). O nosso gancho tem de ser pelo menos
+   tão forte quanto o melhor deles. Número de terceiro NÃO entra no roteiro; é só régua.
    **Um tema por vídeo (PADRAO §2.1).** Se o pedido trouxer vários temas diferentes, NÃO faça um vídeo de
    lista: faça a edição só do tema mais forte e, no resumo, proponha os outros (um `/r7ex` para cada, com o
    gancho sugerido de cada um).
@@ -54,8 +60,9 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
    - `objeto`: objeto-metáfora com dano ou ameaça para o centro da abertura (lixeira, olhos em X, risco vermelho).
    - `prova: {parte: 1|2, de: <palavra do número>}` até ~20 s; `absolvicao`: a frase sem culpa que está, igual,
      na fala da parte 2 ou 3 ("não é falta de estudo, ninguém te deu o mapa").
-   - Parte 7 (PADRAO §2.3, Nei 12/11/2026): pergunta de verdade ligada à dor/desejo + "tá tudo no inema ponto club"
-     (grátis, direto na internet, se for verdade). Nunca "me pede o link", "comenta PALAVRA" nem "eu te mando".
+   - Parte 7 (PADRAO §2.3 e §2.4): primeiro a frase de comunidade com o inema ponto club ("Toda semana tem kit
+     novo, grátis, no inema ponto club." — grátis só se for verdade), depois a pergunta de verdade ligada à
+     dor/desejo. Nunca "me pede o link", "comenta PALAVRA" nem "eu te mando".
      Sem "pede" na fala: `cta.de` = 1ª palavra da pergunta. Método ou kit no vídeo: o NOME dele na parte 5 e na 7.
 5. `python3 r7ex.py checar <pasta>` até passar (corrija a ficha; até 3 tentativas).
 6. `python3 r7ex.py plano <pasta>` até passar (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6).

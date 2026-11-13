@@ -26,7 +26,7 @@ Modelo de pedido em 1 linha:
 • Nunca desarmar o medo logo depois; o alívio vem no meio
 • Frases curtas, sem jargão, como se falasse com um amigo leigo
 • Sua opinião em 1ª pessoa: "eu já passei por isso", "eu criei…"
-• 7 partes: gancho → medo → desejo → facilidade → descoberta (3 itens) → benefício → pergunta de verdade + "tá tudo no inema ponto club" (nunca pedir palavra nem link)
+• 7 partes: gancho → medo → desejo → facilidade → descoberta (3 itens) → benefício → "toda semana tem kit novo no inema ponto club" + pergunta de verdade (nunca pedir palavra nem link)
 • Gancho que mexe na dor ou no desejo de quem assiste, em "você"; se tiver método/kit, diga o NOME dele
 • fala mais lenta (160–190 palavras/min): 450–620 letras, ~30–37 s de fala; uma pausa antes da frase final; número e ano por extenso na fala
 • no fim, o cartão do comentário fica 9 s na tela, com o comentário sendo digitado e publicado

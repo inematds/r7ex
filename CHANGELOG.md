@@ -2,6 +2,17 @@
 
 Semver `X.YY.ZZ`: o minor sobe e carrega o patch; só o major zera o resto.
 
+## 1.5.4 — 13/11/2026 · retenção: pesquisa de ganchos + CTA de pertencimento
+
+- Nei (13/11/2026, "aplica"), depois dos /swarm reprovados ("nem eu consigo ficar assistindo"); seção Retenção do
+  explicavideos 2.26.11. PADRAO §2.4.
+- `gancho.referencias` (opcional): 3–5 `{canal, titulo, abertura, gatilho}` de quem fala do tema no YouTube (yt-dlp
+  `ytsearch15` + legenda automática 0–35 s). O `checar` avisa se faltar ou tiver menos de 3. Número de terceiro não entra.
+- Crítico do plano compara o nosso gancho com a melhor referência (mais fraco → parte 1 ≤ 7, sem bloqueio).
+- Parte 7: frase de comunidade com o inema ponto club ANTES da pergunta ("Toda semana tem kit novo, grátis, no inema
+  ponto club."). Sem ela o `checar` avisa e o crítico tira nota. Modelo atualizado (617 caracteres, passa no `checar`).
+- Bot (`prompts/bot-ficha.md`) faz a pesquisa de ganchos e escreve o fecho novo.
+
 ## 1.4.4 — 12/11/2026 · chamada: clareza + atenção, CTA sem palavra nem link (D20)
 
 - Nei: "não adianta estar claro e correto se não chama atenção, não mexe na dor ou desejo". Regra única de todos os
