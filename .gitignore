@@ -21,3 +21,7 @@ producao/producao.log
 producao/.estado.lock
 producao/.rodada.lock
 edicoes/*/producao.log
+
+# Executor por etapa: telemetria local, sem credenciais
+**/ia-execucoes.jsonl
+producao/ia.lock

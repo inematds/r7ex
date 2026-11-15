@@ -1,3 +1,7 @@
+## 1.6.4 — 15/11/2026
+
+Revisor visual configurável por etapa (tipo/motor/modelo/esforço), imagens anexadas, sem fallback pago. APIs desativadas. Teste real Codex aprovado; 6 contratos de IA e testes existentes da produção passaram. Nenhuma publicação pelo teste.
+
 # Changelog do r7ex
 
 Semver `X.YY.ZZ`: o minor sobe e carrega o patch; só o major zera o resto.

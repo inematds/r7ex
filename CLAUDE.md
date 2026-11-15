@@ -13,3 +13,5 @@ Padrão em `PADRAO.md`; explicação completa em `README.md`; skill em `skill/SK
 - Antes de enviar: ler `build/folha.jpg` (12 quadros). Publicar só pela fila (`r7ex.py fila`), nunca upload direto. Exceção (Nei, 05/11/2026): quando a entrega precisa do link do YouTube (portal, link no tópico do Telegram), publicar direto com o yt-pubx no canal pedido (mesmo título e contexto do item) e marcar o item da fila como `feito` com `video_id` e nota `direto`, para não sair duas vezes; aviso no v3 em texto normal (faixa azul só no Metricool). Nos outros casos o portal pode entrar antes e ganhar o link do vídeo depois.
 - Padrão: `producao/producao.py --add <pasta>` (timer `r7ex-producao`): espera o HeyGen, monta, o revisor `claude -p` lê a folha e, aprovado, manda ao v3 + fila. Ver `producao/README.md`.
 - Falhou? Linha em `FALHAS.md` (data | o que quebrou | menor correção | prompt/infra).
+
+- Revisor automático com configuração independente por etapa: `producao/ia.yaml` e `producao/IA.md` (15/11/2026). Atual: Codex assinatura, modelo/esforço explícitos; APIs desativadas.
