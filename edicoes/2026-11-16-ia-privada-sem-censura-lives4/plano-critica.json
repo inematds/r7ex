@@ -1,0 +1,58 @@
+{
+  "partes": [
+    {
+      "n": 1,
+      "nota": 8,
+      "porque": "Manchete clara e ameaça pessoal concreta; a solução aparece na parte 2, mas a fala pode tocar mais diretamente nos documentos de trabalho.",
+      "melhorar": "Sua IA responde sem censura. Mas quem está recebendo os documentos que você coloca nela?"
+    },
+    {
+      "n": 2,
+      "nota": 8,
+      "porque": "Apresenta a solução e a prova cedo; a tela confirma o teste, mas a linguagem técnica do rodapé dificulta o entendimento imediato.",
+      "melhorar": "Na tela, substituir rede isolada contendo somente lo por Rede externa bloqueada durante o teste."
+    },
+    {
+      "n": 3,
+      "nota": 8,
+      "porque": "Retira a culpa e esclarece a diferença, mas repete a abertura sem trazer um exemplo da vida da pessoa.",
+      "melhorar": "Não é descuido seu: uma IA aceitar seu pedido não significa que seu contrato ficou no seu computador."
+    },
+    {
+      "n": 4,
+      "nota": 8,
+      "porque": "Oferece um caminho concreto e acessível; a facilidade fica mais convincente com os requisitos visíveis.",
+      "melhorar": "Manter a fala e mostrar no print os requisitos Python e Ollama junto ao primeiro passo do guia."
+    },
+    {
+      "n": 5,
+      "nota": 8,
+      "porque": "Nomeia o segundo kit e mostra uma rotina clara, mas a sequência de comandos tem pouca carga emocional.",
+      "melhorar": "O kit IA sem censura pronta busca menos recusas. Você prepara, conversa no computador e encerra quando terminar."
+    },
+    {
+      "n": 6,
+      "nota": 7,
+      "porque": "A ressalva é verdadeira, mas repete privacidade e introduz acerto sem mostrar a prova concreta disponível.",
+      "melhorar": "Fala: E rodar no seu computador também não impede a IA de errar. Tela: Teste do documento: Llama respondeu 600; gabarito 1000, com a fonte INEMA."
+    },
+    {
+      "n": 7,
+      "nota": 9,
+      "porque": "Entrega comunidade, gratuidade e destino, depois faz uma pergunta pessoal ligada ao desejo de proteger textos, sem pedir palavra ou link.",
+      "melhorar": ""
+    }
+  ],
+  "bloqueios": [],
+  "resumo": "Plano coerente e gravável, com gancho claro, solução e prova cedo; falta aumentar a identificação pessoal e substituir a repetição final pela demonstração do erro, sem régua comparativa porque não há referências.",
+  "notas": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    7,
+    9
+  ],
+  "hash": "ed5722fe02af7e0b90f7e64fc8507445a68d3993"
+}

@@ -1,0 +1,148 @@
+slug: ia-privada-sem-censura-lives4
+tema: 'IA sem censura não garante privacidade: escolha onde seus textos são processados'
+pedido: 'Nei: quero um vídeo publicado no lives4 r7ex. Tema desta conversa: kits IA privada pronta e IA sem censura
+  pronta; distinguir privacidade de menos recusas, sem origem Skool.'
+plano:
+  pessoa: Quem usa IA no trabalho e não quer enviar textos a um serviço externo
+  quer: Escolher onde seus textos são processados sem confundir liberdade de resposta com privacidade
+  gancho: O modelo pode aceitar pedidos sem garantir que os dados fiquem no seu computador
+  nota: 9
+  destino: https://inematds.github.io/ia-privada-pronta/guia/
+  fatos:
+  - Privacidade é onde os dados são processados e quem tem acesso; menos recusas é comportamento do modelo. Não
+    há implicação automática entre as duas coisas. Código e guias dos dois kits INEMA, README.md e docs/CONTRATO.md.
+  - 'Prova real Linux15/11/2026: os DOIS modelos responderam dentro de namespace de rede contendo apenaslo. Fontes
+    locais: ia-privada-pronta/verificacao/prova-real-linux.json e ia-sem-censura-pronta/verificacao/prova-real-linux.json.
+    Modelos descarregados após teste.'
+  - IA privada pronta usa Llama3.2; preparação baixa pesos com internet e conversa depois é local. Guia gratuito
+    e código executável em https://inematds.github.io/ia-privada-pronta/guia/.
+  - IA sem censura pronta usa Huihui Qwen3.8-abliterated27B voltado a menos recusas. Não mede nem garante ausência
+    de recusas. Guia https://inematds.github.io/ia-sem-censura-pronta/guia/.
+  - Os dois kits oferecem preparar/conversar/encerrar. Requerem Python e Ollama; versão maior exige mais memória.
+    Não são chat em navegador nem implantação de nuvem testada.
+  - No teste do documento Llama respondeu600, gabarito1000; Qwen acertou esse caso. Processamento local não garante
+    acerto. Guias e códigos gratuitos; portal publica kits semanalmente.
+gancho:
+  tipo: contrario
+  manchete: IA SEM CENSURA NÃO GARANTE PRIVACIDADE
+  destaque: PRIVACIDADE
+  objeto: um cadeado aberto preso a uma folha de documento que escapa por uma seta vermelha em direção à borda;
+    metáfora de dados enviados para fora, não afirmação de vazamento real
+  entrega: Entender a diferença e conhecer os kits gratuitos para escolher onde seu texto é processado
+  prova:
+    parte: 2
+    de: testes
+  absolvicao: Não é descuido seu
+  fontes:
+  - nome: Testes reais INEMA15/11/2026 e código dos dois kits
+    trecho: Dois modelos responderam em namespace com somente a interface locallo; menos recusas é diferente de
+      privacidade
+  referencias: []
+marca: INEMA · SUA IA
+selo: DADOS SOB CONTROLE
+fonte: Testes INEMA · Linux, 15/11/2026 · ilustrações
+abertura:
+  cor: amarelo
+  cena: close de um notebook preto sobre fundo escuro, documento sendo puxado para fora da tela, um único assunto
+    forte; sem representar invasão real
+trocas: {}
+partes:
+- etapa: gancho
+  fala: Sua IA pode responder sem censura e ainda enviar seus textos para fora.
+  prende: A liberdade que a pessoa buscava não resolve a preocupação com seus próprios textos.
+- etapa: medo
+  fala: Nos testes, o kit IA privada pronta respondeu sem internet. A privacidade depende de onde o modelo roda.
+  prende: Prova de funcionamento e nome da solução imediatamente, sem promessa de privacidade automática.
+  print:
+    url: https://inematds.github.io/ia-privada-pronta/guia/#prova
+    selo: PROVA REAL · LINUX
+  painel:
+    de: testes
+    k: TESTES REAIS · LINUX
+    contador:
+      ate: 2
+      em: testes
+      cor: '#FACC15'
+      unid: MODELOS RESPONDERAM SEM REDE EXTERNA
+    l: rede isolada contendo somente lo
+- etapa: desejo
+  fala: 'Não é descuido seu: sem censura não quer dizer privado.'
+  prende: Retira a culpa e entrega a distinção que resolve a dúvida da pessoa.
+  diagrama:
+    forma: fluxo
+    titulo: SÃO ESCOLHAS DIFERENTES
+    nos:
+    - de: censura
+      ic: 💬
+      txt: Menos recusas
+      sub: O que o modelo aceita
+    - de: privado
+      ic: 🔒
+      txt: Privacidade
+      sub: Onde os textos são processados
+  painel:
+    titulo: UMA COISA NÃO GARANTE A OUTRA
+- etapa: facilidade
+  fala: Baixe o modelo uma vez e siga o guia para conversar no seu computador.
+  prende: A pessoa enxerga o primeiro passo e um destino acessível, sem promessa de instalação sem requisitos.
+  print:
+    url: https://inematds.github.io/ia-privada-pronta/guia/#guia
+    selo: GUIA GRATUITO
+  painel:
+    de: conversar
+    titulo: CONVERSE NO SEU COMPUTADOR
+- etapa: descoberta
+  fala: 'IA sem censura pronta busca menos recusas. Nos dois kits: preparar, conversar e encerrar.'
+  prende: Dá nome ao segundo kit e mostra a rotina que a pessoa leva.
+  diagrama:
+    forma: fluxo
+    titulo: IA SEM CENSURA PRONTA
+    nos:
+    - de: preparar
+      ic: ⬇️
+      txt: Preparar
+      sub: Baixar o modelo
+    - de: conversar
+      ic: 💬
+      txt: Conversar
+      sub: Executar localmente
+    - de: encerrar
+      ic: ⏻
+      txt: Encerrar
+      sub: Descarregar da memória
+  painel:
+    de: recusas
+    titulo: MENOS RECUSAS
+- etapa: beneficio
+  fala: Menos recusas não garante privacidade nem acerto.
+  prende: Máxima curta, útil e compartilhável que evita a falsa promessa.
+  imagem: um cadeado físico firme diante de uma folha de documento, luz lateral neutra, um único assunto sobre fundo
+    preto; sem letras nem números
+  painel:
+    titulo: PRIVACIDADE E ACERTO SÃO OUTRAS QUESTÕES
+- etapa: comentario
+  fala: Toda semana tem kit novo, grátis, no inema ponto club. Que texto você manteria só no seu computador?
+  prende: Pertencimento e pergunta da vida real sobre algo que a pessoa gostaria de proteger.
+  print:
+    url: https://inematds.github.io/ia-privada-pronta/guia/
+    selo: KIT IA PRIVADA PRONTA
+cta:
+  de: Que
+  a: QUE TEXTO FICARIA SÓ NO SEU PC? 👇
+  b: Kits gratuitos · inema.club
+  comentario: Eu manteria meus documentos de trabalho no meu computador.
+club: IA privada pronta + IA sem censura pronta
+cores:
+  privacidade: '#FACC15'
+  privado: '#FACC15'
+  internet: '#FACC15'
+  fora: '#ff2a1f'
+  recusas: '#FACC15'
+publicar:
+  fila: lives4
+  titulo: 'IA sem censura não garante privacidade: proteja seus textos #shorts'
+  contexto: 'R7EX INEMA: IA privada pronta e IA sem censura pronta são dois kits gratuitos e executáveis. Privacidade
+    trata do processamento e acesso aos textos; menos recusas é comportamento do modelo. Ambos testados localmente
+    no Linux com rede isolada, modelos descarregados depois. Sem promessa de ausência universal de recusas nem de
+    acerto. Guias: https://inematds.github.io/ia-privada-pronta/guia/ e https://inematds.github.io/ia-sem-censura-pronta/guia/.
+    Publicação explicitamente pedida no lives4 pelo Nei em16/11/2026.'

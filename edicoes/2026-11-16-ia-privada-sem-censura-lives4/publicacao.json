@@ -1,0 +1,31 @@
+{
+  "canal": "lives4",
+  "video_id": "i39hwHL6-bU",
+  "url": "https://youtube.com/shorts/i39hwHL6-bU",
+  "duracao": 42.166667,
+  "revisor": {
+    "veredito": "aprovado",
+    "impacto": 8,
+    "motivo": "A abertura corresponde à ficha, os painéis sustentam a fala e o fecho apresenta a pergunta vermelha e a pílula inema.club, sem defeito visível.",
+    "sugestoes": [
+      "Quadro 6/18,56 s: aproximar o trecho relevante do guia para facilitar a leitura dos textos menores no celular."
+    ]
+  },
+  "recibo_v3": {
+    "message_id": 5003,
+    "at": "2026-11-16T18:10:52.566Z",
+    "bytes": 9517771
+  },
+  "data": "2026-11-16T15:11:28.826294",
+  "portal_commit": "fbdb855f10afe72a7dab2e5625026f015f854bcb",
+  "portal_url": "https://inema.club/videos/#shorts",
+  "release": "https://github.com/inematds/ia-privada-pronta/releases/tag/r7ex-v1.0.0",
+  "mp4": "https://github.com/inematds/ia-privada-pronta/releases/download/r7ex-v1.0.0/video.mp4",
+  "verificacao": {
+    "portal_testes": 13,
+    "portal_build": "passou",
+    "portal_tsc": "passou",
+    "mp4_http": 206,
+    "sha256": "3aedafdbdffb89e73c01fba366f25ab26887ba23695168f83ad0068e20697e5f"
+  }
+}
