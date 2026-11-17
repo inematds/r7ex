@@ -1,6 +1,6 @@
 {
   "name": "r7ex",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "private": true,
   "description": "Reel viral do INEMA: roteiro de 7 etapas + acabamento de telejornal (motor próprio, copiado do eventosextremospub)",
   "type": "module",

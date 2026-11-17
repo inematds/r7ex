@@ -527,6 +527,10 @@ def main():
     for n in ('tipo', 'motor', 'modelo', 'esforco'):
         cp.add_argument('--'+n)
     cp.add_argument('--chave-nome')
+    kp = sp.add_parser('cota', help='Ver ou liberar a trava de cota (sem chamar modelo)')
+    kp.add_argument('acao', choices=['ver', 'liberar'])
+    kp.add_argument('--motor', choices=['claude', 'codex'])
+    kp.add_argument('--codex-home')
     rp = sp.add_parser('executar')
     rp.add_argument('etapa', choices=ETAPAS)
     rp.add_argument('--pasta', default='.')
@@ -559,6 +563,20 @@ def main():
                 tmp = Path(f.name)
             tmp.replace(p)
         mostrar(d)
+    elif a.cmd == 'cota':
+        with _db() as db:
+            if a.acao == 'liberar':
+                if not a.motor:
+                    raise ValueError('Informe --motor claude|codex')
+                alvo = pool({'motor': a.motor, 'codex_home': a.codex_home})
+                db.execute('UPDATE pools SET until=0 WHERE pool=?', (alvo,))  # bloqueio manual continua no EngineBridge
+                print('Liberado:', alvo)
+            for nome, bloq, ate in db.execute('SELECT pool, blocked, until FROM pools ORDER BY pool'):
+                if ate > time.time():
+                    estado = 'sem cota até ' + dt.datetime.fromtimestamp(ate).strftime('%d/%m %H:%M')
+                else:
+                    estado = 'bloqueio manual' if bloq else 'livre'
+                print(f'{nome:45} {estado}')
     elif a.cmd in ('ver', 'validar'):
         mostrar(carregar())
         if a.cmd == 'validar': print('Configuração válida. Nenhum modelo ou API foi chamado.')

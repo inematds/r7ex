@@ -1,3 +1,7 @@
+## 1.7.6 — 17/11/2026
+
+`ia_motor.py cota ver|liberar` para ver e tirar a trava antes do horário; testes antigos isolados do banco real de cota; IA.md corrigido (inverter principal = editar os dois no YAML; reserva vale também para 429 estruturado).
+
 ## 1.7.5 — 17/11/2026
 
 Crítico do plano pelo `producao/ia.yaml` (etapa `critico_plano`, Claude opus-5-5/low com reserva Codex gpt-6.1-sol/medium), sem `claude -p` fixo; `R7X_CRITICO=codex` preservado. Trava de cota compartilhada no `ia_motor.py` (tabela `pools` do EngineBridge): recusa estruturada do Claude grava o horário de volta e as chamadas seguintes falham na hora; reserva só entre assinaturas, texto/visão, com cota confirmada. Revisor sem cota espera sem contar erro; `--no-session-persistence` nas chamadas automáticas. 17 contratos e 16 conferências passaram; crítico real nos dois motores.
