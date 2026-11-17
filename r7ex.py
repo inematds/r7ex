@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.8.6"   # semver do r7ex (1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.8.7"   # semver do r7ex (1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -528,11 +528,14 @@ def cmd_imagens(pasta):
     a, g = f["abertura"], f.get("gancho")
     if g:   # v1.2.0: a manchete do gancho (≤ 6 palavras, uma em amarelo) + o objeto com dano; é a capa, legível no quadro 0
         linhas = [f"1. abertura.png — capa de impacto (é a capa do vídeo: tem de funcionar parada, num relance): {a['cena']}. "
-                  f"No centro da cena, grande e nítido, o objeto-metáfora com dano ou ameaça: {g['objeto']}. "
+                  f"O objeto-metáfora com dano ou ameaça, grande e nítido: {g['objeto']}. "
                   f"Manchete ESCRITA DENTRO da arte, em CAIXA ALTA, português, fonte bold sem serifa bem grossa, enorme, em 1 a 3 linhas: "
                   f"\"{g['manchete']}\" — tudo em branco, MENOS a palavra \"{g['destaque']}\", em amarelo #FACC15. "
-                  "A manchete fica na METADE DE CIMA, entre 8% e 46% da altura, com margem de 7% nas laterais (nada encosta na borda); "
-                  "a metade de baixo sem texto (ali entra o rosto). Contraste alto: letra legível em tamanho de miniatura. "
+                  # v1.8.7: no gancho o avatar ocupa a metade de baixo e a legenda fica logo acima dela; com a cena em 33–62% a
+                  # avalanche do lives3 sumiu atrás do rosto (17/11/2026). Manchete e cena cabem nos 40% de cima.
+                  "A manchete fica entre 6% e 24% da altura, com margem de 7% nas laterais (nada encosta na borda); a cena chocante "
+                  "inteira (o objeto e a ação) fica LOGO ABAIXO, entre 24% e 41% da altura, compacta; dos 42% para baixo só fundo escuro "
+                  "e liso, sem texto e sem nada importante (ali entram a legenda e o rosto). Contraste alto: letra legível em miniatura. "
                   f"Confira a grafia exata, com acentos; nenhuma outra palavra na imagem. {CHOQUE}"]
     else:
         linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
