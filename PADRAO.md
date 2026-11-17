@@ -12,7 +12,8 @@ Objetivo de todo reel: **trazer gente para o inema.club.** Se não viralizar, n�
 
 | Campo | Regra |
 |---|---|
-| pessoa | público geral (IA traduzida para o dia a dia), não o nicho |
+| pessoa | público geral (IA traduzida para o dia a dia), não o nicho; diga **quanto ela sabe de IA** ("gestor que nunca rodou um agente", D25) |
+| posicao | quando a tese é **opinião do Nei**: as palavras dele em 1ª pessoa ("faz um ano que eu falo disso: a ideia é boa, mas o custo é proibitivo"); abre a fala (§2.5) |
 | quer | ganhar algo, resolver uma dor ou chegar a um desejo — uma frase |
 | gancho | um dos tipos do §2.1–2.3 (contrário, perda, estatística, terceiro, notícia, provocação, promessa, acusação), **com número, fato ou a dor/desejo em "você"**; nunca lista |
 | nota | 0–10: "um desconhecido rolando o feed para aqui?" Abaixo de **8**, troque o ângulo ou o tema |
@@ -190,6 +191,28 @@ partes:
   - fala: "Toda semana tem kit novo, grátis, no inema ponto club. E você, já deixou de proteger a sua conta por preguiça?"
 ```
 
+### 2.5 Nunca calmo: gancho de imagem e de narração (v1.9.7, 17/11/2026, D25)
+
+Nei, 17/11/2026: "nenhum vídeo tem que sair calmo; r7ex ou rtex não são vídeos calmos, são vídeos provocativos, são virais
+e têm que ter gancho, fonte de imagem e de narração". Caso: `edicoes/2026-11-17-enxame-quebra-empresa-lives4` (lives4). A tese
+era dele ("a ideia é genial, a conta não"), mas a fala virou notícia neutra ("Você pensou em montar um enxame de agentes? A
+Anthropic mediu…"), a capa era metáfora (prédio devorado por robôs) em meia tela e o público era de nicho. O crítico deu 8. O
+que ele queria: ESQUEÇA OS ENXAMES enorme, imagem em tela cheia que um gestor entende, ele no canto, e "faz um ano que eu falo
+de enxames: a ideia é boa, mas o custo é proibitivo, e não sei por que ainda continuam falando disso". Regra comum:
+`~/projetos/inema-design/regras/chamada.md` §2b.
+
+1. **Narração:** a 1ª frase afirma com pressão (ordem, acusação, contradição, número que dói). "Você pensou em…?", "Já
+   imaginou…?", "Você já ouviu falar…?", "Neste vídeo…" reprovam no `checar`.
+2. **Posição do Nei:** com `plano.posicao`, o gancho é `contrario`, `provocacao` ou `acusacao`, a 1ª frase não é pergunta e
+   as partes 1–2 têm a opinião em 1ª pessoa ("eu falo disso há um ano"); o número da fonte vira prova logo depois. O
+   `checar` reprova. ("Eu fiz/criei" continua proibido: é opinião, não vitrine.)
+3. **Imagem:** o quadro 0 passa no teste do leigo: um gestor entende a cena em 1 s (taxímetro girando em R$, fatura, sala de
+   reunião), não metáfora que pede para pensar. Vai no pedido da capa ao Codex.
+4. **Tela cheia (opcional):** `abertura.layout: cheia` põe a arte em tela cheia e o rosto na caixinha do canto desde o
+   quadro 0 (a capa é pedida para tela cheia, com o canto de baixo à direita livre). Sem o campo, vale o D16 (meia tela).
+5. **Verificação:** o crítico do plano dá nota de pressão ao gancho (calmo, neutro ou em tom de notícia = ≤ 6, não passa o
+   portão de 8) e confere o teste do leigo na cena da capa; o revisor final julga o quadro 0 pelo leigo.
+
 ## 3. Tela — motor do eventosextremospub
 
 **Mudança de 20/10/2026 (D13, D14):**
@@ -216,7 +239,8 @@ partes:
 - **Avatar (D16, 21/10/2026):** abre em **meia tela na metade de baixo** (1080x960) durante a parte 1 (gancho) e depois vai
   para a caixinha do canto (PiP); `avatar: meia` numa parte faz o rosto voltar à meia tela nela (o plano decide). Na meia tela
   título/legenda/lista ficam na metade de cima e o painel de baixo some. A abertura do Codex põe título e assunto na metade de cima.
-  Nunca tela cheia (D8).
+  Nunca o AVATAR em tela cheia (D8). **Exceção D25 (17/11/2026):** `abertura.layout: cheia` → a ARTE da abertura em tela cheia e o
+  rosto na caixinha do canto desde o quadro 0 (§2.5).
 - **Painel por parte:** 2–4 itens com emoji entrando **na palavra certa** (só o que já foi dito, no máximo 3 na tela); **contador** sempre que houver número;
   borda vermelha no medo, amarela no ganho, verde na solução.
 - **Prova real:** pelo menos 1 print da página do inema.club / curso.
@@ -235,6 +259,7 @@ partes:
 
 - ficha: 7 partes, fala 450–620 caracteres (um tema com muitos itens: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
 - gancho (v1.2.0, §2.1): `gancho.tipo` válido, manchete ≤ 6 palavras em CAIXA ALTA e diferente da fala, `destaque` = uma palavra dela, `objeto`, `prova` até a 60ª palavra, `absolvicao` na parte 2 ou 3, fontes (estatística/terceiro/notícia) e data (notícia); lista, "você sabia" e "eu fiz" reprovam. Edição com avatar já gravado só recebe aviso;
+- nunca calmo (v1.9.7, §2.5): abertura morna reprova; `plano.posicao` exige gancho contrario/provocacao/acusacao, 1ª frase afirmativa e 1ª pessoa nas partes 1–2; aviso sem `plano.posicao`;
 - retenção (v1.5.4, §2.4): aviso sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7;
 - plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
 - avatar × fala ≥ 90% (retempo); ritmo 160–190 palavras/min, pausa antes da máxima e 9 s de cartão (`avatar/ritmo.json`); duração < 60 s;

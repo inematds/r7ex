@@ -29,6 +29,13 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
 1. **Plano** (PADRAO §1): pessoa, o que quer, gancho com número/fato e fonte, nota ≥ 8, destino no
    inema.club (leia a página: nome, aulas, se é grátis). Confira os fatos na web e guarde a origem em
    `plano.fatos`. Nunca invente número; "grátis" só se a página disser.
+   **Nunca calmo (D25, Nei 17/11/2026: "nenhum vídeo tem que sair calmo; r7ex ou rtex são provocativos, virais, têm que
+   ter gancho, fonte de imagem e de narração"; PADRAO §2.5):** `plano.pessoa` diz quem é e quanto sabe de IA ("gestor
+   que nunca rodou um agente"); quando a tese é opinião do Nei, `plano.posicao` com as palavras dele em 1ª pessoa, e o
+   gancho é `contrario`, `provocacao` ou `acusacao` com a posição na boca dele ("Esqueça os enxames. Faz um ano que eu
+   falo disso…"); o número vira prova logo depois. A 1ª frase AFIRMA com pressão: nunca "Você pensou em…?", "Já
+   imaginou…?". A capa passa no teste do leigo (cena concreta que um gestor entende em 1 s); `abertura.layout: cheia`
+   quando a imagem é o gancho (arte em tela cheia, rosto no canto desde o quadro 0).
    **Pesquisa de ganchos (PADRAO §2.4, v1.5.4):** antes de escrever o gancho, levante quem fala do tema no
    YouTube: `yt-dlp --flat-playlist --print "%(channel)s | %(view_count)s | %(title)s | %(id)s" "ytsearch15:<termo>"`
    (PT e EN) e, nos 3–5 mais vistos e próximos do tema, a 1ª fala (0–35 s) pela legenda automática

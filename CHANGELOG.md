@@ -1,3 +1,7 @@
+## 1.9.7 — 17/11/2026
+
+Nunca calmo (D25, Nei 17/11/2026: "nenhum vídeo tem que sair calmo; r7ex ou rtex não são vídeos calmos, são provocativos, são virais e têm que ter gancho, fonte de imagem e de narração"). Caso: `2026-11-17-enxame-quebra-empresa-lives4` abriu com "Você pensou em montar um enxame de agentes? A Anthropic mediu…", capa-metáfora em meia tela, e passou com 8 no crítico. Modelo: `plano.posicao` (opinião do Nei em 1ª pessoa), `pessoa` com o nível de IA, PADRAO §2.5, bot-ficha, modelo e skill. Verificação: `checar` reprova abertura morna e, com `posicao`, gancho fora de contrario/provocacao/acusacao, tese em pergunta ou sem 1ª pessoa nas partes 1–2 (avatar gravado: só aviso); crítico com nota de pressão e teste do leigo; revisor com "nunca calmo". Tela: `abertura.layout: cheia` (arte em tela cheia, rosto no canto desde o quadro 0; capa pedida em tela cheia) e teste do leigo no pedido da capa. Regressão: a ficha do reel calmo reprova no `checar` (abertura morna) e no crítico (gancho 5, média 6,9); a ficha v2 (`2026-11-17-esqueca-os-enxames-lives4`) passa nos dois (gancho 9, média 8,4); 16 conferências da produção ok.
+
 ## 1.8.7 — 17/11/2026
 
 Capa: manchete entre 6% e 24% da altura e a cena chocante logo abaixo, entre 24% e 41%; dos 42% para baixo só fundo. No 1º teste (lives3 da imersão) a avalanche ficou atrás da legenda e do rosto em meia tela.

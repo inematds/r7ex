@@ -16,6 +16,9 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
 ## Passos
 1. **Plano** (PADRAO §1): pessoa = público geral; o que ela quer; gancho com número e fonte; nota ≥ 8; destino no
    inema.club (leia a página: nome, aulas, se é grátis). **Um tema por vídeo**: vários temas → proponha um vídeo por tema.
+   **Nunca calmo (D25, PADRAO §2.5):** `pessoa` com o nível de IA; opinião do Nei → `plano.posicao` em 1ª pessoa e gancho
+   `contrario`/`provocacao`/`acusacao` com a posição na boca dele; 1ª frase afirma com pressão (nunca "Você pensou em…?");
+   capa que um leigo entende em 1 s; `abertura.layout: cheia` quando a imagem é o gancho.
    **Gancho (PADRAO §2.1, v1.2.0):** bloco `gancho:` com `tipo` (`contrario` | `perda` | `estatistica` | `terceiro` |
    `noticia` | `provocacao` (v1.3.1: afirma e cutuca, com nome ou número na 1ª frase); lista, "você sabia" e "eu fiz" reprovam; `entrega` = o que a pessoa leva do vídeo, PADRAO §2.2), `manchete` (quadro 0, ≤ 6 palavras, CAIXA ALTA, mais forte que a
    fala), `destaque` (a palavra em amarelo), `objeto` (com dano/ameaça), `prova` (até ~20 s), `absolvicao` (parte 2 ou 3),

@@ -222,6 +222,8 @@ def montar(pasta, ficha, falas):
     for i, p in enumerate(partes):
         if i > 0 and p.get("avatar", "pip") != "meia":
             continue
+        if i == 0 and (ficha.get("abertura") or {}).get("layout") == "cheia":   # D25: arte em tela cheia, rosto no canto
+            continue
         a = 0.0 if i == 0 else round(F[f"f{i + 1}"]["ini"] - .1, 2)
         b = round(F[f"f{i + 2}"]["ini"] - .1, 2) if i + 1 < len(partes) else DUR
         if meia and a - meia[-1][1] < .3:

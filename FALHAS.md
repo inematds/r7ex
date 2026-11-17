@@ -1,7 +1,28 @@
+| 2026-11-17 | Reel enxame-quebra-empresa saiu calmo, sem a voz do Nei e com abertura em meia tela pouco legível para gestor | Plano pergunta a opinião do Nei em 1ª pessoa (gancho contrario/provocacao quando a tese é dele); abertura pode ser tela cheia + PiP; revisor confere pressão e se um leigo entende o quadro 0 em 1 s; mostrar quadro 0 + fala ao Nei antes da produção | prompt |
+| 2026-11-17 | Crítico com `claude -p` fixo travou sem cota do Claude (16/11) e só seguiu porque um agente Codex trocou à mão com R7X_CRITICO=codex | etapa critico_plano no ia.yaml com reserva + trava de cota no ia_motor (v1.7.5, bfeeb6b) | infra |
+| 2026-11-17 | Folha mostrou lista sobre manchete e print atrás do CTA | Retirar lista só no gancho e encerrar imagens antes do CTA na cena; novo render conferido | prompt |
+| 2026-11-16 | Cena fim-trabalho parou com KeyError vermelho | Aliases de borda só no wrapper da edição, preservando ficha/hash/fala | prompt |
+| 2026-11-16 | Captura CLI do guia fim-trabalho-escritorio saiu vazia | Playwright com decode, fontes prontas e scroll explícito até a âncora; preservar artes/avatar | infra |
+|2026-11-16|Críticos concorrentes da mesma edição apagaram arquivo de resposta|Uma revisão por vez, com ficha congelada|infra|
+| 2026-11-16 | Captura headless do guia com âncora saiu vazia na edição ia-privada-sem-censura-lives4 | Playwright aguardando imagens e fontes, rolagem explícita, preservar arte gerada | infra |
+| 2026-11-15 | Três painéis da capa receberam prompt sem a regra vertical porque o estado de outra célula ainda não estava disponível | Incluir formato e composição no próprio prompt de cada chamada; regerar os três | infra |
+| 2026-11-15 | Capas niveis-ia-p06: abertura e prancheta invadiram metade inferior e envelope saiu fora de 9:16 | editar só enquadramento e proporção com image_gen antes de salvar | prompt |
 # FALHAS — r7ex
 
 | data | o que quebrou | menor correção | prompt \| infra |
+| 2026-11-15 | Capa imersao-p34: manchete rente ao topo e notebook invadindo área inferior | editar somente enquadramento com image_gen, preservando texto correto | prompt |
+| 2026-11-15 | lote-135: capas com manchete de 3 linhas reprovadas pelo revisor uma a uma (5 até 10:00) | agendador.py: revisor recusou a capa por manchete cortada → claude -p encurta para ≤ 30 letras (mesma palavra de destaque) e o montador refaz a capa, 1 vez por edição | prompt |
+| 2026-11-15 | lote-135: revisor reprovou 3 capas (niveis-ia-p05, zero-ao-jarvis-p11, -p18): manchete de 7–8 palavras com a última linha cortada pela meia tela do avatar no quadro 0 | manchete ≤ 6 palavras no pedido do lote; as já escritas só se o revisor reprovar | prompt |
 |---|---|---|---|
+| 2026-11-15 | image_gen gerou notebook em 992×1586 em vez de 9:16 | Repetir geração enfatizando proporção; retornou 941×1672 como a série | prompt |
+| 2026-11-15 | image_gen retornou p3/p4 fora de 9:16 | editar só o enquadramento com referência e conferir dimensões antes de copiar | prompt |
+| 2026-11-15 | imersao-p16 (provocação, dia 1): plano não passou em 7 rodadas, gancho preso em 7 (média 7,6–7,9, sem bloqueio): o crítico pede toda rodada para abrir com pergunta ("Você ainda copia e cola…?"), mas o tipo `provocacao` exige 1ª frase afirmativa; nunca converge | `critico-plano.md` saber que `provocacao` não abre com pergunta (ou o lote usar `pergunta`/`acusacao` quando a dor é "você ainda copia do chat") | prompt |
+| 2026-11-15 | Capas p03: leitura de resultado de geração concorrente antes de concluir o exec retornou undefined | aguardar conclusão ou usar caminho já devolvido pela ferramenta | infra |
+| 2026-11-15 | niveis-ia-v2: "o avatar não fala o roteiro (81%)": buraco de 9,5 s e a retranscrição do trecho (com 1 s de folga) deu 2 palavras; o Whisper é instável na borda do recorte | `_tapa_buracos` tenta 3 recortes e fica com o que recupera mais palavras (81% → 94%) | infra |
+| 2026-11-15 | zero-ao-jarvis-p05: plano não passou em 7 rodadas, gancho preso em 7 (média 7,7–7,9, sem bloqueio): o crítico compara com a referência que prova ao vivo (desliga o Wi-Fi) e a fala de 760 caracteres não dá espaço para cena + nome + promessa | faceta "voz local" pede gancho com prova visível (ex.: demonstração ou contador "nada sai de casa" na capa) e fala ≤ 620 para sobrar espaço; não insistir em reescrever só a parte 1 | prompt |
+| 2026-11-15 | niveis-ia-v3: "o avatar não fala o roteiro (89%)": o Whisper pulou 3,7 s (11 palavras) depois de "ajuda"; `_tapa_buracos` só pegava buraco > 8 s | `buraco=3.0` em r7ex/retempo.py | infra |
+| 2026-11-15 | niveis-ia: render com 61 s, reprovado ("short passa de 1 min"): fala de 755 caracteres (fala_max 760) + cartão de 9 s | `ritmo: {cauda: 6}` na ficha quando fala_max > 620 | prompt |
+| 2026-11-15 | `avatar-enviar` do niveis-ia-v2: card do estúdio HeyGen ficou Draft ("o Generate não enviou") com 4 envios seguidos de outras sessões | repetir o envio após 30 s passou; proteção: 1 nova tentativa automática quando o card fica Draft | infra |
 | 2026-10-28 | `r7ex.py fila` ignorava `publicar.playlist` da ficha: o reel entrava na fila sem a playlist pedida | passa `--playlist` ao `fila.py` quando a ficha tem | infra |
 | 2026-10-28 | cortes de aproximação da capa (v1.2.0, 1,10× + 3% do motor) cortaram o "P" e o "T" da manchete de 986 px entre 2 e 5 s | `pecas.batidas` mede a manchete e, se não cabe, cola a faixa original por cima da arte aproximada | infra |
 | 2026-10-28 | gancho de LISTA ("5 novidades de IA…") passou por todos os portões e foi publicado; e o `modelo/ficha.yaml` que o motor copia reprovava no próprio `checar` (683 caracteres, sem `prende`) | bloco `gancho:` obrigatório + `checar` reprova lista/"você sabia"/"eu fiz" e manchete > 6 palavras ou igual à fala; modelo reescrito e testado no `checar` | prompt |
@@ -40,3 +61,9 @@
 | 2026-10-19 | Dois envios ao estúdio HeyGen no mesmo segundo: o 2º caiu com "Opening in existing browser session" (r7e-para-r7ex) | trava atômica (mkdir) no heygen-perfil.mjs, da ferramenta: ~/.cache/inemaccbot/heygen-estudio.trava (commit 592659c) | infra |
 | 2026-10-19 | `fila.py --help` publicou o próximo short do lives7 fora do horário (argumento desconhecido = publicar) | argumento que não seja --add/--status só mostra a ajuda | infra |
 | 2026-10-20 | Capa feudo com mão humana ultrapassando metade superior | editar via image_gen com mão entrando pela lateral e coordenadas de composição | prompt |
+
+| 2026-11-15 | Capas p2/p4 avançaram na metade inferior e p6 mostrou múltiplas oscilações | editar pelo image_gen limitando assunto aos 45% superiores e pedindo pico triangular único | prompt |
+
+| 2026-11-15 | image_gen estendeu monitor e prancheta abaixo da metade superior | edição pontual para reduzir composição e preservar área do avatar | prompt |
+
+| 2026-11-16 | Primeiro Cliente: print Chrome por URL/hash cortou contato do depois | capturar #antes/#depois com Playwright e reutilizar raw sem reenviar avatar | infra |

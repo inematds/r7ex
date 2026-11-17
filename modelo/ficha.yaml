@@ -4,7 +4,8 @@ slug: hacker
 tema: "Hackers roubaram a chave de IA de um cara: US$ 1.700 numa noite"
 
 plano:
-  pessoa: "qualquer um que paga uma IA com cartão (ChatGPT, Claude, Gemini), não só programador"
+  pessoa: "qualquer um que paga uma IA com cartão (ChatGPT, Claude, Gemini), não só programador; sabe usar o chat, nunca mexeu em chave"   # quem é + quanto sabe de IA (D25)
+  # posicao: "faz um ano que eu falo disso: ..."   # D25: quando a tese é opinião do Nei, as palavras dele em 1ª pessoa → gancho contrario/provocacao/acusacao
   quer: "não acordar com uma conta absurda no cartão (dor) e dormir tranquilo (desejo)"
   gancho: "história de terceiro com número: hackers roubaram as chaves no OpenCode; relatos de US$ 1.700 numa noite (usuários afetados, out/2026)"
   nota: 8
@@ -36,6 +37,7 @@ fonte: "<b>ataque ao OpenCode</b> · relatos de usuários afetados, out/2026 · 
 
 abertura:                            # imagem 1: a cena; o título é a gancho.manchete (branco/destaque só nas fichas antigas)
   cor: amarelo
+  # layout: cheia                    # D25: arte em tela cheia e rosto no canto desde o quadro 0 (padrão: meia, D16)
   cena: "quarto escuro de madrugada, um homem sentado na beira da cama, de lado, o rosto na sombra iluminado só pela luz vermelha do celular"
 
 trocas:                              # fala (por extenso) → legenda (algarismo)

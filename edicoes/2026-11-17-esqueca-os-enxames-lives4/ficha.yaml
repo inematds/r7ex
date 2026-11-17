@@ -1,0 +1,163 @@
+slug: esqueca-os-enxames-lives4
+tema: "Esqueça os enxames de agentes: a conta não fecha"
+pedido: "Nei (17/11/2026), versão 2 do reel do enxame, reprovado por estar calmo: imagem em tela cheia que gestor entende,
+  ele no canto (PiP) desde o início; ESQUEÇA OS ENXAMES bem grande; fala dele em 1ª pessoa e com pressão: 'faz um ano que
+  falo de enxames, a ideia é boa mas o custo é proibitivo, e não sei por que ainda continuam falando disso; o que tem que
+  falar é como ligar muitos agentes, quem coordena e qual a forma de aplicar'. Fala aprovada por ele no mesmo dia."
+plano:
+  pessoa: "gestor ou dono de empresa que viu o vídeo viral de enxame de agentes e nunca rodou um agente; entende de custo, não de IA"
+  posicao: "Faz um ano que eu falo de enxames: a ideia é boa, mas o custo é proibitivo, e eu não sei por que ainda continuam vendendo isso. O que importa é como ligar os agentes, quem coordena e onde aplicar."
+  quer: "não queimar dinheiro com uma moda (dor) e usar agentes onde dão resultado (desejo)"
+  gancho: "contrário, na voz do Nei: esqueça os enxames; prova com a Anthropic (sistema multiagente ~15× mais tokens que um chat)"
+  nota: 9
+  destino: "https://inematds.github.io/enxame-com-conta/guia/"
+  fatos:
+    - "Opinião do Nei (17/11/2026): fala de enxames de agentes há cerca de um ano e considera o custo proibitivo; pedido acima."
+    - "Anthropic, 'How we built our multi-agent research system' (jun/2025): 'multi-agent systems use about 15× more tokens
+      than chats'; e 'multi-agent systems require tasks where the value of the task is high enough to pay for the increased
+      performance'."
+    - "Caso interno INEMA (lote-135, 15–16/11/2026): processo automático sem trava de cota recebeu 12.619 recusas por limite
+      em cerca de 34 horas (um dia e meio). Arquivo: ~/projetos/enxame-com-conta/casos/lote-135.md."
+    - "Kit grátis enxame-com-conta (Ficha da Conta): conta antes de rodar, compara com um agente só, teto de chamadas e
+      parada depois de falhas (trava.py). Guia: https://inematds.github.io/enxame-com-conta/guia/"
+gancho:
+  tipo: contrario
+  manchete: "ESQUEÇA OS ENXAMES DE AGENTES"
+  destaque: "ESQUEÇA"
+  objeto: "um taxímetro vermelho gigante na parede marcando R$ e subindo sem parar, o visor borrado de tão rápido"
+  entrega: "por que o enxame não fecha a conta e o jeito certo: quem coordena, como ligar os agentes e onde vale aplicar"
+  prova: {parte: 2, de: "15×"}
+  absolvicao: "Não é erro seu"
+  fontes:
+    - {nome: "Anthropic, How we built our multi-agent research system, jun/2025",
+       trecho: "multi-agent systems use about 15× more tokens than chats"}
+  referencias:
+    - {canal: "Tech With Tim", titulo: "I Unleashed 100 AI Agents at Once. Here’s What Happened.",
+       abertura: "Same AI model, same 563 problems. One agent alone got 26% right, but a swarm of agents got 71%.",
+       gatilho: "número antes/depois, promessa do enxame (o lado que nós contradizemos)"}
+    - {canal: "Devsplainers", titulo: "Why Your AI Coding Bill Is About to Explode",
+       abertura: "Last month, the bill for your work was $39. This month, it's 942. That's like 24 times more overnight.",
+       gatilho: "perda concreta no bolso + número antes/depois"}
+    - {canal: "Coding with Jan", titulo: "I Wasted Hundreds on AI Agents. These 3 Fixes Stopped It.",
+       abertura: "(sem legenda; título) perdi centenas com agentes",
+       gatilho: "perda concreta em primeira pessoa + promessa de conserto"}
+
+marca: "INEMA · AGENTES"
+selo: "CONTA QUE NÃO FECHA"
+fonte: "<b>Anthropic</b> · How we built our multi-agent research system, jun/2025 · caso interno INEMA, nov/2026 · imagens: ilustração"
+
+abertura:
+  cor: amarelo
+  layout: cheia
+  cena: "sala de reunião de empresa à noite, mesa comprida cheia de robôs humanoides dourados de visor preto falando todos
+    ao mesmo tempo, gesticulando; na parede do fundo um taxímetro vermelho gigante com o visor em R$ subindo; na porta, de
+    costas, um gestor de camisa social com a mão na cabeça olhando a conta; luz vermelha de alerta, preto e amarelo"
+
+trocas:
+  "quinze vezes": "15×"
+  "doze mil": "12 mil"
+  "um ano": "1 ano"
+
+partes:
+  - etapa: gancho
+    fala: "Esqueça os enxames. Faz um ano que eu falo disso: a ideia é boa, mas o custo é proibitivo. E ainda vendem isso."
+    prende: "manda parar o que o viral vende, na voz de quem fala disso há um ano; 'ainda vendem isso' deixa a pergunta: por quê?"
+    painel:
+      titulo: "O CUSTO É PROIBITIVO"
+      cor: "#ff2a1f"
+  - etapa: medo
+    fala: "Cada agente lê tudo, fala, refaz. A Anthropic mediu: quinze vezes mais que um chat. Não é erro seu."
+    prende: "o gestor vê onde o dinheiro some e o número com fonte confirma; tira a culpa de quem acreditou"
+    logos: [{id: anthropic, nome: Anthropic}]
+    imagem: "fundo escuro de escritório com luz vermelha de alerta vindo de baixo, centro vazio"
+    lista:
+      k: "ONDE O DINHEIRO SOME"
+      borda: red
+      itens: [["lê", "📚 cada agente lê tudo"], ["fala", "💬 agente falando com agente"], ["refaz", "🔁 retrabalho"]]
+    painel:
+      de: "15×"
+      k: "ANTHROPIC · JUN/2025"
+      borda: red
+      contador: {ate: 15, em: "15×", cor: "#ff2a1f", unid: "× MAIS QUE UM CHAT"}
+      l: "sistema multiagente × conversa"
+  - etapa: desejo
+    fala: "A pergunta não é quantos agentes. É quem coordena, como se ligam e onde aplicar."
+    prende: "troca a moda pela pergunta de gestor; a pessoa quer a resposta das três"
+    diagrama:
+      forma: hub
+      titulo: "A PERGUNTA CERTA"
+      centro: {de: "coordena", ic: "🧭", txt: "Quem coordena"}
+      nos:
+        - {de: "ligam", ic: "🔗", txt: "Como se ligam"}
+        - {de: "aplicar", ic: "🎯", txt: "Onde aplicar", cor: vd}
+    painel:
+      titulo: "QUEM COORDENA?"
+      cor: "#FACC15"
+  - etapa: facilidade
+    fala: "Um coordenador, poucos especialistas, teto de gasto e hora de parar."
+    prende: "regra que qualquer gestor aplica amanhã, sem saber programar"
+    diagrama:
+      forma: fluxo
+      titulo: "O JEITO QUE FECHA A CONTA"
+      nos:
+        - {de: "coordenador", ic: "🧭", txt: "Um coordenador"}
+        - {de: "especialistas", ic: "🤖", txt: "Poucos especialistas"}
+        - {de: "teto", ic: "💰", txt: "Teto de gasto"}
+        - {de: "parar", ic: "🛑", txt: "Hora de parar", cor: vd}
+    painel:
+      titulo: "TETO E HORA DE PARAR"
+      cor: "#22c55e"
+  - etapa: descoberta
+    fala: "Um processo nosso sem trava bateu no limite doze mil vezes. Por isso eu fiz a Ficha da Conta."
+    prende: "caso real da casa, sem vergonha do erro, e o nome do método que nasceu dele"
+    print:
+      url: "https://inematds.github.io/enxame-com-conta/guia/"
+      selo: "FICHA DA CONTA · KIT GRÁTIS"
+    painel:
+      de: "12"
+      k: "CASO INEMA · NOV/2026"
+      borda: red
+      contador: {ate: 12619, em: "12", cor: "#ff2a1f", unid: "RECUSAS EM 34 H"}
+      l: "processo sem trava"
+  - etapa: beneficio
+    fala: "Menos agente, mais resultado. Só cresce se o resultado paga."
+    prende: "máxima curta que o gestor repete na reunião"
+    imagem: "um taxímetro antigo com o visor apagado e uma mão girando a chave para desligar, luz amarela recortada, fundo preto liso"
+    painel:
+      titulo: "SÓ CRESCE SE O RESULTADO PAGA"
+      cor: "#FACC15"
+  - etapa: comentario
+    fala: "Toda semana tem kit novo, grátis, no inema ponto club. Na sua empresa, quem coordena os agentes?"
+    prende: "pergunta de gestor que a pessoa responde com a própria empresa"
+    print:
+      url: "https://inematds.github.io/enxame-com-conta/guia/"
+      selo: "FICHA DA CONTA · GRÁTIS"
+
+ritmo:
+  pausa_antes: {parte: 6, de: "Menos"}
+
+cta:
+  de: "Na"
+  a: "NA SUA EMPRESA, QUEM COORDENA OS AGENTES? 👇"
+  b: "toda semana kit novo · inema.club"
+  comentario: "Aqui ninguém coordena, cada um liga o seu."
+club: "Ficha da Conta (kit enxame-com-conta)"
+cores:
+  esqueça: "#FACC15"
+  proibitivo: "#ff2a1f"
+  quinze: "#ff2a1f"
+  fatura: "#ff2a1f"
+  coordena: "#FACC15"
+  teto: "#FACC15"
+  doze: "#ff2a1f"
+  paga: "#FACC15"
+
+publicar:
+  fila: lives4
+  titulo: "Esqueça os enxames de agentes: a conta não fecha #shorts"
+  contexto: "R7EX INEMA (Nei Maldaner), canal inema.agentes. Opinião do Nei: faz um ano que ele fala de enxames de agentes;
+    a ideia é boa, mas o custo é proibitivo. A própria Anthropic mediu que sistemas multiagente gastam cerca de 15 vezes
+    mais tokens que um chat (How we built our multi-agent research system, jun/2025). A pergunta certa não é quantos
+    agentes, e sim quem coordena, como se ligam e onde vale aplicar: um coordenador, poucos especialistas, teto de gasto e
+    hora de parar. Caso real INEMA nov/2026: processo sem trava com mais de 12 mil recusas por limite em um dia e meio.
+    Kit grátis Ficha da Conta: https://inematds.github.io/enxame-com-conta/guia/"

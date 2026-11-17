@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.8.7"   # semver do r7ex (1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.9.7"   # semver do r7ex (1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -63,6 +63,12 @@ LISTA_ADJ = r"melhores|maiores|piores|principais|grandes|novas|novos|pequenas|pe
 LISTA_RE = re.compile(rf"^\W*(as|os|top)?\s*({NUM_EXT})\s+(({LISTA_ADJ})\s+)?({LISTA_SUBST})\b", re.I)
 PROIBIDO_RE = re.compile(r"^\W*(voc[eê] sabia|sabia que|eu fiz|eu criei|eu testei|eu montei)\b", re.I)
 TEM_NUMERO = re.compile(rf"\d|\b({NUM_EXT}|mil|milh[aã]o|milh[oõ]es|bilh[aã]o|bilh[oõ]es|metade|dobro|triplo|por cento)\b", re.I)
+# D25 (Nei 17/11/2026): "nenhum vídeo tem que sair calmo; r7ex ou rtex não são vídeos calmos, são provocativos, são virais e
+# têm que ter gancho, fonte de imagem e de narração". Caso: enxame-quebra-empresa abriu com "Você pensou em montar um enxame…?".
+MORNA_RE = re.compile(r"^\W*(e\s+)?(voc[eê]s?\s+(j[aá]\s+)?(pensou|pensaram|imaginou|ouviu\s+falar|conhece|quer\s+saber|gostaria)|"
+                      r"j[aá]\s+(pensou|imaginou|ouviu)|imagin[ae]\b|pense\s+n|neste\s+v[ií]deo|hoje\s+(vamos|eu\s+vou)|vamos\s+falar)", re.I)
+TIPOS_POSICAO = ("contrario", "provocacao", "acusacao")   # D25: a opinião do Nei abre a fala com pressão
+EU = re.compile(r"\b(eu|meu|minha|me|comigo)\b", re.I)
 PALAVRAS_20S = 60   # ~20 s de fala a ~182 palavras/min: a prova (número com fonte) entra antes disso
 
 PERFIL = Path(os.environ.get("R7X_HEYGEN_PERFIL", Path.home() / ".cache/inemaccbot/perfil-heygen"))   # perfil do estúdio (compartilhado: tem fila própria)
@@ -95,7 +101,19 @@ COR = {"vermelho": "vermelho #ff2a1f", "amarelo": "amarelo #FACC15"}
 CHOQUE = ("PADRÃO CAPA CHOCANTE: tem de parar o dedo num relance, como pôster de filme de suspense. Mostre o MOMENTO da perda, "
           "da quebra ou o \"depois\" chocante (o que dá errado se nada mudar), nunca a solução pronta, nunca anúncio calmo de produto "
           "(nada de mão apertando botão, documentos com check verde, escritório arrumado). Luz vermelha #ff2a1f no perigo. "
-          "Telas e papéis sem texto legível.")
+          "Telas e papéis sem texto legível. "
+          # D25 (Nei 17/11/2026): a imagem do prédio devorado por robôs pedia para pensar; o gestor tem de entender num relance.
+          "TESTE DO LEIGO: quem não sabe nada de IA (um gestor, um dono de empresa) entende a cena em 1 segundo: uma situação "
+          "concreta do mundo dele (taxímetro girando em R$, fatura enorme, sala de reunião, celular travado), não metáfora abstrata.")
+CAPA_MEIA = ("A manchete fica entre 6% e 24% da altura, com margem de 7% nas laterais (nada encosta na borda); a cena chocante "
+             "inteira (o objeto e a ação) fica LOGO ABAIXO, entre 24% e 41% da altura, compacta; dos 42% para baixo só fundo escuro "
+             "e liso, sem texto e sem nada importante (ali entram a legenda e o rosto). ")
+# D25 (Nei 17/11/2026: "deveria ocupar toda a tela e eu como PiP inicialmente"): abertura.layout: cheia → a cena ocupa a tela
+# inteira e o rosto fica na caixinha do canto (x 59–96%, y 67–91%) desde o quadro 0.
+CAPA_CHEIA = ("TELA CHEIA: a cena ocupa a imagem inteira, de cima a baixo, sem faixa vazia. A manchete, ENORME, fica entre 5% e 30% "
+              "da altura, com margem de 7% nas laterais; o assunto principal da cena fica no meio (30–62%); a faixa de 62% a 66% sem "
+              "texto (legenda) e o canto de baixo à direita (de 58% da largura para a direita, de 66% da altura para baixo) sem nada "
+              "importante, porque ali entra o rosto. ")
 GERADAS = [Path.home() / d / "generated_images" for d in (".codex", ".codex-2")]
 
 
@@ -230,6 +248,27 @@ def checar_gancho(p, f):
             erros.append(f"gancho provocação abre com pergunta ('{frase1[:60]}'): afirme — 'Nenhum pede aumento.', não 'Seu emprego é o próximo?'")
         if not (TEM_NUMERO.search(frase1) or TEM_NOME.search(frase1)):
             erros.append(f"gancho provocação sem nome nem número na 1ª frase ('{frase1[:60]}'): diga quem (Hyundai, Claude…) ou quanto")
+    # D25: nunca calmo — a 1ª frase afirma com pressão; a posição do Nei (plano.posicao) abre a fala na boca dele.
+    frase1 = re.split(r"(?<=[.!?])\s", fala1)[0]
+    if MORNA_RE.search(frase1):
+        erros.append(f"abertura morna ('{frase1[:60]}'): a 1ª frase afirma com pressão — manda, acusa ou contradiz "
+                     "(PADRAO §2.5, chamada.md §2b, D25)")
+    posicao = str((f.get("plano") or {}).get("posicao") or "").strip()
+    if posicao:
+        if tipo not in TIPOS_POSICAO:
+            erros.append(f"plano.posicao (opinião do Nei) com gancho '{tipo}': use {', '.join(TIPOS_POSICAO)}; o número vira prova "
+                         "logo depois, não abertura (D25)")
+        if frase1.rstrip().endswith("?"):
+            erros.append(f"plano.posicao com abertura em pergunta ('{frase1[:60]}'): afirme a posição ('Esqueça os enxames.')")
+        fala12 = " ".join(x["fala"] for x in f["partes"][:2])
+        if not EU.search(fala12):
+            erros.append("plano.posicao não aparece em 1ª pessoa nas partes 1–2: a opinião vai na boca do Nei "
+                         "('faz um ano que eu falo disso…', D25)")
+    else:
+        log("aviso: sem plano.posicao — se a tese é opinião do Nei, escreva-a em 1ª pessoa com as palavras dele (D25)")
+    lay = (f.get("abertura") or {}).get("layout")
+    if lay not in (None, "meia", "cheia"):
+        erros.append(f"abertura.layout '{lay}': use meia (padrão D16) ou cheia (arte em tela cheia, avatar no canto desde o quadro 0)")
     if not str(g.get("entrega") or "").strip():
         log("aviso: gancho sem 'entrega' (o que a pessoa leva do vídeo e quer ver, ex.: 'quem está trocando gente por robô e "
             "o que fazer antes'); o gitbombando bombou porque entregou conteúdo que as pessoas querem")
@@ -533,9 +572,8 @@ def cmd_imagens(pasta):
                   f"\"{g['manchete']}\" — tudo em branco, MENOS a palavra \"{g['destaque']}\", em amarelo #FACC15. "
                   # v1.8.7: no gancho o avatar ocupa a metade de baixo e a legenda fica logo acima dela; com a cena em 33–62% a
                   # avalanche do lives3 sumiu atrás do rosto (17/11/2026). Manchete e cena cabem nos 40% de cima.
-                  "A manchete fica entre 6% e 24% da altura, com margem de 7% nas laterais (nada encosta na borda); a cena chocante "
-                  "inteira (o objeto e a ação) fica LOGO ABAIXO, entre 24% e 41% da altura, compacta; dos 42% para baixo só fundo escuro "
-                  "e liso, sem texto e sem nada importante (ali entram a legenda e o rosto). Contraste alto: letra legível em miniatura. "
+                  + (CAPA_CHEIA if a.get("layout") == "cheia" else CAPA_MEIA) +
+                  "Contraste alto: letra legível em miniatura. "
                   f"Confira a grafia exata, com acentos; nenhuma outra palavra na imagem. {CHOQUE}"]
     else:
         linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "

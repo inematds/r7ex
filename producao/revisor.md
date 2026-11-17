@@ -18,7 +18,7 @@ REPROVE (defeito) só se:
 - Número na tela diferente do número da fala, ou sem sentido sozinho (ex.: "1,3 DE SKILLS" em vez de "1,3 MILHÃO DE SKILLS").
 - Texto cobrindo texto a ponto de não dar para ler, legenda saindo da tela ou cortada de forma ilegível.
 - Marcação crua na tela (asteriscos `**`, chaves, `<b>`, "undefined", "null").
-- Avatar ausente, em tela cheia ou com rosto deformado. (Rosto em meia tela embaixo na parte 1 — e onde a ficha pedir — é o padrão D16, não defeito.)
+- Avatar ausente, em tela cheia ou com rosto deformado. (Rosto em meia tela embaixo na parte 1 — e onde a ficha pedir — é o padrão D16, não defeito. Com `abertura.layout: cheia`, a arte em tela cheia e o rosto na caixinha do canto desde o quadro 0 é o padrão D25, não defeito.)
 - Fecho sem a caixa vermelha de pergunta ou sem a pílula "inema.club".
 - Imagem com marca d'água ou rosto reconhecível.
 
@@ -30,6 +30,9 @@ SUGESTÃO (o vídeo segue; liste em `sugestoes`, uma frase cada com o quadro/tem
 - GANCHO (v1.2.0, ficha com `gancho:`): no quadro 0 a manchete sem a palavra `gancho.destaque` em amarelo, ou sem o objeto com
   dano/ameaça (`gancho.objeto`) visível; ou os 3 primeiros quadros da folha (0 s, ~1,2 s, ~2,2 s: `build/q00.jpg`–`q02.jpg`) sem
   mudança visível de enquadramento. Os dois cortes de aproximação na mesma arte em 1 s e 2 s são o padrão, não defeito.
+- NUNCA CALMO (D25, Nei 17/11/2026: "nenhum vídeo tem que sair calmo"): no quadro 0 (`build/q00.jpg`), um gestor que não
+  sabe nada de IA entende a cena em 1 s e a manchete manda, acusa ou contradiz? Metáfora que pede para pensar, manchete de
+  aviso morno ou capa calma = sugestão com o que trocar, e o impacto não passa de 6.
 - IMPACTO (D15): dê nota 0–10 para "um desconhecido rolando o feed para e assiste até o fim?". Abaixo de 7, sugestão
   dizendo o quadro mais morno e o que faltou (fato forte, logo, texto do assunto, número).
 

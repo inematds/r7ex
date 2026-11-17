@@ -29,6 +29,19 @@ tem vontade de comentar ou compartilhar?"** Critérios:
   - `gancho.objeto` é um objeto com dano ou ameaça (lixeira, olhos em X, risco vermelho), não decoração.
   - Emoção forte nos 2 primeiros segundos com um fato real por trás; sem desarmar na mesma frase. Genérico ("vem muita
     novidade") = nota baixa.
+- **Pressão: nunca calmo (D25, Nei 17/11/2026: "nenhum vídeo tem que sair calmo; r7ex ou rtex são provocativos, são
+  virais e têm que ter gancho, fonte de imagem e de narração").** Leia a fala da parte 1 em voz alta, como quem rola o
+  feed: ela MANDA, ACUSA ou CONTRADIZ com força? Tom de notícia neutra, pergunta morna ("Você pensou em montar…?"),
+  explicação calma ou frase que soa como aula = nota da parte 1 ≤ 6, mesmo com número e fonte certos (caso real: "Você
+  pensou em montar um enxame de agentes? A Anthropic mediu: gasta quinze vezes mais que um chat" levou 8 e o Nei
+  reprovou: "a linguagem é muito calma, sem pressão"; ele queria "Esqueça os enxames. Faz um ano que eu falo disso: a
+  ideia é boa, mas o custo é proibitivo"). Com `plano.posicao` (opinião do Nei), a fala abre com ELA, em 1ª pessoa e com
+  a convicção dele; a estatística vira prova logo depois. Posição diluída ou ausente na fala = nota ≤ 6 e `melhorar` com a
+  abertura reescrita na voz dele.
+- **Teste do leigo na imagem (D25):** leia `plano.pessoa`, `abertura.cena` e `gancho.objeto`. Um gestor que não sabe nada
+  de IA entende a cena em 1 segundo (taxímetro girando em R$, fatura, sala de reunião)? Metáfora que pede para pensar
+  (prédio devorado por robôs, formigas, hologramas) ou `pessoa` de nicho ("quem vê vídeo de enxame") = nota da parte 1
+  ≤ 7 e `melhorar` com uma cena concreta. Se a imagem é o gancho e a ficha não tem `abertura.layout: cheia`, sugira.
 - **Teste dos 15 s (D20, Nei 12/11/2026: "não adianta estar claro e correto se não chama atenção, não mexe na dor ou
   desejo")**: ouvindo só as partes 1–2, um desconhecido sabe qual é o problema, que é COM ELE, por que importa e, se o
   vídeo entrega um método/kit, o NOME da solução? Não → nota da parte 1 ≤ 6 e `melhorar` com a abertura reescrita.
