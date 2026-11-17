@@ -201,6 +201,7 @@ partes:
   (y ~860–1150), item a item na palavra. O `painel` embaixo (à esquerda do avatar) leva UMA coisa: `titulo` (texto
   grande, `cor` opcional), `contador` ou `logo` (id do pacote). Ficha antiga com `painel.itens` sobe sozinha para a lista.
 
+- **Capa chocante (D24, v1.8.6):** a `abertura.png` sai SEMPRE do `r7ex.py imagens` (Codex image_gen) e mostra o momento da perda/quebra ou o "depois" chocante, nunca a solução pronta nem anúncio calmo (mão apertando botão, documento com check). O `imagens` grava a prova `capa/abertura.codex.json` (sha256 igual a um arquivo do `generated_images`) e o `render` recusa sem ela. Arte posta à mão na pasta não vale.
 - **Abertura:** a manchete do gancho (`gancho.manchete`, ≤ 6 palavras, uma em amarelo) **desenhada pelo Codex dentro da arte**, metade de
   cima, com o objeto com dano no centro; nos 3 primeiros segundos a capa troca de quadro a cada ~1 s (§2.1). Ficha antiga sem
   `gancho:` continua com `abertura.branco` + `destaque`.

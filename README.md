@@ -57,7 +57,7 @@ o explicavideos nem o cardshorts.
 | # | Passo | Comando / o que acontece | Quem |
 |---|---|---|---|
 | 8 | Esperar o avatar | `r7ex.py avatar-conferir` (HeyGen, só leitura) até "pronto" e baixa. **Minutos a horas** | ⚙️ |
-| 9 | Montar | `r7ex.py fazer`: Codex desenha abertura e imagens, prints, tempos das palavras, **ritmo** (`r7ex/ritmo.py`: fala esticada até ~182 palavras/min, ~0,75 s de silêncio antes da máxima, cartão do comentário 9 s depois da última palavra com o gesto de comentar — 28/10/2026), legenda, render e `build/folha.jpg` | ⚙️ |
+| 9 | Montar | `r7ex.py fazer`: Codex desenha a **capa chocante** (com prova `capa/abertura.codex.json`; o render recusa sem ela, D24) e as imagens, prints, tempos das palavras, **ritmo** (`r7ex/ritmo.py`: fala esticada até ~182 palavras/min, ~0,75 s de silêncio antes da máxima, cartão do comentário 9 s depois da última palavra com o gesto de comentar — 28/10/2026), legenda, render e `build/folha.jpg` | ⚙️ |
 | 10 | Revisar | revisor (`producao/ia.yaml`, etapa `revisao_visual`) + `producao/revisor.md` lê a folha: aprova, aprova com 🟥 SUGESTÃO ou para com o motivo | 🤖 |
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |

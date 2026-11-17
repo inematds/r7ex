@@ -1,3 +1,7 @@
+## 1.8.6 — 17/11/2026
+
+Capa chocante (D24, Nei 17/11/2026: "a imagem inicial chocante não está feita com o codex"). O pedido da `abertura.png` ganha o padrão CHOQUE (momento da perda/quebra ou o "depois", nunca solução pronta nem anúncio calmo; luz vermelha no perigo). `imagens` grava `capa/abertura.codex.json` só se a capa for cópia byte a byte de um arquivo do `generated_images` do Codex; `render` recusa ficha com gancho sem essa prova (edição antiga: `R7X_CAPA_ANTIGA=1`). Testado: capa do Codex aceita, capa da imersão posta por fora recusada.
+
 ## 1.7.6 — 17/11/2026
 
 `ia_motor.py cota ver|liberar` para ver e tirar a trava antes do horário; testes antigos isolados do banco real de cota; IA.md corrigido (inverter principal = editar os dois no YAML; reserva vale também para 429 estruturado).

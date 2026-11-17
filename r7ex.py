@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.7.6"   # semver do r7ex (1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.8.6"   # semver do r7ex (1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -88,6 +88,29 @@ ESTILO = ("Estilo foto cinematográfica realista de impacto, como pôster de fil
           "Robô, quando houver: humanoide industrial estilo Tesla Optimus, com visor preto na frente, nunca fofo ou cartoon. "
           "Nenhum texto nas imagens, EXCETO na abertura.png.")
 COR = {"vermelho": "vermelho #ff2a1f", "amarelo": "amarelo #FACC15"}
+# Capa chocante (v1.8.6, Nei 17/11/2026: "a imagem inicial chocante não está feita com o Codex… cria este padrão para o r7ex e o
+# rtex"). A imersão saiu com capas de anúncio calmo (mão apertando botão, documentos com check) feitas fora do `imagens`.
+# Regra: a abertura é SEMPRE do Codex image_gen, mostra o momento da perda/quebra ou o "depois" chocante, e o render recusa
+# abertura sem capa/abertura.codex.json (sha256 igual a um arquivo de ~/.codex*/generated_images). Kit: inema-design D24.
+CHOQUE = ("PADRÃO CAPA CHOCANTE: tem de parar o dedo num relance, como pôster de filme de suspense. Mostre o MOMENTO da perda, "
+          "da quebra ou o \"depois\" chocante (o que dá errado se nada mudar), nunca a solução pronta, nunca anúncio calmo de produto "
+          "(nada de mão apertando botão, documentos com check verde, escritório arrumado). Luz vermelha #ff2a1f no perigo. "
+          "Telas e papéis sem texto legível.")
+GERADAS = [Path.home() / d / "generated_images" for d in (".codex", ".codex-2")]
+
+
+def prova_codex(arq, pedido):
+    """Grava <arq>.codex.json se o arquivo é cópia byte a byte de uma imagem do image_gen (antes de qualquer ajuste)."""
+    import hashlib
+    h = hashlib.sha256(arq.read_bytes()).hexdigest()
+    for g in GERADAS:
+        for c in (g.rglob("*.png") if g.exists() else []):
+            if c.stat().st_size == arq.stat().st_size and hashlib.sha256(c.read_bytes()).hexdigest() == h:
+                arq.with_suffix(".codex.json").write_text(json.dumps(
+                    {"arquivo": arq.name, "sha256_gerada": h, "origem": str(c), "gerador": "Codex image_gen · assinatura",
+                     "data": dt.datetime.now().isoformat(timespec="seconds"), "pedido": pedido}, ensure_ascii=False, indent=1))
+                return True
+    return False
 
 
 def log(*a):
@@ -510,7 +533,7 @@ def cmd_imagens(pasta):
                   f"\"{g['manchete']}\" — tudo em branco, MENOS a palavra \"{g['destaque']}\", em amarelo #FACC15. "
                   "A manchete fica na METADE DE CIMA, entre 8% e 46% da altura, com margem de 7% nas laterais (nada encosta na borda); "
                   "a metade de baixo sem texto (ali entra o rosto). Contraste alto: letra legível em tamanho de miniatura. "
-                  "Confira a grafia exata, com acentos; nenhuma outra palavra na imagem."]
+                  f"Confira a grafia exata, com acentos; nenhuma outra palavra na imagem. {CHOQUE}"]
     else:
         linhas = [f"1. abertura.png — capa de impacto: {a['cena']}. Texto ESCRITO DENTRO da arte, grande, em português, fonte bold sem "
                   f"serifa: no topo, branco, \"{a['branco']}\"; logo abaixo, maior, em {COR.get(a.get('cor', 'amarelo'), a.get('cor'))}, "
@@ -534,6 +557,8 @@ def cmd_imagens(pasta):
         with open(capa / "codex.log", "w") as lg:
             subprocess.run(["codex", "exec", "--skip-git-repo-check", "--dangerously-bypass-approvals-and-sandbox"], input=pedido, text=True,
                            cwd=capa, stdout=lg, stderr=subprocess.STDOUT, timeout=2700)
+    if "abertura.png" in falta and (capa / "abertura.png").exists() and not prova_codex(capa / "abertura.png", linhas[0]):
+        falha("capa/abertura.png não é cópia de uma imagem do Codex image_gen (generated_images); apague e rode de novo")
     for n in ["abertura.png"] + list(nome.values()):
         if not (capa / n).exists():
             falha(f"o Codex não gerou capa/{n} (capa/codex.log)")
@@ -578,6 +603,9 @@ def cmd_cena(pasta):
 
 def cmd_render(pasta):
     p, f = ficha(pasta)
+    if f.get("gancho") and not (p / "capa/abertura.codex.json").exists() and os.environ.get("R7X_CAPA_ANTIGA") != "1":
+        falha("capa/abertura.png sem prova do Codex (capa/abertura.codex.json): a abertura chocante sai só pelo "
+              "`r7ex.py imagens` (v1.8.6). Edição antiga anterior à regra: R7X_CAPA_ANTIGA=1")
     env = dict(os.environ, DISPLAY=TELA, GEO="geo-br.js", LAYOUT="canto", MUSICA=str(R / "assets/trilha.mp3"))
     with open(p / "build-render.log", "w") as lg:
         r = subprocess.run(["bash", R / "motor/compor_avatar.sh", p, p / "video.mp4"], cwd=R, env=env, stdout=lg, stderr=subprocess.STDOUT,
