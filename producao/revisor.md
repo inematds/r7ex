@@ -33,13 +33,16 @@ SUGESTÃO (o vídeo segue; liste em `sugestoes`, uma frase cada com o quadro/tem
 - NUNCA CALMO (D25, Nei 17/11/2026: "nenhum vídeo tem que sair calmo"): no quadro 0 (`build/q00.jpg`), um gestor que não
   sabe nada de IA entende a cena em 1 s e a manchete manda, acusa ou contradiz? Metáfora que pede para pensar, manchete de
   aviso morno ou capa calma = sugestão com o que trocar, e o impacto não passa de 6.
+- EXPLICAÇÃO E TELA (D26, Nei 17/11/2026: "explicação tem que ser impactante. imagem também"): quadro com mais da
+  metade da área de cima vazia/preta (diagrama pequeno num canto), imagem que não mostra nada concreto, ou print cujo
+  texto contradiz a manchete = sugestão com o quadro e o que trocar; o impacto não passa de 7. (Velocidade da fala,
+  rosto congelado e ordem do fecho são conferidos por código antes de você: `conferir_montagem`.)
 - IMPACTO (D15): dê nota 0–10 para "um desconhecido rolando o feed para e assiste até o fim?". Abaixo de 7, sugestão
   dizendo o quadro mais morno e o que faltou (fato forte, logo, texto do assunto, número).
 
 NÃO reprove por:
-- Os últimos ~9 s parados no cartão do comentário, sem legenda, com o avatar congelado e o campo de comentário sendo
-  digitado/publicado: é o fecho segurado (28/10/2026). Defeito seria o vídeo cortar logo na última palavra.
-- Um silêncio curto (~0,75 s) antes da frase final, com o quadro parado: é a pausa antes da máxima.
+- Os últimos ~9 s no cartão do comentário, sem legenda e SEM o rosto (D26: o rosto sai 0,5 s depois da última palavra), com a
+  caixa da pergunta e depois o campo de comentário sendo digitado/publicado: é o fecho segurado. Defeito seria cortar na última palavra.
 - Itens do painel em cinza: eles acendem um a um conforme a fala (é a animação, não erro).
 - Legenda mostrando só parte da frase (é karaokê, palavra por palavra).
 - Gosto pessoal de cor, imagem ou enquadramento que segue o padrão (preto + amarelo, vermelho só no perigo).

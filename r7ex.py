@@ -3,13 +3,13 @@
 Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo em modelo/ficha.yaml.
 
   python3 r7ex.py novo <slug>             cria edicoes/<data>-<slug>/ficha.yaml (copia o modelo para editar)
-  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–620 caracteres (~175 palavras/min), palavras dos painéis na fala, `prende` por parte,
+  python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–900 caracteres (objetivo 620, D26), palavras dos painéis na fala, `prende` por parte,
                                           gancho v1.2.0 (tipo, manchete ≤ 6 palavras ≠ fala, objeto, prova até ~20 s, absolvição; lista reprova);
                                           avisa sem gancho.referencias (3–5) e sem frase de comunidade antes da pergunta da parte 7 (v1.5.4)
   python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
-  python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra + ritmo (fala ~182 palavras/min, pausa antes da máxima,
+  python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra + ritmo v2 (fala natural, sem esticar nem congelar, D26;
                                           cartão do comentário 9 s depois da última palavra) + cena.js
   python3 r7ex.py render <pasta>          monta o vídeo (tela :99) → <pasta>/video.mp4
   python3 r7ex.py revisar <pasta>         folha de 12 quadros → <pasta>/build/folha.jpg (LER antes de enviar)
@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.9.7"   # semver do r7ex (1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.10.7"   # semver do r7ex (1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -317,16 +317,28 @@ def cmd_checar(pasta):
     if len(f.get("partes") or []) != 7:
         erros.append(f"são {len(f.get('partes') or [])} partes; o padrão é 7")
     tot = fala_total(f)
-    # 28/10/2026 (Nei: fala mais lenta, 160–190 palavras/min; era 550–700 a ~210): 450–620 caracteres ≈ 85–110 palavras ≈ 30–37 s
-    # de fala + pausa + 9 s de cartão. Reel de lista (vários produtos) pode ir até 800 (~48 s de fala), com motivo; mais que isso passa de 1 min.
-    teto = min(int(f.get("fala_max") or 620), 800)
-    if f.get("fala_max") and not f.get("fala_max_motivo"):
-        erros.append("fala_max sem fala_max_motivo (por que este reel precisa de mais fala)")
-    if not 450 <= len(tot) <= teto:
+    # D26 (Nei, 17/11/2026): "teto pode ficar em 900, mantendo objetivo do 620; temos que ser flexíveis com algo que não
+    # vai ser o fundamental". O teto de 620 forçou frase telegráfica ("Cada agente lê tudo, fala, refaz") e a fala não
+    # soou como o Nei. Objetivo 620; até 900 passa com aviso (fala natural vale mais que caber). Era 450–620 (800 com motivo).
+    OBJ, TETO = 620, 900
+    if not 450 <= len(tot) <= TETO:
         if (p / "avatar/AVATAR_DE.txt").exists() or (p / "avatar/avatar.mp4").exists():   # avatar já gravado: a fala não muda
-            log(f"aviso: fala com {len(tot)} caracteres (padrão 450–620), aceita porque o avatar já existe")
+            log(f"aviso: fala com {len(tot)} caracteres (450–{TETO}), aceita porque o avatar já existe")
         else:
-            erros.append(f"fala com {len(tot)} caracteres (padrão 450–620, ~175 palavras/min; teto desta ficha {teto})")
+            erros.append(f"fala com {len(tot)} caracteres (mínimo 450, objetivo {OBJ}, teto {TETO})")
+    elif len(tot) > OBJ:
+        log(f"aviso: fala com {len(tot)} caracteres, acima do objetivo {OBJ} (ok até {TETO} se ficou natural; ~{len(tot) / 5.6 / 195 * 60 + 9:.0f} s com o cartão)")
+    vistos = {}
+    for i, x in enumerate(f["partes"], 1):   # D26: o mesmo print em duas partes deixa a tela parada e repete a mensagem
+        u = (x.get("print") or {}).get("url")
+        if u and u in vistos and not avatar_gravado(p):
+            erros.append(f"parte {i} repete o print da parte {vistos[u]} ({u}): use outra tela (imagem, diagrama ou outra página)")
+        vistos.setdefault(u, i) if u else None
+        pn = x.get("painel") or {}
+        if pn.get("titulo") and not pn.get("de") and not avatar_gravado(p):   # D26: quadro entrava antes da palavra
+            ws = [w for w in pn["titulo"].split() if len(CENA.n(w)) > 3]
+            if not any(CENA.n(w) in CENA.n(legenda_da(f, x)) for w in ws):
+                erros.append(f"parte {i}: painel.titulo '{pn['titulo']}' sem 'de' e sem palavra da fala — diga em que palavra ele entra")
     f7 = f["partes"][-1]["fala"]
     if "inema ponto club" not in f7:
         erros.append("a parte 7 precisa de 'inema ponto club' (onde está; 'grátis, direto na internet' se for verdade)")
@@ -663,9 +675,39 @@ def cmd_render(pasta):
         falha(f"{d:.0f} s: short passa de 1 min")
 
 
+def conferir_montagem(p, f, v, d):
+    """D26 (Nei, 17/11/2026): portão determinístico do vídeo pronto, porque a folha de 12 quadros não mostra velocidade,
+    rosto congelado nem a ordem do fecho (o revisor aprovou o enxame v2 com os três defeitos). Devolve a lista de erros."""
+    erros = []
+    rj = p / "avatar/ritmo.json"
+    r = json.loads(rj.read_text()) if rj.exists() else {}
+    if r and (r.get("k", 1) != 1 or (r.get("pausa") or {}).get("inserida")) and not (f.get("ritmo") or {}).get("pausa_congelada"):
+        erros.append(f"avatar esticado/pausa congelada (ritmo k={r.get('k')}, pausa {(r.get('pausa') or {}).get('inserida')}): "
+                     "rode `r7ex.py cena` de novo (ritmo v2 fala na velocidade natural)")
+    ult = r.get("ultima_palavra") or d
+    out = subprocess.run(["ffmpeg", "-v", "info", "-t", f"{ult + .3:.2f}", "-i", v, "-vf",
+                          "crop=400:453:640:1290,freezedetect=n=0.002:d=1.2", "-an", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    for m in re.finditer(r"freeze_start: ([\d.]+)", out):
+        if float(m.group(1)) > 0.5:
+            erros.append(f"rosto parado a partir de {float(m.group(1)):.1f} s (nada de quadro congelado com o Nei na tela)")
+    cj = p / "cena.js"
+    if cj.exists():
+        C = json.loads(cj.read_text().split("=", 1)[1].rstrip().rstrip(";"))
+        c = C.get("cta") or {}
+        if c.get("fala_fim") is not None and f["partes"][-1]["fala"].rstrip().endswith("?") and c["ini"] < c["fala_fim"]:
+            erros.append(f"o cartão da pergunta entra em {c['ini']:.1f} s, antes de o Nei terminar a pergunta ({c['fala_fim']:.1f} s)")
+    if d > 60:
+        log(f"aviso: vídeo com {d:.0f} s (passa de 1 min): enxugue a fala ou a cauda (ritmo.cauda)")
+    return erros
+
+
 def cmd_revisar(pasta):
     p, f = ficha(pasta); v = p / "video.mp4"; b = p / "build"; b.mkdir(exist_ok=True)
     d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", v]))
+    em = conferir_montagem(p, f, v, d)
+    if em:
+        falha("montagem reprovada (D26):\n  - " + "\n  - ".join(em))
     # v1.2.0: com gancho, os 3 primeiros quadros são a capa (0 s) e os dois cortes (1 s, 2 s), para o revisor ver a troca
     ts = ([0.05, 1.2, 2.2] if f.get("gancho") else [0.2, 1.5, 3.5]) + [round(5 + (d - 6) * i / 8, 2) for i in range(9)]
     qs = []

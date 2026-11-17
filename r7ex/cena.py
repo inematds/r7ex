@@ -148,7 +148,12 @@ def montar(pasta, ficha, falas):
                            **({"borda": BORDA[ls["borda"]]} if ls.get("borda") else {})})
         if not (pn.get("contador") or pn.get("titulo") or pn.get("logo")):
             continue
-        a = em(fid, pn["de"]) - .1 if pn.get("de") else F[fid]["ini"]
+        if pn.get("de"):
+            a = em(fid, pn["de"]) - .1
+        else:   # D26 (17/11/2026): título sem `de` entrava no começo da parte, antes da palavra; agora na 1ª palavra dele dita
+            ws = [w for w in str(pn.get("titulo") or "").split() if len(n(w)) > 3]
+            ts = [v for v in (acha(F[fid]["palavras"], w) for w in ws) if v is not None]
+            a = (min(ts) - .1) if ts else F[fid]["ini"]
         d = {"ini": a, "fim": fim, "k": pn.get("k", ""), "borda": BORDA[pn.get("borda", "am")]}
         if pn.get("titulo"):
             d["titulo"] = pn["titulo"]
@@ -175,6 +180,8 @@ def montar(pasta, ficha, falas):
         a = F[fid]["ini"] - .1
         b = (F[f"f{i + 2}"]["ini"] if i + 1 < len(partes) else DUR) - .1
         d = {"ini": a, "fim": b, "forma": dg.get("forma", "fluxo"), "titulo": dg.get("titulo", "")}
+        if len(dg.get("nos") or dg.get("linhas") or []) <= 4:   # D26: poucos nós = nós grandes, a tela cheia (não um canto)
+            d["grande"] = True
         itens = dg.get("nos") or dg.get("linhas") or []
         d["nos"] = [{**{k: v for k, v in x.items() if k not in ("de", "k", "logo")}, "t": em(fid, x["de"], x.get("k", 1)) - .05 if x.get("de") else a + .2}
                     for x in itens]
@@ -187,9 +194,11 @@ def montar(pasta, ficha, falas):
         diagramas.append(d)
 
     ult = f"f{len(partes)}"
-    cta = {"ini": em(ult, ficha["cta"].get("de", "pede")), "fim": DUR,   # cta.de: deixa da pergunta (padrão "pede")
-           "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
     fala_fim = F[ult]["palavras"][-1]["f"]
+    # D26 (17/11/2026): o cartão da pergunta entrava na 1ª palavra da pergunta (cta.de), por cima da fala; agora, quando
+    # a fala termina na pergunta, ele entra sozinho depois da última palavra. Fecho em fila: club (na palavra) → pergunta → comentário.
+    cta_ini = fala_fim + .15 if ficha["partes"][-1]["fala"].rstrip().endswith("?") else em(ult, ficha["cta"].get("de", "pede"))
+    cta = {"ini": cta_ini, "fim": DUR, "a": ficha["cta"]["a"], "b": ficha["cta"]["b"]}
     if DUR - fala_fim >= 4:   # cartão segurado (28/10/2026): o gesto de comentar é encenado depois da última palavra
         cta.update(fala_fim=fala_fim, comentario=comentario(ficha["cta"]))
     club = {"ini": em(ult, "inema.club"), "fim": DUR, "a": "inema.club", "b": ficha["club"]}
@@ -225,7 +234,7 @@ def montar(pasta, ficha, falas):
         if i == 0 and (ficha.get("abertura") or {}).get("layout") == "cheia":   # D25: arte em tela cheia, rosto no canto
             continue
         a = 0.0 if i == 0 else round(F[f"f{i + 1}"]["ini"] - .1, 2)
-        b = round(F[f"f{i + 2}"]["ini"] - .1, 2) if i + 1 < len(partes) else DUR
+        b = round(F[f"f{i + 2}"]["ini"] - .1, 2) if i + 1 < len(partes) else round(min(DUR, fala_fim + .5), 2)   # D26: sem rosto parado
         if meia and a - meia[-1][1] < .3:
             meia[-1][1] = b
         else:

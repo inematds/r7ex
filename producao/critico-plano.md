@@ -63,6 +63,21 @@ tem vontade de comentar ou compartilhar?"** Critérios:
   de cada item; embaixo um título ou número forte. Metáfora genérica (lâmpada, tênis, dragão) quando se fala de um
   produto = nota baixa.
 - Ritmo: nada de 3 assuntos espremidos numa parte sem tela para cada um.
+- **Fluência: soa como o Nei falando (D26, Nei 17/11/2026: "parece não tem fluência, não parece natural eu falando").**
+  Leia a fala inteira em voz alta, como conversa. Frase telegráfica ("Cada agente lê tudo, fala, refaz."), lista de
+  palavras soltas separadas por vírgula, ou frase de cartaz no lugar de frase de gente = nota da parte ≤ 6 e `melhorar`
+  com a frase ligada, do jeito que se fala ("cada agente lê tudo de novo, conversa com os outros e refaz o que deu
+  errado"). O tamanho NÃO justifica fala picotada: o objetivo é 620 caracteres, mas até 900 passa; prefira fala natural
+  mais longa a fala curta e dura.
+- **Explicação impactante (D26, Nei 17/11/2026: "explicação tem que ser impactante. imagem também").** Nas partes que
+  explicam o caminho (desejo/facilidade, em geral 3 e 4), um gestor que não sabe de IA tem de VER a ideia: uma
+  comparação do dia a dia (ex.: "é pôr dez pessoas na mesma reunião, todas lendo o mesmo relatório e cobrando por
+  hora") e uma tela que a mostra (imagem concreta da comparação, ou diagrama com poucas peças grandes). Explicação
+  abstrata ("quem coordena, como se ligam, onde aplicar") sem exemplo concreto = nota da parte ≤ 6 e `melhorar` com a
+  comparação. Imagem decorativa, metáfora que pede para pensar ou tela que repete só o texto = nota ≤ 7 e `melhorar`
+  com a cena concreta. Vale para TODA `imagem` da ficha, não só a abertura (teste do leigo).
+- **Telas sem repetir (D26):** o mesmo `print` em duas partes, ou um print cujo texto contradiz o gancho (ex.: página
+  com a frase calma antiga), = nota ≤ 6 na parte.
 - Ética: nada inventado; cada número/afirmação (fala, lista, painel) tem de bater com `plano.fatos` (fatos da fonte, com o
   trecho), `plano.gancho` ou `fonte`. Fato fora deles = nota baixa e peça para incluir a origem. Vazamento pode ser dito com força
   ("vazou", "apareceu no código"), mas não como lançamento confirmado. Exagero falso = nota 0 na parte.

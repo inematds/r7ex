@@ -223,6 +223,11 @@ body.limpo .pino .pt{width:30px;height:30px}
 #diag .term .cur{display:inline-block;width:16px;height:32px;background:#FACC15;vertical-align:-5px;margin-left:4px}
 #diag .cp .no{padding:12px 24px}#diag .cp .no .ic{font-size:46px}#diag .cp .no .tx{font-size:38px}#diag .cp .no .tx small{font-size:22px;margin-top:3px}
 #diag .cp .seta{height:40px}
+/* D26 (17/11/2026): até 4 nós = nós grandes ocupando a área (a tela da explicação não fica vazia) */
+#diag .gd .no{padding:34px 36px;gap:30px;border-width:3px}#diag .gd .no .ic{font-size:84px}#diag .gd .no .tx{font-size:60px}#diag .gd .no .tx small{font-size:32px}
+#diag .gd .seta{height:92px}#diag .gd .dt{font-size:40px;margin-bottom:40px}
+#diag .gd .hub .no{width:400px;padding:26px 30px}#diag .gd .hub .no .ic{font-size:70px}#diag .gd .hub .no .tx{font-size:50px}
+#diag .gd .hub .cx{width:360px;height:360px}#diag .gd .hub .cx .ic{font-size:96px}#diag .gd .hub .cx .tx{font-size:46px}
 </style></head>
 <body>
 <div id="mapa"></div>
@@ -422,7 +427,7 @@ function diagrama(t){
   D.style.opacity=vis(t,d.ini,d.fim,.3);
   const ent=(x,dur=.4)=>prog(t,x,dur);
   const ultimo=d.nos.reduce((m,n,i)=>t>=n.t?i:m,-1);
-  let h=`<div class="area${d.forma!=='terminal'&&d.forma!=='hub'&&d.nos.length>=5?' cp':''}">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
+  let h=`<div class="area${d.forma!=='terminal'&&d.forma!=='hub'&&d.nos.length>=5?' cp':''}${d.grande?' gd':''}">${d.titulo?`<div class="dt" style="opacity:${ent(d.ini+.1)}">${d.titulo}</div>`:''}`;
   if(d.forma==='terminal'){
     h+=`<div class="term" style="opacity:${ent(d.ini+.1)};transform:translateY(${(1-ent(d.ini+.1))*30}px)"><div class="bar"><i></i><i></i><i></i><span>${d.barra||'terminal'}</span></div><div class="corpo">`;
     d.nos.forEach((n,i)=>{ const nt=i===0?Math.min(n.t,d.ini+.3):n.t; if(t<nt) return; const tp=n.tipo||'cmd'; const full=n.txt;
@@ -438,14 +443,14 @@ function diagrama(t){
       sv+=`<line x1="${cx}" y1="${cy}" x2="${cx+(x-cx)*k}" y2="${cy+(y-cy)*k}" stroke="${i===ultimo?'#FACC15':'rgba(250,204,21,.45)'}" stroke-width="${i===ultimo?6:4}" stroke-linecap="round"/>`; });
     sv+='</svg>';
     h+=`<div class="hub">${sv}`;
-    if(d.centro){const k=ent(Math.min(d.centro.t,d.ini+.3),.5); h+=`<div class="cx" style="left:${cx-140}px;top:${cy-140}px;opacity:${k};transform:scale(${.8+.2*k})"><div class="ic">${d.centro.ic||''}</div><div class="tx">${d.centro.txt}</div></div>`;}
-    d.nos.forEach((n,i)=>{ const k=ent(n.t,.4); const [x,y]=pos[i];
-      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="left:${clamp(x-145,0,W-290)}px;top:${y-70}px;opacity:${.25+.75*k};transform:scale(${.9+.1*k})"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div></div>`; });
+    if(d.centro){const k=ent(Math.min(d.centro.t,d.ini+.3),.5), rc=d.grande?180:140; h+=`<div class="cx" style="left:${cx-rc}px;top:${cy-rc}px;opacity:${k};transform:scale(${.8+.2*k})"><div class="ic">${d.centro.ic||''}</div><div class="tx">${d.centro.txt}</div></div>`;}
+    d.nos.forEach((n,i)=>{ const k=ent(n.t,.4); const [x,y]=pos[i], wn=d.grande?400:290;
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="left:${clamp(x-wn/2,0,W-wn)}px;top:${y-(d.grande?90:70)}px;opacity:${k};transform:scale(${.9+.1*k})"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div></div>`; });
     h+='</div>';
   } else {
     d.nos.forEach((n,i)=>{ const k=ent(n.t,.4);
-      if(i>0){ const s=ent(n.t-.25,.35), L=d.nos.length>=5?20:36; h+=`<div class="seta"><i style="height:${L*s}px"></i><b style="top:${L*s}px;opacity:${s}"></b></div>`; }
-      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="opacity:${.22+.78*k};transform:translateX(${(1-k)*-40}px)"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div><div class="num">${String(i+1).padStart(2,'0')}</div></div>`; });
+      if(i>0){ const s=ent(n.t-.25,.35), L=d.nos.length>=5?20:(d.grande?80:36); h+=`<div class="seta"><i style="height:${L*s}px"></i><b style="top:${L*s}px;opacity:${s}"></b></div>`; }
+      h+=`<div class="no ${i===ultimo?(n.cor==='vd'?'vd':'at'):''}" style="opacity:${k};transform:translateX(${(1-k)*-40}px)"><div class="ic">${n.ic||''}</div><div class="tx">${n.txt}${n.sub?`<small>${n.sub}</small>`:''}</div><div class="num">${String(i+1).padStart(2,'0')}</div></div>`; });
   }
   D.innerHTML=h+'</div>';
 }
@@ -453,9 +458,12 @@ function diagrama(t){
 // gesto de comentar no cartão segurado (28/10/2026): tempos relativos ao fim da fala (c.fala_fim), determinístico por t
 function comenta(t,c){
   const CM=document.getElementById('comenta'), FE=document.getElementById('fecho');
-  if(!c||c.fala_fim==null||t<c.fala_fim+.25){CM.style.opacity=0;FE.style.opacity=0;return;}
-  const e=c.fala_fim, txt=[...c.comentario], t1=e+1.0, cps=12, t2=t1+txt.length/cps, tp=t2+.7, tk=tp+.35, tpub=tk+.25;
-  FE.style.opacity=.62*prog(t,e+.25,.5);
+  // D26 (17/11/2026): o cartão da pergunta entra sozinho (fala_fim+.15) e fica ~2 s antes do comentário; o fundo escurece
+  // quase todo para o comentário não ficar por cima do print. Era +.25 e .62 (tudo entrava junto).
+  const e0=c&&c.fala_fim!=null?c.fala_fim+1.8:null;
+  if(e0==null||t<e0+.25){CM.style.opacity=0;FE.style.opacity=0;return;}
+  const e=e0, txt=[...c.comentario], t1=e+1.0, cps=12, t2=t1+txt.length/cps, tp=t2+.7, tk=tp+.35, tpub=tk+.25;
+  FE.style.opacity=.9*prog(t,e+.25,.5);
   const k=prog(t,e+.3,.5); CM.style.opacity=k; CM.style.transform=`translateY(${(1-k)*40}px)`;
   const n=Math.max(0,Math.min(txt.length,Math.floor((t-t1)*cps))), digitado=t>=tpub?'':txt.slice(0,n).join('');
   const pisca=Math.floor(t*2.5)%2===0;

@@ -37,16 +37,23 @@ faltar com a verdade, mas ela vem depois para confirmar e não impor; a emoção
 A fala pode simplificar no mesmo sentido da fonte, nunca contradizê-la. CTA pede compromisso positivo ("eu consigo / eu faço /
 eu vou tentar"), nunca confissão de fracasso. O crítico (`producao/critico-plano.md`) segue esta regra.
 
-## 2. Roteiro — 7 partes, fala de 450–620 caracteres (~30–37 s de fala + 9 s de cartão)
+## 2. Roteiro — 7 partes, fala com objetivo de 620 caracteres (teto 900)
 
-**Ritmo (Nei, 28/10/2026).** Medimos 202–222 palavras/min e nenhum silêncio: rápido demais para o público 40+. Agora:
-- fala dimensionada para **160–190 palavras/min**: **450–620 caracteres** (≈ 85–110 palavras). Um tema com muitos itens pode ir a
-  `fala_max` ≤ 800 com `fala_max_motivo` (passa de 1 min acima disso);
-- o HeyGen fala no ritmo dele (~210), então a montagem (`r7ex/ritmo.py`) estica a fala até ~182 palavras/min (no máximo
-  12%, tom preservado, boca casada) — nunca acelera;
-- **silêncio de ~0,75 s antes da máxima** (a frase de efeito final; padrão = início da parte 6, ou `ritmo.pausa_antes:
-  {parte: 6, de: <palavra>}`): a voz e a trilha somem, o quadro segura;
-- frases curtas; a máxima numa frase só, curta, que a pessoa repete.
+**Fluência primeiro (D26, Nei 17/11/2026: "parece não tem fluência, não parece natural eu falando"; "teto pode ficar em
+900, mantendo objetivo do 620… temos que ser flexíveis com algo que não vai ser o fundamental").** Substitui o ritmo de 28/10:
+- fala com **objetivo de 620 caracteres**; passa até **900** com aviso. Fala natural vale mais que caber: nunca encurtar
+  até virar frase telegráfica ("Cada agente lê tudo, fala, refaz." reprovou). Frase ligada, do jeito que o Nei fala;
+- a montagem (`r7ex/ritmo.py` v2) **não estica** a fala: o avatar fala na velocidade natural do HeyGen (~195 palavras/min).
+  Antes (28/10) esticava até 12% para ~182, e boca e gesto ficavam em câmera lenta;
+- **nenhum quadro congelado com o Nei na tela**: sem pausa inserida antes da máxima (o vão natural fica; `ritmo.pausa_congelada:
+  true` religa só se pedido) e o rosto sai 0,5 s depois da última palavra (o cartão de 9 s segue sem ele);
+- a máxima numa frase só, curta, que a pessoa repete;
+- **explicação impactante** (partes que explicam o caminho, em geral 3 e 4): uma comparação do dia a dia que um gestor
+  vê ("dez pessoas na mesma reunião lendo o mesmo relatório e cobrando por hora") e uma tela que a mostra — imagem
+  concreta da comparação ou diagrama com poucas peças grandes, que entram na palavra. Abstração ("quem coordena, como se
+  ligam, onde aplicar") sem exemplo não explica;
+- **imagem também** (teste do leigo em TODA `imagem`, não só a abertura); o mesmo print não se repete em duas partes, e
+  o texto do print não pode contradizer o gancho.
 
 | Parte | Função | Regra |
 |---|---|---|
@@ -90,7 +97,7 @@ O Nei perguntou se os reels usavam as técnicas de chamada que analisamos; usava
    ninguém te deu o mapa").
 5. **Um tema por vídeo.** O r7ex não junta temas diferentes numa lista. Pedido com vários temas → a ficha propõe N vídeos,
    um por tema (no bot: faz o mais forte e lista os outros no resumo, um `/r7ex` para cada).
-6. A parte 7 ("tá tudo no inema ponto club…"), o cartão de 9 s e o ritmo de 160–190 palavras/min ficam como estão. Nunca
+6. A parte 7 ("tá tudo no inema ponto club…"), o cartão de 9 s e a fala na velocidade natural (D26) ficam como estão. Nunca
    prometer "eu te mando".
 
 ```yaml
@@ -249,20 +256,23 @@ de enxames: a ideia é boa, mas o custo é proibitivo, e não sei por que ainda 
   no hub `centro: {de, ic, txt}`). Fundo preto com grade leve; cada nó acende na palavra. Use em produto/técnico
   (como funciona, o que tem no repo, o comando que roda); deixe a abertura com a arte do Codex.
 - **Legenda karaokê:** a palavra falada acende; vermelho = perigo, amarelo = ganho e números.
-- **Fecho:** caixa vermelha com **pergunta** (gera comentário) + pílula "inema.club".
+- **Fecho em fila (D26, 17/11/2026):** a pílula "inema.club" entra quando o Nei diz "inema ponto club"; a caixa vermelha da
+  **pergunta** entra SOZINHA depois da última palavra da pergunta (nunca por cima da fala); ~2 s depois, o gesto de comentar,
+  com o fundo escurecido (nunca por cima do print). Antes os três entravam juntos.
 - **Cartão segurado (Nei, 28/10/2026):** o vídeo NÃO corta na última palavra. O cartão do comentário fica **9 s** depois
   dela, com o gesto encenado no meio da tela: campo "Adicione um comentário…" → o texto sendo digitado (`cta.comentario`,
-  ou a palavra em CAIXA ALTA do `cta.b`) → "Publicar" apertado → o comentário publicado. Avatar congelado no PiP, trilha
+  ou a palavra em CAIXA ALTA do `cta.b`) → "Publicar" apertado → o comentário publicado. Sem o rosto (D26: sai 0,5 s depois da última palavra), trilha
   continuando até o fade final, sem legenda. Antes: 0,8–1,6 s de cartão.
 
 ## 4. Portões
 
-- ficha: 7 partes, fala 450–620 caracteres (um tema com muitos itens: até 800 com motivo), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
+- ficha: 7 partes, fala 450–900 caracteres (objetivo 620, aviso acima; D26), print sem repetir entre partes, painel.titulo amarrado a uma palavra (`de` ou palavra do título na fala), toda palavra de painel/lista/contador existe na fala da parte, `prende` em cada parte;
 - gancho (v1.2.0, §2.1): `gancho.tipo` válido, manchete ≤ 6 palavras em CAIXA ALTA e diferente da fala, `destaque` = uma palavra dela, `objeto`, `prova` até a 60ª palavra, `absolvicao` na parte 2 ou 3, fontes (estatística/terceiro/notícia) e data (notícia); lista, "você sabia" e "eu fiz" reprovam. Edição com avatar já gravado só recebe aviso;
 - nunca calmo (v1.9.7, §2.5): abertura morna reprova; `plano.posicao` exige gancho contrario/provocacao/acusacao, 1ª frase afirmativa e 1ª pessoa nas partes 1–2; aviso sem `plano.posicao`;
 - retenção (v1.5.4, §2.4): aviso sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7;
 - plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
-- avatar × fala ≥ 90% (retempo); ritmo 160–190 palavras/min, pausa antes da máxima e 9 s de cartão (`avatar/ritmo.json`); duração < 60 s;
+- avatar × fala ≥ 90% (retempo); 9 s de cartão (`avatar/ritmo.json`); aviso acima de 60 s;
+- montagem (D26, `conferir_montagem` no `revisar`, reprova): avatar sem esticar (k = 1) e sem pausa congelada, rosto sem quadro parado ≥ 1,2 s até a última palavra, caixa da pergunta só depois do fim da pergunta;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);
 - revisão da folha de 12 quadros (`r7ex.py revisar`): nada cobrindo nada, prints legíveis, **produto com logo, impacto ≥ 7**.
 

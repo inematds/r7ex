@@ -57,7 +57,7 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
      (entra na frente da fila do canal; sai na próxima janela, a fila publica 1 a cada 2 h, 9 h–21 h).
    - Pediu algo que esta fase não faz (upload direto, tópico no Telegram, outra rede) → não faça;
      anote no resumo em "não fiz".
-   Fala de 450–620 caracteres (ritmo 160–190 palavras/min, PADRAO §2); a máxima numa frase curta na parte 6.
+   Fala com objetivo de 620 caracteres, teto 900 (D26, PADRAO §2): frases ligadas, do jeito que o Nei fala, nunca telegráficas; a explicação (partes 3–4) com uma comparação do dia a dia e uma tela que a mostra; a máxima numa frase curta na parte 6.
    **Gancho (PADRAO §2.1, v1.2.0)** — bloco `gancho:` da ficha:
    - `tipo`: `contrario`, `perda`, `estatistica` (número de medo, com `fontes` conferidas), `terceiro` (história
      de outra pessoa com número) ou `noticia` (fato desta semana, com `data` e `fontes`), `provocacao`, `promessa` ou `acusacao` (dor/desejo da pessoa

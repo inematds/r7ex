@@ -24,7 +24,7 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
    fala), `destaque` (a palavra em amarelo), `objeto` (com dano/ameaça), `prova` (até ~20 s), `absolvicao` (parte 2 ou 3),
    `fontes` (estatística/terceiro/notícia) e `data` (notícia).
 2. `python3 r7ex.py novo <slug>` e preencha `ficha.yaml` (modelo: o reel do hacker, gancho `terceiro`): gancho, abertura
-   (a cena; o título é a `gancho.manchete`), 7 partes (fala por extenso, 450–620 caracteres no total — ~175 palavras/min, lista até 800 com motivo; imagem OU print; painel com itens nas palavras
+   (a cena; o título é a `gancho.manchete`), 7 partes (fala por extenso, objetivo 620 caracteres, teto 900 — fala natural vale mais que caber, nunca telegráfica (D26); explicação com comparação concreta e imagem que a mostra; imagem OU print; painel com itens nas palavras
    da fala; contador onde houver número), `trocas` para a legenda, CTA em pergunta, `publicar`.
 3. `python3 r7ex.py checar <pasta>` até passar.
 4. Avatar: OK do Nei → `avatar/APROVADO_HEYGEN` com a frase dele; ou `--de <mp4>` para reaproveitar.
@@ -37,9 +37,10 @@ Comando único: `python3 r7ex.py` (sem argumentos mostra a ajuda).
    `python3 r7ex.py enviar <pasta>` e `python3 r7ex.py fila <pasta>`. Dizer ao Nei "Terminei: …".
 
 ## Ritmo e fecho (28/10/2026)
-- A montagem (`r7ex/ritmo.py`, dentro de `avatar`/`cena`) estica a fala até ~182 palavras/min (máx. 12%), abre ~0,75 s de
-  silêncio antes da máxima (parte 6 ou `ritmo.pausa_antes`) e segura o cartão do comentário 9 s depois da última palavra,
-  com o gesto de comentar (`cta.comentario`). Resultado em `avatar/ritmo.json`; original em `avatar/avatar-heygen.mp4`.
+- D26 (17/11/2026): a montagem (`r7ex/ritmo.py` v2) NÃO estica a fala nem congela o quadro: o avatar fala na velocidade
+  natural do HeyGen; o rosto sai 0,5 s depois da última palavra e o cartão do comentário fica 9 s (`cta.comentario`).
+  Fecho em fila: inema.club na palavra → pergunta depois da última palavra → comentário ~2 s depois. O `revisar` reprova
+  (`conferir_montagem`) avatar esticado, rosto parado ou pergunta por cima da fala.
 - Remontar edição antiga sem novo avatar: `python3 r7ex.py cena <pasta>` + `render` + `revisar` (aplica o ritmo sozinho).
 
 ## Regras

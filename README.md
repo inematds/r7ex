@@ -47,7 +47,7 @@ o explicavideos nem o cardshorts.
 | 1 | Pedido | o Nei diz o tema, o canal e o que citar | Nei |
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) + **ganchos de quem fala do tema** (v1.5.4): títulos com `yt-dlp --flat-playlist "ytsearch15:<termo>"` e a 1ª fala (0–35 s) pela legenda automática → `gancho.referencias` (3–5 `{canal, titulo, abertura, gatilho}`; número de terceiro não entra no roteiro, só serve de régua) | 🧠 |
 | 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição, entrega — v1.3.1; tipo `provocacao` no PADRAO §2.2), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
-| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`); **avisos** v1.5.4: sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7 | ⚙️ |
+| 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, objetivo 620 e teto 900 caracteres (D26), print sem repetir, palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`); **avisos** v1.5.4: sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7 | ⚙️ |
 | 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico (`producao/ia.yaml`, etapa `critico_plano`, com trava de cota e reserva) dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5; compara o gancho com a melhor `gancho.referencias` e cobra a frase de comunidade na parte 7 (v1.5.4) | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
@@ -154,8 +154,8 @@ O motor **não cria conteúdo nem imagem**: ele **sincroniza e anima**. É uma p
   5. a legenda karaokê;
   6. o CTA em pergunta e a pílula do inema.club.
 - **Filma** a página a 30 quadros por segundo (`motor/render.mjs`, Chrome escondido na tela `:99`).
-- **Antes, acerta o ritmo** (`r7ex/ritmo.py`, 28/10/2026): estica a fala do HeyGen até ~182 palavras/min (máx. 12%),
-  abre ~0,75 s de silêncio antes da máxima e congela o avatar 9 s depois da última palavra (o original fica em
+- **Antes, acerta o ritmo** (`r7ex/ritmo.py` v2, D26 17/11/2026): a fala fica na velocidade natural do HeyGen (sem esticar,
+  sem pausa congelada) e o vídeo segue 9 s depois da última palavra, já sem o rosto (o original fica em
   `avatar/avatar-heygen.mp4`; a decisão em `avatar/ritmo.json`). Nesses 9 s o motor encena o comentário: campo, texto
   digitando, "Publicar", comentário publicado.
 - **Junta** (`motor/compor_avatar.sh`):
