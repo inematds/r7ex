@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.6.5"   # semver do r7ex (1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.7.5"   # semver do r7ex (1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -390,7 +390,7 @@ def plano_aprovado(c):
 
 def cmd_plano(pasta):
     """D15 (Nei, 20/10/2026): "isso prende alguém, isso engaja alguém? validar as 7 etapas, o objetivo é ser viral".
-    Crítico (claude -p, assinatura) dá nota por parte e lista bloqueios objetivos; regra em plano_aprovado().
+    Crítico (producao/ia.yaml: critico_plano) dá nota por parte e lista bloqueios objetivos; regra em plano_aprovado().
     Resultado em plano-critica.json com o hash da ficha (mudou a ficha, critica de novo; o veredito é recalculado na leitura)."""
     import hashlib
     p, f = ficha(pasta)
@@ -398,22 +398,26 @@ def cmd_plano(pasta):
     arq = p / "plano-critica.json"
     c = json.loads(arq.read_text()) if arq.exists() else {}
     if c.get("hash") != h:
+        # 17/11/2026: motor, modelo e esforço vêm de producao/ia.yaml (etapa critico_plano), com trava de cota e
+        # reserva declarada. A ficha vai anexada ao pedido (texto puro, serve para Claude ou Codex).
+        # R7X_CRITICO=codex (VPS só com Codex, 25/10/2026) continua valendo: põe o Codex primeiro.
+        sys.path.insert(0, str(R / "producao"))
+        from ia_motor import executar, CotaEsgotada
         pedido = (R / "producao/critico-plano.md").read_text()
-        if os.environ.get("R7X_CRITICO") == "codex":   # máquina só com Codex (VPS da Tiza, 25/10/2026)
-            ult = p / ".critica-codex.txt"
-            r = subprocess.run(["codex", "exec", "--skip-git-repo-check", "-s", "read-only", "--output-last-message", ult, "-"],
-                               cwd=p, input=pedido, capture_output=True, text=True, timeout=900)
-            r.stdout = json.dumps({"result": ult.read_text() if ult.exists() else ""}); ult.unlink(missing_ok=True)
-        else:
-            r = subprocess.run(["claude", "-p", "--output-format", "json", "--allowedTools", "Read", "--", pedido],
-                               cwd=p, capture_output=True, text=True, timeout=900, stdin=subprocess.DEVNULL)
+        regra = Path.home() / "projetos/inema-design/regras/chamada.md"
+        anexos = [p / "ficha.yaml"] + ([regra] if regra.is_file() else [])
         try:
-            res = json.loads(r.stdout)["result"].strip()
+            res = executar("critico_plano", pedido, p, arquivos=anexos, preferir=os.environ.get("R7X_CRITICO") or None)
+        except CotaEsgotada as e:
+            falha(f"crítico do plano sem cota: {e}. NÃO reescreva a ficha: o plano não foi julgado; rode de novo depois.")
+        except Exception as e:
+            falha(f"crítico do plano não rodou: {str(e)[:200]}")
+        try:
             c = json.loads(res[res.index("{"): res.rindex("}") + 1])
             c["notas"] = [int(x["nota"]) for x in sorted(c["partes"], key=lambda x: x["n"])]
             assert len(c["notas"]) == 7
         except Exception as e:
-            falha(f"crítico do plano não respondeu direito: {str(e)[:200]} {r.stderr[-200:]}")
+            falha(f"crítico do plano não respondeu direito: {str(e)[:200]}")
         c["hash"] = h
         arq.write_text(json.dumps(c, ensure_ascii=False, indent=1))
     n = c["notas"]

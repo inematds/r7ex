@@ -37,3 +37,17 @@ etapas:
     capacidade: visao
     timeout: 900
     max_tokens: 12000
+  # critico_plano: nota de viralidade antes do avatar (r7ex.py plano). Texto: a ficha vai anexada ao pedido.
+  # Principal = o que o crítico usava antes por herança (Claude, opus, low; D15 calibrado nele).
+  # alternativa: usada SÓ quando a cota do principal está confirmada como esgotada (trava de cota).
+  # Exemplo inverso: motor: codex / modelo: gpt-6.1-sol / esforco: medium + alternativa claude.
+  # R7X_CRITICO=codex (VPS só com Codex) continua valendo: põe o Codex primeiro.
+  critico_plano:
+    tipo: assinatura
+    motor: claude
+    modelo: claude-opus-5-5
+    esforco: low
+    capacidade: texto
+    timeout: 900
+    max_tokens: 12000
+    alternativa: {motor: codex, modelo: gpt-6.1-sol, esforco: medium}

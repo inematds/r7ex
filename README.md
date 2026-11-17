@@ -48,7 +48,7 @@ o explicavideos nem o cardshorts.
 | 2 | Pesquisa | conferir fatos e fontes (vão para `plano.fatos` com a origem) + **ganchos de quem fala do tema** (v1.5.4): títulos com `yt-dlp --flat-playlist "ytsearch15:<termo>"` e a 1ª fala (0–35 s) pela legenda automática → `gancho.referencias` (3–5 `{canal, titulo, abertura, gatilho}`; número de terceiro não entra no roteiro, só serve de régua) | 🧠 |
 | 3 | Ficha | `python3 r7ex.py novo <slug>` + escrever o **gancho** (tipo, manchete do quadro 0, objeto com dano, prova, absolvição, entrega — v1.3.1; tipo `provocacao` no PADRAO §2.2), as 7 partes, a abertura, os painéis e `publicar`. Vários temas → um vídeo por tema | 🧠 |
 | 4 | Portão da ficha | `python3 r7ex.py checar <pasta>`: 7 partes, 450–620 caracteres (ritmo 160–190 palavras/min; um tema com muitos itens até 800 com motivo), palavras dos painéis na fala, **gancho** (tipo válido, manchete ≤ 6 palavras ≠ fala, prova até ~20 s, absolvição; lista reprova); **fecho** (v1.4.4: pergunta + inema ponto club, sem "me pede o link"/"comenta PALAVRA", também em `cta.b`/`cta.comentario`); **avisos** v1.5.4: sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7 | ⚙️ |
-| 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5; compara o gancho com a melhor `gancho.referencias` e cobra a frase de comunidade na parte 7 (v1.5.4) | 🤖 |
+| 5 | Portão viral | `python3 r7ex.py plano <pasta>`: crítico (`producao/ia.yaml`, etapa `critico_plano`, com trava de cota e reserva) dá nota por parte; sem bloqueio, gancho ≥ 8, média ≥ 7,5; compara o gancho com a melhor `gancho.referencias` e cobra a frase de comunidade na parte 7 (v1.5.4) | 🤖 |
 | 6 | Entregar à produção | `avatar/APROVADO_HEYGEN` + `python3 producao/producao.py --add <pasta>` | 🧠 |
 | 7 | Enviar o avatar | o timer `r7ex-producao` manda a fala ao estúdio HeyGen (tela :99; todas as pendentes na mesma rodada, sem esperar a anterior ficar pronta — 25/10/2026) | ⚙️ |
 
@@ -58,7 +58,7 @@ o explicavideos nem o cardshorts.
 |---|---|---|---|
 | 8 | Esperar o avatar | `r7ex.py avatar-conferir` (HeyGen, só leitura) até "pronto" e baixa. **Minutos a horas** | ⚙️ |
 | 9 | Montar | `r7ex.py fazer`: Codex desenha abertura e imagens, prints, tempos das palavras, **ritmo** (`r7ex/ritmo.py`: fala esticada até ~182 palavras/min, ~0,75 s de silêncio antes da máxima, cartão do comentário 9 s depois da última palavra com o gesto de comentar — 28/10/2026), legenda, render e `build/folha.jpg` | ⚙️ |
-| 10 | Revisar | revisor `claude -p` + `producao/revisor.md` lê a folha: aprova, aprova com 🟥 SUGESTÃO ou para com o motivo | 🤖 |
+| 10 | Revisar | revisor (`producao/ia.yaml`, etapa `revisao_visual`) + `producao/revisor.md` lê a folha: aprova, aprova com 🟥 SUGESTÃO ou para com o motivo | 🤖 |
 | 11 | Entregar | `r7ex.py enviar` (v3) + `r7ex.py fila` (fila do canal); aviso "Terminei" no v3 | ⚙️ |
 | 12 | Publicar | o timer da fila sobe 1 a cada 2 h (9 h–21 h) pelo yt-pubx e avisa no v3 | ⚙️ |
 

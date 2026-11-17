@@ -1,5 +1,6 @@
 """Contratos de troca de motor e do portão visual, sem rede/publicação."""
-import copy, json, os, subprocess, tempfile, unittest
+import copy, datetime as dt, json, os, subprocess, tempfile, unittest
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from unittest.mock import patch
 import yaml
@@ -43,4 +44,77 @@ class Teste(unittest.TestCase):
    q=self.out/f; q.parent.mkdir(parents=True,exist_ok=True); q.write_text('{}')
   with patch.object(p,'executar',return_value='{"veredito":"talvez"}'):
    self.assertEqual(p.revisar(self.out)['veredito'],'erro')
+
+# Recusa REAL do Claude Code (16/11/2026 14:34, crítico do r7ex; ids de conta removidos).
+RECUSA_CLAUDE=json.dumps({"type":"result","subtype":"success","is_error":True,"api_error_status":429,
+ "api_error_type":"rate_limit_error","api_error_origin":"first_party","api_error":"usage_limit_reached",
+ "result":"You've hit your weekly limit · resets 9pm (America/Sao_Paulo)","num_turns":1,"duration_ms":966,
+ "terminal_reason":"api_error","modelUsage":{},"usage":{}})
+NOTAS='{"partes":[%s],"bloqueios":[],"resumo":"ok"}'%','.join('{"n":%d,"nota":8,"porque":"x","melhorar":""}'%i for i in range(1,8))
+
+class Trava(unittest.TestCase):
+ def setUp(self):
+  self.tmp=tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
+  self.out=Path(self.tmp.name); self.file=self.out/'ia.yaml'; self.cfg=copy.deepcopy(ia.carregar()); self.file.write_text(yaml.safe_dump(self.cfg))
+  self.env=patch.dict(os.environ,{ia.CONFIG_ENV:str(self.file),ia.COTA_DB_ENV:str(self.out/'cota.sqlite'),'CODEX_HOME':str(self.out/'codex')})
+  self.env.start(); self.addCleanup(self.env.stop)
+  self.chamadas=[]
+ def fake(self,claude_stdout=None,claude_rc=0,codex='{"ok":true}'):
+  def run(cmd,**kw):
+   self.chamadas.append('claude' if cmd[0].endswith('claude') else 'codex')
+   if self.chamadas[-1]=='claude': return subprocess.CompletedProcess(cmd,claude_rc,claude_stdout,'')
+   Path(cmd[cmd.index('-o')+1]).write_text(codex); return subprocess.CompletedProcess(cmd,0,'','')
+  return patch.object(ia.subprocess,'run',side_effect=run)
+ def eventos(self): return [json.loads(l) for l in (self.out/'ia-execucoes.jsonl').read_text().splitlines()]
+ def test_recusa_real_vira_horario_de_volta(self):
+  agora=dt.datetime(2026,11,16,14,34,tzinfo=ZoneInfo('America/Sao_Paulo')).timestamp()
+  ate=ia.recusa_cota_claude(RECUSA_CLAUDE,agora)
+  self.assertEqual(dt.datetime.fromtimestamp(ate,ZoneInfo('America/Sao_Paulo')).strftime('%d %H:%M'),'16 21:00')
+ def test_texto_normal_sobre_limite_nao_bloqueia(self):
+  ok=json.dumps({"type":"result","is_error":False,"result":"You've hit your weekly limit · resets 9pm (America/Sao_Paulo)"})
+  self.assertIsNone(ia.recusa_cota_claude(ok)); self.assertIsNone(ia.recusa_cota_claude('não é json'))
+ def test_horario_com_data_e_absurdo(self):
+  agora=dt.datetime(2026,11,15,11,0,tzinfo=ZoneInfo('America/Sao_Paulo')).timestamp()
+  ate=ia.horario_volta('resets Nov 16, 9pm (America/Sao_Paulo)',agora)
+  self.assertEqual(dt.datetime.fromtimestamp(ate,ZoneInfo('America/Sao_Paulo')).strftime('%d %H'),'16 21')
+  self.assertIsNone(ia.horario_volta('resets Dec 30, 9pm (America/Sao_Paulo)',agora))  # > 8 dias: ignora
+  self.assertIsNone(ia.horario_volta('resets 9pm (Lugar/Inexistente)',agora))
+ def test_trava_grava_e_proxima_nao_abre_programa(self):
+  self.cfg['etapas']['critico_plano'].pop('alternativa'); self.file.write_text(yaml.safe_dump(self.cfg))
+  with self.fake(RECUSA_CLAUDE,1):
+   with self.assertRaises(ia.CotaEsgotada): ia.executar('critico_plano','x',self.out)
+   with self.assertRaises(ia.CotaEsgotada): ia.executar('critico_plano','x',self.out)
+  self.assertEqual(self.chamadas,['claude'])   # a 2ª falhou na hora, sem abrir o claude
+ def test_reserva_quando_principal_sem_cota(self):
+  with self.fake(RECUSA_CLAUDE,1,NOTAS):
+   self.assertEqual(json.loads(ia.executar('critico_plano','x',self.out))['resumo'],'ok')
+   ia.executar('critico_plano','x',self.out)
+  self.assertEqual(self.chamadas,['claude','codex','codex'])
+  e=self.eventos()[-1]; self.assertEqual((e['motor'],e['modelo'],e['esforco'],e['reserva']),('codex','gpt-6.1-sol','medium',True))
+  self.assertEqual(e['sem_cota'],['claude'])
+ def test_erro_comum_nao_usa_reserva(self):
+  with self.fake(json.dumps({"is_error":True,"result":"outro erro"}),1):
+   with self.assertRaisesRegex(RuntimeError,'código 1'): ia.executar('critico_plano','x',self.out)
+  self.assertEqual(self.chamadas,['claude'])
+ def test_preferir_codex(self):
+  with self.fake(codex=NOTAS): ia.executar('critico_plano','x',self.out,preferir='codex')
+  self.assertEqual(self.chamadas,['codex'])
+ def test_agente_nunca_usa_reserva(self):
+  with self.fake(RECUSA_CLAUDE,1):
+   with self.assertRaises(ia.CotaEsgotada): ia.executar('critico_plano','x',self.out,agente=True)
+  self.assertEqual(self.chamadas,['claude'])
+ def test_validacao_da_alternativa(self):
+  for ruim in [{'motor':'claude','modelo':'claude-opus-5-5','esforco':'low'},{'motor':'codex','modelo':'gpt-6.1-sol','esforco':'max'},{'motor':'openrouter','modelo':'x','esforco':'low'}]:
+   d=copy.deepcopy(self.cfg); d['etapas']['critico_plano']['alternativa']=ruim
+   with self.assertRaises(ValueError): ia.validar(d)
+  d=copy.deepcopy(self.cfg); d['etapas']['critico_plano']['capacidade']='agente'
+  with self.assertRaisesRegex(ValueError,'alternativa só'): ia.validar(d)
+ def test_claude_sem_sessao_no_disco(self):
+  self.assertIn('--no-session-persistence',ia.comando(dict(self.cfg['etapas']['critico_plano'])))
+ def test_revisor_espera_sem_contar_erro(self):
+  for f in ['build/folha.jpg','ficha.yaml']:
+   q=self.out/f; q.parent.mkdir(parents=True,exist_ok=True); q.write_text('{}')
+  with patch.object(p,'executar',side_effect=ia.CotaEsgotada('claude',1e10)):
+   self.assertEqual(p.revisar(self.out)['veredito'],'espera')
+
 if __name__=='__main__': unittest.main()
