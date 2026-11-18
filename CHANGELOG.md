@@ -1,3 +1,7 @@
+## 1.10.9 — 18/11/2026
+
+Parte cuja `imagem` começa com "foto real" (foto colada em `capa/pN.png`, como as fotos do Refúgio na imersão diária) sai com o selo "foto real", não "ilustração". Visto na folha do 1º vídeo da imersão diária.
+
 ## 1.10.8 — 18/11/2026
 
 Pedido de imagem ao Codex: "salve EXATAMENTE como o image_gen gerou, sem redimensionar nem recortar". Na imersão diária (18/11) o Codex ajustou a capa para 9:16 exato por conta própria e a prova D24 (sha256 igual a generated_images) reprovou o render. O r7ex já ajusta o tamanho em `pecas.vertical`.

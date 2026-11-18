@@ -104,6 +104,8 @@ def montar(pasta, ficha, falas):
             src, selo, zoom = "capa/preto.png", None, 0
         else:
             src, selo, zoom = f"capa/p{i + 1}.png", "ilustração", .07
+            if str(p.get("imagem", "")).strip().lower().startswith("foto real"):   # foto real colada (imersão diária, 18/11/2026)
+                selo = "foto real"
         lgs = p.get("logos") or []
         if i > 0 and len(lgs) > 1 and all(x.get("de") for x in lgs):   # uma tela por produto, troca na palavra (20/10/2026)
             ts = [a] + [em(fid, x["de"]) - .25 for x in lgs[1:]]
