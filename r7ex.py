@@ -6,7 +6,7 @@ Padrão em PADRAO.md · explicação completa em README.md · ficha de exemplo e
   python3 r7ex.py checar <pasta>          portão da ficha: 7 partes, 450–900 caracteres (objetivo 620, D26), palavras dos painéis na fala, `prende` por parte,
                                           gancho v1.2.0 (tipo, manchete ≤ 6 palavras ≠ fala, objeto, prova até ~20 s, absolvição; lista reprova);
                                           avisa sem gancho.referencias (3–5) e sem frase de comunidade antes da pergunta da parte 7 (v1.5.4)
-  python3 r7ex.py plano <pasta>           crítico de viralidade (claude -p): sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15)
+  python3 r7ex.py plano <pasta>           crítico de viralidade: sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6 antes do avatar (D15); até 3 rodadas (D29)
   python3 r7ex.py avatar <pasta> [--de <mp4>]   avatar no estúdio do HeyGen (precisa de avatar/APROVADO_HEYGEN), ou reaproveita um mp4
   python3 r7ex.py imagens <pasta>         Codex desenha a abertura (com o título) e as imagens; prints reais das páginas
   python3 r7ex.py cena <pasta>            falas.json + tempo de cada palavra + ritmo v2 (fala natural, sem esticar nem congelar, D26;
@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.10.9"   # semver do r7ex (1.10.9 = parte com imagem "foto real: …" ganha selo "foto real", não "ilustração", 18/11; 1.10.8 = pedido de imagem: salvar sem redimensionar (prova da capa), 18/11; 1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.11.9"   # semver do r7ex (1.11.9 = D29: aprovado fica aprovado, teto de 3 rodadas com saída marcada, histórico do crítico, 18/11; 1.10.9 = parte com imagem "foto real: …" ganha selo "foto real", não "ilustração", 18/11; 1.10.8 = pedido de imagem: salvar sem redimensionar (prova da capa), 18/11; 1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -320,7 +320,9 @@ def cmd_checar(pasta):
     # D26 (Nei, 17/11/2026): "teto pode ficar em 900, mantendo objetivo do 620; temos que ser flexíveis com algo que não
     # vai ser o fundamental". O teto de 620 forçou frase telegráfica ("Cada agente lê tudo, fala, refaz") e a fala não
     # soou como o Nei. Objetivo 620; até 900 passa com aviso (fala natural vale mais que caber). Era 450–620 (800 com motivo).
-    OBJ, TETO = 620, 900
+    OBJ, TETO = FALA_OBJ, FALA_TETO
+    if f.get("fala_max"):   # D29: um limite só; 149 fichas tinham 760, que o código nunca leu e as sessões obedeciam
+        log(f"aviso: fala_max {f['fala_max']} é ignorado; o limite é {TETO} para toda ficha (D29)")
     if not 450 <= len(tot) <= TETO:
         if (p / "avatar/AVATAR_DE.txt").exists() or (p / "avatar/avatar.mp4").exists():   # avatar já gravado: a fala não muda
             log(f"aviso: fala com {len(tot)} caracteres (450–{TETO}), aceita porque o avatar já existe")
@@ -455,6 +457,9 @@ def cmd_checar(pasta):
     log(f"ficha OK: 7 partes, {len(tot)} caracteres, plano nota {f['plano']['nota']}")
 
 
+FALA_OBJ, FALA_TETO = 620, 900   # D26; D29: o teto é este para toda ficha
+
+
 def plano_aprovado(c):
     """D15 calibrado (21/10/2026): sem bloqueios objetivos E gancho ≥ 8 E média ≥ 7,5 E nenhuma parte < 6.
     (o 1º desenho, gancho ≥ 9 e todas ≥ 8, não convergiu: o crítico oscila ±1 e sempre acha algo — ia-novembro-v2, 8 rodadas)"""
@@ -462,22 +467,35 @@ def plano_aprovado(c):
     return not c.get("bloqueios") and n[0] >= 8 and sum(n) / len(n) >= 7.5 and min(n) >= 6
 
 
+def plano_serve(c):
+    """D29 (Nei, 18/11/2026): depois de 3 rodadas segue, marcada como sugestão, a versão sem bloqueio com gancho ≥ 7,
+    média ≥ 7,5 e nenhuma parte < 6. O resto para para o Nei."""
+    n = c["notas"]
+    return not c.get("bloqueios") and n[0] >= 7 and sum(n) / len(n) >= 7.5 and min(n) >= 6
+
+
+def orcamento_fala(f):
+    tot = len(fala_total(f)); sobra = max(FALA_TETO - tot, 0)
+    return (f"\n\nORÇAMENTO DE TAMANHO DESTA FICHA: a fala soma {tot} caracteres; objetivo {FALA_OBJ}, teto único {FALA_TETO} "
+            f"(ignore `fala_max`, se houver). Somando todas as reescritas de fala que você puser em `melhorar`, o acréscimo "
+            f"não pode passar de {sobra} caracteres. Sem folga, cada reescrita tem no máximo o tamanho da fala que troca.")
+
+
 def cmd_plano(pasta):
     """D15 (Nei, 20/10/2026): "isso prende alguém, isso engaja alguém? validar as 7 etapas, o objetivo é ser viral".
     Crítico (producao/ia.yaml: critico_plano) dá nota por parte e lista bloqueios objetivos; regra em plano_aprovado().
-    Resultado em plano-critica.json com o hash da ficha (mudou a ficha, critica de novo; o veredito é recalculado na leitura)."""
-    import hashlib
+    D29: quem decide se há nova crítica é producao/rodadas_critico.py (aprovado fica aprovado, teto de 3 rodadas, saída
+    marcada); cada rodada fica em plano-criticas.jsonl e a ficha julgada em plano-rodadas/."""
     p, f = ficha(pasta)
-    h = hashlib.sha1((p / "ficha.yaml").read_bytes()).hexdigest()
-    arq = p / "plano-critica.json"
-    c = json.loads(arq.read_text()) if arq.exists() else {}
-    if c.get("hash") != h:
+    sys.path.insert(0, str(R / "producao"))
+    import rodadas_critico as RC
+
+    def criticar():
         # 17/11/2026: motor, modelo e esforço vêm de producao/ia.yaml (etapa critico_plano), com trava de cota e
         # reserva declarada. A ficha vai anexada ao pedido (texto puro, serve para Claude ou Codex).
         # R7X_CRITICO=codex (VPS só com Codex, 25/10/2026) continua valendo: põe o Codex primeiro.
-        sys.path.insert(0, str(R / "producao"))
         from ia_motor import executar, CotaEsgotada
-        pedido = (R / "producao/critico-plano.md").read_text()
+        pedido = (R / "producao/critico-plano.md").read_text() + orcamento_fala(f)
         regra = Path.home() / "projetos/inema-design/regras/chamada.md"
         anexos = [p / "ficha.yaml"] + ([regra] if regra.is_file() else [])
         try:
@@ -492,11 +510,27 @@ def cmd_plano(pasta):
             assert len(c["notas"]) == 7
         except Exception as e:
             falha(f"crítico do plano não respondeu direito: {str(e)[:200]}")
-        c["hash"] = h
-        arq.write_text(json.dumps(c, ensure_ascii=False, indent=1))
+        return c
+
+    gn = f.get("gancho") or {}
+    textos = [str(gn.get("prova") or "")]
+    for x in f["partes"]:
+        textos += [str(x.get("legenda") or ""), json.dumps(x.get("painel") or {}, ensure_ascii=False),
+                   json.dumps(x.get("lista") or {}, ensure_ascii=False)]
+    nuc = RC.nucleo([x["fala"] for x in f["partes"]], gn.get("manchete") or "", textos)
+    try:
+        c, notas = RC.portao(p / "ficha.yaml", p / "plano-critica.json", p / "plano-criticas.jsonl", p / "plano-rodadas", nuc,
+                             plano_aprovado, plano_serve, criticar, extra=os.environ.get("CRITICO_RODADA_EXTRA") == "1")
+    except RC.Parado as e:
+        falha(f"plano parado: {e}")
     n = c["notas"]
     log("plano: notas " + " · ".join(f"{i + 1}:{x}" for i, x in enumerate(n)) + f" (média {sum(n) / 7:.1f})"
         + (f" · bloqueios: {len(c['bloqueios'])}" if c.get("bloqueios") else "") + f" — {c.get('resumo', '')}")
+    for nota in notas:
+        log("plano:", nota)
+    if c.get("saida") == "sugestao":
+        log("plano SEGUE COM SUGESTÕES (D29): 3 rodadas sem aprovação, sem bloqueio e dentro da régua mínima")
+        return c
     if not plano_aprovado(c):
         itens = [f"BLOQUEIO: {b}" for b in c.get("bloqueios") or []]
         itens += [f"parte {x['n']} ({x['nota']}): {x.get('melhorar') or x.get('porque')}" for x in c["partes"] if x.get("melhorar")]

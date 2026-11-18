@@ -1,3 +1,7 @@
+## 1.11.9 — 18/11/2026
+
+Crítico do plano com memória de rodadas (D29, Nei 18/11/2026: "sim aprovado pode fazer"). Ajuste pequeno em ficha aprovada não volta ao crítico; versão já julgada reaproveita o veredito; teto de 3 rodadas, com saída marcada para a versão sem bloqueio, gancho ≥ 7, média ≥ 7,5 e nenhuma < 6. Referência mais forte vira sugestão, o crítico recebe o orçamento de tamanho e o limite da fala é 900 para toda ficha. Cada rodada fica em `plano-criticas.jsonl`, e a ficha julgada em `plano-rodadas/`.
+
 ## 1.10.9 — 18/11/2026
 
 Parte cuja `imagem` começa com "foto real" (foto colada em `capa/pN.png`, como as fotos do Refúgio na imersão diária) sai com o selo "foto real", não "ilustração". Visto na folha do 1º vídeo da imersão diária.

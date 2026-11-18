@@ -49,8 +49,9 @@ tem vontade de comentar ou compartilhar?"** Critérios:
   manchete perdem nota. Frase de cartaz comprimida ("nunca mais diz pronto sem prova"), sem sujeito ou com substantivo no lugar do verbo, perde nota: a fala é frase completa de gente ("o seu agente nunca mais vai dizer pronto se não tiver provado"), com ponte ("é isso que este método faz") e convite ("vou explicar como"). Regra: `~/projetos/inema-design/regras/chamada.md`.
 - **Régua das referências (v1.5.4, PADRAO §2.4):** `gancho.referencias` (quando houver) são 3–5 vídeos de quem fala
   do tema no YouTube, com `titulo`, `abertura` (1ª fala, 0–35 s) e `gatilho`. Ache a mais forte e pergunte: o nosso
-  gancho (manchete + fala da parte 1) é PELO MENOS TÃO FORTE quanto ela para um desconhecido? Mais fraco → nota da
-  parte 1 ≤ 7 e `melhorar` dizendo qual referência ganha e por quê, com uma abertura nossa melhor. Copiar a fala ou o
+  gancho (manchete + fala da parte 1) é PELO MENOS TÃO FORTE quanto ela para um desconhecido? Mais fraco → é SUGESTÃO
+  (D29, Nei 18/11/2026): NÃO baixe a nota por isso; a nota da parte 1 vem só das outras regras, e o `melhorar` diz qual
+  referência ganha e por quê, com uma abertura nossa melhor. Copiar a fala ou o
   número de terceiro não é melhorar: número de terceiro não entra no roteiro (só número nosso ou oficial, com fonte).
   Diga no `resumo` se o gancho ganha ou perde da melhor referência. Sem `referencias`, julgue sem a régua (não é
   bloqueio).

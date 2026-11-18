@@ -73,7 +73,10 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
      Sem "pede" na fala: `cta.de` = 1ª palavra da pergunta. Método ou kit no vídeo: o NOME dele na parte 5 e na 7.
 5. `python3 r7ex.py checar <pasta>` até passar (corrija a ficha; até 3 tentativas).
 6. `python3 r7ex.py plano <pasta>` até passar (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6).
-   Reprovou → leia as notas, melhore as partes fracas (ou troque o ângulo) e rode de novo, até 3 vezes.
+   Reprovou → leia as notas, melhore as partes fracas (ou troque o ângulo) e rode de novo. **O código para na 3ª rodada
+   (D29).** Sem bloqueio, gancho ≥ 7, média ≥ 7,5 e nenhuma < 6, a ficha segue marcada como sugestão. Se ele indicar uma
+   rodada anterior que cumpre isso, faça o `cp` indicado e rode de novo. Senão: `ERRO: crítico reprovou: <notas>` e pare.
+   Depois de aprovado, ajuste pequeno não volta ao crítico. `CRITICO_RODADA_EXTRA=1` só com ordem do Nei.
    Não passou na 3ª → `ERRO: portão viral reprovou: <resumo das notas>` e pare (sem avatar).
 7. O `/r7ex` no bot É o OK do Nei para gerar o avatar desta produção (Nei, 22/10/2026: "vale como OK").
    Grave `<pasta>/avatar/APROVADO_HEYGEN` com uma linha:
@@ -84,7 +87,7 @@ Você está em `~/projetos/r7ex`. Leia, nesta ordem: `PADRAO.md`, `skill/SKILL.m
    r7ex: <tema>
    Canal: <livesN> · <na frente da fila | fim da fila>
    Gancho: <tipo> · "<manchete>" · <a fala da parte 1>
-   Plano: gancho <n> · média <n>
+   Plano: gancho <n> · média <n> (rodada <k>; diga "segue com sugestões" se o plano saiu assim)
    Não fiz: <o que o pedido trouxe e esta fase não faz, ou "nada">
    Outros temas: <um por linha, "tema → manchete sugerida · /r7ex <tema>", ou "nenhum">
    Agora: avatar no HeyGen → montar → revisor → fila do canal (aviso no v3 a cada fim)

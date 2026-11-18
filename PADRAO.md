@@ -26,7 +26,7 @@ ser viral").** Cada parte tem `prende:` (por que um desconhecido continua ali). 
 (crítico `claude -p` + `producao/critico-plano.md`) dá nota por parte e lista **bloqueios** objetivos (fato sem origem em
 `plano.fatos`, produto sem logo, fecho incompleto, pedido do Nei não cumprido). Passa com **zero bloqueios, gancho ≥ 8,
 média ≥ 7,5 e nenhuma parte < 6** (calibrado em 21/10: "todas ≥ 8" não convergia). Fatos da fonte vão em `plano.fatos`
-(com o trecho); o que o Nei exigiu vai em `pedido:`; um tema com muitos itens (ex.: os comandos de UMA ferramenta) pode ter `fala_max` (≤ 800) com `fala_max_motivo` — nunca temas diferentes juntos (§2.1).
+(com o trecho); o que o Nei exigiu vai em `pedido:`; o limite da fala é 900 para toda ficha (D29: `fala_max` não vale mais); nunca temas diferentes juntos (§2.1).
 A produção só manda ao estúdio roteiro aprovado. **Ético e competitivo:** o fato verdadeiro mais forte, dito com força
 ("vazou", "apareceu no código", "num teste custou 1 centavo"); a incerteza vai na linha de fonte, não amolece a fala.
 Nada inventado — exagero falso zera a parte.
@@ -270,7 +270,7 @@ de enxames: a ideia é boa, mas o custo é proibitivo, e não sei por que ainda 
 - gancho (v1.2.0, §2.1): `gancho.tipo` válido, manchete ≤ 6 palavras em CAIXA ALTA e diferente da fala, `destaque` = uma palavra dela, `objeto`, `prova` até a 60ª palavra, `absolvicao` na parte 2 ou 3, fontes (estatística/terceiro/notícia) e data (notícia); lista, "você sabia" e "eu fiz" reprovam. Edição com avatar já gravado só recebe aviso;
 - nunca calmo (v1.9.7, §2.5): abertura morna reprova; `plano.posicao` exige gancho contrario/provocacao/acusacao, 1ª frase afirmativa e 1ª pessoa nas partes 1–2; aviso sem `plano.posicao`;
 - retenção (v1.5.4, §2.4): aviso sem `gancho.referencias` (3–5) e sem frase de comunidade antes da pergunta da parte 7;
-- plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar;
+- plano: `r7ex.py plano` aprovado (sem bloqueios, gancho ≥ 8, média ≥ 7,5, nenhuma < 6) antes de gravar o avatar; até 3 rodadas, e depois delas segue marcada como sugestão a versão sem bloqueio com gancho ≥ 7, média ≥ 7,5 e nenhuma < 6 (D29). Ajuste pequeno em ficha aprovada não volta ao crítico; referência mais forte vira sugestão, não baixa a nota;
 - avatar × fala ≥ 90% (retempo); 9 s de cartão (`avatar/ritmo.json`); aviso acima de 60 s;
 - montagem (D26, `conferir_montagem` no `revisar`, reprova): avatar sem esticar (k = 1) e sem pausa congelada, rosto sem quadro parado ≥ 1,2 s até a última palavra, caixa da pergunta só depois do fim da pergunta;
 - grafia do título da abertura conferida na imagem (ler a imagem antes do render);
