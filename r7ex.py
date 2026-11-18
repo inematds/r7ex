@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.10.7"   # semver do r7ex (1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.10.8"   # semver do r7ex (1.10.8 = pedido de imagem: salvar sem redimensionar (prova da capa), 18/11; 1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -603,7 +603,9 @@ def cmd_imagens(pasta):
     linhas = [l for l in linhas if l.split(" — ")[0].split(". ", 1)[1] in falta]
     pedido = (f"Gere {len(linhas)} imagens com a ferramenta de geração de imagem (image_gen) e salve nesta pasta, em PNG, formato RETRATO 9:16 "
               f"(o maior tamanho vertical disponível). {ESTILO}\n\n" + "\n".join(linhas) +
-              "\n\nNão mexa em nenhum outro arquivo da pasta. Ao final, liste os arquivos salvos.\n")
+              "\n\nSalve cada arquivo EXATAMENTE como o image_gen gerou (cópia byte a byte): NÃO redimensione, NÃO recorte, NÃO converta "
+              "nem edite; o r7ex ajusta o tamanho depois (a capa só passa se for idêntica ao arquivo de generated_images). "
+              "Não mexa em nenhum outro arquivo da pasta. Ao final, liste os arquivos salvos.\n")
     (capa / "pedido.txt").write_text(pedido)
     if falta:
         log(f"Codex: {len(falta)} imagem(ns)…")
