@@ -3,6 +3,7 @@
 Cada linha é um assunto em andamento: leia o snapshot do assunto que for continuar. Gravado por handoff-grava.py.
 
 <!-- handoff-indice:inicio -->
+- `imersao-d1118-lives4` · handoffs/history/2026-11-18T042942Z-imersao-d1118-lives4.md · 18/11 01:29
 - `r7ex-tom-provocativo` · handoffs/history/2026-11-17T192151Z-r7ex-tom-provocativo.md · 17/11 16:21
 <!-- handoff-indice:fim -->
 
@@ -16,6 +17,6 @@ Fora dos abertos: o /prime não lista. Gravar um handoff com o mesmo slug volta 
 
 ---
 
-Mais recente: `handoffs/history/2026-11-17T192151Z-r7ex-tom-provocativo.md` — 2026-11-17 — r7ex/rtex: nunca calmo (modelo + verificação) e v2 do reel do enxame
+Mais recente: `handoffs/history/2026-11-18T042942Z-imersao-d1118-lives4.md` — 2026-11-18 — Reel r7ex da imersão para o lives4: ficha pronta, crítico não aprovou em 7 rodadas
 
 O conteúdo de cada trabalho fica no snapshot citado: abra o do assunto que for continuar (o /prime faz isso).
