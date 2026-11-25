@@ -1,0 +1,166 @@
+# Ficha r7ex — janeiro vai ser uma loucura (reforma tributária), lives1 + lives8 (Nei, 24/11/2026).
+# so_v3: true trava a fila automática do r7ex; a fase 2 (continua) publica direto pelo yt-pubx no lives1 e,
+# 1 h depois, no lives8, e avisa no v3. Números só de ~/projetos/calculadora-da-reforma/kit/MEDICOES.md.
+slug: janeiro-loucura-caixa
+tema: 'Janeiro de 2027: a CBS entra no lugar do PIS e da Cofins e o sistema de cada empresa tem que estar com o cadastro certo; a nossa nota real de 121 itens no programa da Receita achou 3 armadilhas'
+plano:
+  pessoa: contador de escritório pequeno e dono de mercado, loja ou comércio que não programa e nunca rodou o programa da Receita; usa sistema de nota pronto
+  posicao: 'eu acho que janeiro vai ser uma loucura pra contador e pra empresário: o sistema tem que estar funcionando no primeiro dia, e só numa nota de mercado eu achei três armadilhas'
+  quer: chegar em janeiro com o sistema emitindo nota certa (desejo) sem descobrir o erro com a fila parada no caixa (dor)
+  gancho: 'provocação com posição do Nei: janeiro vai ser uma loucura; prova = nota real de 121 itens rodada no programa da Receita com 3 armadilhas'
+  nota: 8
+  destino: https://inematds.github.io/receita-abriu-o-calculo/guia/
+  fatos:
+  - 'em 1º de janeiro de 2027 a CBS entra no lugar do PIS e da Cofins (Lei Complementar 214/2025); o guia diz: não é imposto a mais por cima do preço, é a troca de um pelo outro'
+  - 'a Receita abriu no GitHub o programa que calcula a CBS e o IBS; rodamos a versão 1.7.2 em 24/11/2026'
+  - 'passamos uma nota real de supermercado de 06/11/2026, com 121 itens e R$ 1.512,15, pelo programa, como se fosse janeiro de 2027 (MEDICOES.md, kit/exemplos)'
+  - 'armadilha 1: o código fiscal do frango que usamos primeiro (NCM 0207.14.00) não existe mais na tabela de 2027 e o programa recusou o item (REG-002 "NCM não encontrada")'
+  - 'armadilha 2: milho e ervilha em lata parecem ter a redução de 60% das hortaliças, mas a lei dá a redução só para hortaliça sem sal; conserva tem sal, então é alíquota cheia'
+  - 'armadilha 3: pão de alho cai no mesmo código do pão francês (1905.90.90), mas a alíquota zero da cesta vale só para o pão francês'
+  - 'cada produto precisa do código e do enquadramento certos: cesta básica (zero), redução de 60% ou alíquota cheia; um mercado tem milhares de produtos'
+  - 'o cálculo quem faz é o sistema de nota; o trabalho do contador é o cadastro e a conferência'
+  - 'de 2027 a 2032 convivem a CBS, o ICMS e o IBS subindo aos poucos: dois jeitos de calcular ao mesmo tempo'
+  - 'a alíquota da CBS é o Senado que fixa, até 15/12 (guia); não dizer nenhum número como a alíquota de 2027'
+  - 'o kit calculadora-da-reforma tem o Teste do Motor: você põe as vendas numa planilha e ele roda no programa da Receita e mostra item por item onde o seu sistema calculou diferente; grátis, código aberto, guia no inema.club'
+  - 'fila de caixa parada e cliente bravo é cenário hipotético ("imagina"), não fato medido'
+pedido: 'Nei, 24/11/2026: "faz um reels no lives1 e lives8, chamada vai ser uma loucura para os contadores e empresários deixar o sistema funcionando em janeiro. uma imagem dele apavorado e no outro uma fila de supermercado gigante e as pessoas do caixa apavorados e os outros furiosos com a fila"; "manda eles para o v3 também". Nunca chamar 8,8% ou 11,3% de alíquota de 2027; sem logo da Receita na arte; sem dados pessoais da nota.'
+gancho:
+  tipo: provocacao
+  manchete: JANEIRO VAI SER UMA LOUCURA PRO CONTADOR
+  destaque: LOUCURA
+  objeto: um contador apavorado com as mãos na cabeça diante de uma pilha de notas fiscais e um monitor com alertas vermelhos
+  prova:
+    parte: 1
+    de: armadilhas
+  absolvicao: não é falta de estudo
+  fontes:
+  - nome: nota real de supermercado (121 itens) rodada no programa da Receita, versão 1.7.2, 24/11/2026 — kit calculadora-da-reforma, MEDICOES.md
+    trecho: 'NCM 0207.14.00: REG-002 "NCM não encontrada"; conservas com sal na alíquota cheia; pão de alho fora da cesta'
+  - nome: Lei Complementar 214/2025
+    trecho: 'CBS a partir de 01/01/2027, no lugar do PIS e da Cofins'
+  entrega: as 3 armadilhas reais de uma nota de mercado e o Teste do Motor para achar o erro antes de janeiro
+  referencias:
+  - canal: Investidor Sardinha (976 mil views)
+    titulo: 'A sonegação no Brasil acaba em 2027'
+    abertura: (só título; legenda não baixada)
+    gatilho: afirmação chocante com ano
+  - canal: Gerando Empreendedores (122 mil views)
+    titulo: 'NOVA ALÍQUOTA DE 11,3% DA CBS EM 2027: O que VAI MUDAR na sua Empresa?'
+    abertura: (só título)
+    gatilho: número + 'sua empresa'
+  - canal: Monetizando Negócios (14 mil views)
+    titulo: 'SIMPLES NACIONAL 2027: o que muda em JANEIRO (e o que NÃO muda)'
+    abertura: (só título)
+    gatilho: prazo 'janeiro' + contraste
+  - canal: Contábeis (7 mil views)
+    titulo: 'Notas fiscais e reforma tributária: mudanças, prazos e como se preparar para 2027'
+    abertura: (só título)
+    gatilho: tutorial de prazo (fraco)
+marca: INEMA · REFORMA TRIBUTÁRIA
+selo: "JANEIRO 2027"
+fonte: <b>Programa da Receita (versão 1.7.2)</b> · nota real de 121 itens, rodada pelo INEMA em 24/11/2026 · simulação
+abertura:
+  cor: amarelo
+  layout: cheia
+  cena: 'ilustração cinematográfica: um contador de meia-idade, de camisa social e gravata frouxa, apavorado, com as duas mãos na cabeça, num escritório à noite, diante de uma pilha enorme de notas fiscais de papel e de um monitor cheio de alertas vermelhos; um calendário na parede mostra JANEIRO arrancado; luz vermelha do monitor e luz amarela da luminária, fundo escuro; rosto expressivo mas genérico (não reconhecível), sem logos, sem marcas e sem letras legíveis além do título'
+trocas:
+  cento e vinte e um itens: 121 itens
+  cento e vinte e um: '121'
+  dois mil e vinte e sete: '2027'
+  três armadilhas: 3 armadilhas
+  quinze de dezembro: 15 de dezembro
+  inema ponto club: inema.club
+partes:
+- etapa: gancho
+  fala: 'Janeiro vai ser uma loucura pra contador e empresário: o PIS e a Cofins acabam. Eu rodei uma nota de cento e vinte e um itens no programa da Receita: três armadilhas.'
+  prende: posição forte do Nei + número real + promessa de mostrar as armadilhas
+  painel:
+    de: armadilhas
+    k: '3'
+    borda: red
+    l: armadilhas em 121 itens
+- etapa: medo
+  fala: 'O código do frango que eu usei nem existe em dois mil e vinte e sete, e o programa recusou. Não é falta de estudo: a regra mudou por produto.'
+  prende: erro concreto e inesperado num produto que todo mundo compra, com absolvição
+  imagem: 'ilustração: uma bandeja de frango congelado numa esteira de caixa de supermercado, com um grande X vermelho luminoso por cima e um leitor de código de barras piscando em vermelho; fundo preto, luz vermelha #ff2a1f; sem rostos, sem marcas e sem letras legíveis'
+  painel:
+    k: RECUSADO
+    borda: red
+    titulo: CÓDIGO QUE SUMIU
+    de: frango
+- etapa: medo
+  fala: 'Imagina milhares de produtos e o sistema errado no primeiro dia: caixa travado, fila no corredor, cliente furioso.'
+  prende: a cena que o Nei pediu, que qualquer pessoa já viveu
+  imagem: 'ilustração cinematográfica: uma fila gigante de supermercado dobrando os corredores, clientes furiosos com carrinhos cheios reclamando e gesticulando, e no caixa duas operadoras apavoradas com as mãos no rosto diante de uma tela com erro vermelho; luz fria do mercado com o vermelho da tela; rostos genéricos não reconhecíveis, sem logos, sem marcas e sem letras legíveis'
+  painel:
+    k: CAIXA
+    borda: red
+    titulo: FILA NO CORREDOR
+    de: fila
+- etapa: facilidade
+  fala: 'A conta quem faz é o sistema. O trabalho é o cadastro: cada produto com o código certo.'
+  prende: tira o peso do cálculo e mostra onde está o trabalho de verdade
+  imagem: 'ilustração: uma etiqueta de produto de supermercado gigante sendo encaixada com precisão numa prateleira por uma mão, com um brilho dourado no encaixe; fundo preto, luz amarela; sem rostos, sem marcas e sem letras legíveis'
+  painel:
+    k: O TRABALHO
+    borda: am
+    titulo: CADASTRO CERTO
+    de: cadastro
+- etapa: descoberta
+  fala: 'Além do frango, milho e ervilha em lata perdem a redução pelo sal, e pão de alho não é cesta. Pra achar, tem o Teste do Motor.'
+  prende: duas armadilhas que surpreendem + nome do método
+  diagrama:
+    forma: fluxo
+    titulo: AS 3 ARMADILHAS
+    nos:
+    - de: frango
+      ic: 🍗
+      txt: CÓDIGO QUE SUMIU
+    - de: sal
+      ic: 🥫
+      txt: LATA SEM REDUÇÃO
+    - de: alho
+      ic: 🥖
+      txt: PÃO DE ALHO FORA DA CESTA
+      cor: vd
+  painel:
+    de: Motor
+    titulo: TESTE DO MOTOR
+- etapa: beneficio
+  fala: 'Você põe as vendas numa planilha e ele mostra onde o sistema errou. Quem testa agora chega em janeiro com o caixa andando.'
+  prende: o depois concreto e a urgência
+  print:
+    url: https://inematds.github.io/calculadora-da-reforma/guia/
+    selo: guia do kit
+  painel:
+    k: ANTES DE JANEIRO
+    borda: vd
+    titulo: CAIXA ANDANDO
+    de: andando
+- etapa: comentario
+  fala: 'Toda semana tem kit novo, grátis, no inema ponto club. E você acha que o sistema do seu mercado fica pronto até janeiro?'
+  prende: pertencimento + pergunta de opinião fácil
+  print:
+    url: https://inematds.github.io/receita-abriu-o-calculo/guia/
+    selo: inema.club
+cta:
+  de: E
+  a: O SEU SISTEMA FICA PRONTO? 👇
+  b: kit grátis no inema.club
+  comentario: o meu ainda nem atualizou 😬
+club: o Teste do Motor
+cores:
+  loucura: '#ff2a1f'
+  recusou: '#ff2a1f'
+  furioso: '#ff2a1f'
+  cadastro: '#FACC15'
+  Motor: '#FACC15'
+  andando: '#22c55e'
+publicar:
+  fila: nenhuma
+  canal: lives1
+  so_v3: true
+  titulo: 'Janeiro vai ser uma loucura pro contador #shorts'
+  contexto: 'Short vertical do INEMA.CLUB sobre a reforma tributária. Em 1º de janeiro de 2027 a CBS entra no lugar do PIS e da Cofins, e o sistema de nota de cada empresa tem que estar com o cadastro certo no primeiro dia. Rodamos uma nota real de supermercado de 121 itens no programa que a Receita abriu (versão 1.7.2) e achamos 3 armadilhas: o código do frango que não existe mais em 2027, milho e ervilha em lata sem a redução por causa do sal, e pão de alho fora da cesta básica. O Teste do Motor do kit calculadora-da-reforma roda as suas vendas no programa da Receita e mostra onde o sistema errou. A alíquota da CBS ainda vai ser fixada pelo Senado. Simulação, não é orientação fiscal. Guias grátis no inema.club: https://inematds.github.io/receita-abriu-o-calculo/guia/ e https://inematds.github.io/calculadora-da-reforma/guia/'
+ritmo:
+  cauda: 6
