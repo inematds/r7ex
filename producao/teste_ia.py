@@ -18,7 +18,7 @@ class Teste(unittest.TestCase):
   pic=self.out/'quadro.jpg'; pic.write_bytes(b'jpg')
   with patch.dict(os.environ,ANTHROPIC_API_KEY='segredo',OPENAI_API_KEY='segredo'):
    def run(cmd,**kw):
-    self.assertIn('-i',cmd); self.assertIn(str(pic),cmd); self.assertIn('gpt-6.1-sol',cmd)
+    self.assertIn('-i',cmd); self.assertIn(str(pic),cmd); self.assertIn(ia._modelos_env()['INEMA_CODEX_EXECUTOR'],cmd)
     self.assertIn('model_reasoning_effort="medium"',cmd); self.assertNotIn('OPENAI_API_KEY',kw['env'])
     self.assertNotIn('ANTHROPIC_API_KEY',kw['env']); self.assertIn('read-only',cmd)
     Path(cmd[cmd.index('-o')+1]).write_text('{"ok":true}')
@@ -90,7 +90,7 @@ class Trava(unittest.TestCase):
    self.assertEqual(json.loads(ia.executar('critico_plano','x',self.out))['resumo'],'ok')
    ia.executar('critico_plano','x',self.out)
   self.assertEqual(self.chamadas,['claude','codex','codex'])
-  e=self.eventos()[-1]; self.assertEqual((e['motor'],e['modelo'],e['esforco'],e['reserva']),('codex','gpt-6.1-sol','medium',True))
+  e=self.eventos()[-1]; self.assertEqual((e['motor'],e['modelo'],e['esforco'],e['reserva']),('codex',ia._modelos_env()['INEMA_CODEX_EXECUTOR'],ia._modelos_env()['INEMA_CODEX_EXECUTOR_EFFORT'],True))
   self.assertEqual(e['sem_cota'],['claude'])
  def test_erro_comum_nao_usa_reserva(self):
   with self.fake(json.dumps({"is_error":True,"result":"outro erro"}),1):
