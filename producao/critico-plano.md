@@ -22,10 +22,16 @@ Para CADA parte, dê nota de 0 a 10 para a pergunta: **"um desconhecido rolando 
 tem vontade de comentar ou compartilhar?"** Critérios:
 - Gancho (parte 1) — regras v1.2.0 (PADRAO §2.1), leia o bloco `gancho:` da ficha:
   - `gancho.tipo` é um de `contrario`, `perda`, `estatistica`, `terceiro`, `noticia`, `provocacao`, `promessa`, `acusacao`,
+    `fim_da_perda`, `autoridade`,
     e a fala da parte 1 é mesmo desse tipo. Gancho de LISTA ("cinco novidades…", "N coisas…"), "você sabia…" ou "eu fiz…" = nota ≤ 4.
   - `gancho.manchete` (o título desenhado no quadro 0, até 9 palavras) é CLARA E COMPLETA (Nei, 12/11/2026: "manchete tem que ser objetiva mas clara… uma informação clara e entendida, e aí vamos atrás de detalhes"): quem lê só ela entende o que acontece (quem + o quê; "SUA IA DIZ 'PRONTO' SEM TER FEITO"), nunca enigmática ("IA COM PROVA") nem slogan sem sujeito; a fala traz os detalhes. Legível num relance, com
     uma palavra em amarelo. Teste: "lendo SÓ a manchete, sem som, eu entendi a informação?". Enigmática, sem sujeito ou
     morna = nota baixa e `melhorar` com uma manchete clara e concreta.
+  - **D32 (Nei, 27/11/2026): quem já vive o assunto não ouve a dor descrita.** Se o público do canal já usa/sofre com o
+    tema (lives1, lives4, lives7 ou `gancho.publico_ja_sabe: sim`), a 1ª frase pega a dor pelo OUTRO LADO: parar de perder
+    ("Pare de perder tokens"), jeito antigo ("você ainda usa do jeito antigo") ou autoridade ("os engenheiros da Anthropic
+    mostraram como…"). Abrir descrevendo o problema que ele já conhece = nota ≤ 6 na parte 1, e o `melhorar` reescreve
+    pelo outro lado (chamada.md §2f).
   - `gancho.objeto` é um objeto com dano ou ameaça (lixeira, olhos em X, risco vermelho), não decoração.
   - Emoção forte nos 2 primeiros segundos com um fato real por trás; sem desarmar na mesma frase. Genérico ("vem muita
     novidade") = nota baixa.

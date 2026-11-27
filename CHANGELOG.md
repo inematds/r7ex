@@ -1,3 +1,7 @@
+## 1.12.9 — 27/11/2026
+
+D32 (D20 revista, Nei 27/11/2026: "como as pessoas já sabem do assunto, não é a dor que move, e sim o desejo, a provocação, a perda… 'para de perder tokens'"). Ganchos novos `fim_da_perda` e `autoridade` (este com `gancho.fontes`). Quando o público já vive o assunto (`gancho.publico_ja_sabe: sim`, ou o padrão do canal da fila: lives1/4/7), `acusacao`/`perda` só passam com `gancho.por_que_dor`; edições anteriores a 27/11 só recebem aviso. O crítico do plano cobra a dor pelo outro lado. Regra: `inema-design/regras/chamada.md` §2f.
+
 ## 1.11.9 — 18/11/2026
 
 Crítico do plano com memória de rodadas (D29, Nei 18/11/2026: "sim aprovado pode fazer"). Ajuste pequeno em ficha aprovada não volta ao crítico; versão já julgada reaproveita o veredito; teto de 3 rodadas, com saída marcada para a versão sem bloqueio, gancho ≥ 7, média ≥ 7,5 e nenhuma < 6. Referência mais forte vira sugestão, o crítico recebe o orçamento de tamanho e o limite da fala é 900 para toda ficha. Cada rodada fica em `plano-criticas.jsonl`, e a ficha julgada em `plano-rodadas/`.

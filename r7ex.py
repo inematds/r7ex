@@ -31,7 +31,7 @@ R = Path(__file__).resolve().parent
 sys.path.insert(0, str(R))
 from r7ex import cena as CENA, pecas, retempo as RT, ritmo as RITMO  # noqa: E402
 
-VERSAO = "1.11.9"   # semver do r7ex (1.11.9 = D29: aprovado fica aprovado, teto de 3 rodadas com saída marcada, histórico do crítico, 18/11; 1.10.9 = parte com imagem "foto real: …" ganha selo "foto real", não "ilustração", 18/11; 1.10.8 = pedido de imagem: salvar sem redimensionar (prova da capa), 18/11; 1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
+VERSAO = "1.12.9"   # semver do r7ex (1.12.9 = D32: ganchos fim_da_perda e autoridade; quem já sabe do assunto não ouve a dor descrita, 27/11; 1.11.9 = D29: aprovado fica aprovado, teto de 3 rodadas com saída marcada, histórico do crítico, 18/11; 1.10.9 = parte com imagem "foto real: …" ganha selo "foto real", não "ilustração", 18/11; 1.10.8 = pedido de imagem: salvar sem redimensionar (prova da capa), 18/11; 1.10.7 = D26 fluência: fala sem esticar nem congelar, teto 900 (objetivo 620), fecho em fila, diagrama grande, conferir_montagem no revisar, 17/11; 1.9.7 = nunca calmo D25: plano.posicao, abertura morna reprova, abertura.layout cheia + teste do leigo na capa, 17/11; 1.8.7 = capa: manchete 6–24% e cena 24–41%, acima do rosto, 17/11; 1.8.6 = capa chocante do Codex com prova e trava no render, 17/11; 1.7.6 = ia_motor cota ver|liberar, 17/11; 1.7.5 = crítico pelo ia.yaml + trava de cota, 17/11; 1.5.4 = Retenção: gancho.referencias (aviso) + CTA de pertencimento antes da pergunta, 13/11; 1.4.4 = chamada D20: ganchos promessa/acusação + CTA sem "me pede o link", 12/11; 1.3.3 = edição com avatar gravado remonta sem exigir prende/nota, 05/11; 1.3.2 = palavra do painel sem rigor; 1.1.0 = fecho segurado + ritmo da fala; 1.2.0 = regras do gancho, quadro 0 + 3 s; 1.3.1 = gancho provocação + entrega, 29/10/2026)
 
 # Gancho (v1.2.0, Nei 28/10/2026: "sim, aplica no r7ex também"). O quadro 0 é a capa: a manchete já escrita, mais forte que a
 # fala, um objeto com dano e uma troca de quadro a cada ~1 s até os 3 s. Tipos de gancho em GANCHO_TIPOS (8 desde a 1.4.4); lista é proibida.
@@ -48,7 +48,18 @@ GANCHO_TIPOS = {
     # Regra: ~/projetos/inema-design/regras/chamada.md. Os dois falam com a pessoa ("você") na 1ª frase.
     "promessa": "o ganho, com a garantia verdadeira, falado em 'você' (\"O seu agente nunca mais vai dizer pronto se não tiver provado. É isso que este método faz.\")",
     "acusacao": "revela o que está acontecendo com a pessoa, em 'você' (\"Seu agente mente pra você.\")",
+    # v1.12.9 (D32, D20 revista, Nei 27/11/2026: "como as pessoas já sabem do assunto, não é a dor que move, e sim o
+    # desejo, a provocação, a perda… 'para de perder tokens'… é a dor pelo outro lado"). chamada.md §2f.
+    "fim_da_perda": "a perda pelo outro lado: o que a pessoa para de perder/pagar/esperar (\"Pare de perder tokens.\", "
+                    "\"Você nunca mais vai sentir falta dos seus tokens.\")",
+    "autoridade": "quem de peso resolveu + o feito, depois a promessa em 'você', com fonte (\"Os engenheiros da Anthropic "
+                  "mostraram como reduzir a perda de tokens.\")",
 }
+# D32: quem já vive o assunto (publico_ja_sabe) não ouve a dor descrita; padrão por canal (chamada.md §2f)
+SABE_CANAL = {"lives1": True, "lives4": True, "lives7": True,
+              "lives2": False, "lives8": False, "lives12": False, "lives24": False}
+DOR_DESCRITA = ("acusacao", "perda")
+D32_DESDE = "2026-11-27"   # edições anteriores (pasta AAAA-MM-DD-…) só recebem aviso
 VOCE = re.compile(r"\b(voc[eê]s?|seus?|suas?|te|teu|tua)\b", re.I)
 CTA_PROIBIDO = re.compile(r"\bpe[cd]e\s+o\s+link\b|\blink\s+na\s+bio\b|\bcoment[ae]\s+a\s+palavra\b|\b(te|lhe)\s+(mando|envio)\b|"
                           r"\bno\s+(direct|privado)\b|\bfixad[oa]\b", re.I)
@@ -212,6 +223,19 @@ def checar_gancho(p, f):
     tipo = str(g.get("tipo") or "")
     if tipo not in GANCHO_TIPOS:
         erros.append(f"gancho.tipo '{tipo}' inválido: use um destes — " + "; ".join(f"{k} = {v}" for k, v in GANCHO_TIPOS.items()))
+    sv = str(g.get("publico_ja_sabe") or "").strip().lower().replace("ã", "a")
+    canal = str((f.get("publicar") or {}).get("fila") or "lives7")
+    sabe = {"sim": True, "nao": False}.get(sv, SABE_CANAL.get(canal))
+    if sv and sv not in ("sim", "nao"):
+        erros.append("gancho.publico_ja_sabe: 'sim' ou 'nao' (chamada.md §2f)")
+    if sabe and tipo in DOR_DESCRITA and not str(g.get("por_que_dor") or "").strip():
+        msg = (f"gancho '{tipo}' descreve a dor para quem já vive o assunto ({canal}): pegue a dor pelo outro lado — "
+               "fim_da_perda ('Pare de perder tokens'), contrario ('você ainda usa do jeito antigo') ou autoridade — "
+               "ou justifique em gancho.por_que_dor (chamada.md §2f, D32)")
+        if re.match(r"\d{4}-\d{2}-\d{2}", p.name) and p.name[:10] < D32_DESDE:
+            log("aviso: " + msg)
+        else:
+            erros.append(msg)
     m = str(g.get("manchete") or "").strip()
     pal = m.split()
     if not m:
@@ -240,7 +264,7 @@ def checar_gancho(p, f):
         erros.append("gancho sem 'objeto' (objeto-metáfora com dano ou ameaça no quadro 0: lixeira, risco vermelho, olhos em X…)")
     if tipo in ("estatistica", "terceiro") and not TEM_NUMERO.search(m + " " + fala1):
         erros.append(f"gancho {tipo} sem número na manchete nem na fala da parte 1")
-    if tipo in ("promessa", "acusacao") and not VOCE.search(re.split(r"(?<=[.!?])\s", fala1)[0]):
+    if tipo in ("promessa", "acusacao", "fim_da_perda") and not VOCE.search(re.split(r"(?<=[.!?])\s", fala1)[0]):
         erros.append(f"gancho {tipo} sem 'você/seu/sua' na 1ª frase ('{fala1[:60]}'): fale da dor/desejo da pessoa (chamada.md)")
     if tipo == "provocacao":
         frase1 = re.split(r"(?<=[.!?])\s", fala1)[0]
@@ -273,7 +297,7 @@ def checar_gancho(p, f):
         log("aviso: gancho sem 'entrega' (o que a pessoa leva do vídeo e quer ver, ex.: 'quem está trocando gente por robô e "
             "o que fazer antes'); o gitbombando bombou porque entregou conteúdo que as pessoas querem")
     fontes = g.get("fontes") or []
-    if tipo in ("estatistica", "terceiro", "noticia", "provocacao"):
+    if tipo in ("estatistica", "terceiro", "noticia", "provocacao", "autoridade"):
         if not fontes or not all(isinstance(x, dict) and (x.get("url") or x.get("nome")) and x.get("trecho") for x in fontes):
             erros.append(f"gancho {tipo} precisa de gancho.fontes: [{{url ou nome, trecho}}] conferidas")
     if tipo == "noticia":
